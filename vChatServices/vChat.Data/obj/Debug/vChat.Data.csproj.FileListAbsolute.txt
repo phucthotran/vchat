@@ -1,0 +1,17 @@
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\bin\Debug\vChat.Data.dll.config
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\bin\Debug\vChat.Data.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\bin\Debug\vChat.Data.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\bin\Debug\EntityFramework.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\bin\Debug\vChat.Model.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\bin\Debug\vChat.Model.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\bin\Debug\EntityFramework.xml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.Init.resources
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.EditUsersTable.resources
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\vChat.Data.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\vChat.Data.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\bin\Debug\vChat.Lib.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\bin\Debug\vChat.Lib.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.AddFriendGroupTable.resources
