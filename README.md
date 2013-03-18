@@ -1,5 +1,6 @@
 vChat
 =====
+<<<<<<< HEAD
 Small chat application using TCP/IP and WCF Services, LINQ, Entity Framework CodeFirst (C#)
 
 Update Log
