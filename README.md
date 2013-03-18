@@ -30,3 +30,6 @@ Update 18.03 15:45
 - Thêm entity mới FriendGroup, chỉnh lại entity Users
 - Thêm chức năng validate dữ liệu cho vChat.Data layer (có thể bật/tắt thông qua config trong web.config (vChat.WCF))
 - Thêm method FriendList() vào UserService.svc: lấy ra friend list của user
+
+Update 18.03 22:45
+- Thay đổi kiểu trả về của các method (method trả về các đối tượng) thành XmlTextObject, muốn parse về đối tượng ban đầu (ở client) dùng ObjectSerialize<Kieu>.ParseToObject(DoiTuong)
