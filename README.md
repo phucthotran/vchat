@@ -1,6 +1,5 @@
 vChat
 =====
-<<<<<<< HEAD
 Small chat application using TCP/IP and WCF Services, LINQ, Entity Framework CodeFirst (C#)
 
 Update Log
@@ -31,5 +30,7 @@ Update 18.03 15:45
 - Thêm chức năng validate dữ liệu cho vChat.Data layer (có thể bật/tắt thông qua config trong web.config (vChat.WCF))
 - Thêm method FriendList() vào UserService.svc: lấy ra friend list của user
 
-Update 18.03 22:45
+Update 19.03 16:15
+-----
 - Thay đổi kiểu trả về của các method (method trả về các đối tượng) thành XmlTextObject, muốn parse về đối tượng ban đầu (ở client) dùng ObjectSerialize<Kieu>.ParseToObject(DoiTuong)
+- Thêm class ValidationWithStruct và ValidatExtenderWithStuct hỗ trợ cho validate (các đối tượng dạng struct: int, DateTime) (vChat.Business)

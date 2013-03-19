@@ -34,9 +34,9 @@ namespace vChat.Model
         MethodInvokeResult Reactive(int UserID);
 
         [OperationContract]
-        List<Conversation> GetConversations(int UserID);
+        XmlTextObject GetConversations(int UserID);
 
         [OperationContract]
-        List<Conversation> GetNewestConversations(int UserID);
+        XmlTextObject GetNewestConversations(int UserID);
     }
 }

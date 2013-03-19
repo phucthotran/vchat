@@ -13,4 +13,16 @@ namespace vChat.Business.Validations
             this.ArgName = argName;
         }
     }
+
+    public class ValidationWithStruct<S> where S : struct
+    {
+        public S Value { get; set; }
+        public String ArgName { get; set; }
+
+        public ValidationWithStruct(S value, String argName)
+        {
+            this.Value = value;
+            this.ArgName = argName;
+        }
+    }
 }

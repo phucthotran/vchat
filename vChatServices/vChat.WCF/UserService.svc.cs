@@ -32,6 +32,14 @@ namespace vChat.WCF
             return unc.Info(UserID);
         }
 
+        /// <summary>
+        /// Get friend list of user
+        /// </summary>
+        /// <param name="UserID">User ID</param>
+        /// <returns>Return user list (List<Users>)</returns>
+        /// <example>
+        ///     List<User> lstUser = FriendList(1);
+        /// </example>
         [OperationBehavior]
         public XmlTextObject FriendList(int UserID)
         {
@@ -140,7 +148,7 @@ namespace vChat.WCF
         ///     List<Conversation> lstConv = GetConversations(1);
         /// </example>
         [OperationBehavior]
-        public List<Conversation> GetConversations(int UserID)
+        public XmlTextObject GetConversations(int UserID)
         {
             return unc.GetConversations(UserID);
         }
@@ -154,7 +162,7 @@ namespace vChat.WCF
         ///     List<Conversation> lstConv = GetNewestConversations(1);
         /// </example>
         [OperationBehavior]
-        public List<Conversation> GetNewestConversations(int UserID)
+        public XmlTextObject GetNewestConversations(int UserID)
         {
             return unc.GetNewestConversations(UserID);
         }

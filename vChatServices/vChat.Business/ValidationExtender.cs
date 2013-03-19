@@ -1,16 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Reflection;
 
 namespace vChat.Business.Validations
 {
+    public static class ValidateExtenderWithStruct
+    {
+        private static bool ValidationOn = System.Configuration.ConfigurationManager.AppSettings.Get("ValidationOn").ToUpper() == "ON";
+
+        public static ValidationWithStruct<S> RequiredArgumentWithStruct<S>(this S item, string argName) where S : struct
+        {
+            return new ValidationWithStruct<S>(item, argName);
+        }
+
+        public static ValidationWithStruct<S> NotNull<S>(this ValidationWithStruct<S> item) where S : struct
+        {
+            if (ValidationOn && item.Value.Equals(null))
+                throw new ArgumentNullException(item.ArgName);
+
+            return item;
+        }
+
+        public static ValidationWithStruct<int> BeginFrom(this ValidationWithStruct<int> item, int begin)
+        {
+            if (ValidationOn && item.Value < begin)
+                throw new ArgumentException(String.Format("Parameter {0} must be begin from {1}", item.ArgName, begin));
+
+            return item;
+        }
+    }
+
     public static class ValidationExtender
     {
         private static bool ValidationOn = System.Configuration.ConfigurationManager.AppSettings.Get("ValidationOn").ToUpper() == "ON";
 
         public static Validation<T> RequiredArgument<T>(this T item, string argName) where T : class
-        {            
+        {
             return new Validation<T>(item, argName);
         }
 
@@ -45,13 +70,5 @@ namespace vChat.Business.Validations
 
             return item;
         }
-
-        //public static Validation<int> BeginFrom(this Validation<int> item, int begin)
-        //{
-        //    if (ValidationOn && item.Value < begin)
-        //        throw new ArgumentException(String.Format("Parameter {0} must be begin from {1}", item.ArgName, begin));
-
-        //    return item;
-        //}
     }
 }

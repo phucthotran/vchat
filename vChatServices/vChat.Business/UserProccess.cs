@@ -37,7 +37,7 @@ namespace vChat.Business
         public MethodInvokeResult Login(string Username, string Password)
         {
             try
-            {
+            {                          
                 Username.RequiredArgument("Username")
                     .NotNull() //throw ArgumentNullException
                     .Between(8, 45); //throw ArgumentException
@@ -72,9 +72,7 @@ namespace vChat.Business
                 LastName.RequiredArgument("LastName").NotNull().Between(2, 45);
                 FirstName.RequiredArgument("FirstName").NotNull().Between(2, 45);
                 Answer.RequiredArgument("Answer").NotNull().Between(2, 50);
-
-                if (Birthdate == null)
-                    throw new ArgumentNullException("Birthdate");
+                Birthdate.RequiredArgumentWithStruct("Birthdate").NotNull();
             }
             catch (ArgumentNullException ex)
             {
@@ -120,6 +118,8 @@ namespace vChat.Business
         {
             try
             {
+                UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1); //throw ArgumentException
+
                 OldPassword.RequiredArgument("OldPassword")
                     .NotNull() //throw ArgumentNullException
                     .Between(8, 45); //throw ArgumentException
@@ -152,18 +152,30 @@ namespace vChat.Business
             return unc.Reactive(UserID);
         }
 
-        public List<Conversation> GetConversations(int UserID)
+        public XmlTextObject GetConversations(int UserID)
         {
-            if (UserID == 0)
+            try
+            {
+                UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1); //throw ArgumentException
+            }
+            catch (ArgumentException ex)
+            {
                 return null;
+            }
 
             return unc.GetConversations(UserID);
         }
 
-        public List<Conversation> GetNewestConversations(int UserID)
+        public XmlTextObject GetNewestConversations(int UserID)
         {
-            if (UserID == 0)
+            try
+            {
+                UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1); //throw ArgumentException
+            }
+            catch (ArgumentException ex)
+            {
                 return null;
+            }
 
             return unc.GetNewestConversations(UserID);
         }

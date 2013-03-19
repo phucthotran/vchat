@@ -105,14 +105,14 @@ namespace vChat.Data
             return UserTask.DeactiveAccount(UserID, false) ? SUCCESS : FAIL;
         }
 
-        public List<Conversation> GetConversations(int UserID)
+        public XmlTextObject GetConversations(int UserID)
         {
-            return ConversationTask.GetConversations(UserID);
+            return ObjectSerialize<List<Conversation>>.ParseToXml(ConversationTask.GetConversations(UserID));
         }
 
-        public List<Conversation> GetNewestConversations(int UserID)
+        public XmlTextObject GetNewestConversations(int UserID)
         {
-            return ConversationTask.GetNewestConversations(UserID);
+            return ObjectSerialize<List<Conversation>>.ParseToXml(ConversationTask.GetNewestConversations(UserID));
         }
     }
 }

@@ -12,7 +12,7 @@ namespace vChat.Lib.Serialize
     public class ObjectSerialize<T> where T : class
     {
         /// <summary>
-        /// Convert an object to xml text
+        /// Convert an object to XmlTextObject
         /// </summary>
         /// <param name="obj">Object need to be convert</param>
         /// <returns></returns>        
@@ -30,8 +30,9 @@ namespace vChat.Lib.Serialize
         }
 
         /// <summary>
-        /// Conver xml text to real object
+        /// Convert XmlTextObject to real Object
         /// </summary>
+        /// <param name="obj">XmlTextObject to be convert</param>
         /// <returns></returns>
         public static T ParseToObject(XmlTextObject obj)
         {
