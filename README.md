@@ -34,3 +34,9 @@ Update 19.03 16:15
 -----
 - Thay đổi kiểu trả về của các method (method trả về các đối tượng) thành XmlTextObject, muốn parse về đối tượng ban đầu (ở client) dùng ObjectSerialize<Kieu>.ParseToObject(DoiTuong)
 - Thêm class ValidationWithStruct và ValidatExtenderWithStuct hỗ trợ cho validate (các đối tượng dạng struct: int, DateTime) (vChat.Business)
+
+Update 20.03 22:43
+-----
+- Fix lỗi SignUp
+- Chỉnh lại MethodInvokeResult
+- Thêm entity mới (FriendMap) và cập nhật entity User, tạo sẵn mẫu câu hỏi bí mật (entity Question)

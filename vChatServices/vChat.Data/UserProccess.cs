@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using vChat.Model;
 using vChat.Model.Entities;
 using vChat.Lib.Serialize;
+using System.Linq;
 
 namespace vChat.Data
 {
@@ -11,6 +12,7 @@ namespace vChat.Data
         private Users UserTask;
         private Conversation ConversationTask;
         private MethodInvokeResult SUCCESS, FAIL, INPUT_ERROR, UNHANDLE_ERROR;
+        private vChatContext db = new vChatContext();
 
         public UserProccess()
         {
@@ -20,11 +22,14 @@ namespace vChat.Data
 
         public XmlTextObject Info(int UserID)
         {
+            Users u = UserTask.Get(UserID);
             return ObjectSerialize<Users>.ParseToXml(UserTask.Get(UserID));
         }
 
         public XmlTextObject FriendList(int UserID)
         {
+            List<Users> u = UserTask.FriendList(UserID);
+
             return ObjectSerialize<List<Users>>.ParseToXml(UserTask.FriendList(UserID));
         }
 
@@ -56,7 +61,7 @@ namespace vChat.Data
                 Birthdate = Birthdate
             };
 
-            return new_user.Update() ? SUCCESS : FAIL;
+            return new_user.New() ? SUCCESS : FAIL;
         }
 
         public MethodInvokeResult UserExist(string Username)

@@ -49,8 +49,8 @@ namespace vChat.WCF
         /// <summary>
         /// Login to user account
         /// </summary>
-        /// <param name="Username">Username (Max: 45)</param>
-        /// <param name="Password">Password (Max: 45)</param>
+        /// <param name="Username">Username (Min: 6, Max: 45)</param>
+        /// <param name="Password">Password (Min: 6, Max: 45)</param>
         /// <returns>Status.SUCCESS or Status.FAIL</returns>
         /// <example>
         ///     Status st = Login("admin", "1234");
@@ -64,7 +64,7 @@ namespace vChat.WCF
         /// <summary>
         /// Create new account
         /// </summary>
-        /// <param name="Username">Username (Min: 8, Max: 45)</param>
+        /// <param name="Username">Username (Min: 6, Max: 45)</param>
         /// <param name="Password">Password (Min: 8, Max: 45)</param>
         /// <param name="FirstName">First Name (Min: 2, Max: 45)</param>
         /// <param name="LastName">Last Name (Min: 2, Max: 45)</param>
@@ -84,7 +84,7 @@ namespace vChat.WCF
         /// <summary>
         /// Check whether user exist or not
         /// </summary>
-        /// <param name="Username">Username (Min: 8, Max: 45)</param>
+        /// <param name="Username">Username (Min: 6, Max: 45)</param>
         /// <returns>Status.SUCCESS or Status.FAIL</returns>
         /// <example>
         ///     Status st = UserExist("itexplore");

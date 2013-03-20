@@ -5,27 +5,35 @@ using vChat.Lib.Serialize;
 
 namespace vChat.Model
 {
-    [Serializable]
+    [DataContract]
     public class MethodInvokeResult
     {
-        public enum RESULT { SUCCESS, FAIL, UNHANDLE_ERROR, INPUT_ERROR }
+        [DataContract]
+        public enum RESULT { [EnumMember] SUCCESS, [EnumMember] FAIL, [EnumMember] UNHANDLE_ERROR, [EnumMember] INPUT_ERROR }
 
+        [DataMember]
         public virtual RESULT Status { get; set; }
 
+        [DataMember]
         public virtual String Message { get; set; }
 
+        [DataMember]
         public virtual ExceptionInfo Exception { get; set; }
     }
 
-    [Serializable]
+    [DataContract]
     public class ExceptionInfo
     {
+        [DataMember]
         public String Message { get; private set; }
 
+        [DataMember]
         public String StackTrace { get; private set; }
 
+        [DataMember]
         public String Source { get; private set; }
 
+        [DataMember]
         public String ExceptionType { get; private set; }
 
         public ExceptionInfo(Exception ex)

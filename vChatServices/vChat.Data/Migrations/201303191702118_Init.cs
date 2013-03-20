@@ -46,24 +46,64 @@ namespace vChat.Data.Migrations
                         IsRead = c.Boolean(nullable: false),
                         RowVersion = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                         SentBy_UserID = c.Int(),
-                        ReceivedFrom_UserID = c.Int(),
+                        SendTo_UserID = c.Int(),
                     })
                 .PrimaryKey(t => t.ConversationID)
                 .ForeignKey("dbo.Users", t => t.SentBy_UserID)
-                .ForeignKey("dbo.Users", t => t.ReceivedFrom_UserID)
+                .ForeignKey("dbo.Users", t => t.SendTo_UserID)
                 .Index(t => t.SentBy_UserID)
-                .Index(t => t.ReceivedFrom_UserID);
+                .Index(t => t.SendTo_UserID);
+            
+            CreateTable(
+                "dbo.FriendMap",
+                c => new
+                    {
+                        FriendMapID = c.Int(nullable: false, identity: true),
+                        UserUserID = c.Int(nullable: false),
+                        FriendUserID = c.Int(nullable: false),
+                        IsAvailable = c.Boolean(nullable: false),
+                        FriendGroup_GroupID = c.Int(),
+                    })
+                .PrimaryKey(t => t.FriendMapID)
+                .ForeignKey("dbo.Users", t => t.UserUserID)
+                .ForeignKey("dbo.Users", t => t.FriendUserID)
+                .ForeignKey("dbo.FriendGroup", t => t.FriendGroup_GroupID)
+                .Index(t => t.UserUserID)
+                .Index(t => t.FriendUserID)
+                .Index(t => t.FriendGroup_GroupID);
+            
+            CreateTable(
+                "dbo.FriendGroup",
+                c => new
+                    {
+                        GroupID = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false, maxLength: 45),
+                        Owner_UserID = c.Int(),
+                    })
+                .PrimaryKey(t => t.GroupID)
+                .ForeignKey("dbo.Users", t => t.Owner_UserID)
+                .Index(t => t.Owner_UserID);
             
         }
         
         public override void Down()
         {
-            DropIndex("dbo.Conversation", new[] { "ReceivedFrom_UserID" });
+            DropIndex("dbo.FriendGroup", new[] { "Owner_UserID" });
+            DropIndex("dbo.FriendMap", new[] { "FriendGroup_GroupID" });
+            DropIndex("dbo.FriendMap", new[] { "FriendUserID" });
+            DropIndex("dbo.FriendMap", new[] { "UserUserID" });
+            DropIndex("dbo.Conversation", new[] { "SendTo_UserID" });
             DropIndex("dbo.Conversation", new[] { "SentBy_UserID" });
             DropIndex("dbo.Users", new[] { "Question_QuestionID" });
-            DropForeignKey("dbo.Conversation", "ReceivedFrom_UserID", "dbo.Users");
+            DropForeignKey("dbo.FriendGroup", "Owner_UserID", "dbo.Users");
+            DropForeignKey("dbo.FriendMap", "FriendGroup_GroupID", "dbo.FriendGroup");
+            DropForeignKey("dbo.FriendMap", "FriendUserID", "dbo.Users");
+            DropForeignKey("dbo.FriendMap", "UserUserID", "dbo.Users");
+            DropForeignKey("dbo.Conversation", "SendTo_UserID", "dbo.Users");
             DropForeignKey("dbo.Conversation", "SentBy_UserID", "dbo.Users");
             DropForeignKey("dbo.Users", "Question_QuestionID", "dbo.Question");
+            DropTable("dbo.FriendGroup");
+            DropTable("dbo.FriendMap");
             DropTable("dbo.Conversation");
             DropTable("dbo.Question");
             DropTable("dbo.Users");

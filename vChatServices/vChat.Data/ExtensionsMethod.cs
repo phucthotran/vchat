@@ -70,6 +70,51 @@ namespace vChat.Data
 
         #endregion
 
+        public static List<TEntity> DistinctList<TEntity>(this IQueryable<TEntity> query) where TEntity : class
+        {
+            List<TEntity> lstCompare = query.ToList();
+
+            int maxCompare = lstCompare.Count;
+            int beginPosIdx = 0;
+            int comparePosIdx = maxCompare - 1;
+
+            while (beginPosIdx < maxCompare)
+            {
+                TEntity compareEntity = lstCompare.ElementAt(beginPosIdx);
+
+                while (comparePosIdx > beginPosIdx)
+                {
+                    TEntity beCompare = lstCompare.ElementAt(comparePosIdx);
+
+                    if (compareEntity.Equals(beCompare))
+                        lstCompare.RemoveAt(comparePosIdx);
+
+                    comparePosIdx--;
+                }
+
+                maxCompare = lstCompare.Count;
+                comparePosIdx = maxCompare - 1;
+                beginPosIdx++;
+            }
+
+            //for (int i = 0; i < lstCompare.Count; i++)
+            //{
+            //    TEntity compareEntity = lstCompare.ElementAt(i);
+
+            //    for (int j = lstCompare.Count - 1; j > i; j--)
+            //    {
+            //        TEntity toBeCompareEntity = lstCompare.ElementAt(j);
+
+            //        if (compareEntity.Equals(toBeCompareEntity))
+            //        {
+            //            lstCompare.RemoveAt(j);                        
+            //        }
+            //    }
+            //}
+
+            return lstCompare;
+        }
+
         #region INCLUDE() METHOD EXETENSIONS
 
         public static DbQuery<TEntity> Include<TEntity, TProperty>(this DbQuery<TEntity> query, Expression<Func<TEntity, TProperty>> expression) where TEntity : class
@@ -110,7 +155,8 @@ namespace vChat.Data
                 .Include(u => u.Question)
                 .Include(u => u.SentMessage)
                 .Include(u => u.ReceivedMessage)
-                .Include(u => u.Group)
+                .Include(u => u.FriendsFake)
+                .Include(u => u.Friends)
                 .FirstOrDefault(u => u.UserID == UserID);
         }
 
@@ -120,7 +166,7 @@ namespace vChat.Data
                 .Include(u => u.Question)
                 .Include(u => u.SentMessage)
                 .Include(u => u.ReceivedMessage)
-                .Include(u => u.Group)
+                .Include(u => u.Friends)
                 .ToList();
         }
 
@@ -146,29 +192,14 @@ namespace vChat.Data
 
         public static List<Users> FriendList(this Users um, int UserID)
         {
-            List<FriendGroup> friendGroup = db.Users.Include(u => u.Question)
-                .Include(u => u.SentMessage)
-                .Include(u => u.ReceivedMessage)
-                .Include(u => u.Group)
-                .Include(u => u.Group.Owner)
-                .Where(u => u.Group.Owner.UserID == UserID)                
-                .Select(u => u.Group)                
+            return db.FriendList
+                .Include(f => f.User)
+                .Include(f => f.Friend)
+                .Include(f => f.FriendGroup)
+                .Where(f => f.Friend.UserID == UserID)
+                .DistinctList()
+                .Select(f => f.User)
                 .ToList();
-
-            List<Users> allUsers = um.GetAll();
-
-            List<Users> friends = new List<Users>();
-
-            foreach (Users user in allUsers)
-            {
-                foreach (FriendGroup group in friendGroup)
-                {
-                    if (user.Group.GroupID == group.GroupID)
-                        friends.Add(user);
-                }
-            }
-
-            return friends;
         }
 
         #endregion

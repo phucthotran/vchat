@@ -40,7 +40,7 @@ namespace vChat.Business
             {                          
                 Username.RequiredArgument("Username")
                     .NotNull() //throw ArgumentNullException
-                    .Between(8, 45); //throw ArgumentException
+                    .Between(6, 45); //throw ArgumentException
 
                 Password.RequiredArgument("Password").NotNull().Between(8, 45);
             }
@@ -66,7 +66,7 @@ namespace vChat.Business
             {            
                 Username.RequiredArgument("Username")
                     .NotNull() //throw ArgumentNullException
-                    .Between(8, 45); //throw ArgumentException
+                    .Between(6, 45); //throw ArgumentException
 
                 Password.RequiredArgument("Password").NotNull().Between(8, 45);
                 LastName.RequiredArgument("LastName").NotNull().Between(2, 45);
@@ -96,7 +96,7 @@ namespace vChat.Business
             {
                 Username.RequiredArgument("Username")
                     .NotNull() //throw ArgumentNullException
-                    .Between(8, 45); //throw ArgumentException
+                    .Between(6, 45); //throw ArgumentException
             }
             catch (ArgumentNullException ex)
             {

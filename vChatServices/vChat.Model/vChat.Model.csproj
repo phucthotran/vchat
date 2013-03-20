@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Entities\Conversation.cs" />
     <Compile Include="Entities\FriendGroup.cs" />
+    <Compile Include="Entities\FriendMap.cs" />
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\Users.cs" />
     <Compile Include="IDbModel.cs" />

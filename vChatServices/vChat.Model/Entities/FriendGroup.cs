@@ -15,5 +15,23 @@ namespace vChat.Model.Entities
 
         [DataMember]
         public virtual Users Owner { get; set; }
+
+        public override int GetHashCode()
+        {
+            return 222;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is FriendGroup)
+            {
+                FriendGroup compareObj = (FriendGroup)obj;
+
+                if (compareObj.GroupID == this.GroupID)
+                    return true;
+            }
+
+            return false;
+        }
     }
 }

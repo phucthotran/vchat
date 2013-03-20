@@ -20,7 +20,7 @@ namespace vChat.Model.Entities
 
         [DataMember]
         public virtual Users SentBy { get; set; }
-
+                
         [DataMember]
         public virtual Users SendTo { get; set; }
 

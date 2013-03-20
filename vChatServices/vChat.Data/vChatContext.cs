@@ -36,7 +36,8 @@ namespace vChat.Data
         public DbSet<Users> Users { get; set; }
         public DbSet<Question> Question { get; set; }
         public DbSet<Conversation> Conversation { get; set; }
-        public DbSet<FriendGroup> Group { get; set; }
+        public DbSet<FriendGroup> FriendGroup { get; set; }
+        public DbSet<FriendMap> FriendList { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -44,6 +45,7 @@ namespace vChat.Data
             modelBuilder.Configurations.Add(new QuestionMapping());
             modelBuilder.Configurations.Add(new ConversationMapping());
             modelBuilder.Configurations.Add(new FriendGroupMapping());
+            modelBuilder.Configurations.Add(new FriendMapMapping());
         }
     }
 }

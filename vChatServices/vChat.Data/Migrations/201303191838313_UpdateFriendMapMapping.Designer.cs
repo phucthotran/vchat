@@ -5,13 +5,13 @@ namespace vChat.Data.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class AddFriendGroupTable : IMigrationMetadata
+    public sealed partial class UpdateFriendMapMapping : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddFriendGroupTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateFriendMapMapping));
         
         string IMigrationMetadata.Id
         {
-            get { return "201303180334474_AddFriendGroupTable"; }
+            get { return "201303191838313_UpdateFriendMapMapping"; }
         }
         
         string IMigrationMetadata.Source

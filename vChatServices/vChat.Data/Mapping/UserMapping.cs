@@ -16,11 +16,15 @@ namespace vChat.Data.Mapping
             Property(u => u.Answer).IsRequired().HasMaxLength(50);
             Property(u => u.Birthdate).IsRequired();
             Property(u => u.RowVersion).IsRowVersion();
-
-            HasKey(u => u.UserID);
+                        
             HasOptional(u => u.Question).WithOptionalDependent();
             HasMany(u => u.SentMessage).WithOptional(c => c.SentBy).WillCascadeOnDelete(false);
             HasMany(u => u.ReceivedMessage).WithOptional(c => c.SendTo).WillCascadeOnDelete(false);
+
+            HasMany(u => u.Friends).WithOptional(f => f.Friend).WillCascadeOnDelete(false);
+            HasMany(u => u.FriendsFake).WithOptional(f => f.User).WillCascadeOnDelete(false);
+
+            HasKey(u => u.UserID);
         }
     }
 }

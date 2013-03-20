@@ -47,19 +47,20 @@
     <Compile Include="ExtensionsMethod.cs" />
     <Compile Include="Mapping\ConversationMapping.cs" />
     <Compile Include="Mapping\FriendGroupMapping.cs" />
+    <Compile Include="Mapping\FriendMapMapping.cs" />
     <Compile Include="Mapping\QuestionMapping.cs" />
     <Compile Include="Mapping\UserMapping.cs" />
-    <Compile Include="Migrations\201303121733472_Init.cs" />
-    <Compile Include="Migrations\201303121733472_Init.Designer.cs">
-      <DependentUpon>201303121733472_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201303191702118_Init.cs" />
+    <Compile Include="Migrations\201303191702118_Init.Designer.cs">
+      <DependentUpon>201303191702118_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201303150948127_EditUsersTable.cs" />
-    <Compile Include="Migrations\201303150948127_EditUsersTable.Designer.cs">
-      <DependentUpon>201303150948127_EditUsersTable.cs</DependentUpon>
+    <Compile Include="Migrations\201303191838313_UpdateFriendMapMapping.cs" />
+    <Compile Include="Migrations\201303191838313_UpdateFriendMapMapping.Designer.cs">
+      <DependentUpon>201303191838313_UpdateFriendMapMapping.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201303180334474_AddFriendGroupTable.cs" />
-    <Compile Include="Migrations\201303180334474_AddFriendGroupTable.Designer.cs">
-      <DependentUpon>201303180334474_AddFriendGroupTable.cs</DependentUpon>
+    <Compile Include="Migrations\201303191845322_UpdateMappingForUserAndFriendMap.cs" />
+    <Compile Include="Migrations\201303191845322_UpdateMappingForUserAndFriendMap.Designer.cs">
+      <DependentUpon>201303191845322_UpdateMappingForUserAndFriendMap.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UserProccess.cs" />
@@ -77,21 +78,21 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201303121733472_Init.resx">
-      <DependentUpon>201303121733472_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201303150948127_EditUsersTable.resx">
-      <DependentUpon>201303150948127_EditUsersTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201303180334474_AddFriendGroupTable.resx">
-      <DependentUpon>201303180334474_AddFriendGroupTable.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201303191702118_Init.resx">
+      <DependentUpon>201303191702118_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303191838313_UpdateFriendMapMapping.resx">
+      <DependentUpon>201303191838313_UpdateFriendMapMapping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303191845322_UpdateMappingForUserAndFriendMap.resx">
+      <DependentUpon>201303191845322_UpdateMappingForUserAndFriendMap.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

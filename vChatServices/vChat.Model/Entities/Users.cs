@@ -42,8 +42,30 @@ namespace vChat.Model.Entities
 
         [DataMember]
         public virtual IList<Conversation> ReceivedMessage { get; set; }
+                
+        // Fake friends list. Use for mapping on database purpose only
+        [DataMember]
+        public virtual List<FriendMap> FriendsFake { get; set; }
 
         [DataMember]
-        public virtual FriendGroup Group { get; set; }
+        public virtual List<FriendMap> Friends { get; set; }
+
+        public override int GetHashCode()
+        {
+            return 333;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Users)
+            {
+                Users compareObj = (Users)obj;
+
+                if (compareObj.UserID == this.UserID)
+                    return true;
+            }
+
+            return false;
+        }
     }
 }
