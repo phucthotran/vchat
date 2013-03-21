@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace vChat.Model.Entities
 {
-    [DataContract(IsReference = true)]
+    [DataContract(IsReference = true, Namespace = "http://vchat/entities/FriendMap")]
     public class FriendMap : IDbModel
     {
         [DataMember]
@@ -26,6 +26,9 @@ namespace vChat.Model.Entities
 
         [DataMember]
         public bool IsAvailable { get; set; }
+
+        [IgnoreDataMember]
+        public Byte[] RowVersion { get; set; }
 
         public override int GetHashCode()
         {

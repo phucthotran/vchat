@@ -10,10 +10,10 @@ namespace vChat.Model
     public interface IUserService
     {
         [OperationContract]
-        XmlTextObject Info(int UserID);
+        Users Info(int UserID);
 
         [OperationContract]
-        XmlTextObject FriendList(int UserID);
+        List<Users> FriendList(int UserID);
 
         [OperationContract]
         MethodInvokeResult Login(String Username, String Password);
@@ -34,9 +34,12 @@ namespace vChat.Model
         MethodInvokeResult Reactive(int UserID);
 
         [OperationContract]
-        XmlTextObject GetConversations(int UserID);
+        List<Conversation> GetConversations(int UserID);
 
         [OperationContract]
-        XmlTextObject GetNewestConversations(int UserID);
+        List<Conversation> GetNewestConversations(int UserID);
+
+        [OperationContract]
+        List<Conversation> ListSer(int ID);
     }
 }

@@ -18,15 +18,13 @@ namespace vChat.Lib.Serialize
         /// <returns></returns>        
         public static XmlTextObject ParseToXml(T obj)
         {
-            MemoryStream mStream = new MemoryStream();
+            MemoryStream mmStream = new MemoryStream();
             DataContractSerializer ser = new DataContractSerializer(typeof(T));
-            ser.WriteObject(mStream, obj);
-            mStream.Position = 0;
-            StreamReader sReader = new StreamReader(mStream);
+            ser.WriteObject(mmStream, obj);
+            mmStream.Position = 0;
+            StreamReader sReader = new StreamReader(mmStream);
 
-            String xmlString = sReader.ReadToEnd();
-
-            return new XmlTextObject(xmlString);
+            return new XmlTextObject (XmlSerializableObj : sReader.ReadToEnd());
         }
 
         /// <summary>
@@ -36,11 +34,11 @@ namespace vChat.Lib.Serialize
         /// <returns></returns>
         public static T ParseToObject(XmlTextObject obj)
         {
-            DataContractSerializer dataContractSer = new DataContractSerializer(typeof(T));
-            StringReader stringReader = new StringReader(obj.SerializableObjectXml);
+            DataContractSerializer ser = new DataContractSerializer(typeof(T));
+            StringReader stringReader = new StringReader(obj.XmlSerialize);
             XmlReader xmlReader = XmlReader.Create(stringReader);
 
-            return dataContractSer.ReadObject(xmlReader) as T;
+            return ser.ReadObject(xmlReader) as T;
         }
     }
 
@@ -48,16 +46,16 @@ namespace vChat.Lib.Serialize
     public class XmlTextObject
     {
         [DataMember]
-        public String SerializableObjectXml { get; private set; }
+        public String XmlSerialize { get; private set; }
 
         public XmlTextObject(String XmlSerializableObj)
         {
-            this.SerializableObjectXml = XmlSerializableObj;
+            this.XmlSerialize = XmlSerializableObj;
         }
 
         public override string ToString()
         {
-            return SerializableObjectXml;
+            return XmlSerialize;
         }
     }
 }

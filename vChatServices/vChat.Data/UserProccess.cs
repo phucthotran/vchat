@@ -12,7 +12,6 @@ namespace vChat.Data
         private Users UserTask;
         private Conversation ConversationTask;
         private MethodInvokeResult SUCCESS, FAIL, INPUT_ERROR, UNHANDLE_ERROR;
-        private vChatContext db = new vChatContext();
 
         public UserProccess()
         {
@@ -20,17 +19,14 @@ namespace vChat.Data
             ConversationTask = new Conversation();
         }
 
-        public XmlTextObject Info(int UserID)
+        public Users Info(int UserID)
         {
-            Users u = UserTask.Get(UserID);
-            return ObjectSerialize<Users>.ParseToXml(UserTask.Get(UserID));
+            return UserTask.Get(UserID);
         }
 
-        public XmlTextObject FriendList(int UserID)
+        public List<Users> FriendList(int UserID)
         {
-            List<Users> u = UserTask.FriendList(UserID);
-
-            return ObjectSerialize<List<Users>>.ParseToXml(UserTask.FriendList(UserID));
+            return UserTask.FriendList(UserID);
         }
 
         public MethodInvokeResult Login(string Username, string Password)
@@ -110,14 +106,20 @@ namespace vChat.Data
             return UserTask.DeactiveAccount(UserID, false) ? SUCCESS : FAIL;
         }
 
-        public XmlTextObject GetConversations(int UserID)
+        public List<Conversation> GetConversations(int UserID)
         {
-            return ObjectSerialize<List<Conversation>>.ParseToXml(ConversationTask.GetConversations(UserID));
+            return ConversationTask.GetConversations(UserID);
         }
 
-        public XmlTextObject GetNewestConversations(int UserID)
+        public List<Conversation> GetNewestConversations(int UserID)
         {
-            return ObjectSerialize<List<Conversation>>.ParseToXml(ConversationTask.GetNewestConversations(UserID));
+            return ConversationTask.GetNewestConversations(UserID);
+        }
+
+
+        public List<Conversation> ListSer(int ID)
+        {
+            return ConversationTask.GetConversations(ID);
         }
     }
 }

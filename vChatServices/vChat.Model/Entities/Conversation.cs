@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace vChat.Model.Entities
 {
-    [DataContract(IsReference = true)]
+    [DataContract(IsReference = true, Namespace = "http://vchat/entities/Conversation")]
     public class Conversation : IDbModel
     {
         [DataMember]
@@ -24,7 +24,25 @@ namespace vChat.Model.Entities
         [DataMember]
         public virtual Users SendTo { get; set; }
 
-        [DataMember]
+        [IgnoreDataMember]
         public Byte[] RowVersion { get; set; }
+
+        public override int GetHashCode()
+        {
+            return 555;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Conversation)
+            {
+                Conversation compareObj = (Conversation)obj;
+
+                if (compareObj.ConversationID == this.ConversationID)
+                    return true;
+            }
+
+            return false;
+        }
     }
 }

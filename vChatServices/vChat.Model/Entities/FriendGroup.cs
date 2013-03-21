@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace vChat.Model.Entities
 {
-    [DataContract(IsReference = true)]
+    [DataContract(IsReference = true, Namespace = "http://vchat/entities/FriendGroup")]
     public class FriendGroup : IDbModel
     {
         [DataMember]
@@ -15,6 +14,9 @@ namespace vChat.Model.Entities
 
         [DataMember]
         public virtual Users Owner { get; set; }
+
+        [IgnoreDataMember]
+        public Byte[] RowVersion { get; set; }
 
         public override int GetHashCode()
         {

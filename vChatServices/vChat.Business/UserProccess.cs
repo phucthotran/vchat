@@ -18,7 +18,7 @@ namespace vChat.Business
             unc = new Data.UserProccess();            
         }
 
-        public XmlTextObject Info(int UserID)
+        public Users Info(int UserID)
         {
             if (UserID == 0)
                 return null;
@@ -26,10 +26,16 @@ namespace vChat.Business
             return unc.Info(UserID);
         }
 
-        public XmlTextObject FriendList(int UserID)
+        public List<Users> FriendList(int UserID)
         {
-            if (UserID == 0)
+            try
+            {
+                UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1); //throw ArgumentException
+            }
+            catch (ArgumentException ex)
+            {
                 return null;
+            }
 
             return unc.FriendList(UserID);
         }
@@ -152,7 +158,7 @@ namespace vChat.Business
             return unc.Reactive(UserID);
         }
 
-        public XmlTextObject GetConversations(int UserID)
+        public List<Conversation> GetConversations(int UserID)
         {
             try
             {
@@ -166,7 +172,7 @@ namespace vChat.Business
             return unc.GetConversations(UserID);
         }
 
-        public XmlTextObject GetNewestConversations(int UserID)
+        public List<Conversation> GetNewestConversations(int UserID)
         {
             try
             {
@@ -178,6 +184,12 @@ namespace vChat.Business
             }
 
             return unc.GetNewestConversations(UserID);
+        }
+
+
+        public List<Conversation> ListSer(int ID)
+        {
+            return unc.ListSer(ID);
         }
     }
 }

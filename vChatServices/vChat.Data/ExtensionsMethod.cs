@@ -57,7 +57,7 @@ namespace vChat.Data
         {
             try
             {
-                db.Set(m.GetType()).Add(m);
+                db.Set(m.GetType()).Remove(m);
                 db.SaveChanges();
             }
             catch (InvalidOperationException)
@@ -152,37 +152,29 @@ namespace vChat.Data
         public static Users Get(this Users um, int UserID)
         {
             return db.Users
-                .Include(u => u.Question)
-                .Include(u => u.SentMessage)
-                .Include(u => u.ReceivedMessage)
-                .Include(u => u.FriendsFake)
-                .Include(u => u.Friends)
                 .FirstOrDefault(u => u.UserID == UserID);
         }
 
         public static List<Users> GetAll(this Users um)
         {
-            return db.Users
-                .Include(u => u.Question)
-                .Include(u => u.SentMessage)
-                .Include(u => u.ReceivedMessage)
-                .Include(u => u.Friends)
-                .ToList();
+            return db.Users.ToList();
         }
 
         public static bool IsAvailable(this Users um, String Username, String Password)
         {
-            return db.Users.SingleOrDefault(u => u.Username.Equals(Username) && u.Password.Equals(Password)) != null;
+            return db.Users
+                .FirstOrDefault(u => u.Username.Equals(Username) && u.Password.Equals(Password)) != null;
         }
 
         public static bool IsExist(this Users um, String Username)
         {
-            return db.Users.SingleOrDefault(u => u.Username.Equals(Username)) != null;
+            return db.Users
+                .FirstOrDefault(u => u.Username.Equals(Username)) != null;
         }
 
         public static bool DeactiveAccount(this Users um, int UserID, bool Status)
         {
-            Users user_info = db.Users.SingleOrDefault(u => u.UserID == UserID);
+            Users user_info = db.Users.FirstOrDefault(u => u.UserID == UserID);
             user_info.Deactive = Status;
 
             bool r = user_info.Update();
@@ -194,8 +186,8 @@ namespace vChat.Data
         {
             return db.FriendList
                 .Include(f => f.User)
-                .Include(f => f.Friend)
-                .Include(f => f.FriendGroup)
+                //.Include(f => f.Friend)
+                //.Include(f => f.FriendGroup)
                 .Where(f => f.Friend.UserID == UserID)
                 .DistinctList()
                 .Select(f => f.User)
@@ -224,12 +216,21 @@ namespace vChat.Data
 
         public static List<Conversation> GetConversations(this Conversation conv, int UserID)
         {
-            return db.Conversation.Where(c => c.SentBy.UserID == UserID || c.SendTo.UserID == UserID).ToList();
+            return db.Conversation
+                .Include(c => c.SentBy)
+                .Include(c => c.SendTo)
+                .Where(c => c.SentBy.UserID == UserID || c.SendTo.UserID == UserID)
+                .DistinctList()
+                .ToList();
         }
 
         public static List<Conversation> GetNewestConversations(this Conversation conv, int UserID)
         {
-            return db.Conversation.Where(c => c.SendTo.UserID == UserID && c.IsRead == false).ToList();
+            return db.Conversation
+                .Include(c => c.SentBy)
+                .Include(c => c.SendTo)
+                .Where(c => c.SendTo.UserID == UserID && c.IsRead == false)
+                .ToList();
         }
 
         #endregion

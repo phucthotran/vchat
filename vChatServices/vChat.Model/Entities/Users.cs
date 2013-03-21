@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
+using System.Xml.Schema;
+using System.Xml;
 
 namespace vChat.Model.Entities
 {
-    [DataContract(IsReference = true)]
+    [DataContract(IsReference = true, Namespace = "http://vchat/entities/Users")]
     public class Users : IDbModel
     {
-        [DataMember]
+        [DataMember]        
         public int UserID { get; set; }
 
         [DataMember]
@@ -31,24 +34,24 @@ namespace vChat.Model.Entities
         [DataMember]
         public bool Deactive { get; set; }
 
-        [DataMember]
+        [IgnoreDataMember]
         public Byte[] RowVersion { get; set; }
 
-        [DataMember]
+        [IgnoreDataMember]
         public virtual Question Question { get; set; }
 
-        [DataMember]
+        [IgnoreDataMember]
         public virtual IList<Conversation> SentMessage { get; set; }
 
-        [DataMember]
+        [IgnoreDataMember]
         public virtual IList<Conversation> ReceivedMessage { get; set; }
                 
         // Fake friends list. Use for mapping on database purpose only
-        [DataMember]
-        public virtual List<FriendMap> FriendsFake { get; set; }
+        [IgnoreDataMember]
+        public virtual IList<FriendMap> FriendsFake { get; set; }
 
-        [DataMember]
-        public virtual List<FriendMap> Friends { get; set; }
+        [IgnoreDataMember]
+        public virtual IList<FriendMap> Friends { get; set; }
 
         public override int GetHashCode()
         {

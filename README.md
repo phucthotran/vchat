@@ -40,3 +40,7 @@ Update 20.03 22:43
 - Fix lỗi SignUp
 - Chỉnh lại MethodInvokeResult
 - Thêm entity mới (FriendMap) và cập nhật entity User, tạo sẵn mẫu câu hỏi bí mật (entity Question)
+
+Update 22.03 00:37
+-----
+- Đơn giản hóa các kiểu dữ liệu trả về của các method trên WCF service, lược bỏ những dữ liệu trong entity không cần serialize (tránh tình trạng bị lỗi không serialize được dữ liệu trước khi gửi về client)
