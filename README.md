@@ -44,3 +44,7 @@ Update 20.03 22:43
 Update 22.03 00:37
 -----
 - Đơn giản hóa các kiểu dữ liệu trả về của các method trên WCF service, lược bỏ những dữ liệu trong entity không cần serialize (tránh tình trạng bị lỗi không serialize được dữ liệu trước khi gửi về client)
+
+Update 26.03 15:53
+-----
+- Hiệu chỉnh chức năng validate, cho phép xem tất cả các lỗi xảy ra trong quá trình validate (InvokeMethodResult.Errors)

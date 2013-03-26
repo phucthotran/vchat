@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using System.Collections.Generic;
 using vChat.Lib;
 using vChat.Lib.Serialize;
 
@@ -13,6 +14,9 @@ namespace vChat.Model
 
         [DataMember]
         public virtual RESULT Status { get; set; }
+
+        [DataMember]
+        public virtual List<String> Errors { get; set; }
 
         [DataMember]
         public virtual String Message { get; set; }

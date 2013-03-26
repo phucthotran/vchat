@@ -24,7 +24,7 @@ namespace vChat.Business.Validations
         public static ValidationWithStruct<int> BeginFrom(this ValidationWithStruct<int> item, int begin)
         {
             if (ValidationOn && item.Value < begin)
-                throw new ArgumentException(String.Format("Parameter {0} must be begin from {1}", item.ArgName, begin));
+                ValidationController.NewError(String.Format("Parameter {0} must be begin from {1}", item.ArgName, begin));
 
             return item;
         }
@@ -50,7 +50,7 @@ namespace vChat.Business.Validations
         public static Validation<String> ShorterThan(this Validation<String> item, int limit)
         {
             if (ValidationOn && item.Value.Length >= limit)
-                throw new ArgumentException(String.Format("Parameter {0} must be shorter than {1} chars", item.ArgName, limit));
+                ValidationController.NewError(String.Format("Parameter {0} must be shorter than {1} chars", item.ArgName, limit));
 
             return item;
         }
@@ -58,7 +58,7 @@ namespace vChat.Business.Validations
         public static Validation<String> LongerThan(this Validation<String> item, int limit)
         {
             if (ValidationOn && item.Value.Length <= limit)
-                throw new ArgumentException(String.Format("Parameter {0} must be longer than {1} chars", item.ArgName, limit));
+                ValidationController.NewError(String.Format("Parameter {0} must be longer than {1} chars", item.ArgName, limit));
 
             return item;
         }
@@ -66,7 +66,7 @@ namespace vChat.Business.Validations
         public static Validation<String> Between(this Validation<String> item, int from, int to)
         {
             if (ValidationOn && (item.Value.Length < from || item.Value.Length > to))
-                throw new ArgumentException(String.Format("Parameter {0} must between {1} and {2} chars", item.ArgName, from, to));
+                ValidationController.NewError(String.Format("Parameter {0} must between {1} and {2} chars", item.ArgName, from, to));
 
             return item;
         }

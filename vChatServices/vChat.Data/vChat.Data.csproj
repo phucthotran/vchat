@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExtensionsMethod.cs" />
+    <Compile Include="DataAccessExtender.cs" />
     <Compile Include="Mapping\ConversationMapping.cs" />
     <Compile Include="Mapping\FriendGroupMapping.cs" />
     <Compile Include="Mapping\FriendMapMapping.cs" />

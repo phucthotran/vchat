@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Linq.Expressions;
 using vChat.Model;
 using vChat.Model.Entities;
-using System.Linq.Expressions;
-using System.Data.Entity.Infrastructure;
 
 namespace vChat.Data
 {
-    public static class ExtensionsMethod
+    public static class DataAccessExtender
     {
         private static vChatContext db;
 
-        static ExtensionsMethod()
+        static DataAccessExtender()
         {
             db = new vChatContext();
         }
@@ -70,6 +70,8 @@ namespace vChat.Data
 
         #endregion
 
+        #region ANOTHER LINQ EXTENSIONS METHOD
+
         public static List<TEntity> DistinctList<TEntity>(this IQueryable<TEntity> query) where TEntity : class
         {
             List<TEntity> lstCompare = query.ToList();
@@ -115,6 +117,8 @@ namespace vChat.Data
             return lstCompare;
         }
 
+        #endregion
+
         #region INCLUDE() METHOD EXETENSIONS
 
         public static DbQuery<TEntity> Include<TEntity, TProperty>(this DbQuery<TEntity> query, Expression<Func<TEntity, TProperty>> expression) where TEntity : class
@@ -152,12 +156,22 @@ namespace vChat.Data
         public static Users Get(this Users um, int UserID)
         {
             return db.Users
+                //.Include(u => u.Question)
+                //.Include(u => u.SentMessage)
+                //.Include(u => u.ReceivedMessage)
+                //.Include(u => u.FriendsFake)
+                //.Include(u => u.Friends)
                 .FirstOrDefault(u => u.UserID == UserID);
         }
 
         public static List<Users> GetAll(this Users um)
         {
-            return db.Users.ToList();
+            return db.Users
+                //.Include(u => u.Question)
+                //.Include(u => u.SentMessage)
+                //.Include(u => u.ReceivedMessage)
+                //.Include(u => u.Friends)
+                .ToList();
         }
 
         public static bool IsAvailable(this Users um, String Username, String Password)

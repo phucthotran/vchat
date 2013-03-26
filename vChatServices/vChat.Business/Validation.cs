@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace vChat.Business.Validations
 {
     public class Validation<T> where T : class
     {
+        //private List<String> _errors;
+
         public T Value { get; set; }
         public String ArgName { get; set; }
+        public List<String> Errors { get; set; }
 
         public Validation(T value, String argName)
         {
