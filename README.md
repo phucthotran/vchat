@@ -1,4 +1,4 @@
-###### [Nhấn vào đây để xem rule](#rule)
+###### [Nhấn vào đây để xem rule](#nhng-iu-lu--)
 ###### [Yêu cầu hiện tại > click](TASK.md)
 
 ## Update Log
@@ -44,7 +44,7 @@
 - Update một số model và thay đổi kiểu trả về của method FriendList (WCF)
 
 --------------------------
-###### Những điều lưu ý <a id="rule"></a>
+###### Những điều lưu ý
 
 - **Về header cho từng update:**
     1. Dùng kiểu H4 `####`
