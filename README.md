@@ -1,3 +1,5 @@
+### SYMACI đã đái ở đây .....................
+
 vChat
 =====
 Small chat application using TCP/IP and WCF Services, LINQ, Entity Framework CodeFirst (C#)
