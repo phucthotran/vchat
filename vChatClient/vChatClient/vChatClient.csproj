@@ -44,10 +44,10 @@
     </Reference>
     <Reference Include="Elysium, Version=1.5.873.0, Culture=neutral, PublicKeyToken=afa220db249e5b15, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\Elysium SDK\.NET Framework 4\1.5\Test\Elysium.dll</HintPath>
+      <HintPath>..\..\DllsReference\Elysium\Elysium.dll</HintPath>
     </Reference>
     <Reference Include="Elysium.Notifications">
-      <HintPath>C:\Program Files\Elysium SDK\.NET Framework 4\1.5\Test\Elysium.Notifications.dll</HintPath>
+      <HintPath>..\..\DllsReference\Elysium\Elysium.Notifications.dll</HintPath>
     </Reference>
     <Reference Include="Extension">
       <HintPath>..\..\Core\Core.Client\bin\Debug\Extension.dll</HintPath>
