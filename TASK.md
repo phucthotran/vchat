@@ -1,4 +1,4 @@
-﻿## Yêu cầu hiện tại
+## Yêu cầu hiện tại
 -------------------
 
 - Trước mắt kết hợp cái hiển thị bạn bè sau khi login thành công.
