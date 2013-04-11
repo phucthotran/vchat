@@ -1,4 +1,4 @@
-###### [Nhấn vào đây để xem rule](#rule)
+###### [Nhấn vào đây để xem rule](#nhng-iu-lu-)
 ###### [Yêu cầu hiện tại > click](TASK.md)
 
 ## Update Log
@@ -44,7 +44,8 @@
 - Update một số model và thay đổi kiểu trả về của method FriendList (WCF)
 
 --------------------------
-###### Những điều lưu ý <a id="rule"></a>
+###### Những điều lưu ý
+
 - **Về header cho từng update:**
     1. Dùng kiểu H4 `####`
     2. Thời gian update định dạng theo kiểu `dd.MM hh:mm TT`
@@ -53,8 +54,8 @@
     1. Vào thư mục **View** > **Controls** tạo một `UserControl(WPF)`
     2. Trong file `.xaml` thêm dòng `xmlns:v="clr-namespace:vChat.Templates"` vào proprety của tag `<UserControl ...>`
     3. Sửa tag `UserControl` thành `v:vChatController` (sửa luôn cả tag đóng)
-    4. Trong file `.xaml.cs` sửa lớp kế thừa `UserControl` thành `vChatController` và `using vChat.Templates;`
-    5. Để tạo controller cho UC ta vào thư mục **Controllers** tạo 1 file `.cs` đặt tên theo cú pháp: `<TênClassUserControl\>Controller.cs`
+    4. Trong file `.xaml.cs` sửa lớp kế thừa `UserControl` thành `vChatController`
+    5. Để tạo controller cho UC ta vào thư mục **Controllers** tạo 1 file `.cs` đặt tên theo cú pháp: `<TênClassUserControl>Controller.cs`
         - Ví dụ: class của UC là `Login` thì file controller sẽ đặt tên là `LoginController.cs`
         - Controller phải thuộc `namespace vChat.Controllers`
         - **Không nhất thiết phải tạo file controller**, nếu không có nhu cầu tách biệt methods và dồn vào controller thì khỏi tạo cũng được.
@@ -64,6 +65,7 @@
     1. `MainWindow` sẽ xử lý chính cho các UC được tạo
     2. Nếu cần truyền các tác vụ từ bên trong UC ra cho MainWindow xử lý thì ta tạo event và delegate method bên trong UC đó
     3. Code tham khảo như UC `Login` hay `SignUp`
+
 ###### Nếu có gì bất tiện thì cùng nhau góp ý =]
 
 --------------------------
