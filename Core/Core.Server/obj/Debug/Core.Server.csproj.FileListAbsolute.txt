@@ -1,0 +1,36 @@
+C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\ServerCore\bin\Debug\Core.Server.dll
+C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\ServerCore\bin\Debug\Core.Server.pdb
+C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\ServerCore\bin\Debug\Core.Data.dll
+C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\ServerCore\bin\Debug\Extension.dll
+C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\ServerCore\bin\Debug\Core.Data.pdb
+C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\ServerCore\bin\Debug\Extension.pdb
+C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\ServerCore\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\ServerCore\obj\Debug\Core.Server.dll
+C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\ServerCore\obj\Debug\Core.Server.pdb
+D:\vchat\Core\Core.Server\bin\Debug\Core.Server.dll
+D:\vchat\Core\Core.Server\bin\Debug\Core.Server.pdb
+D:\vchat\Core\Core.Server\bin\Debug\Core.Data.dll
+D:\vchat\Core\Core.Server\bin\Debug\Extension.dll
+D:\vchat\Core\Core.Server\bin\Debug\Core.Data.pdb
+D:\vchat\Core\Core.Server\bin\Debug\Extension.pdb
+D:\vchat\Core\Core.Server\obj\Debug\ResolveAssemblyReference.cache
+D:\vchat\Core\Core.Server\obj\Debug\Core.Server.dll
+D:\vchat\Core\Core.Server\obj\Debug\Core.Server.pdb
+D:\vchat_2\Core\Core.Server\bin\Debug\Core.Server.dll
+D:\vchat_2\Core\Core.Server\bin\Debug\Core.Server.pdb
+D:\vchat_2\Core\Core.Server\bin\Debug\Core.Data.dll
+D:\vchat_2\Core\Core.Server\bin\Debug\Extension.dll
+D:\vchat_2\Core\Core.Server\bin\Debug\Core.Data.pdb
+D:\vchat_2\Core\Core.Server\bin\Debug\Extension.pdb
+D:\vchat_2\Core\Core.Server\obj\Debug\ResolveAssemblyReference.cache
+D:\vchat_2\Core\Core.Server\obj\Debug\Core.Server.dll
+D:\vchat_2\Core\Core.Server\obj\Debug\Core.Server.pdb
+D:\vChatProject\Core\Core.Server\bin\Debug\Core.Server.dll
+D:\vChatProject\Core\Core.Server\bin\Debug\Core.Server.pdb
+D:\vChatProject\Core\Core.Server\bin\Debug\Core.Data.dll
+D:\vChatProject\Core\Core.Server\bin\Debug\Extension.dll
+D:\vChatProject\Core\Core.Server\bin\Debug\Core.Data.pdb
+D:\vChatProject\Core\Core.Server\bin\Debug\Extension.pdb
+D:\vChatProject\Core\Core.Server\obj\Debug\Core.Server.csprojResolveAssemblyReference.cache
+D:\vChatProject\Core\Core.Server\obj\Debug\Core.Server.dll
+D:\vChatProject\Core\Core.Server\obj\Debug\Core.Server.pdb

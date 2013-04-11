@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UserServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:6969/vChatServices/UserServices.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:6969/vChatServices/UserServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:6969/vChatServices/UserServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/vChatModel" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUserServices_Info_InputMessage">
+    <wsdl:part name="parameters" element="tns:Info" />
+  </wsdl:message>
+  <wsdl:message name="IUserServices_Info_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserServices_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IUserServices_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserServices_Signup_InputMessage">
+    <wsdl:part name="parameters" element="tns:Signup" />
+  </wsdl:message>
+  <wsdl:message name="IUserServices_Signup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserServices_UserExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserExist" />
+  </wsdl:message>
+  <wsdl:message name="IUserServices_UserExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserServices_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="IUserServices_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserServices_Deactive_InputMessage">
+    <wsdl:part name="parameters" element="tns:Deactive" />
+  </wsdl:message>
+  <wsdl:message name="IUserServices_Deactive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeactiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserServices_Reactive_InputMessage">
+    <wsdl:part name="parameters" element="tns:Reactive" />
+  </wsdl:message>
+  <wsdl:message name="IUserServices_Reactive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReactiveResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUserServices">
+    <wsdl:operation name="Info">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserServices/Info" message="tns:IUserServices_Info_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserServices/InfoResponse" message="tns:IUserServices_Info_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserServices/Login" message="tns:IUserServices_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserServices/LoginResponse" message="tns:IUserServices_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Signup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserServices/Signup" message="tns:IUserServices_Signup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserServices/SignupResponse" message="tns:IUserServices_Signup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserServices/UserExist" message="tns:IUserServices_UserExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserServices/UserExistResponse" message="tns:IUserServices_UserExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserServices/ChangePassword" message="tns:IUserServices_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserServices/ChangePasswordResponse" message="tns:IUserServices_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Deactive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserServices/Deactive" message="tns:IUserServices_Deactive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserServices/DeactiveResponse" message="tns:IUserServices_Deactive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Reactive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserServices/Reactive" message="tns:IUserServices_Reactive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserServices/ReactiveResponse" message="tns:IUserServices_Reactive_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IUserServices" type="tns:IUserServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Info">
+      <soap:operation soapAction="http://tempuri.org/IUserServices/Info" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IUserServices/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Signup">
+      <soap:operation soapAction="http://tempuri.org/IUserServices/Signup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserExist">
+      <soap:operation soapAction="http://tempuri.org/IUserServices/UserExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/IUserServices/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deactive">
+      <soap:operation soapAction="http://tempuri.org/IUserServices/Deactive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Reactive">
+      <soap:operation soapAction="http://tempuri.org/IUserServices/Reactive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserServices">
+    <wsdl:port name="BasicHttpBinding_IUserServices" binding="tns:BasicHttpBinding_IUserServices">
+      <soap:address location="http://localhost:6969/vChatServices/UserServices.svc/UserServices" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
