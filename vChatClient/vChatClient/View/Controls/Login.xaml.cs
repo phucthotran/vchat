@@ -30,7 +30,7 @@ namespace vChat.View.Controls
         public delegate void SignUpClickHandler();
         public event SignUpClickHandler OnSignUpClicked = delegate { };
 
-        public Login() : base()
+        public Login()
         {
             InitializeComponent();
         }

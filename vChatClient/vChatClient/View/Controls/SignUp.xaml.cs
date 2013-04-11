@@ -37,7 +37,7 @@ namespace vChat.View.Controls
         public string ct;
         public Visibility vi;
 
-        public SignUp() : base()
+        public SignUp()
         {
             InitializeComponent();
             InitUserWarningWorker();
