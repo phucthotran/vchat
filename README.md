@@ -55,7 +55,7 @@
     2. Trong file `.xaml` thêm dòng `xmlns:v="clr-namespace:vChat.Templates"` vào proprety của tag `<UserControl ...>`
     3. Sửa tag `UserControl` thành `v:vChatController` (sửa luôn cả tag đóng)
     4. Trong file `.xaml.cs` sửa lớp kế thừa `UserControl` thành `vChatController`
-    5. Để tạo controller cho UC ta vào thư mục **Controllers** tạo 1 file `.cs` đặt tên theo cú pháp: `<TênClassUserControl\>Controller.cs`
+    5. Để tạo controller cho UC ta vào thư mục **Controllers** tạo 1 file `.cs` đặt tên theo cú pháp: `<TênClassUserControl>Controller.cs`
         - Ví dụ: class của UC là `Login` thì file controller sẽ đặt tên là `LoginController.cs`
         - Controller phải thuộc `namespace vChat.Controllers`
         - **Không nhất thiết phải tạo file controller**, nếu không có nhu cầu tách biệt methods và dồn vào controller thì khỏi tạo cũng được.
