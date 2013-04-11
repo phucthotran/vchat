@@ -3,7 +3,8 @@
 
 - Trước mắt kết hợp cái hiển thị bạn bè sau khi login thành công.
 - Login thành công sẽ chạy event `Login_OnLoginSuccess` trong `MainWindow`
-- ```c#
+- 
+``` csharp
 private void Login_OnLoginSuccess(string userLogged)
 {
   MessageBox.Show("ok");
