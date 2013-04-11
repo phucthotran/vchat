@@ -52,3 +52,5 @@ Update 26.03 15:53
 Update 11.04 21:18
 -----
 - Update một số model và thay đổi kiểu trả về của method FriendList (WCF)
+
+ta thông nhau đã bao lần hỡi P :))
