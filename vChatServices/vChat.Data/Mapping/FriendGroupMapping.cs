@@ -12,6 +12,9 @@ namespace vChat.Data.Mapping
 
             Property(g => g.Name).IsRequired().HasMaxLength(45);
             Property(g => g.RowVersion).IsRowVersion();
+
+            Ignore(g => g.Friends);
+
             HasOptional(g => g.Owner).WithOptionalDependent();
 
             HasKey(g => g.GroupID);

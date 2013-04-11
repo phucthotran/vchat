@@ -13,7 +13,10 @@ namespace vChat.Model
         Users Info(int UserID);
 
         [OperationContract]
-        List<Users> FriendList(int UserID);
+        GroupFriendList FriendList(int UserID);
+
+        [OperationContract]
+        MethodInvokeResult AddFriend(int UserID, String FriendName, int GroupID);
 
         [OperationContract]
         MethodInvokeResult Login(String Username, String Password);
@@ -38,8 +41,5 @@ namespace vChat.Model
 
         [OperationContract]
         List<Conversation> GetNewestConversations(int UserID);
-
-        [OperationContract]
-        List<Conversation> ListSer(int ID);
     }
 }

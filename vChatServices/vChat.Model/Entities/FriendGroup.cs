@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using System.Collections.Generic;
 
 namespace vChat.Model.Entities
 {
@@ -14,6 +15,24 @@ namespace vChat.Model.Entities
 
         [DataMember]
         public virtual Users Owner { get; set; }
+
+        private List<Users> _Friends;
+        
+        [DataMember]
+        public List<Users> Friends
+        {
+            get
+            {
+                if (_Friends == null)
+                {
+                    _Friends = new List<Users>();
+                    return _Friends;
+                }
+
+                return _Friends;
+            }
+            set { _Friends = value; }
+        }
 
         [IgnoreDataMember]
         public Byte[] RowVersion { get; set; }

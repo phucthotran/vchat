@@ -48,3 +48,7 @@ Update 22.03 00:37
 Update 26.03 15:53
 -----
 - Hiệu chỉnh chức năng validate, cho phép xem tất cả các lỗi xảy ra trong quá trình validate (InvokeMethodResult.Errors)
+
+Update 11.04 21:18
+-----
+- Update một số model và thay đổi kiểu trả về của method FriendList (WCF)

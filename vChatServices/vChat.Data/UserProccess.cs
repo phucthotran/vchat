@@ -11,12 +11,14 @@ namespace vChat.Data
     {
         private Users UserTask;
         private Conversation ConversationTask;
+        private FriendGroup GroupTask;
         private MethodInvokeResult SUCCESS, FAIL, INPUT_ERROR, UNHANDLE_ERROR;
 
         public UserProccess()
         {
             UserTask = new Users();
             ConversationTask = new Conversation();
+            GroupTask = new FriendGroup();
         }
 
         public Users Info(int UserID)
@@ -24,9 +26,25 @@ namespace vChat.Data
             return UserTask.Get(UserID);
         }
 
-        public List<Users> FriendList(int UserID)
+        public GroupFriendList FriendList(int UserID)
         {
             return UserTask.FriendList(UserID);
+        }
+
+        public MethodInvokeResult AddFriend(int UserID, String FriendName, int GroupID)
+        {
+            SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Add friend Success" };
+            FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Add friend Fail" };
+            INPUT_ERROR = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = "User not yet exist" };
+
+            if (!UserTask.IsExist(FriendName))
+                return INPUT_ERROR;
+
+            Users user_info = UserTask.Get(UserID);
+            Users friend_info = UserTask.GetByName(FriendName);
+            FriendGroup group_info = GroupTask.Get(GroupID) as FriendGroup;
+
+            return UserTask.AddFriend(user_info, friend_info, group_info) ? SUCCESS : FAIL;
         }
 
         public MethodInvokeResult Login(string Username, string Password)
@@ -114,12 +132,6 @@ namespace vChat.Data
         public List<Conversation> GetNewestConversations(int UserID)
         {
             return ConversationTask.GetNewestConversations(UserID);
-        }
-
-
-        public List<Conversation> ListSer(int ID)
-        {
-            return ConversationTask.GetConversations(ID);
         }
     }
 }

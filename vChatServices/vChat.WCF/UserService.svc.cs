@@ -41,9 +41,25 @@ namespace vChat.WCF
         ///     List<User> lstUser = FriendList(1);
         /// </example>
         [OperationBehavior]
-        public List<Users> FriendList(int UserID)
+        public GroupFriendList FriendList(int UserID)
         {
             return unc.FriendList(UserID);
+        }
+
+        /// <summary>
+        /// Add new friend
+        /// </summary>
+        /// <param name="UserID">Current user id</param>
+        /// <param name="FriendName">Username to be added as friend</param>
+        /// <param name="GroupID">Assign new friend to a group</param>
+        /// <example>
+        ///     AddFriend(1, "phuctho", 2);
+        /// </example>
+        /// <returns></returns>
+        [OperationBehavior]
+        public MethodInvokeResult AddFriend(int UserID, String FriendName, int GroupID)
+        {
+            return unc.AddFriend(UserID, FriendName, GroupID);
         }
 
         /// <summary>
@@ -165,12 +181,6 @@ namespace vChat.WCF
         public List<Conversation> GetNewestConversations(int UserID)
         {
             return unc.GetNewestConversations(UserID);
-        }
-
-        [OperationBehavior]
-        public List<Conversation> ListSer(int ID)
-        {
-            return unc.ListSer(ID);
         }
     }
 }

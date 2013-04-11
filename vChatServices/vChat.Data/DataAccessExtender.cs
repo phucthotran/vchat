@@ -164,6 +164,11 @@ namespace vChat.Data
                 .FirstOrDefault(u => u.UserID == UserID);
         }
 
+        public static Users GetByName(this Users um, String Username)
+        {
+            return db.Users.FirstOrDefault(u => u.Username.Equals(Username));
+        }
+
         public static List<Users> GetAll(this Users um)
         {
             return db.Users
@@ -196,6 +201,57 @@ namespace vChat.Data
             return r;
         }
 
+        public static GroupFriendList FriendList(this Users um, int UserID)
+        {
+            List<Users> Friends = db.FriendList
+                .Include(f => f.User)
+                .Where(f => f.Friend.UserID == UserID)
+                .DistinctList()
+                .Select(f => f.User)
+                .ToList();
+            
+            List<FriendGroup> Groups = db.FriendGroup
+                .Include(g => g.Owner)
+                .Where(g => g.Owner.UserID == UserID)
+                .ToList();
+
+            List<FriendMap> FriendMap = db.FriendList
+                .Include(m => m.User)
+                .Include(m => m.Friend)
+                .Include(m => m.FriendGroup)
+                .Where(m => m.User.UserID == UserID)
+                .DistinctList()
+                .ToList();
+
+            
+            foreach (FriendGroup fg in Groups)
+            {                
+                foreach (FriendMap fm in FriendMap)
+                {
+                    if (fm.FriendGroup.GroupID == fg.GroupID)
+                    {
+                        foreach (Users f in Friends)
+                        {
+                            if (fm.Friend.UserID == f.UserID)
+                            {
+                                fg.Friends.Add(f);
+                            }
+                        }
+                    }
+                }                             
+            }
+
+            GroupFriendList GroupFriendList = new GroupFriendList();
+
+            foreach(FriendGroup g in Groups)
+            {
+                GroupFriendList.FriendGroups.Add(g);
+            }
+
+            return GroupFriendList;
+        }
+
+        /*
         public static List<Users> FriendList(this Users um, int UserID)
         {
             return db.FriendList
@@ -207,6 +263,7 @@ namespace vChat.Data
                 .Select(f => f.User)
                 .ToList();
         }
+        */
 
         #endregion
 
@@ -259,6 +316,30 @@ namespace vChat.Data
         public static List<Question> GetAll(this Question q)
         {
             return db.Question.ToList();
+        }
+
+        #endregion
+
+        #region FRIEND MAP EXTENSIONS METHDO
+
+        public static bool AddFriend(this Users um, Users User, Users Friend, FriendGroup Group)
+        {
+            db.FriendList.Add(new FriendMap{
+                    User = User,
+                    Friend = Friend,
+                    FriendGroup = Group
+                });
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (InvalidOperationException)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         #endregion

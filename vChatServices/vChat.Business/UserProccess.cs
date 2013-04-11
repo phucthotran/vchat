@@ -26,7 +26,7 @@ namespace vChat.Business
             return unc.Info(UserID);
         }
 
-        public List<Users> FriendList(int UserID)
+        public GroupFriendList FriendList(int UserID)
         {
             try
             {
@@ -42,6 +42,32 @@ namespace vChat.Business
             }
 
             return unc.FriendList(UserID);
+        }
+
+        public MethodInvokeResult AddFriend(int UserID, String FriendName, int GroupID)
+        {
+            try
+            {
+                ValidationController.Prepare();
+
+                FriendName.RequiredArgument("FriendName")
+                    .NotNull() //throw ArguemntNullException
+                    .Between(6, 45);
+                UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
+                GroupID.RequiredArgumentWithStruct("GroupID").BeginFrom(1);
+
+                ValidationController.Validate();
+            }
+            catch (ValidateException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
+            }
+            catch (ArgumentNullException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = ex.Message, Exception = new ExceptionInfo(ex) };
+            }
+
+            return unc.AddFriend(UserID, FriendName, GroupID);
         }
 
         public MethodInvokeResult Login(string Username, string Password)
@@ -212,12 +238,6 @@ namespace vChat.Business
             }
 
             return unc.GetNewestConversations(UserID);
-        }
-
-
-        public List<Conversation> ListSer(int ID)
-        {
-            return unc.ListSer(ID);
         }
     }
 }

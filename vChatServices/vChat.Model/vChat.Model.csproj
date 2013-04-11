@@ -47,6 +47,7 @@
     <Compile Include="Entities\FriendMap.cs" />
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\Users.cs" />
+    <Compile Include="GroupFriendList.cs" />
     <Compile Include="IDbModel.cs" />
     <Compile Include="MethodInvokeResult.cs" />
     <Compile Include="IUserService.cs" />
