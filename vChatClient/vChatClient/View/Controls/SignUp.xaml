@@ -1,0 +1,44 @@
+﻿<v:vChatController xmlns:el="clr-namespace:Elysium.Controls;assembly=Elysium"  x:Class="vChat.View.Controls.SignUp"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:v="clr-namespace:vChat.Templates"
+            mc:Ignorable="d" 
+            d:DesignHeight="297" d:DesignWidth="326">
+    <Grid Height="auto" Width="auto" Margin="0,0,0,0" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="150*" MaxWidth="250"  />
+        </Grid.ColumnDefinitions>
+        <Label Content="Tên tài khoản" Height="28" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Top" />
+        <Label Content="Mật khẩu" HorizontalAlignment="Left" Margin="0,0,0,0" Name="label2" Height="28" VerticalAlignment="Top" Grid.Row="1" />
+        <Label Content="Họ" Height="28" HorizontalAlignment="Left" Margin="0,0,0,0" Name="label3" VerticalAlignment="Top" Grid.Row="2" />
+        <Label Content="Tên" Height="28" HorizontalAlignment="Left" Margin="0,0,0,0" Name="label4" VerticalAlignment="Top" Grid.Row="3" />
+        <Label Content="Ngày sinh" Height="28" HorizontalAlignment="Left" Margin="0,0,0,0" Name="label5" VerticalAlignment="Top" Grid.Row="4" />
+        <TextBox Height="28" Name="tbUser" VerticalAlignment="Top" Grid.Column="1" LostFocus="tbUser_LostFocus" Margin="0,0,0,5" MinWidth="150" MaxWidth="250" />
+        <v:FieldWarner x:Name="UserWarner" Warning="False" Busy="False" Grid.Column="1" Margin="0,33,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
+        <TextBox Height="28" Margin="0,0,0,5" Name="tbPass" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" MinWidth="150" MaxWidth="250" />
+     <!--   <Label Content="" Name="lbPassWarning" Visibility="Collapsed" -->
+        <TextBox Height="28" Margin="0,0,0,5" Name="tbFname" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" MinWidth="150" MaxWidth="250" />
+        <TextBox Height="28" Margin="0,0,0,5" Name="tbLname" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" MinWidth="150" MaxWidth="250" />
+        <TextBox Height="28" Margin="0,0,0,5" Name="tbDob" VerticalAlignment="Top" Grid.Column="1" Grid.Row="4" MinWidth="150" MaxWidth="250" />
+        <StackPanel Orientation="Vertical" Grid.Row="5" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Đã có tài khoản?" Margin="10,0,0,0" Name="btLogin" Click="btLogin_Click" />
+                <Button Content="Đăng ký" Margin="10,0,0,0" Name="btSubmit" Click="btSubmit_Click" />
+                <el:ProgressRing Name="SubmitProgress" Visibility="Collapsed" State="Indeterminate" Width="30" Height="30" Margin="5,0,0,0"/>
+            </StackPanel>
+            <TextBlock Name="SubmitWarning" TextWrapping="WrapWithOverflow" Visibility="Collapsed" Margin="0,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</v:vChatController>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="465f5968-574c-460a-a5f8-bec889d91931" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:6566/vChat/UserService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UserService.xsd" MetadataType="Schema" ID="727fbb57-140e-4841-af7c-1c6b060619a3" SourceId="1" SourceUrl="http://localhost:6566/vChat/UserService.svc?xsd=xsd4" />
+    <MetadataFile FileName="UserService.wsdl" MetadataType="Wsdl" ID="4ec70848-8bb3-425b-89d4-9be57d08c20a" SourceId="1" SourceUrl="http://localhost:6566/vChat/UserService.svc?wsdl" />
+    <MetadataFile FileName="UserService1.xsd" MetadataType="Schema" ID="3a6747d8-5fc3-436d-a35e-fc6f7f0775f8" SourceId="1" SourceUrl="http://localhost:6566/vChat/UserService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UserService2.xsd" MetadataType="Schema" ID="8682f09c-1663-4fa7-8d3a-008567619186" SourceId="1" SourceUrl="http://localhost:6566/vChat/UserService.svc?xsd=xsd3" />
+    <MetadataFile FileName="UserService3.xsd" MetadataType="Schema" ID="c09f2b60-e343-4003-aacf-f1c14aa3eabb" SourceId="1" SourceUrl="http://localhost:6566/vChat/UserService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UserService4.xsd" MetadataType="Schema" ID="44360379-3528-433e-98d7-1869db12d1e6" SourceId="1" SourceUrl="http://localhost:6566/vChat/UserService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

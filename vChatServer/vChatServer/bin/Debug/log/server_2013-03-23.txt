@@ -1,0 +1,131 @@
+23/03/2013 08:01:26 - Server da khoi dong thanh cong.
+23/03/2013 08:01:42 - symaci(127.0.0.1:1567) da ket noi den server.
+23/03/2013 08:02:05 - testing(127.0.0.1:1570) da ket noi den server.
+23/03/2013 08:02:10 - testing(127.0.0.1:1570) da gui: Chat - a
+23/03/2013 08:02:42 - testing(127.0.0.1:1570) da gui: Chat - a
+23/03/2013 08:02:43 - testing(127.0.0.1:1570) da gui: Chat - a
+23/03/2013 08:03:09 - symaci(127.0.0.1:1567) da gui: Chat - 
+23/03/2013 08:03:21 - symaci(127.0.0.1:1567) da ngat ket noi.
+23/03/2013 08:06:15 - symaci(127.0.0.1:1573) da ket noi den server.
+23/03/2013 08:06:15 - testing(127.0.0.1:1570) da gui: Chat - a
+23/03/2013 08:06:37 - testing(127.0.0.1:1570) da gui: Chat - a
+23/03/2013 08:07:26 - symaci(127.0.0.1:1573) da ngat ket noi.
+23/03/2013 08:11:13 - testing(127.0.0.1:1570) da ngat ket noi.
+23/03/2013 08:13:33 - symaci(127.0.0.1:1576) da ket noi den server.
+23/03/2013 08:13:36 - testing(127.0.0.1:1579) da ket noi den server.
+23/03/2013 08:13:43 - testing(127.0.0.1:1579) da gui: Chat - zs
+23/03/2013 08:13:53 - testing(127.0.0.1:1579) da gui: Chat - zs
+23/03/2013 08:13:54 - testing(127.0.0.1:1579) da gui: Chat - zs
+23/03/2013 08:13:55 - symaci(127.0.0.1:1576) da gui: Chat - as
+23/03/2013 08:13:57 - symaci(127.0.0.1:1576) da gui: Chat - assaas
+23/03/2013 08:13:57 - testing(127.0.0.1:1579) da gui: Chat - zs
+23/03/2013 08:13:58 - testing(127.0.0.1:1579) da gui: Chat - zs
+23/03/2013 08:13:58 - testing(127.0.0.1:1579) da gui: Chat - zs
+23/03/2013 08:14:47 - testing(127.0.0.1:1579) da gui: Chat - zs
+sad
+23/03/2013 08:14:59 - testing(127.0.0.1:1579) da gui: Chat - zs
+sad
+23/03/2013 08:53:38 - testing(127.0.0.1:1579) da ngat ket noi.
+sting(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:11 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:12 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:12 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:13 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:13 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:13 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:13 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:13 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:13 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:14 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:14 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:14 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:14 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:14 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:14 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:15 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:15 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:15 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:15 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:15 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:15 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:16 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:16 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:16 - testing(127.0.0.1:1504) da gui: Chat - saf
+
+23/03/2013 05:56:28 - testing(127.0.0.1:1504) da ngat ket noi.
+23/03/2013 05:56:41 - symaci(127.0.0.1:1501) da ngat ket noi.
+23/03/2013 05:58:35 - symaci(127.0.0.1:1507) da ket noi den server.
+23/03/2013 05:58:52 - testing(127.0.0.1:1510) da ket noi den server.
+23/03/2013 05:59:03 - testing(127.0.0.1:1510) da gui: Chat - asd
+
+23/03/2013 05:59:18 - symaci(127.0.0.1:1507) da ngat ket noi.
+23/03/2013 06:00:26 - symaci(127.0.0.1:1514) da ket noi den server.
+23/03/2013 06:00:28 - testing(127.0.0.1:1510) da gui: Chat - asd
+
+23/03/2013 06:00:58 - testing(127.0.0.1:1510) da gui: Chat - asd
+
+23/03/2013 06:03:32 - testing(127.0.0.1:1510) da gui: Chat - asd
+
+23/03/2013 06:04:54 - symaci(127.0.0.1:1514) da ngat ket noi.
+23/03/2013 06:08:59 - symaci(127.0.0.1:1517) da ket noi den server.
+23/03/2013 06:09:01 - testing(127.0.0.1:1510) da gui: Chat - asd
+
+23/03/2013 06:09:11 - testing(127.0.0.1:1510) da gui: Chat - asd
+
+23/03/2013 06:11:02 - testing(127.0.0.1:1510) da gui: Chat - asd
+
+23/03/2013 06:16:42 - symaci(127.0.0.1:1517) da ngat ket noi.
+23/03/2013 06:23:47 - symaci(127.0.0.1:1521) da ket noi den server.
+23/03/2013 06:23:54 - testing(127.0.0.1:1510) da ngat ket noi.
+23/03/2013 06:24:07 - testing(127.0.0.1:1525) da ket noi den server.
+23/03/2013 06:24:13 - testing(127.0.0.1:1525) da gui: Chat - s
+23/03/2013 06:29:27 - symaci(127.0.0.1:1521) da ngat ket noi.
+23/03/2013 06:29:31 - testing(127.0.0.1:1525) da ngat ket noi.
+23/03/2013 07:11:10 - symaci(127.0.0.1:1528) da ket noi den server.
+23/03/2013 07:11:39 - testing(127.0.0.1:1531) da ket noi den server.
+23/03/2013 07:12:37 - testing(127.0.0.1:1531) da gui: Chat - as
+23/03/2013 07:12:46 - testing(127.0.0.1:1531) da gui: Chat - as
+23/03/2013 07:13:43 - symaci(127.0.0.1:1528) da ngat ket noi.
+23/03/2013 07:13:58 - symaci(127.0.0.1:1534) da ket noi den server.
+23/03/2013 07:14:02 - testing(127.0.0.1:1531) da gui: Chat - as
+23/03/2013 07:19:10 - symaci(127.0.0.1:1534) da ngat ket noi.
+23/03/2013 07:24:47 - symaci(127.0.0.1:1537) da ket noi den server.
+23/03/2013 07:24:48 - testing(127.0.0.1:1531) da gui: Chat - as
+23/03/2013 07:27:28 - symaci(127.0.0.1:1537) da ngat ket noi.
+23/03/2013 07:30:00 - symaci(127.0.0.1:1540) da ket noi den server.
+23/03/2013 07:30:01 - testing(127.0.0.1:1531) da gui: Chat - as
+23/03/2013 07:34:12 - symaci(127.0.0.1:1540) da ngat ket noi.
+23/03/2013 07:37:31 - symaci(127.0.0.1:1543) da ket noi den server.
+23/03/2013 07:37:32 - testing(127.0.0.1:1531) da gui: Chat - as
+23/03/2013 07:38:48 - symaci(127.0.0.1:1543) da ngat ket noi.
+23/03/2013 07:40:10 - symaci(127.0.0.1:1546) da ket noi den server.
+23/03/2013 07:40:11 - testing(127.0.0.1:1531) da gui: Chat - as
+23/03/2013 07:41:33 - symaci(127.0.0.1:1546) da ngat ket noi.
+23/03/2013 07:42:02 - testing(127.0.0.1:1531) da ngat ket noi.
+23/03/2013 07:42:13 - symaci(127.0.0.1:1549) da ket noi den server.
+23/03/2013 07:42:23 - testing(127.0.0.1:1552) da ket noi den server.
+23/03/2013 07:44:11 - symaci(127.0.0.1:1549) da ngat ket noi.
