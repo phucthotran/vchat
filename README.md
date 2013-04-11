@@ -1,4 +1,4 @@
-###### [Nhấn vào đây để xem rule](#nhng-iu-lu--)
+###### [Nhấn vào đây để xem rule](#nhng-iu-lu-)
 ###### [Yêu cầu hiện tại > click](TASK.md)
 
 ## Update Log
