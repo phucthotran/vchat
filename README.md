@@ -69,4 +69,5 @@
     1. `MainWindow` sẽ xử lý chính cho các UC được tạo
     2. Nếu cần truyền các tác vụ từ bên trong UC ra cho MainWindow xử lý thì ta tạo event và delegate method bên trong UC đó
     3. Code tham khảo như UC `Login` hay `SignUp`
+	
 --------------------------
