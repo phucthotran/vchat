@@ -37,8 +37,8 @@
 
 #### Update 17.03 5:00 PM
 - Thêm class `ObjectSerialize` (`vChat.Lib`) (sử dụng cho WCF Service)
-    - Để chuyển 1 đối tượng thành xml text: ```c# ObjectSerialize<TenClass>.ParseToXml(ClassDaKhoiTao)```;
-    - Để chuyển đổi từ xml text thành object: ```c# Users user = DoiTuongObjectSerialize.ParseToObject()```;
+    - Để chuyển 1 đối tượng thành xml text: `ObjectSerialize<TenClass>.ParseToXml(ClassDaKhoiTao)`;
+    - Để chuyển đổi từ xml text thành object: `c# Users user = DoiTuongObjectSerialize.ParseToObject()`;
 - Chỉnh sửa lại model (không ảnh hưởng đến csdl hiện tại)
 - Thêm một số method hỗ trợ cho việc load dữ liệu (chưa sử dụng được do chưa tạo trên WCF Service)
     - `List<Users> GetAll()`, `Conversation Get(Conversation ID)`, `List<Conversation> GetAll()`, `List<Question> GetAll()`
