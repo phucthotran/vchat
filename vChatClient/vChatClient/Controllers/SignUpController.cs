@@ -5,6 +5,7 @@ using System.Text;
 using vChatClient;
 using vChat.UserService;
 using System.Reflection;
+using vChat.Model;
 
 namespace vChat.Controllers
 {

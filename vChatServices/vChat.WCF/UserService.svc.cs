@@ -33,6 +33,19 @@ namespace vChat.WCF
         }
 
         /// <summary>
+        /// Find user by name
+        /// </summary>
+        /// <param name="Username">Username</param>
+        /// <returns>Return user info (Users object)</returns>
+        /// <example>
+        ///     Users u = FindName("itexplore");
+        /// </example>
+        public Users FindName(String Username)
+        {
+            return unc.FindName(Username);
+        }
+
+        /// <summary>
         /// Get friend list of user
         /// </summary>
         /// <param name="UserID">User ID</param>

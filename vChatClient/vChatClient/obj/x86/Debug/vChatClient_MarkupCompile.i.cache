@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\
 vChat
 none
 false
 DEBUG;TRACE
-D:\vChatProject\vChatClient\vChatClient\App.xaml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\App.xaml
 5-512158985
 
-13327532243
-201851084058
+13502360256
+24-146453994
 Templates\FieldWarner.xaml;Themes\Generic.xaml;View\Controls\Login.xaml;View\Controls\SignUp.xaml;View\Windows\MainWindow.xaml;
 
-True
+False
 

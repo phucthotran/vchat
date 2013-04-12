@@ -14,6 +14,10 @@ using vChat.View.Controls;
 using System.IO;
 using Elysium;
 using vChatClient;
+using FriendList;
+using vChat.Model.Entities;
+using vChat.Model;
+using AddFriend;
 
 namespace vChat.View.Windows
 {
@@ -27,9 +31,55 @@ namespace vChat.View.Windows
             InitializeComponent();
         }
 
+        private int UserID;
+
         private void Login_OnLoginSuccess(string userLogged)
         {
-            MessageBox.Show("ok");
+            Grid.Children.Clear();
+
+            Users u = App.UserService.FindName(userLogged);
+            UserID = u.UserID;
+            GroupFriendList f = App.UserService.FriendList(u.UserID);
+
+            AddFriendModule addFriendModule = new AddFriendModule();
+            addFriendModule.SetupData(f.FriendGroups);
+            addFriendModule.OnAddingFriend += new AddFriendModule.AddingFriend(addFriendModule_OnAddingFriend);
+
+            FriendListModule friendListModule = new FriendListModule();
+            friendListModule.SetupData(f);
+            friendListModule.OnFriendItemClick += new FriendListModule.FriendItems(friendListModule_OnFriendItemClick);
+            friendListModule.OnGroupItemClick += new FriendListModule.GroupItems(friendListModule_OnGroupItemClick);
+
+            StackPanel Container = new StackPanel();
+            Container.Children.Add(friendListModule);
+            Container.Children.Add(addFriendModule);
+
+            Grid.Children.Add(Container);
+        }
+
+        private void friendListModule_OnGroupItemClick(GroupInfo e)
+        {
+            MessageBox.Show(String.Format("ID: {0}, Name: {1}", e.ID, e.Name));
+        }
+
+        void addFriendModule_OnAddingFriend(AddedInfo e)
+        {
+            //Users u = App.UserService.FindName(e.Value);
+            //MethodInvokeResult result = App.UserService.AddFriend(UserID, e.Value, e.Group.GroupID);
+
+            //if (result.Status == MethodInvokeResult.RESULT.SUCCESS)
+            //{
+            //    MessageBox.Show(result.Message);
+            //}
+            //else
+            //{
+            //    MessageBox.Show(result.Message);
+            //}
+        }
+
+        private void friendListModule_OnFriendItemClick(FriendInfo e)
+        {
+            MessageBox.Show(String.Format("ID: {0}, Name: {1}", e.ID, e.Name));
         }
 
         private void Login_OnLoginFailed()

@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="AddFriend.AddFriendModule"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" MinHeight="95" MinWidth="310">
+    <Grid>
+        <StackPanel>
+            <TextBlock>Your friend's account name</TextBlock>
+            <TextBox Name="txtFriendName"></TextBox>
+            <TextBlock>Select group</TextBlock>
+            <ComboBox Name="lstFriend"></ComboBox>
+            <Button Name="btnAdd" Click="btnAdd_Click">Add Friend</Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

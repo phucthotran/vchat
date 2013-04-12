@@ -202,51 +202,35 @@ namespace vChat.Data
         }
 
         public static GroupFriendList FriendList(this Users um, int UserID)
-        {
-            List<Users> Friends = db.FriendList
-                .Include(f => f.User)
-                .Where(f => f.Friend.UserID == UserID)
-                .DistinctList()
-                .Select(f => f.User)
-                .ToList();
-            
+        {            
             List<FriendGroup> Groups = db.FriendGroup
                 .Include(g => g.Owner)
                 .Where(g => g.Owner.UserID == UserID)
-                .ToList();
+                //.ToList()
+                .DistinctList();
 
             List<FriendMap> FriendMap = db.FriendList
                 .Include(m => m.User)
                 .Include(m => m.Friend)
                 .Include(m => m.FriendGroup)
                 .Where(m => m.User.UserID == UserID)
-                .DistinctList()
-                .ToList();
+                //.ToList()
+                .DistinctList();
 
-            
-            foreach (FriendGroup fg in Groups)
-            {                
-                foreach (FriendMap fm in FriendMap)
+            foreach (FriendGroup Group in Groups)
+            {
+                List<FriendMap> FriendMapFiltered = FriendMap.Where(fm => fm.FriendGroup.GroupID == Group.GroupID).ToList();
+                List<Users> MyFriends = FriendMapFiltered.Select(mf => mf.Friend).ToList();
+
+                foreach(Users friend in MyFriends)
                 {
-                    if (fm.FriendGroup.GroupID == fg.GroupID)
-                    {
-                        foreach (Users f in Friends)
-                        {
-                            if (fm.Friend.UserID == f.UserID)
-                            {
-                                fg.Friends.Add(f);
-                            }
-                        }
-                    }
-                }                             
+                    if(!Group.Friends.Contains(friend))
+                        Group.Friends.Add(friend);
+                }
             }
 
             GroupFriendList GroupFriendList = new GroupFriendList();
-
-            foreach(FriendGroup g in Groups)
-            {
-                GroupFriendList.FriendGroups.Add(g);
-            }
+            GroupFriendList.FriendGroups.AddRange(Groups);
 
             return GroupFriendList;
         }
@@ -290,9 +274,9 @@ namespace vChat.Data
             return db.Conversation
                 .Include(c => c.SentBy)
                 .Include(c => c.SendTo)
-                .Where(c => c.SentBy.UserID == UserID || c.SendTo.UserID == UserID)
-                .DistinctList()
-                .ToList();
+                .Where(c => c.SentBy.UserID == UserID || c.SendTo.UserID == UserID)                
+                //.ToList()
+                .DistinctList();
         }
 
         public static List<Conversation> GetNewestConversations(this Conversation conv, int UserID)

@@ -15,3 +15,4 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vCh
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\vChat.Data.csproj.GenerateResource.Cache
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\vChat.Data.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\vChat.Data.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.EditFriendMap.resources

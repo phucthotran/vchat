@@ -5,8 +5,11 @@
       <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd2" namespace="http://vchat/entities/Users" />
-      <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/vChat.Model" />
-      <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd4" namespace="http://vchat/entities/Conversation" />
+      <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd3" namespace="http://vchat/GroupFriendList" />
+      <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd4" namespace="http://vchat/entities/FriendGroup" />
+      <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/vChat.Model" />
+      <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd7" namespace="http://vchat/entities/Conversation" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUserService_Info_InputMessage">
@@ -15,11 +18,23 @@
   <wsdl:message name="IUserService_Info_OutputMessage">
     <wsdl:part name="parameters" element="tns:InfoResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_FindName_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindName" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_FindName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindNameResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_FriendList_InputMessage">
     <wsdl:part name="parameters" element="tns:FriendList" />
   </wsdl:message>
   <wsdl:message name="IUserService_FriendList_OutputMessage">
     <wsdl:part name="parameters" element="tns:FriendListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddFriend_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriend" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddFriend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriendResponse" />
   </wsdl:message>
   <wsdl:message name="IUserService_Login_InputMessage">
     <wsdl:part name="parameters" element="tns:Login" />
@@ -69,20 +84,22 @@
   <wsdl:message name="IUserService_GetNewestConversations_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetNewestConversationsResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserService_ListSer_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListSer" />
-  </wsdl:message>
-  <wsdl:message name="IUserService_ListSer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListSerResponse" />
-  </wsdl:message>
   <wsdl:portType name="IUserService">
     <wsdl:operation name="Info">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/Info" message="tns:IUserService_Info_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/InfoResponse" message="tns:IUserService_Info_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="FindName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/FindName" message="tns:IUserService_FindName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/FindNameResponse" message="tns:IUserService_FindName_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="FriendList">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/FriendList" message="tns:IUserService_FriendList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/FriendListResponse" message="tns:IUserService_FriendList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFriend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/AddFriend" message="tns:IUserService_AddFriend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/AddFriendResponse" message="tns:IUserService_AddFriend_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/Login" message="tns:IUserService_Login_InputMessage" />
@@ -116,10 +133,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetNewestConversations" message="tns:IUserService_GetNewestConversations_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetNewestConversationsResponse" message="tns:IUserService_GetNewestConversations_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ListSer">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/ListSer" message="tns:IUserService_ListSer_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/ListSerResponse" message="tns:IUserService_ListSer_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUserService" type="tns:IUserService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -132,8 +145,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="FindName">
+      <soap:operation soapAction="http://tempuri.org/IUserService/FindName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="FriendList">
       <soap:operation soapAction="http://tempuri.org/IUserService/FriendList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFriend">
+      <soap:operation soapAction="http://tempuri.org/IUserService/AddFriend" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -206,15 +237,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetNewestConversations">
       <soap:operation soapAction="http://tempuri.org/IUserService/GetNewestConversations" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ListSer">
-      <soap:operation soapAction="http://tempuri.org/IUserService/ListSer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

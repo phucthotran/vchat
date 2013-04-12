@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AddFriend">
+      <HintPath>..\..\vChatModule\AddFriend\bin\Debug\AddFriend.dll</HintPath>
+    </Reference>
     <Reference Include="Core.Client">
       <HintPath>..\..\Core\Core.Client\bin\Debug\Core.Client.dll</HintPath>
     </Reference>
@@ -52,6 +55,12 @@
     <Reference Include="Extension">
       <HintPath>..\..\Core\Core.Client\bin\Debug\Extension.dll</HintPath>
     </Reference>
+    <Reference Include="FriendList">
+      <HintPath>..\..\vChatModule\FriendList\bin\Debug\FriendList.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Windows.Shell">
+      <HintPath>..\..\DllsReference\Elysium\Microsoft.Windows.Shell.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -64,6 +73,10 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="vChat.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vChatServices\vChat.Model\bin\Debug\vChat.Model.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -120,6 +133,10 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\vChat.Model.Entities.Conversation.datasource" />
+    <None Include="Properties\DataSources\vChat.Model.Entities.Users.datasource" />
+    <None Include="Properties\DataSources\vChat.Model.GroupFriendList.datasource" />
+    <None Include="Properties\DataSources\vChat.Model.MethodInvokeResult.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -141,14 +158,14 @@
     <None Include="Service References\UserService\UserService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserService\vChat.UserService.Conversation.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Service References\UserService\UserService5.xsd">
+      <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserService\vChat.UserService.MethodInvokeResult.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Service References\UserService\UserService51.xsd">
+      <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserService\vChat.UserService.Users.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Service References\UserService\UserService52.xsd">
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup />

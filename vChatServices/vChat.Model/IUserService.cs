@@ -13,6 +13,9 @@ namespace vChat.Model
         Users Info(int UserID);
 
         [OperationContract]
+        Users FindName(String Username);
+
+        [OperationContract]
         GroupFriendList FriendList(int UserID);
 
         [OperationContract]
