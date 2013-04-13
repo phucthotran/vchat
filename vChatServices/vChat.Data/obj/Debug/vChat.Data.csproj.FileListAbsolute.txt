@@ -15,3 +15,22 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vCh
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\vChat.Data.csproj.GenerateResource.Cache
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\vChat.Data.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\vChat.Data.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.EditFriendMap.resources
+D:\vChatProject\vChatServices\vChat.Data\bin\Debug\vChat.Data.dll.config
+D:\vChatProject\vChatServices\vChat.Data\bin\Debug\vChat.Data.dll
+D:\vChatProject\vChatServices\vChat.Data\bin\Debug\vChat.Data.pdb
+D:\vChatProject\vChatServices\vChat.Data\bin\Debug\EntityFramework.dll
+D:\vChatProject\vChatServices\vChat.Data\bin\Debug\vChat.Lib.dll
+D:\vChatProject\vChatServices\vChat.Data\bin\Debug\vChat.Model.dll
+D:\vChatProject\vChatServices\vChat.Data\bin\Debug\vChat.Lib.pdb
+D:\vChatProject\vChatServices\vChat.Data\bin\Debug\vChat.Model.pdb
+D:\vChatProject\vChatServices\vChat.Data\bin\Debug\EntityFramework.xml
+D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.csprojResolveAssemblyReference.cache
+D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.Init.resources
+D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.UpdateFriendMapMapping.resources
+D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.UpdateMappingForUserAndFriendMap.resources
+D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.EditSomeTable.resources
+D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.EditFriendMap.resources
+D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.csproj.GenerateResource.Cache
+D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.dll
+D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.pdb

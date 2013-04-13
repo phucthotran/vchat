@@ -10,10 +10,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using vChat.View.Controls;
 using System.IO;
 using Elysium;
 using vChatClient;
+using FriendList;
+using vChat.Model.Entities;
+using vChat.Model;
+using AddFriend;
+using vChat.Module.Login;
+using vChat.Module.SignUp;
 
 namespace vChat.View.Windows
 {
@@ -22,14 +27,73 @@ namespace vChat.View.Windows
     /// </summary>
     public partial class MainWindow : Elysium.Controls.Window
     {
+        Login _loginModule;
+        SignUp _signUpModule;
         public MainWindow()
         {
             InitializeComponent();
+            InitLoginModule();
         }
+
+        private void InitLoginModule()
+        {
+            _loginModule = Grid.LoadModule<Login>();
+            _loginModule.OnLoginSuccess += new Login.LoginSuccessHandler(Login_OnLoginSuccess);
+            _loginModule.OnLoginFailed += new Login.LoginFailedHandler(Login_OnLoginFailed);
+            _loginModule.OnSignUpClicked += new Login.SignUpClickHandler(Login_OnSignUpClicked);
+        }
+
+        private int UserID;
 
         private void Login_OnLoginSuccess(string userLogged)
         {
-            MessageBox.Show("ok");
+            /*
+            Grid.Children.Clear();
+
+            Users u = ((UserServiceClient)App.Current.FindResource("UserServiceClient")).FindName(userLogged);
+            UserID = u.UserID;
+            GroupFriendList f = ((UserServiceClient)App.Current.FindResource("UserServiceClient")).FriendList(u.UserID);
+
+            AddFriendModule addFriendModule = new AddFriendModule();
+            addFriendModule.SetupData(f.FriendGroups);
+            addFriendModule.OnAddingFriend += new AddFriendModule.AddingFriend(addFriendModule_OnAddingFriend);
+
+            FriendListModule friendListModule = new FriendListModule();
+            friendListModule.SetupData(f);
+            friendListModule.OnFriendItemClick += new FriendListModule.FriendItems(friendListModule_OnFriendItemClick);
+            friendListModule.OnGroupItemClick += new FriendListModule.GroupItems(friendListModule_OnGroupItemClick);
+
+            StackPanel Container = new StackPanel();
+            Container.Children.Add(friendListModule);
+            Container.Children.Add(addFriendModule);
+
+            Grid.Children.Add(Container);
+            */
+        }
+
+        private void friendListModule_OnGroupItemClick(GroupInfo e)
+        {
+            MessageBox.Show(String.Format("ID: {0}, Name: {1}", e.ID, e.Name));
+        }
+
+        void addFriendModule_OnAddingFriend(AddedInfo e)
+        {
+            //Users u = App.UserService.FindName(e.Value);
+            //MethodInvokeResult result = App.UserService.AddFriend(UserID, e.Value, e.Group.GroupID);
+
+            //if (result.Status == MethodInvokeResult.RESULT.SUCCESS)
+            //{
+            //    MessageBox.Show(result.Message);
+            //}
+            //else
+            //{
+            //    MessageBox.Show(result.Message);
+            //}
+        }
+
+        private void friendListModule_OnFriendItemClick(FriendInfo e)
+        {
+            MessageBox.Show(String.Format("ID: {0}, Name: {1}", e.ID, e.Name));
         }
 
         private void Login_OnLoginFailed()
@@ -39,14 +103,11 @@ namespace vChat.View.Windows
 
         private void Login_OnSignUpClicked()
         {
-            Grid.Children.Remove(LoginUC);
-            SignUp signUpUC = new SignUp();
-            signUpUC.OnSignUpSuccess += new SignUp.SignUpSuccessHandler(delegate
+            _signUpModule = Grid.LoadModule<SignUp>();
+            _signUpModule.OnSignUpSuccess += new SignUp.SignUpSuccessHandler(delegate
             {
-                Grid.Children.Remove(signUpUC);
-                Grid.Children.Add(LoginUC);
+                InitLoginModule();
             });
-            Grid.Children.Add(signUpUC);
         }
 
         private static readonly string Windows = Environment.GetFolderPath(Environment.SpecialFolder.Windows);

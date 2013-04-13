@@ -1,0 +1,22 @@
+c:\users\itexplore\documents\visual studio 2010\Projects\vChatModule\TestModule\bin\Debug\TestModule.exe
+c:\users\itexplore\documents\visual studio 2010\Projects\vChatModule\TestModule\bin\Debug\TestModule.pdb
+c:\users\itexplore\documents\visual studio 2010\Projects\vChatModule\TestModule\obj\x86\Debug\MainWindow.baml
+c:\users\itexplore\documents\visual studio 2010\Projects\vChatModule\TestModule\obj\x86\Debug\MainWindow.g.cs
+c:\users\itexplore\documents\visual studio 2010\Projects\vChatModule\TestModule\obj\x86\Debug\App.g.cs
+c:\users\itexplore\documents\visual studio 2010\Projects\vChatModule\TestModule\obj\x86\Debug\TestModule_MarkupCompile.cache
+c:\users\itexplore\documents\visual studio 2010\Projects\vChatModule\TestModule\obj\x86\Debug\TestModule.g.resources
+c:\users\itexplore\documents\visual studio 2010\Projects\vChatModule\TestModule\obj\x86\Debug\TestModule.Properties.Resources.resources
+c:\users\itexplore\documents\visual studio 2010\Projects\vChatModule\TestModule\obj\x86\Debug\TestModule.csproj.GenerateResource.Cache
+c:\users\itexplore\documents\visual studio 2010\Projects\vChatModule\TestModule\obj\x86\Debug\TestModule.exe
+c:\users\itexplore\documents\visual studio 2010\Projects\vChatModule\TestModule\obj\x86\Debug\TestModule.pdb
+c:\users\itexplore\documents\visual studio 2010\Projects\vChatModule\TestModule\bin\Debug\AddFriend.dll
+c:\users\itexplore\documents\visual studio 2010\Projects\vChatModule\TestModule\bin\Debug\AddFriend.pdb
+c:\users\itexplore\documents\visual studio 2010\Projects\vChatModule\TestModule\obj\x86\Debug\TestModule.csprojResolveAssemblyReference.cache
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChatModule\TestModule\bin\Debug\FriendList.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChatModule\TestModule\bin\Debug\FriendList.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChatModule\TestModule\bin\Debug\vChat.Model.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChatModule\TestModule\bin\Debug\vChat.Model.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatModule\TestModule\obj\x86\Debug\TestModule.exe
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatModule\TestModule\obj\x86\Debug\TestModule.pdb
+D:\vChatProject\vChatModule\TestModule\obj\x86\Debug\TestModule.exe
+D:\vChatProject\vChatModule\TestModule\obj\x86\Debug\TestModule.pdb

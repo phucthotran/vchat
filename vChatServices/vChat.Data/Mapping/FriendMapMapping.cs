@@ -15,7 +15,7 @@ namespace vChat.Data.Mapping
             //HasRequired(f => f.User).WithMany(u => u.FriendsFake).WillCascadeOnDelete(false);
             //HasRequired(f => f.Friend).WithMany(u => u.Friends).WillCascadeOnDelete(false);
             Property(f => f.RowVersion).IsRowVersion();
-            HasOptional(f => f.FriendGroup).WithOptionalDependent();
+            //HasOptional(f => f.FriendGroup).WithOptionalDependent();
 
             HasKey(f => f.FriendMapID);
         }

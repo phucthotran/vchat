@@ -1,0 +1,14 @@
+D:\vChatProject\vChatClient\vChat.Control\bin\Debug\Elysium.dll
+D:\vChatProject\vChatClient\vChat.Control\bin\Debug\Elysium.Notifications.dll
+D:\vChatProject\vChatClient\vChat.Control\bin\Debug\Microsoft.Expression.Drawing.dll
+D:\vChatProject\vChatClient\vChat.Control\bin\Debug\Microsoft.Windows.Shell.dll
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\FieldWarner.baml
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\FieldWarner.g.cs
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.Control.Properties.Resources.resources
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.Control.csproj.GenerateResource.Cache
+D:\vChatProject\vChatClient\vChat.Control\bin\Debug\vChat.dll
+D:\vChatProject\vChatClient\vChat.Control\bin\Debug\vChat.pdb
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat_MarkupCompile.cache
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.g.resources
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.dll
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.pdb

@@ -18,6 +18,26 @@ namespace vChat.Business
             unc = new Data.UserProccess();            
         }
 
+        public Users FindName(String Username)
+        {
+            try
+            {
+                ValidationController.Prepare();
+
+                Username.RequiredArgument("Username")
+                    .NotNull() //throw ArgumentNullExption
+                    .Between(6, 45);
+
+                ValidationController.Validate();
+            }
+            catch (ValidateException)
+            {
+                return null;
+            }
+
+            return unc.FindName(Username);
+        }
+
         public Users Info(int UserID)
         {
             if (UserID == 0)

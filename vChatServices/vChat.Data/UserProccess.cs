@@ -26,6 +26,11 @@ namespace vChat.Data
             return UserTask.Get(UserID);
         }
 
+        public Users FindName(String Username)
+        {
+            return UserTask.GetByName(Username);
+        }
+
         public GroupFriendList FriendList(int UserID)
         {
             return UserTask.FriendList(UserID);

@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AddFriend">
+      <HintPath>..\..\vChatModule\AddFriend\bin\Debug\AddFriend.dll</HintPath>
+    </Reference>
     <Reference Include="Core.Client">
       <HintPath>..\..\Core\Core.Client\bin\Debug\Core.Client.dll</HintPath>
     </Reference>
@@ -52,6 +55,12 @@
     <Reference Include="Extension">
       <HintPath>..\..\Core\Core.Client\bin\Debug\Extension.dll</HintPath>
     </Reference>
+    <Reference Include="FriendList">
+      <HintPath>..\..\vChatModule\FriendList\bin\Debug\FriendList.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Windows.Shell">
+      <HintPath>..\..\DllsReference\Elysium\Microsoft.Windows.Shell.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -65,6 +74,10 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="vChat.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vChatServices\vChat.Model\bin\Debug\vChat.Model.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -77,23 +90,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\SignUpController.cs" />
-    <Compile Include="Service References\UserService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\vChatController.cs" />
-    <Compile Include="Templates\FieldWarner.xaml.cs">
-      <DependentUpon>FieldWarner.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Controls\SignUp.xaml.cs">
-      <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -120,54 +116,30 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\vChat.Model.Entities.Conversation.datasource" />
+    <None Include="Properties\DataSources\vChat.Model.Entities.Users.datasource" />
+    <None Include="Properties\DataSources\vChat.Model.GroupFriendList.datasource" />
+    <None Include="Properties\DataSources\vChat.Model.MethodInvokeResult.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\UserService\UserService.wsdl" />
-    <None Include="Service References\UserService\UserService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\vChat.UserService.Conversation.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\UserService\vChat.UserService.MethodInvokeResult.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\UserService\vChat.UserService.Users.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Page Include="Templates\FieldWarner.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <ProjectReference Include="..\vChat.Module\vChat.Module.csproj">
+      <Project>{E55ADFE3-FACE-4C05-AEE1-F72BC852E4A0}</Project>
+      <Name>vChat.Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\vChat.Service\vChat.Service.csproj">
+      <Project>{23FBACBC-BD35-438A-8BCF-6823D9454099}</Project>
+      <Name>vChat.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\Controls\Login.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Controls\SignUp.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Windows\MainWindow.xaml">
       <SubType>Designer</SubType>
@@ -176,21 +148,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\UserService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UserService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UserService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UserService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

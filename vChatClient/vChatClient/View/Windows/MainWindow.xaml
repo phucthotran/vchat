@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:metro="http://schemas.codeplex.com/elysium"
         xmlns:params="http://schemas.codeplex.com/elysium/params"
-        xmlns:local="clr-namespace:vChat.View.Controls"
         Title="" Height="300" Width="300">
     <metro:Window.ApplicationBar>
         <metro:ApplicationBar>
@@ -165,7 +164,5 @@
             </metro:DropDownCommandButton>
         </metro:ApplicationBar>
     </metro:Window.ApplicationBar>
-    <Grid Name="Grid">
-        <local:Login x:Name="LoginUC" OnLoginSuccess="Login_OnLoginSuccess" OnLoginFailed="Login_OnLoginFailed" OnSignUpClicked="Login_OnSignUpClicked" Margin="49,12,51,23" />
-    </Grid>
+    <Grid Name="Grid"></Grid>
 </metro:Window>

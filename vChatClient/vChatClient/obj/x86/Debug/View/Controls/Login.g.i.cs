@@ -30,7 +30,7 @@ using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Shell;
-using vChat.Templates;
+using vChat.Control;
 
 
 namespace vChat.View.Controls {
@@ -39,7 +39,7 @@ namespace vChat.View.Controls {
     /// <summary>
     /// Login
     /// </summary>
-    public partial class Login : vChat.Templates.vChatController, System.Windows.Markup.IComponentConnector {
+    public partial class Login : vChat.Control.vChatController, System.Windows.Markup.IComponentConnector {
         
         
         #line 10 "..\..\..\..\..\View\Controls\Login.xaml"

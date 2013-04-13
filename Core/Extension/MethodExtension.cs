@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Windows.Forms;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace System
 {
@@ -50,42 +50,41 @@ namespace System
         {
             return Convert.ToInt32(s);
         }
-/*
-        public static void Add(this Window wd, Control item, List<Control> list, bool beingChild)
-        {
-            if (beingChild)
-                wd.Controls.Add(item);
-            list.Add(item);
-        }
-        */
-        public static void InvokeEx<T>(this T @this, Action<T> action)
-          where T : Control
-        {
-            if (@this.InvokeRequired)
-            {
-                @this.Invoke(action, new object[] { @this });
-            }
-            else
-            {
-                if (!@this.IsHandleCreated)
-                    return;
-                if (@this.IsDisposed)
-                    throw new ObjectDisposedException("@this is disposed.");
 
-                action(@this);
+        public static T LoadModule<T>(this Panel panel)
+        {
+            try
+            {
+                object moduleInstance = Activator.CreateInstance(typeof(T));
+                panel.Children.Clear();
+                panel.Children.Add((UIElement)moduleInstance);
+                return (T)moduleInstance;
+            }
+            catch
+            {
+                throw new ModuleCannotInitException(typeof(T));
             }
         }
 
-        public static IAsyncResult BeginInvokeEx<T>(this T @this, Action<T> action)
-          where T : Control
+        public static T Get<T>(this UserControl uc)
         {
-            return @this.BeginInvoke((Action)delegate { @this.InvokeEx(action); });
+            return (T)Application.Current.FindResource(typeof(T).Name);
         }
+    }
 
-        public static void EndInvokeEx<T>(this T @this, IAsyncResult result)
-          where T : Control
+    public class ModuleCannotInitException : Exception
+    {
+        public string ModuleName { get; set; }
+        public override string Message
         {
-            @this.EndInvoke(result);
+            get
+            {
+                return String.Format("Không thể khởi tạo module <{0}>.", ModuleName); 
+            }
+        }
+        public ModuleCannotInitException(Type module)
+        {
+            this.ModuleName = module.FullName;
         }
     }
 }
