@@ -6,7 +6,7 @@
 #### Update 14.04 1:38 PM
 - Sửa **Assembly Name** của project `vChat.Control` từ **vChat** thành **vChat.Control**
 - Xoá menu context của MainWindow
-- Thêm thẻ **<runtime>** trong `app.config` nhằm mục đích có thể load được những file dll cần thiết trong các thư mục con: bin;bin\client;bin\core
+- Thêm thẻ **\<runtime>** trong `app.config` nhằm mục đích có thể load được những file dll cần thiết trong các thư mục con: bin;bin\client;bin\core
 
 #### Update 14.04 5:50 AM
 - Tái tổ chức hệ thống module (xem [rule mới](#nhng-iu-lu-))
