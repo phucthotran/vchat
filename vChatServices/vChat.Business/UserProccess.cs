@@ -120,6 +120,36 @@ namespace vChat.Business
             return unc.Login(Username, MD5Encrypt.Hash(Password));
         }
 
+        public MethodInvokeResult LoginHash(string Username, string Password)
+        {
+            try
+            {
+                ValidationController.Prepare();
+
+                Username.RequiredArgument("Username")
+                    .NotNull() //throw ArguemntNullException
+                    .Between(6, 45);
+
+                Password.RequiredArgument("Password").NotNull().Between(8, 45);
+
+                ValidationController.Validate();
+            }
+            catch (ValidateException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
+            }
+            catch (ArgumentNullException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = ex.Message, Exception = new ExceptionInfo(ex) };
+            }
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            }
+
+            return unc.LoginHash(Username, Password);
+        }
+
         public MethodInvokeResult Signup(string Username, string Password, string FirstName, string LastName, int QuestionID, string Answer, DateTime Birthdate)
         {
             try

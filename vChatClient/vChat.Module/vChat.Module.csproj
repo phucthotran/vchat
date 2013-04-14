@@ -50,7 +50,11 @@
     <Reference Include="Extension">
       <HintPath>..\..\Core\Core.Client\bin\Debug\Extension.dll</HintPath>
     </Reference>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\..\DllsReference\MahApps\MahApps.Metro.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -61,6 +65,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="vChat.Lib">
+      <HintPath>..\..\vChatServices\vChat.Lib\bin\Debug\vChat.Lib.dll</HintPath>
     </Reference>
     <Reference Include="vChat.Model">
       <HintPath>..\..\vChatServices\vChat.Model\bin\Debug\vChat.Model.dll</HintPath>

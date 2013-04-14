@@ -1,19 +1,31 @@
-﻿<UserControl xmlns:metro="clr-namespace:Elysium.Controls;assembly=Elysium"  x:Class="vChat.Module.Login.Login"
+﻿<UserControl xmlns:el="clr-namespace:Elysium.Controls;assembly=Elysium"  x:Class="vChat.Module.Login.Login"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:v="clr-namespace:vChat.Control;assembly=vChat.Control"
-             
+             xmlns:ma="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              mc:Ignorable="d" xmlns:my="http://metro.mahapps.com/winfx/xaml/controls" d:DesignHeight="277" d:DesignWidth="257">
-    <Grid Height="auto" Width="auto">
-        <TextBox Height="26" HorizontalAlignment="Left" Margin="29,32,0,0" Name="tbUser" VerticalAlignment="Top" Width="133" />
-        <TextBox Height="27" HorizontalAlignment="Left" Margin="29,96,0,0" Name="tbPass" VerticalAlignment="Top" Width="133" />
-        <Button Content="Đăng nhập" HorizontalAlignment="Left" Margin="12,181,0,0" Name="btSubmit" VerticalAlignment="Top" Click="btSubmit_Click" />
-        <metro:ToggleSwitch HorizontalAlignment="Left" Margin="0,155,0,0" Name="blRemember" VerticalAlignment="Top" Width="147" OnHeader="Bật" OffHeader="Tắt" Height="20" />
-        <Label Content="Tài khoản" Height="auto" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Top" Width="Auto" />
-        <Label Content="Mật khẩu" Height="auto" HorizontalAlignment="Left" Margin="0,64,0,0" Name="label2" VerticalAlignment="Top" />
-        <Button Content="Đăng ký" HorizontalAlignment="Left" Margin="99,181,0,0" Name="btSignUp" VerticalAlignment="Top" Click="btSignUp_Click" />
-        <Label Content="Ghi nhớ tài khoản" Height="28" HorizontalAlignment="Left" Margin="0,129,0,0" Name="label3" VerticalAlignment="Top" />
+    <Grid Width="200" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBox Height="26" HorizontalAlignment="Left" Margin="30,0,0,0" Name="tbUser" VerticalAlignment="Top" Width="150" Grid.Row="1" />
+        <PasswordBox Height="27" HorizontalAlignment="Left" Margin="30,0,0,0" Name="tbPass" VerticalAlignment="Top" Width="150" Grid.Row="3" />
+        <ma:ToggleSwitch HorizontalAlignment="Left" Margin="30,-10,0,0" Name="Remember" VerticalAlignment="Top" Width="150" OnLabel="Bật" OffLabel="Tắt" Grid.Row="5" />
+        <Label Content="Tài khoản" Height="auto" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Top" Width="Auto" Grid.Row="0"/>
+        <Label Content="Mật khẩu" Height="auto" HorizontalAlignment="Left" Margin="0,1,0,0" Name="label2" VerticalAlignment="Top" Grid.Row="2" />
+        <StackPanel Orientation="Horizontal" Grid.Row="6" HorizontalAlignment="Center">
+            <Button Content="Đăng nhập" HorizontalAlignment="Left" Margin="0,0,0,0" Name="btSubmit" VerticalAlignment="Top" Click="btSubmit_Click" />
+            <Button Content="Đăng ký" HorizontalAlignment="Left" Margin="10,0,0,0" Name="btSignUp" VerticalAlignment="Top" Click="btSignUp_Click" />
+        </StackPanel>
+        <Label Content="Ghi nhớ tài khoản" Height="28" HorizontalAlignment="Left" Margin="0,0,0,0" Name="label3" VerticalAlignment="Top" Grid.Row="4" />
     </Grid>
 </UserControl>

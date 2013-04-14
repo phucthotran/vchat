@@ -1,8 +1,33 @@
-﻿<metro:Window x:Class="vChat.View.Windows.MainWindow"
+﻿<ma:MetroWindow x:Class="vChat.View.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:metro="http://schemas.codeplex.com/elysium"
+        xmlns:el="http://schemas.codeplex.com/elysium"
         xmlns:params="http://schemas.codeplex.com/elysium/params"
+        xmlns:ma="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="" Height="300" Width="300">
-    <Grid Name="Grid"></Grid>
-</metro:Window>
+    <Window.Resources>
+    <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/FlatButton.xaml" />
+        </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+    </Window.Resources>
+    <ma:MetroWindow.WindowCommands>
+        <ma:WindowCommands>
+            <Button Name="LogOut" Content="Đăng xuất" Click="LogOut_Click" />
+        </ma:WindowCommands>
+    </ma:MetroWindow.WindowCommands>
+    <Grid Name="Grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Name="TopPanel" Grid.Row="0" />
+        <StackPanel Name="BottomPanel" Grid.Row="1" />
+    </Grid>
+</ma:MetroWindow>

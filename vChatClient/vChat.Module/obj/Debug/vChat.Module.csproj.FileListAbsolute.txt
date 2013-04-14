@@ -68,3 +68,7 @@ D:\vChatProject\vChatClient\vChat.Module\bin\Debug\vChat.Model.dll
 D:\vChatProject\vChatClient\vChat.Module\bin\Debug\vChat.Control.pdb
 D:\vChatProject\vChatClient\vChat.Module\bin\Debug\vChat.Model.pdb
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\FriendList\FriendsList.baml
+D:\vChatProject\vChatClient\vChat.Module\bin\Debug\MahApps.Metro.dll
+D:\vChatProject\vChatClient\vChat.Module\bin\Debug\System.Windows.Interactivity.dll
+D:\vChatProject\vChatClient\vChat.Module\bin\Debug\vChat.Lib.dll
+D:\vChatProject\vChatClient\vChat.Module\bin\Debug\vChat.Lib.pdb
