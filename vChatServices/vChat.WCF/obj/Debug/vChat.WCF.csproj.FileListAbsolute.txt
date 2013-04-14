@@ -13,3 +13,18 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vCh
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.WCF\obj\Debug\vChat.WCF.csprojResolveAssemblyReference.cache
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.WCF\obj\Debug\vChat.WCF.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.WCF\obj\Debug\vChat.WCF.pdb
+D:\vChatProject\vChatServices\vChat.WCF\bin\vChat.WCF.dll
+D:\vChatProject\vChatServices\vChat.WCF\bin\vChat.WCF.pdb
+D:\vChatProject\vChatServices\vChat.WCF\bin\vChat.Business.dll
+D:\vChatProject\vChatServices\vChat.WCF\bin\vChat.Lib.dll
+D:\vChatProject\vChatServices\vChat.WCF\bin\vChat.Model.dll
+D:\vChatProject\vChatServices\vChat.WCF\bin\vChat.Data.dll
+D:\vChatProject\vChatServices\vChat.WCF\bin\EntityFramework.dll
+D:\vChatProject\vChatServices\vChat.WCF\bin\vChat.Business.pdb
+D:\vChatProject\vChatServices\vChat.WCF\bin\vChat.Lib.pdb
+D:\vChatProject\vChatServices\vChat.WCF\bin\vChat.Model.pdb
+D:\vChatProject\vChatServices\vChat.WCF\bin\vChat.Data.pdb
+D:\vChatProject\vChatServices\vChat.WCF\bin\EntityFramework.xml
+D:\vChatProject\vChatServices\vChat.WCF\obj\Debug\vChat.WCF.csprojResolveAssemblyReference.cache
+D:\vChatProject\vChatServices\vChat.WCF\obj\Debug\vChat.WCF.dll
+D:\vChatProject\vChatServices\vChat.WCF\obj\Debug\vChat.WCF.pdb

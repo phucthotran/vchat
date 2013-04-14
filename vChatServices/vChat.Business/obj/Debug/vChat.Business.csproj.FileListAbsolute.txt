@@ -11,3 +11,16 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vCh
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Business\obj\Debug\vChat.Business.csprojResolveAssemblyReference.cache
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Business\obj\Debug\vChat.Business.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Business\obj\Debug\vChat.Business.pdb
+D:\vChatProject\vChatServices\vChat.Business\bin\Debug\vChat.Business.dll
+D:\vChatProject\vChatServices\vChat.Business\bin\Debug\vChat.Business.pdb
+D:\vChatProject\vChatServices\vChat.Business\bin\Debug\vChat.Data.dll
+D:\vChatProject\vChatServices\vChat.Business\bin\Debug\vChat.Lib.dll
+D:\vChatProject\vChatServices\vChat.Business\bin\Debug\vChat.Model.dll
+D:\vChatProject\vChatServices\vChat.Business\bin\Debug\EntityFramework.dll
+D:\vChatProject\vChatServices\vChat.Business\bin\Debug\vChat.Data.pdb
+D:\vChatProject\vChatServices\vChat.Business\bin\Debug\vChat.Lib.pdb
+D:\vChatProject\vChatServices\vChat.Business\bin\Debug\vChat.Model.pdb
+D:\vChatProject\vChatServices\vChat.Business\bin\Debug\EntityFramework.xml
+D:\vChatProject\vChatServices\vChat.Business\obj\Debug\vChat.Business.csprojResolveAssemblyReference.cache
+D:\vChatProject\vChatServices\vChat.Business\obj\Debug\vChat.Business.dll
+D:\vChatProject\vChatServices\vChat.Business\obj\Debug\vChat.Business.pdb

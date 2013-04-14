@@ -1,8 +1,14 @@
-###### [Nhấn vào đây để xem rule](#nhng-iu-lu-)
+###### [Rule mới (14.04)](#nhng-iu-lu-)
 ###### [Yêu cầu hiện tại > click](TASK.md)
 
 ## Update Log
 -------------
+#### Update 14.04 5:50 PM
+- Tái tổ chức hệ thống module (xem [rule mới](#nhng-iu-lu-))
+- Chỉnh sửa [yêu cầu hiện tại](TASK.md)
+- Bỏ các extension không cần thiết, thêm 2 extension method mới: `Panel.LoadModule<T>()` và `UserControl.Get<T>()`
+	- `Panel.LoadModule<T>()`: load một module nào đó dựa vào kiểu **T** truyền vào. **Panel** sẽ xoá module hiện tại đang chứa tại panel đó và thêm module **T** vào. Ví dụ: `Grid.LoadModule<Login>();`
+	- `UserControl.Get<T>()`: **UserControl** ở đây là một module. Method này dùng để trả về kiểu **T** của một key resource được định nghĩa trong **Application** (vì module được tách ra làm 1 project riêng nên project module không thể add reference đến project chính được, do đó phải dùng method này để lấy giá trị static trong Application). Ví dụ: `this.Get<UserServiceClient>();` (phải dùng `this` mới gọi hàm này được)
 
 #### Update 12.04 6:30 PM
 - Fix lỗi kết quả trả về của method `FriendList` (`vChat.WCF`)
@@ -50,24 +56,35 @@
 --------------------------
 ###### Những điều lưu ý
 
-- **Về header cho từng update:**
-    1. Dùng kiểu H4 `####`
-    2. Thời gian update định dạng theo kiểu `dd.MM hh:mm TT`
-    3. Update gần nhất sẽ được đưa lên đầu trang
-- **Về cách thức viết code cho từng user control (UC) hiện tại:**
-    1. Vào thư mục **View** > **Controls** tạo một `UserControl(WPF)`
-    2. Trong file `.xaml` thêm dòng `xmlns:v="clr-namespace:vChat.Templates"` vào proprety của tag `<UserControl ...>`
-    3. Sửa tag `UserControl` thành `v:vChatController` (sửa luôn cả tag đóng)
-    4. Trong file `.xaml.cs` sửa lớp kế thừa `UserControl` thành `vChatController`
-    5. Để tạo controller cho UC ta vào thư mục **Controllers** tạo 1 file `.cs` đặt tên theo cú pháp: `<TênClassUserControl>Controller.cs`
-        - Ví dụ: class của UC là `Login` thì file controller sẽ đặt tên là `LoginController.cs`
-        - Controller phải thuộc `namespace vChat.Controllers`
-        - **Không nhất thiết phải tạo file controller**, nếu không có nhu cầu tách biệt methods và dồn vào controller thì khỏi tạo cũng được.
-    6. Để sử dụng controller trong user control ta gọi `this.Controller`
-        - `this.Controller` thuộc kiểu **dynamic** nên khi gọi các methods trong controller sẽ không autocomplete. Nếu cần thì ép kiểu sang class controller mong muốn.
-- **Về yêu cầu khác:**
-    1. `MainWindow` sẽ xử lý chính cho các UC được tạo
-    2. Nếu cần truyền các tác vụ từ bên trong UC ra cho MainWindow xử lý thì ta tạo event và delegate method bên trong UC đó
-    3. Code tham khảo như UC `Login` hay `SignUp`
-	
+- **Về mô hình module:**
+	- `MainWindow` sẽ chỉ đảm nhiệm công việc load và bố trí vị trí cho các module. (tối giản hơn trước, chi tiết ở code mẫu bên dưới)
+	- Mọi hoạt động của module đều tự túc.
+	- Các custom control muốn xây dựng để sử dụng lại sẽ được tạo trong project `vChat.Control`
+	- Các module sẽ cần phải nằm trong một thư mục mới trong project `vChat.Module`
+	- Project `vChat.Service` chỉ dùng để reference đến các Service. (mục đích tách ra là để project chính và module reference đến được và không bị xung đột)
+- **Cách thức sử dụng module trong project chính:**
+
+```c#
+// load Login vào grid và chạy event, event đơn giản cũng chỉ là để load 1 module nào khác mà thôi
+Login loginMdl = Grid.LoadModule<Login>();
+loginMdl.OnLoginSuccess += new LoginSuccessHandler(delegate {
+	Grid.LoadModule<FriendList>();
+});
+```
+
+- **Cách thức gọi và sử dụng các global resource trong App:**
+
+```c#
+// giả sử trong App ta thêm resource là - Resources.Add("UserServiceClient", new UserServiceClient());
+public partial Login : UserControl
+{
+	UserServiceClient _UserService;
+	public Login()
+	{
+		// key resource khi add phải đặt trùng với tên class của đối tượng cần lưu giữ thì mới lấy ra được
+		_UserService = this.Get<UserServiceClient>();
+	}
+}
+```
+
 --------------------------

@@ -12,8 +12,6 @@ D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChatClient.g.resources
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat.Properties.Resources.resources
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChatClient.csproj.GenerateResource.Cache
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\App.baml
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChatClient_MarkupCompile.lref
 D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChatClient.exe.config
 D:\vChatProject\vChatClient\vChatClient\bin\Debug\Core.Client.dll
 D:\vChatProject\vChatClient\vChatClient\bin\Debug\Core.Data.dll
@@ -21,27 +19,22 @@ D:\vChatProject\vChatClient\vChatClient\bin\Debug\Extension.dll
 D:\vChatProject\vChatClient\vChatClient\bin\Debug\Core.Client.pdb
 D:\vChatProject\vChatClient\vChatClient\bin\Debug\Core.Data.pdb
 D:\vChatProject\vChatClient\vChatClient\bin\Debug\Extension.pdb
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Controls\Login.g.cs
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Controls\Login.baml
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Controls\SignUp.g.cs
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Controls\SignUp.baml
 D:\vChatProject\vChatClient\vChatClient\bin\Debug\Elysium.dll
 D:\vChatProject\vChatClient\vChatClient\bin\Debug\Elysium.Notifications.dll
 D:\vChatProject\vChatClient\vChatClient\bin\Debug\Microsoft.Expression.Drawing.dll
 D:\vChatProject\vChatClient\vChatClient\bin\Debug\Microsoft.Windows.Shell.dll
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\Templates\FieldWarner.baml
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\Templates\FieldWarner.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChatClient.csprojResolveAssemblyReference.cache
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\Templates\FieldWarner.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\App.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\Templates\FieldWarner.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Controls\Login.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Controls\SignUp.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\MainWindow.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\App.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChatClient_MarkupCompile.cache
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChatClient_MarkupCompile.lref
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\AddFriend.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\FriendList.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.Model.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\AddFriend.pdb
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\FriendList.pdb
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.Model.pdb
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.Module.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.Module.pdb
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.pdb
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.Service.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.Service.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChatClient.exe.config
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChatClient.exe
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChatClient.pdb
@@ -50,23 +43,28 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Elysium.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Elysium.Notifications.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Extension.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\FriendList.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Microsoft.Windows.Shell.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Model.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Module.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Service.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Module.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Service.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Core.Client.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Core.Data.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Extension.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\FriendList.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Model.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChatClient.csprojResolveAssemblyReference.cache
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\Themes\Generic.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Controls\Login.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Controls\SignUp.baml
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\MainWindow.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\App.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\MainWindow.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\App.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChatClient_MarkupCompile.cache
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChatClient.g.resources
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChat.Properties.Resources.resources
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChatClient.csproj.GenerateResource.Cache
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChatClient.exe
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChatClient.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\AddFriend.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\AddFriend.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Model.pdb

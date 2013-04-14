@@ -1,0 +1,28 @@
+D:\vChatProject\vChatClient\vChat.Control\bin\Debug\Elysium.dll
+D:\vChatProject\vChatClient\vChat.Control\bin\Debug\Elysium.Notifications.dll
+D:\vChatProject\vChatClient\vChat.Control\bin\Debug\Microsoft.Expression.Drawing.dll
+D:\vChatProject\vChatClient\vChat.Control\bin\Debug\Microsoft.Windows.Shell.dll
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\FieldWarner.baml
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\FieldWarner.g.cs
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.Control.Properties.Resources.resources
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.Control.csproj.GenerateResource.Cache
+D:\vChatProject\vChatClient\vChat.Control\bin\Debug\vChat.dll
+D:\vChatProject\vChatClient\vChat.Control\bin\Debug\vChat.pdb
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat_MarkupCompile.cache
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.g.resources
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.dll
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\bin\Debug\vChat.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\bin\Debug\vChat.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\bin\Debug\Elysium.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\bin\Debug\Elysium.Notifications.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\bin\Debug\Microsoft.Windows.Shell.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\FieldWarner.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\FieldWarner.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat_MarkupCompile.cache
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat.g.resources
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat.Control.Properties.Resources.resources
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat.Control.csproj.GenerateResource.Cache
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat.pdb

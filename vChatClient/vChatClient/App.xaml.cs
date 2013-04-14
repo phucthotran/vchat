@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows;
 using vChat.View.Windows;
 using Core.Client;
-using vChat.UserService;
+using vChat.Service.UserService;
 
 namespace vChatClient
 {
@@ -15,18 +15,12 @@ namespace vChatClient
     /// </summary>
     public partial class App : Application
     {
-        public static UserServiceClient UserService;
-        public static Client Client;
-        public static MainWindow MainView;
-        public static string User;
         void App_Startup(object sender, StartupEventArgs e)
         {
             Elysium.Manager.Apply(this, Elysium.Theme.Light, Elysium.AccentBrushes.Blue, System.Windows.Media.Brushes.White);
-            UserService = new UserServiceClient();
-            Client = new Client();
-            User = "";
+            Resources.Add("UserServiceClient", new UserServiceClient());
+            Resources.Add("Client", new Client());
             MainWindow mainWindow = new MainWindow();
-            MainView = mainWindow;
             mainWindow.Show();
         }
     }
