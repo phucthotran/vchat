@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:v="clr-namespace:vChat.Control;assembly=vChat"
+             xmlns:v="clr-namespace:vChat.Control;assembly=vChat.Control"
              
              mc:Ignorable="d" xmlns:my="http://metro.mahapps.com/winfx/xaml/controls" d:DesignHeight="277" d:DesignWidth="257">
     <Grid Height="auto" Width="auto">

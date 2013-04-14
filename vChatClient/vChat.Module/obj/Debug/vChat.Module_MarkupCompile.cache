@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\
 vChat.Module
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 41309044482
 
 151055148362
-22-548983478
+222138415904
 AddFriend\AddFriend.xaml;FriendList\FriendsList.xaml;Login\Login.xaml;SignUp\SignUp.xaml;
 
 False

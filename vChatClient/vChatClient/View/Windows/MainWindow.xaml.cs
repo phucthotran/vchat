@@ -127,54 +127,5 @@ namespace vChat.View.Windows
                 InitLoginModule();
             });
         }
-
-        private static readonly string Windows = Environment.GetFolderPath(Environment.SpecialFolder.Windows);
-        private static readonly string SegoeUI = Windows + @"\Fonts\SegoeUI.ttf";
-        private static readonly string Verdana = Windows + @"\Fonts\Verdana.ttf";
-
-        private void ThemeGlyphInitialized(object sender, EventArgs e)
-        {
-            ThemeGlyph.FontUri = new Uri(File.Exists(SegoeUI) ? SegoeUI : Verdana);
-        }
-
-        private void AccentGlyphInitialized(object sender, EventArgs e)
-        {
-            AccentGlyph.FontUri = new Uri(File.Exists(SegoeUI) ? SegoeUI : Verdana);
-        }
-
-        private void ContrastGlyphInitialized(object sender, EventArgs e)
-        {
-            ContrastGlyph.FontUri = new Uri(File.Exists(SegoeUI) ? SegoeUI : Verdana);
-        }
-
-        private void LightClick(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Apply(Theme.Light);
-        }
-
-        private void DarkClick(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Apply(Theme.Dark);
-        }
-
-        private void AccentClick(object sender, RoutedEventArgs e)
-        {
-            var item = e.Source as MenuItem;
-            if (item != null)
-            {
-                var accentBrush = (SolidColorBrush)((Rectangle)item.Icon).Fill;
-                Application.Current.Apply(accentBrush, null);
-            }
-        }
-
-        private void WhiteClick(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Apply(null, Brushes.White);
-        }
-
-        private void BlackClick(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Apply(null, Brushes.Black);
-        }
     }
 }
