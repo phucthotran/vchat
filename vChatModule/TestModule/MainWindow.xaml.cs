@@ -77,16 +77,16 @@ namespace TestModule
             AddFriendModule.OnAddingFriend += new AddFriend.AddFriendModule.AddingFriend(AddFriendModule_OnAddingFriend);
 
             FriendListModule.SetupData(gf);
-            FriendListModule.OnFriendItemClick += new FriendList.FriendListModule.FriendItems(FriendListModule_OnFriendItemClick);
-            FriendListModule.OnGroupItemClick += new FriendList.FriendListModule.GroupItems(FriendListModule_OnGroupItemClick);
+            FriendListModule.OnFriendItemClick += new vChat.FriendListModule.FriendItems(FriendListModule_OnFriendItemClick);
+            FriendListModule.OnGroupItemClick += new vChat.FriendListModule.GroupItems(FriendListModule_OnGroupItemClick);
         }
 
-        private void FriendListModule_OnGroupItemClick(FriendList.GroupInfo e)
+        private void FriendListModule_OnGroupItemClick(vChat.GroupInfo e)
         {
             status.Text = (String.Format("GroupID: {0}, GroupName: {1}", e.ID, e.Name));
         }
 
-        private void FriendListModule_OnFriendItemClick(FriendList.FriendInfo e)
+        private void FriendListModule_OnFriendItemClick(vChat.FriendInfo e)
         {
             status.Text = status.Text = (String.Format("UserID: {0}, Username: {1}", e.ID, e.Name));
         }        

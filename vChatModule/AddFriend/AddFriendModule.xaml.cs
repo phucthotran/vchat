@@ -13,7 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using vChat.Model.Entities;
 
-namespace AddFriend
+namespace vChat.Module.AddFriend
 {
     /// <summary>
     /// Interaction logic for AddFriendModule.xaml

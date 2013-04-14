@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FriendList
+namespace vChat.Module.FriendList
 {
     public class GroupInfo
     {

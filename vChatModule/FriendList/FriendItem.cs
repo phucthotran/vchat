@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Controls;
 using System.Windows;
 
-namespace FriendList
+namespace vChat.Module.FriendList
 {
     class FriendItem : StackPanel
     {

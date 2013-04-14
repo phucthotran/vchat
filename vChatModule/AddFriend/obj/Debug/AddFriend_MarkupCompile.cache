@@ -4,8 +4,8 @@
 library
 C#
 .cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChatModule\AddFriend\obj\Debug\
-AddFriend
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatModule\AddFriend\obj\Debug\
+vChat.Module.AddFriend
 none
 false
 DEBUG;TRACE
@@ -13,7 +13,7 @@ DEBUG;TRACE
 1520341921
 
 5-412741971
-13562022347
+13299301881
 AddFriendModule.xaml;
 
 False

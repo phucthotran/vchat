@@ -8,7 +8,7 @@
     <ProjectGuid>{B7B000E6-7024-4DF0-AF5A-16867E744D81}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FriendList</RootNamespace>
+    <RootNamespace>vChat.Module.FriendList</RootNamespace>
     <AssemblyName>FriendList</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>

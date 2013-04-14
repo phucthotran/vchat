@@ -8,7 +8,7 @@
     <ProjectGuid>{35C9184F-D419-4EA8-A8BD-3BC2A54E3441}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AddFriend</RootNamespace>
+    <RootNamespace>vChat.Module.AddFriend</RootNamespace>
     <AssemblyName>AddFriend</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>

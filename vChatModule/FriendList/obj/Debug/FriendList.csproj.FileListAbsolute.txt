@@ -21,6 +21,6 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatModule\Frien
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatModule\FriendList\bin\Debug\FriendList.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatModule\FriendList\obj\Debug\FriendListModule.baml
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatModule\FriendList\obj\Debug\FriendList.g.resources
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatModule\FriendList\obj\Debug\FriendList.Properties.Resources.resources
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatModule\FriendList\obj\Debug\FriendList.csproj.GenerateResource.Cache
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatModule\FriendList\obj\Debug\FriendList.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatModule\FriendList\obj\Debug\vChat.Module.FriendList.Properties.Resources.resources

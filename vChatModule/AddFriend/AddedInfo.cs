@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using vChat.Model.Entities;
 
-namespace AddFriend
+namespace vChat.Module.AddFriend
 {
     public class AddedInfo
     {
