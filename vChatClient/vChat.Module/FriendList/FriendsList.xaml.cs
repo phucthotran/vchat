@@ -48,7 +48,7 @@ namespace vChat.Module.FriendList
                     if (groupControl.ContextMenu == null)
                     {
                         ContextMenu groupCtxMenu = new ContextMenu();
-                        groupCtxMenu.Items.Add("Remove group: " + fg.Name);                        
+                        groupCtxMenu.Items.Add("Remove group: " + fg.Name);
 
                         groupControl.ContextMenu = groupCtxMenu;
                     }
