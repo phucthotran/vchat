@@ -1,9 +1,10 @@
-15/04/2013 01:06:55 - Server da khoi dong thanh cong.
-15/04/2013 01:08:05 - (127.0.0.1:53688) da ngat ket noi.
-15/04/2013 01:08:31 - (127.0.0.1:53691) da ngat ket noi.
-15/04/2013 02:38:09 - symaci(127.0.0.1:54646) da ket noi den server.
-15/04/2013 02:39:00 - symaci(127.0.0.1:54646) da ngat ket noi.
-15/04/2013 02:41:28 - (127.0.0.1:54649) da ngat ket noi.
+15/04/2013 07:26:31 - Server da khoi dong thanh cong.
+15/04/2013 07:26:49 - (127.0.0.1:55750) da ngat ket noi.
+en server.
+15/04/2013 07:26:05 - symaci(127.0.0.1:55744) da ngat ket noi.
+15/04/2013 07:26:13 - symaci(127.0.0.1:55747) da ket noi den server.
+15/04/2013 07:26:15 - symaci(127.0.0.1:55747) da ngat ket noi.
+8 - (127.0.0.1:54649) da ngat ket noi.
 15/04/2013 02:45:23 - symaci(127.0.0.1:54654) da ket noi den server.
 15/04/2013 02:45:28 - symaci(127.0.0.1:54654) da ngat ket noi.
 15/04/2013 02:45:53 - (127.0.0.1:54657) da ngat ket noi.

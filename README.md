@@ -3,6 +3,17 @@
 
 ## Update Log
 -------------
+#### Update 16.04 9:21 PM
+- Sửa lại phần layout, bỏ StackPanel và chuyển lại Grid như cũ (cái này muốn add cùng lúc 2 control lên thì tạo StackPanel và phân panel ra)
+- Sau khi login thành công, **ID** và **Name** của **User** sẽ được lưu trong client. Cách sử dụng:
+
+```c#
+// lấy ra id hiện hành
+int userID = this.Get<Client>().ID;
+// lấy ra username hiện hành
+int userName = this.Get<Client>().Name;
+``` 
+
 #### Update 15.04 3:20 AM
 - Thêm method `LoginHash` trong **vChatService** dùng để xác nhận login hợp lệ của 1 tài khoản với tham số password truyền vào đã được mã hoá MD5 sẵn (tạo ra cái này để làm cookie)
 - Thêm extension method `Panel.LoadModule(params object[] args)` dùng để tạo 1 module và truyền tham số tương ứng vào constructor nếu có

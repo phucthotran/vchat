@@ -31,23 +31,20 @@ namespace vChat.Module.Login
         public delegate void SignUpClickHandler();
         public event SignUpClickHandler OnSignUpClicked = delegate { };
 
-        public delegate void RememberedHandler(string User);
-        public event RememberedHandler OnRemembered = delegate { };
-
         public Login()
         {
             InitLogin(null);
         }
 
-        public Login(RememberedHandler rememberedHandler)
+        public Login(LoginSuccessHandler loginSuccessHandler)
         {
-            InitLogin(rememberedHandler);
+            InitLogin(loginSuccessHandler);
         }
 
-        private void InitLogin(RememberedHandler rememberedHandler)
+        private void InitLogin(LoginSuccessHandler loginSuccessHandler)
         {
-            if (rememberedHandler != null)
-                OnRemembered += rememberedHandler;
+            if (loginSuccessHandler != null)
+                OnLoginSuccess += loginSuccessHandler;
             if (String.IsNullOrEmpty(RememberedUser()))
             {
                 InitializeComponent();
@@ -55,7 +52,7 @@ namespace vChat.Module.Login
             else
             {
                 DoConnect(Cookie.Instance["user"].ToString());
-                OnRemembered(Cookie.Instance["user"].ToString());
+                DoLoginSuccess(Cookie.Instance["user"].ToString());
             }
         }
         
@@ -63,11 +60,7 @@ namespace vChat.Module.Login
         {
             if (DoLogin(tbUser.Text, tbPass.Password, Remember.IsChecked.Value))
             {
-                Users tmpUser = this.Get<UserServiceClient>().FindName(tbUser.Text);
-
-                Users userLogged = new Users { UserID = tmpUser.UserID, Username = tmpUser.Username };
-
-                OnLoginSuccess(userLogged);
+                DoLoginSuccess(tbUser.Text);
             }
             else
             {

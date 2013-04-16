@@ -22,12 +22,5 @@
             <Button Name="LogOut" Content="Đăng xuất" Click="LogOut_Click" />
         </ma:WindowCommands>
     </ma:MetroWindow.WindowCommands>
-    <Grid Name="Grid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <StackPanel Name="TopPanel" Grid.Row="0" />
-        <StackPanel Name="BottomPanel" Grid.Row="1" />
-    </Grid>
+    <Grid Name="Grid"></Grid>
 </ma:MetroWindow>

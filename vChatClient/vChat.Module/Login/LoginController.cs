@@ -10,6 +10,7 @@ using vChat.Service.UserService;
 using vChat.Model;
 using System.Collections;
 using System.Configuration;
+using vChat.Model.Entities;
 
 namespace vChat.Module.Login
 {
@@ -30,13 +31,22 @@ namespace vChat.Module.Login
             }
         }
 
+        private void DoLoginSuccess(string user)
+        {
+            Users tmpUser = this.Get<UserServiceClient>().FindName(user);
+
+            Users userLogged = new Users { UserID = tmpUser.UserID, Username = tmpUser.Username };
+            this.Get<Core.Client.Client>().ID = userLogged.UserID;
+            OnLoginSuccess(userLogged);
+        }
+
         private void DoConnect(string user)
         {
             Client client = this.Get<Client>();
             if (!client.Socket.Connected)
                 client.Connect();
             client.SendCommand(null, CommandType.LogIn, "SERVER", user);
-            client.User = user;
+            client.Name = user;
         }
 
         private void RememberAccount(bool isRemember, string user, string pass)

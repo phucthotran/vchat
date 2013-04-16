@@ -14,7 +14,8 @@ namespace Core.Client
     public class Client
     {
         public Socket Socket { get; private set; }
-        public string User { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
         public bool IsConnected
         {
             get
