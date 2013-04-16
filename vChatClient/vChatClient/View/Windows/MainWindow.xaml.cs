@@ -136,9 +136,6 @@ namespace vChat.View.Windows
             Cookie.Instance.Unset("user", "pass", "expire");
             Cookie.Instance.Save();
             InitLoginModule();
-            Client client = ((Client)App.Current.FindResource("Client"));
-            client.ID = 0;
-            client.Name = "";
             LogOut.Visibility = System.Windows.Visibility.Collapsed;
         }
     }

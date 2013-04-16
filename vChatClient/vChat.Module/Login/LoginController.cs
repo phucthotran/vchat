@@ -36,7 +36,6 @@ namespace vChat.Module.Login
             Users tmpUser = this.Get<UserServiceClient>().FindName(user);
 
             Users userLogged = new Users { UserID = tmpUser.UserID, Username = tmpUser.Username };
-            this.Get<Core.Client.Client>().ID = userLogged.UserID;
             OnLoginSuccess(userLogged);
         }
 
@@ -44,9 +43,22 @@ namespace vChat.Module.Login
         {
             Client client = this.Get<Client>();
             if (!client.Socket.Connected)
-                client.Connect();
+                client.Connect(true);
             client.SendCommand(null, CommandType.LogIn, "SERVER", user);
             client.Name = user;
+        }
+
+        private bool IsExistCookie()
+        {
+            Cookie cookie = Cookie.Instance;
+            if (cookie.Isset("expire"))
+            {
+                if ((long.Parse(cookie["expire"].ToString()) - DateTime.UtcNow.ToFileTimeUtc()) > 0)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private void RememberAccount(bool isRemember, string user, string pass)

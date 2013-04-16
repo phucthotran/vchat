@@ -3,6 +3,11 @@
 
 ## Update Log
 -------------
+#### Update 17.04 3:28 AM
+- Cập nhật tính năng phân luồng để hiện lên progress khi đang login
+- Cải thiện thông báo lỗi khi login không đúng hoặc khi cookie bị sửa đổi
+- Tối ưu phần **core**
+
 #### Update 16.04 9:21 PM
 - Sửa lại phần layout, bỏ StackPanel và chuyển lại Grid như cũ (cái này muốn add cùng lúc 2 control lên thì tạo StackPanel và phân panel ra)
 - Sau khi login thành công, **ID** và **Name** của **User** sẽ được lưu trong client. Cách sử dụng:

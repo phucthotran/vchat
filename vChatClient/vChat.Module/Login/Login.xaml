@@ -6,26 +6,46 @@
              xmlns:v="clr-namespace:vChat.Control;assembly=vChat.Control"
              xmlns:ma="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              mc:Ignorable="d" xmlns:my="http://metro.mahapps.com/winfx/xaml/controls" d:DesignHeight="277" d:DesignWidth="257">
-    <Grid Width="200" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <TextBox Height="26" HorizontalAlignment="Left" Margin="30,0,0,0" Name="tbUser" VerticalAlignment="Top" Width="150" Grid.Row="1" />
-        <PasswordBox Height="27" HorizontalAlignment="Left" Margin="30,0,0,0" Name="tbPass" VerticalAlignment="Top" Width="150" Grid.Row="3" />
-        <ma:ToggleSwitch HorizontalAlignment="Left" Margin="30,-10,0,0" Name="Remember" VerticalAlignment="Top" Width="150" OnLabel="Bật" OffLabel="Tắt" Grid.Row="5" />
-        <Label Content="Tài khoản" Height="auto" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Top" Width="Auto" Grid.Row="0"/>
-        <Label Content="Mật khẩu" Height="auto" HorizontalAlignment="Left" Margin="0,1,0,0" Name="label2" VerticalAlignment="Top" Grid.Row="2" />
-        <StackPanel Orientation="Horizontal" Grid.Row="6" HorizontalAlignment="Center">
-            <Button Content="Đăng nhập" HorizontalAlignment="Left" Margin="0,0,0,0" Name="btSubmit" VerticalAlignment="Top" Click="btSubmit_Click" />
-            <Button Content="Đăng ký" HorizontalAlignment="Left" Margin="10,0,0,0" Name="btSignUp" VerticalAlignment="Top" Click="btSignUp_Click" />
+    <Grid Name="Grid" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid Name="LoginPanel">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+           <Label Content="Tài khoản" Height="auto" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Top" Width="Auto" Grid.Row="0"/>
+            <TextBox Height="26" HorizontalAlignment="Left" Margin="30,0,0,0" Name="tbUser" VerticalAlignment="Top" Width="150" Grid.Row="1" />
+            <Label Content="Mật khẩu" Height="auto" HorizontalAlignment="Left" Margin="0,1,0,0" Name="label2" VerticalAlignment="Top" Grid.Row="2" />
+            <PasswordBox Height="27" HorizontalAlignment="Left" Margin="30,0,0,0" Name="tbPass" VerticalAlignment="Top" Width="150" Grid.Row="3" />
+            <Label Grid.Row="4" Content="Ghi nhớ tài khoản" Height="28" HorizontalAlignment="Left" Margin="0,0,0,0" Name="label3" VerticalAlignment="Top" />
+            <ma:ToggleSwitch HorizontalAlignment="Left" Margin="30,-10,0,0" Name="Remember" VerticalAlignment="Top" Width="150" OnLabel="Bật" OffLabel="Tắt" Grid.Row="5" />
+            <StackPanel Orientation="Vertical" Grid.Row="6" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Đăng nhập" IsDefault="True" HorizontalAlignment="Left" Margin="0,0,0,0" Name="btSubmit" VerticalAlignment="Top" Click="btSubmit_Click" />
+                    <Button Content="Đăng ký" HorizontalAlignment="Left" Margin="10,0,0,0" Name="btSignUp" VerticalAlignment="Top" Click="btSignUp_Click" />
+                </StackPanel>
+                <TextBlock Name="Message" TextWrapping="WrapWithOverflow"></TextBlock>
+            </StackPanel>
+        </Grid>
+        <StackPanel Orientation="Vertical" Name="ProcessPanel" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock>
+                <TextBlock.Inlines>
+                    <Run Text="Đang đăng nhập bằng tài khoản:"/>
+                </TextBlock.Inlines>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Center">
+                <TextBlock.Inlines>
+                    <Run Name="UserLogging" FontSize="30" FontWeight="Bold" Foreground="DarkGreen" Text=""></Run>
+                </TextBlock.Inlines>
+            </TextBlock>
+            <el:ProgressRing State="Indeterminate" Width="30" Height="30"/>
         </StackPanel>
-        <Label Content="Ghi nhớ tài khoản" Height="28" HorizontalAlignment="Left" Margin="0,0,0,0" Name="label3" VerticalAlignment="Top" Grid.Row="4" />
     </Grid>
 </UserControl>
