@@ -8,7 +8,10 @@
              FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
              mc:Ignorable="d" MinWidth="400" MinHeight="250">
     <Grid Margin="5">
-        <DockPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <DockPanel HorizontalAlignment="Stretch">
             <Grid HorizontalAlignment="Stretch" DockPanel.Dock="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
