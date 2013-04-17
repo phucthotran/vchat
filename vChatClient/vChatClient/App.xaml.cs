@@ -17,7 +17,7 @@ namespace vChatClient
     {
         void App_Startup(object sender, StartupEventArgs e)
         {
-            Elysium.Manager.Apply(this, Elysium.Theme.Light, Elysium.AccentBrushes.Blue, System.Windows.Media.Brushes.White);
+      //      Elysium.Manager.Apply(this, Elysium.Theme.Light, Elysium.AccentBrushes.Blue, System.Windows.Media.Brushes.White);
             Resources.Add("UserServiceClient", new UserServiceClient());
             Resources.Add("Client", new Client());
             MainWindow mainWindow = new MainWindow();

@@ -31,14 +31,37 @@ namespace vChat.Module.Login
         public delegate void SignUpClickHandler();
         public event SignUpClickHandler OnSignUpClicked = delegate { };
 
+        public delegate void RememberedHandler(string User);
+        public event RememberedHandler OnRemembered = delegate { };
+
         public Login()
         {
-            InitializeComponent();
+            InitLogin(null);
         }
 
+        public Login(RememberedHandler rememberedHandler)
+        {
+            InitLogin(rememberedHandler);
+        }
+
+        private void InitLogin(RememberedHandler rememberedHandler)
+        {
+            if (rememberedHandler != null)
+                OnRemembered += rememberedHandler;
+            if (String.IsNullOrEmpty(RememberedUser()))
+            {
+                InitializeComponent();
+            }
+            else
+            {
+                DoConnect(Cookie.Instance["user"].ToString());
+                OnRemembered(Cookie.Instance["user"].ToString());
+            }
+        }
+        
         private void btSubmit_Click(object sender, RoutedEventArgs e)
         {
-            if (DoLogin(tbUser.Text, tbPass.Text))
+            if (DoLogin(tbUser.Text, tbPass.Password, Remember.IsChecked.Value))
             {
                 Users tmpUser = this.Get<UserServiceClient>().FindName(tbUser.Text);
 

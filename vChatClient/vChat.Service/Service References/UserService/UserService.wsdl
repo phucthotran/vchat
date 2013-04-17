@@ -42,6 +42,12 @@
   <wsdl:message name="IUserService_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_LoginHash_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginHash" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_LoginHash_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginHashResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_Signup_InputMessage">
     <wsdl:part name="parameters" element="tns:Signup" />
   </wsdl:message>
@@ -104,6 +110,10 @@
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/Login" message="tns:IUserService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/LoginResponse" message="tns:IUserService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginHash">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/LoginHash" message="tns:IUserService_LoginHash_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/LoginHashResponse" message="tns:IUserService_LoginHash_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Signup">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/Signup" message="tns:IUserService_Signup_InputMessage" />
@@ -174,6 +184,15 @@
     </wsdl:operation>
     <wsdl:operation name="Login">
       <soap:operation soapAction="http://tempuri.org/IUserService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginHash">
+      <soap:operation soapAction="http://tempuri.org/IUserService/LoginHash" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

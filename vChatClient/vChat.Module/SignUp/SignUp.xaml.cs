@@ -30,6 +30,9 @@ namespace vChat.Module.SignUp
         public delegate void UserChangedHandler(string user);
         public event UserChangedHandler OnUserChanged = delegate { };
 
+        public delegate void LoginClickHandler();
+        public event LoginClickHandler OnLoginClicked = delegate { };
+
         private BackgroundWorker _UserWarningWorker;
         private BackgroundWorker _SubmitWorker;
 
@@ -115,7 +118,7 @@ namespace vChat.Module.SignUp
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-
+            OnLoginClicked();
         }
 
         private void tbUser_LostFocus(object sender, RoutedEventArgs e)

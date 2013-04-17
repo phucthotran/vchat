@@ -90,6 +90,11 @@ namespace vChat.WCF
             return unc.Login(Username, Password);
         }
 
+        [OperationBehavior]
+        public MethodInvokeResult LoginHash(string Username, string Password)
+        {
+            return unc.LoginHash(Username, Password);
+        }
         /// <summary>
         /// Create new account
         /// </summary>

@@ -60,6 +60,11 @@ namespace vChat.Data
             return UserTask.IsAvailable(Username, Password) ? SUCCESS : FAIL;
         }
 
+        public MethodInvokeResult LoginHash(string Username, string Password)
+        {
+            return Login(Username, Password);
+        }
+
         public MethodInvokeResult Signup(string Username, string Password, string FirstName, string LastName, int QuestionID, string Answer, DateTime Birthdate)
         {            
             SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Signup Success" };

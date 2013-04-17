@@ -11,7 +11,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
-using Elysium;
 using vChatClient;
 using vChat.Model.Entities;
 using vChat.Model;
@@ -25,7 +24,7 @@ namespace vChat.View.Windows
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Elysium.Controls.Window
+    public partial class MainWindow : MahApps.Metro.Controls.MetroWindow
     {
         private int UserID;
         private Login _loginModule;
@@ -41,30 +40,36 @@ namespace vChat.View.Windows
 
         private void InitLoginModule()
         {
-            _loginModule = Grid.LoadModule<Login>();
+            LogOut.Visibility = System.Windows.Visibility.Collapsed;
+            _loginModule = TopPanel.LoadModule<Login>(new Login.RememberedHandler(delegate(string user)
+            {
+                InitAddFriendModule();
+                InitFriendsListModule(1); //test
+            }));
             _loginModule.OnLoginSuccess += new Login.LoginSuccessHandler(Login_OnLoginSuccess);
             _loginModule.OnLoginFailed += new Login.LoginFailedHandler(Login_OnLoginFailed);
             _loginModule.OnSignUpClicked += new Login.SignUpClickHandler(Login_OnSignUpClicked);            
         }
 
-        private void InitFriendsListModule()
+        private void InitFriendsListModule(int UserID)
         {
-            _friendListModule = Grid.LoadModule<FriendsList>();
+            _friendListModule = BottomPanel.LoadModule<FriendsList>();
+            _friendListModule.SetupData(UserID);
             //_friendListModule.OnGroupItemClick += new FriendsList.GroupItems(FriendList_OnGroupItemClick);
             //_friendListModule.OnFriendItemClick += new FriendsList.FriendItemHandler(FriendList_OnFriendItemClick);
         }
 
         private void InitAddFriendModule()
         {
-            _addFriendModule = Grid.LoadModule<AddFriend>();
+            _addFriendModule = TopPanel.LoadModule<AddFriend>();
             _addFriendModule.OnAddingFriend += new AddFriend.AddingFriend(AddFriend_OnAddingFriend);
         }
 
         private void Login_OnLoginSuccess(Users UserLogged)
         {
+            LogOut.Visibility = System.Windows.Visibility.Visible;
+            InitFriendsListModule(UserLogged.UserID);
             UserID = UserLogged.UserID;
-            _friendListModule = Grid.LoadModule<FriendsList>();
-            _friendListModule.SetupData(UserLogged.UserID);
             /*
             Grid.Children.Clear();
 
@@ -121,60 +126,23 @@ namespace vChat.View.Windows
 
         private void Login_OnSignUpClicked()
         {
-            _signUpModule = Grid.LoadModule<SignUp>();
+            _signUpModule = TopPanel.LoadModule<SignUp>();
             _signUpModule.OnSignUpSuccess += new SignUp.SignUpSuccessHandler(delegate
+            {
+                InitLoginModule();
+            });
+            _signUpModule.OnLoginClicked += new SignUp.LoginClickHandler(delegate
             {
                 InitLoginModule();
             });
         }
 
-        private static readonly string Windows = Environment.GetFolderPath(Environment.SpecialFolder.Windows);
-        private static readonly string SegoeUI = Windows + @"\Fonts\SegoeUI.ttf";
-        private static readonly string Verdana = Windows + @"\Fonts\Verdana.ttf";
-
-        private void ThemeGlyphInitialized(object sender, EventArgs e)
+        private void LogOut_Click(object sender, RoutedEventArgs e)
         {
-            ThemeGlyph.FontUri = new Uri(File.Exists(SegoeUI) ? SegoeUI : Verdana);
-        }
-
-        private void AccentGlyphInitialized(object sender, EventArgs e)
-        {
-            AccentGlyph.FontUri = new Uri(File.Exists(SegoeUI) ? SegoeUI : Verdana);
-        }
-
-        private void ContrastGlyphInitialized(object sender, EventArgs e)
-        {
-            ContrastGlyph.FontUri = new Uri(File.Exists(SegoeUI) ? SegoeUI : Verdana);
-        }
-
-        private void LightClick(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Apply(Theme.Light);
-        }
-
-        private void DarkClick(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Apply(Theme.Dark);
-        }
-
-        private void AccentClick(object sender, RoutedEventArgs e)
-        {
-            var item = e.Source as MenuItem;
-            if (item != null)
-            {
-                var accentBrush = (SolidColorBrush)((Rectangle)item.Icon).Fill;
-                Application.Current.Apply(accentBrush, null);
-            }
-        }
-
-        private void WhiteClick(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Apply(null, Brushes.White);
-        }
-
-        private void BlackClick(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Apply(null, Brushes.Black);
+            Cookie.Instance.Unset("user", "pass", "expire");
+            Cookie.Instance.Save();
+            InitLoginModule();
+            LogOut.Visibility = System.Windows.Visibility.Collapsed;
         }
     }
 }

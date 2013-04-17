@@ -1,4 +1,4 @@
-﻿vChat
+﻿vChat.Control
 
 
 library
@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-11186666242
+2-2002754060
 
-41893838455
+5-820100783
 14-1036433265
-FieldWarner.xaml;
+FieldWarner.xaml;ImageButton.xaml;
 
 False
 

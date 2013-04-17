@@ -68,7 +68,7 @@ namespace vChat.Control {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/vChat;component/fieldwarner.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/vChat.Control;component/fieldwarner.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\FieldWarner.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

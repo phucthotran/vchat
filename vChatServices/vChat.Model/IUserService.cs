@@ -25,6 +25,9 @@ namespace vChat.Model
         MethodInvokeResult Login(String Username, String Password);
 
         [OperationContract]
+        MethodInvokeResult LoginHash(String Username, String Password);
+
+        [OperationContract]
         MethodInvokeResult Signup(String Username, String Password, String FirstName, String LastName, int QuestionID, String Answer, DateTime Birthdate);
 
         [OperationContract]

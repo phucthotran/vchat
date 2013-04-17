@@ -25,6 +25,7 @@ namespace vChat.Module.FriendList
         public event SearchHandler OnSearchSuccess;
         public event SearchHandler OnSearchFail;
         private ContextMenu _contextMenu;
+        private GroupTreeViewModel _GroupTree;
 
         public FriendsList()
         {
@@ -59,55 +60,15 @@ namespace vChat.Module.FriendList
         public void SetupData(int UserID)
         {
             GroupFriendList Friends = FriendList(UserID);
-            TreeFriend.ItemsSource = Friends.FriendGroups;
+            _GroupTree = new GroupTreeViewModel(Friends.FriendGroups);
+            base.DataContext = _GroupTree;
+            //btnTest.DataContext = _GroupTree;
         }
 
-        private void GroupItem_Click(object source, MouseButtonEventArgs e)
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            if (source is GroupItem)
-            {
-                GroupItem ItemClicked = (GroupItem)source;
-
-                GroupInfo g = new GroupInfo
-                {
-                    ID = ItemClicked.GroupID,
-                    Name = ItemClicked.GroupName
-                };
-
-                _contextMenu = new ContextMenu();
-                _contextMenu.Items.Add("Phuc Tho Tran");
-                _contextMenu.Items.Add("Test menu");
-
-                foreach (Object itemobj in TreeFriend.Items)
-                {
-                    TreeViewItem groupControl = null;
-                    if(itemobj.Equals(source))
-                    {
-                        ItemContainerGenerator groupContainer = TreeFriend.ItemContainerGenerator;
-                        groupControl = groupContainer.ContainerFromItem(itemobj) as TreeViewItem;
-                    }
-                                        
-                    //groupControl.ContextMenu = _contextMenu;
-                }
-
-                //OnGroupItemClick(g);
-            }
-        }
-
-        private void FriendItem_Click(object source, MouseButtonEventArgs e)
-        {
-            if (source is FriendItem)
-            {
-                FriendItem ItemClicked = (FriendItem)source;
-
-                FriendInfo f = new FriendInfo
-                {
-                    ID = ItemClicked.UserID,
-                    Name = ItemClicked.Username
-                };
-
-                //OnFriendItemClick(f);
-            }
+            if (e.Key == Key.Enter)
+                _GroupTree.SearchCommand.Execute(null);
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -221,6 +182,23 @@ namespace vChat.Module.FriendList
                 if (item != null)
                     item.IsExpanded = true;
             }
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {            
+            btnSelectAll.Visibility = System.Windows.Visibility.Visible;
+            btnDeselectAll.Visibility = System.Windows.Visibility.Visible;
+            completeTask.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void chkDone_Checked(object sender, RoutedEventArgs e)
+        {
+            btnDone.IsEnabled = true;
+        }
+
+        private void chkDone_Unchecked(object sender, RoutedEventArgs e)
+        {
+            btnDone.IsEnabled = false;
         }
     }
 

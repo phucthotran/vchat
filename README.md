@@ -3,7 +3,19 @@
 
 ## Update Log
 -------------
-#### Update 14.04 5:50 PM
+#### Update 15.04 3:20 AM
+- Thêm method `LoginHash` trong **vChatService** dùng để xác nhận login hợp lệ của 1 tài khoản với tham số password truyền vào đã được mã hoá MD5 sẵn (tạo ra cái này để làm cookie)
+- Thêm extension method `Panel.LoadModule(params object[] args)` dùng để tạo 1 module và truyền tham số tương ứng vào constructor nếu có
+- Chuyển đổi giao diện ứng dụng
+- Thêm tính năng **cookie** khi login
+- Thêm tính năng **đăng xuất** (nằm ở trên title bar)
+
+#### Update 14.04 1:38 PM
+- Sửa **Assembly Name** của project `vChat.Control` từ **vChat** thành **vChat.Control**
+- Xoá menu context của MainWindow
+- Thêm thẻ **\<runtime>** trong `app.config` nhằm mục đích có thể load được những file dll cần thiết trong các thư mục con: bin;bin\client;bin\core
+
+#### Update 14.04 5:50 AM
 - Tái tổ chức hệ thống module (xem [rule mới](#nhng-iu-lu-))
 - Chỉnh sửa [yêu cầu hiện tại](TASK.md)
 - Bỏ các extension không cần thiết, thêm 2 extension method mới: `Panel.LoadModule<T>()` và `UserControl.Get<T>()`

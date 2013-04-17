@@ -66,6 +66,21 @@ namespace System
             }
         }
 
+        public static T LoadModule<T>(this Panel panel, params object[] args)
+        {
+            try
+            {
+                object moduleInstance = Activator.CreateInstance(typeof(T), args);
+                panel.Children.Clear();
+                panel.Children.Add((UIElement)moduleInstance);
+                return (T)moduleInstance;
+            }
+            catch
+            {
+                throw new ModuleCannotInitException(typeof(T));
+            }
+        }
+
         public static T Get<T>(this UserControl uc)
         {
             return (T)Application.Current.FindResource(typeof(T).Name);
