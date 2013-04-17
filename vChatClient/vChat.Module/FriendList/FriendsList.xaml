@@ -1,46 +1,85 @@
-﻿<UserControl x:Class="vChat.Module.FriendList.FriendsList"
+﻿<UserControl xmlns:my="clr-namespace:vChat.Control;assembly=vChat.Control"  x:Class="vChat.Module.FriendList.FriendsList"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:vChat.Module.FriendList"
              xmlns:model="clr-namespace:vChat.Model.Entities;assembly=vChat.Model"
-             mc:Ignorable="d" MinWidth="350" MinHeight="250">
-    <Grid>        
+             FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
+             mc:Ignorable="d" MinWidth="400" MinHeight="250">
+    <Grid Margin="5">
         <DockPanel>
             <Grid HorizontalAlignment="Stretch" DockPanel.Dock="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="90"/>
                 </Grid.ColumnDefinitions>
-                <TextBox Name="txtSearch" Height="30" Grid.Column="0" VerticalContentAlignment="Center"></TextBox>
-                <Button Name="btnSearch" Height="30" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="btnSearch_Click">SEARCH</Button>
+                <TextBox Name="txtSearch" Padding="3" Height="30" Grid.Column="0" VerticalContentAlignment="Center" KeyDown="txtSearch_KeyDown" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <Button Name="btnSearch" Height="36" Padding="3" BorderThickness="1" FontSize="13" BorderBrush="#FFB1B1B1" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding SearchCommand}">Tìm Kiếm</Button>
             </Grid>
-            <TreeView Name="TreeFriend" DockPanel.Dock="Bottom" ItemsSource="{Binding}" VirtualizingStackPanel.IsVirtualizing="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedItemChanged="TreeFriend_SelectedItemChanged">
-                <!--<TreeView.ItemContainerStyle>
-                    <Style>
-                        <Setter Property="TreeViewItem.IsExpanded" Value="False"/>
-                    </Style>
-                </TreeView.ItemContainerStyle>-->
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Path=Friends}">
-                        <local:GroupItem Orientation="Horizontal" Margin="2, 2, 2, 2" MouseDown="GroupItem_Click"
-                                            GroupID="{Binding Path=GroupID}" GroupName="{Binding Path=Name}">
-                            <Rectangle Height="14" Width="14" Stroke="Aqua" Fill="Black" Margin="0, 0, 5, 0"/>
-                            <TextBlock Text="{Binding Path=Name}"/>
-                        </local:GroupItem>
-                        <HierarchicalDataTemplate.ItemTemplate>
-                            <DataTemplate DataType="{x:Type model:Users}">
-                                <local:FriendItem Orientation="Horizontal" Margin="2, 2, 2, 2" MouseDown="FriendItem_Click"
-                                                  UserID="{Binding Path=UserID}" Username="{Binding Path=Username}">
-                                    <Rectangle Height="48" Width="48" Stroke="Beige" Fill="Brown" Margin="0, 0, 5, 0"/>
-                                    <TextBlock Text="{Binding Path=Username}"/>
-                                </local:FriendItem>
-                            </DataTemplate>
-                        </HierarchicalDataTemplate.ItemTemplate>
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
+            <DockPanel DockPanel.Dock="Bottom">
+                <Expander DockPanel.Dock="Top">
+                    <Expander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Image/task.png" Margin="0, 0, 3, 0"/>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Thao Tác</TextBlock>
+                        </StackPanel>
+                    </Expander.Header>
+                    <Expander.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <my:ImageButton Name="btnEdit" Command="{Binding EditCommand}" Text="Chỉnh Sửa Bạn Bè" Image="Image/edit.png" Click="btnEdit_Click"/>
+                            <my:ImageButton Name="btnSelectAll" Command="{Binding SelectAllCommand}" Text="Chọn Hết" Image="Image/select.png" Visibility="Collapsed"/>
+                            <my:ImageButton Name="btnDeselectAll" Command="{Binding UnselectAllCommand}" Text="Bỏ Chọn" Image="Image/select.png" Visibility="Collapsed"/>
+                        </StackPanel>
+                    </Expander.Content>
+                </Expander>
+                <DockPanel DockPanel.Dock="Bottom">
+                    <ScrollViewer DockPanel.Dock="Top" Height="400" MaxHeight="600">
+                        <TreeView Name="TreeFriend" ItemsSource="{Binding Groups}" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedItemChanged="TreeFriend_SelectedItemChanged">
+                            <TreeView.ItemContainerStyle>
+                                <Style TargetType="{x:Type TreeViewItem}">
+                                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                                    <Setter Property="FontWeight" Value="Normal" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="FontWeight" Value="Bold" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TreeView.ItemContainerStyle>                
+                            <TreeView.Resources>
+                                <HierarchicalDataTemplate DataType="{x:Type local:GroupViewModel}" ItemsSource="{Binding Children}">
+                                    <StackPanel Orientation="Horizontal" Margin="2, 2, 2, 2">
+                                        <CheckBox Tag="chkFriend" IsChecked="{Binding IsChecked}" Visibility="{Binding ToogleCheckbox}"></CheckBox>
+                                        <Rectangle Height="14" Width="14" Stroke="Aqua" Fill="Black" Margin="0, 0, 5, 0"/>
+                                        <TextBlock Text="{Binding GroupName}"/>
+                                    </StackPanel>
+                                </HierarchicalDataTemplate>
+                    
+                                <DataTemplate DataType="{x:Type local:FriendViewModel}">
+                                    <StackPanel Orientation="Horizontal" Margin="2, 2, 2, 2">
+                                        <CheckBox IsChecked="{Binding IsChecked}" Visibility="{Binding ToogleCheckbox}"/>
+                                        <Rectangle Height="48" Width="48" Stroke="Beige" Fill="Brown" Margin="0, 0, 5, 0"/>
+                                        <TextBlock Text="{Binding Path=FriendName}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </TreeView.Resources>                    
+                        </TreeView>
+                    </ScrollViewer>
+                    <StackPanel Name="completeTask" Orientation="Horizontal" DockPanel.Dock="Bottom" Height="35" Visibility="Collapsed">
+                        <TextBlock Text="Chọn Thao Tác" VerticalAlignment="Center"/>
+                        <ComboBox Name="cbTask" Width="100" Height="30" Margin="5, 0, 0, 0">
+                            <ComboBoxItem Content="Chuyển Sang Nhóm Mới"/>
+                            <ComboBoxItem Content="Xóa Liên Lạc"/>
+                        </ComboBox>
+                        <TextBlock Name="tblNewGroup" Text="Nhóm" VerticalAlignment="Center" Visibility="Collapsed"/>
+                        <ComboBox Name="cbNewGroup" Width="100" Height="30" Margin="5, 0, 0, 0" Visibility="Collapsed"/>
+                        <CheckBox Name="chkDone" Content="Xác Nhận" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5, 0, 0, 0" Checked="chkDone_Checked" Unchecked="chkDone_Unchecked" />
+                        <Button Name="btnDone" Content="Hoàn Thành" FontSize="13" IsEnabled="False" Padding="3" Margin="5, 0, 0, 0"/>
+                    </StackPanel>
+                </DockPanel>
+            </DockPanel>
         </DockPanel>
     </Grid>
 </UserControl>

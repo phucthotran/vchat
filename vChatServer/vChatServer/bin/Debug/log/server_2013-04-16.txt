@@ -1,6 +1,70 @@
+<<<<<<< HEAD
+16/04/2013 09:51:14 - Server da khoi dong thanh cong.
+16/04/2013 09:51:35 - itexplore(127.0.0.1:19710) da ket noi den server.
+16/04/2013 09:51:46 - itexplore(127.0.0.1:19710) da ngat ket noi.
+16/04/2013 09:52:29 - itexplore(127.0.0.1:19723) da ket noi den server.
+16/04/2013 09:53:01 - itexplore(127.0.0.1:19723) da ngat ket noi.
+16/04/2013 09:53:15 - itexplore(127.0.0.1:19744) da ket noi den server.
+16/04/2013 09:53:31 - itexplore(127.0.0.1:19744) da ngat ket noi.
+16/04/2013 09:53:58 - (127.0.0.1:19756) da ngat ket noi.
+16/04/2013 09:56:00 - (127.0.0.1:19782) da ngat ket noi.
+16/04/2013 09:57:57 - itexplore(127.0.0.1:19812) da ket noi den server.
+16/04/2013 09:58:00 - itexplore(127.0.0.1:19812) da ngat ket noi.
+16/04/2013 09:59:44 - itexplore(127.0.0.1:19842) da ket noi den server.
+16/04/2013 09:59:47 - itexplore(127.0.0.1:19842) da ngat ket noi.
+16/04/2013 10:03:41 - itexplore(127.0.0.1:20130) da ket noi den server.
+16/04/2013 10:03:45 - itexplore(127.0.0.1:20130) da ngat ket noi.
+16/04/2013 10:12:46 - itexplore(127.0.0.1:20773) da ket noi den server.
+16/04/2013 10:12:52 - itexplore(127.0.0.1:20773) da ngat ket noi.
+16/04/2013 10:15:44 - (127.0.0.1:20827) da ngat ket noi.
+16/04/2013 10:29:35 - itexplore(127.0.0.1:21473) da ket noi den server.
+16/04/2013 10:29:41 - itexplore(127.0.0.1:21473) da ngat ket noi.
+16/04/2013 10:35:03 - itexplore(127.0.0.1:21571) da ket noi den server.
+16/04/2013 10:35:06 - itexplore(127.0.0.1:21571) da ngat ket noi.
+16/04/2013 10:40:32 - (127.0.0.1:22083) da ngat ket noi.
+16/04/2013 10:41:22 - (127.0.0.1:22158) da ngat ket noi.
+16/04/2013 10:41:37 - itexplore(127.0.0.1:22199) da ket noi den server.
+16/04/2013 10:41:40 - itexplore(127.0.0.1:22199) da ngat ket noi.
+16/04/2013 10:42:03 - itexplore(127.0.0.1:22203) da ket noi den server.
+16/04/2013 10:42:06 - itexplore(127.0.0.1:22203) da ngat ket noi.
+16/04/2013 10:43:33 - itexplore(127.0.0.1:22236) da ket noi den server.
+16/04/2013 10:43:35 - itexplore(127.0.0.1:22236) da ngat ket noi.
+16/04/2013 10:44:32 - itexplore(127.0.0.1:22255) da ket noi den server.
+16/04/2013 10:44:36 - itexplore(127.0.0.1:22255) da ngat ket noi.
+16/04/2013 10:45:02 - itexplore(127.0.0.1:22268) da ket noi den server.
+16/04/2013 10:45:06 - itexplore(127.0.0.1:22268) da ngat ket noi.
+16/04/2013 10:46:17 - itexplore(127.0.0.1:22291) da ket noi den server.
+16/04/2013 10:46:21 - itexplore(127.0.0.1:22291) da ngat ket noi.
+16/04/2013 10:51:53 - itexplore(127.0.0.1:22997) da ket noi den server.
+16/04/2013 10:51:57 - itexplore(127.0.0.1:22997) da ngat ket noi.
+16/04/2013 10:53:50 - (127.0.0.1:23027) da ngat ket noi.
+16/04/2013 11:02:55 - itexplore(127.0.0.1:23720) da ket noi den server.
+16/04/2013 11:02:58 - itexplore(127.0.0.1:23720) da ngat ket noi.
+16/04/2013 11:04:16 - (127.0.0.1:23757) da ngat ket noi.
+16/04/2013 11:04:42 - itexplore(127.0.0.1:23761) da ket noi den server.
+16/04/2013 11:04:47 - itexplore(127.0.0.1:23761) da ngat ket noi.
+16/04/2013 11:07:39 - itexplore(127.0.0.1:23920) da ket noi den server.
+16/04/2013 11:07:43 - itexplore(127.0.0.1:23920) da ngat ket noi.
+16/04/2013 11:09:14 - itexplore(127.0.0.1:23978) da ket noi den server.
+16/04/2013 11:09:19 - itexplore(127.0.0.1:23978) da ngat ket noi.
+16/04/2013 11:10:29 - itexplore(127.0.0.1:23999) da ket noi den server.
+16/04/2013 11:11:22 - itexplore(127.0.0.1:23999) da ngat ket noi.
+16/04/2013 11:11:59 - itexplore(127.0.0.1:24095) da ket noi den server.
+16/04/2013 11:12:24 - itexplore(127.0.0.1:24095) da ngat ket noi.
+16/04/2013 11:13:29 - itexplore(127.0.0.1:24121) da ket noi den server.
+16/04/2013 11:13:43 - itexplore(127.0.0.1:24121) da ngat ket noi.
+16/04/2013 11:14:32 - itexplore(127.0.0.1:24142) da ket noi den server.
+16/04/2013 11:14:38 - itexplore(127.0.0.1:24142) da ngat ket noi.
+16/04/2013 11:26:44 - (127.0.0.1:24474) da ngat ket noi.
+16/04/2013 11:34:14 - itexplore(127.0.0.1:24626) da ket noi den server.
+16/04/2013 11:34:17 - itexplore(127.0.0.1:24626) da ngat ket noi.
+16/04/2013 11:35:26 - itexplore(127.0.0.1:24642) da ket noi den server.
+16/04/2013 11:35:32 - itexplore(127.0.0.1:24642) da ngat ket noi.
+=======
 16/04/2013 11:01:55 - Server da khoi dong thanh cong.
 16/04/2013 09:04:37 - (127.0.0.1:7023) da ngat ket noi.
 16/04/2013 09:10:19 - symaci(127.0.0.1:7030) da ket noi den server.
 16/04/2013 09:10:28 - symaci(127.0.0.1:7030) da ngat ket noi.
 16/04/2013 09:20:59 - symaci(127.0.0.1:7091) da ket noi den server.
 16/04/2013 09:21:07 - symaci(127.0.0.1:7091) da ngat ket noi.
+>>>>>>> ThoTran/master

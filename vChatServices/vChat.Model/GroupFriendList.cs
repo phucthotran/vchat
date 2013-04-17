@@ -25,10 +25,5 @@ namespace vChat.Model
                 return _FriendGroups;
             }
         }
-
-        public override string ToString()
-        {
-            return "GroupFriendList";
-        }
     }
 }

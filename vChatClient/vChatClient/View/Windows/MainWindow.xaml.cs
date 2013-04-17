@@ -50,8 +50,6 @@ namespace vChat.View.Windows
         {
             _friendListModule = Grid.LoadModule<FriendsList>();
             _friendListModule.SetupData(UserID);
-            //_friendListModule.OnGroupItemClick += new FriendsList.GroupItems(FriendList_OnGroupItemClick);
-            //_friendListModule.OnFriendItemClick += new FriendsList.FriendItemHandler(FriendList_OnFriendItemClick);
         }
 
         private void InitAddFriendModule()
@@ -64,28 +62,6 @@ namespace vChat.View.Windows
         {
             LogOut.Visibility = System.Windows.Visibility.Visible;
             InitFriendsListModule(UserLogged.UserID);
-            /*
-            Grid.Children.Clear();
-
-            Users u = ((UserServiceClient)App.Current.FindResource("UserServiceClient")).FindName(userLogged);
-            UserID = u.UserID;
-            GroupFriendList f = ((UserServiceClient)App.Current.FindResource("UserServiceClient")).FriendList(u.UserID);
-
-            AddFriendModule addFriendModule = new AddFriendModule();
-            addFriendModule.SetupData(f.FriendGroups);
-            addFriendModule.OnAddingFriend += new AddFriendModule.AddingFriend(addFriendModule_OnAddingFriend);
-
-            FriendListModule friendListModule = new FriendListModule();
-            friendListModule.SetupData(f);
-            friendListModule.OnFriendItemClick += new FriendListModule.FriendItems(friendListModule_OnFriendItemClick);
-            friendListModule.OnGroupItemClick += new FriendListModule.GroupItems(friendListModule_OnGroupItemClick);
-
-            StackPanel Container = new StackPanel();
-            Container.Children.Add(friendListModule);
-            Container.Children.Add(addFriendModule);
-
-            Grid.Children.Add(Container);
-            */
         }
 
         private void FriendList_OnGroupItemClick(GroupInfo e)

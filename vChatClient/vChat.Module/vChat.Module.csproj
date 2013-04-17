@@ -87,8 +87,11 @@
       <DependentUpon>FriendsList.xaml</DependentUpon>
     </Compile>
     <Compile Include="FriendList\FriendsListController.cs" />
+    <Compile Include="FriendList\FriendViewModel.cs" />
     <Compile Include="FriendList\GroupInfo.cs" />
     <Compile Include="FriendList\GroupItem.cs" />
+    <Compile Include="FriendList\GroupTreeViewModel.cs" />
+    <Compile Include="FriendList\GroupViewModel.cs" />
     <Compile Include="Login\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -151,7 +154,13 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="FriendList\Image\task.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FriendList\Image\edit.png" />
+    <Resource Include="FriendList\Image\select.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

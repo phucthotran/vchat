@@ -3,6 +3,15 @@
 
 ## Update Log
 -------------
+
+#### Update 17.04 10:06 AM
+- Cho phép chỉnh sửa Friend List bằng cách đánh check vào những contact cần chỉnh sửa (Sellect All, Deselect All) (Chưa có code)
+- Thêm control `ImageButton` (`vChat.Control`). Cách sử dụng:
+
+```c#
+	<ImageButton Name="btnTest" Text="Test" Image="Image/test.png" Command="{Binding TestCommand}" Click="btnTest_Click"/>
+```
+
 #### Update 17.04 3:28 AM
 - Cập nhật tính năng phân luồng để hiện lên progress khi đang login
 - Cải thiện thông báo lỗi khi login không đúng hoặc khi cookie bị sửa đổi

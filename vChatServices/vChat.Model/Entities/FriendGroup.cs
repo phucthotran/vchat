@@ -54,10 +54,5 @@ namespace vChat.Model.Entities
 
             return false;
         }
-
-        public override string ToString()
-        {
-            return "FriendGroup";
-        }
     }
 }
