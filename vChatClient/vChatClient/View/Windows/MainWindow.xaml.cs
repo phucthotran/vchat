@@ -18,6 +18,7 @@ using vChat.Module.Login;
 using vChat.Module.SignUp;
 using vChat.Module.FriendList;
 using vChat.Module.AddFriend;
+using Core.Client;
 
 namespace vChat.View.Windows
 {
@@ -26,7 +27,6 @@ namespace vChat.View.Windows
     /// </summary>
     public partial class MainWindow : MahApps.Metro.Controls.MetroWindow
     {
-        private int UserID;
         private Login _loginModule;
         private SignUp _signUpModule;
         private FriendsList _friendListModule;
@@ -41,27 +41,20 @@ namespace vChat.View.Windows
         private void InitLoginModule()
         {
             LogOut.Visibility = System.Windows.Visibility.Collapsed;
-            _loginModule = TopPanel.LoadModule<Login>(new Login.RememberedHandler(delegate(string user)
-            {
-                InitAddFriendModule();
-                InitFriendsListModule(1); //test
-            }));
-            _loginModule.OnLoginSuccess += new Login.LoginSuccessHandler(Login_OnLoginSuccess);
+            _loginModule = Grid.LoadModule<Login>(new Login.LoginSuccessHandler(Login_OnLoginSuccess));
             _loginModule.OnLoginFailed += new Login.LoginFailedHandler(Login_OnLoginFailed);
             _loginModule.OnSignUpClicked += new Login.SignUpClickHandler(Login_OnSignUpClicked);            
         }
 
         private void InitFriendsListModule(int UserID)
         {
-            _friendListModule = BottomPanel.LoadModule<FriendsList>();
+            _friendListModule = Grid.LoadModule<FriendsList>();
             _friendListModule.SetupData(UserID);
-            //_friendListModule.OnGroupItemClick += new FriendsList.GroupItems(FriendList_OnGroupItemClick);
-            //_friendListModule.OnFriendItemClick += new FriendsList.FriendItemHandler(FriendList_OnFriendItemClick);
         }
 
         private void InitAddFriendModule()
         {
-            _addFriendModule = TopPanel.LoadModule<AddFriend>();
+            _addFriendModule = Grid.LoadModule<AddFriend>();
             _addFriendModule.OnAddingFriend += new AddFriend.AddingFriend(AddFriend_OnAddingFriend);
         }
 
@@ -69,29 +62,6 @@ namespace vChat.View.Windows
         {
             LogOut.Visibility = System.Windows.Visibility.Visible;
             InitFriendsListModule(UserLogged.UserID);
-            UserID = UserLogged.UserID;
-            /*
-            Grid.Children.Clear();
-
-            Users u = ((UserServiceClient)App.Current.FindResource("UserServiceClient")).FindName(userLogged);
-            UserID = u.UserID;
-            GroupFriendList f = ((UserServiceClient)App.Current.FindResource("UserServiceClient")).FriendList(u.UserID);
-
-            AddFriendModule addFriendModule = new AddFriendModule();
-            addFriendModule.SetupData(f.FriendGroups);
-            addFriendModule.OnAddingFriend += new AddFriendModule.AddingFriend(addFriendModule_OnAddingFriend);
-
-            FriendListModule friendListModule = new FriendListModule();
-            friendListModule.SetupData(f);
-            friendListModule.OnFriendItemClick += new FriendListModule.FriendItems(friendListModule_OnFriendItemClick);
-            friendListModule.OnGroupItemClick += new FriendListModule.GroupItems(friendListModule_OnGroupItemClick);
-
-            StackPanel Container = new StackPanel();
-            Container.Children.Add(friendListModule);
-            Container.Children.Add(addFriendModule);
-
-            Grid.Children.Add(Container);
-            */
         }
 
         private void FriendList_OnGroupItemClick(GroupInfo e)
@@ -126,7 +96,7 @@ namespace vChat.View.Windows
 
         private void Login_OnSignUpClicked()
         {
-            _signUpModule = TopPanel.LoadModule<SignUp>();
+            _signUpModule = Grid.LoadModule<SignUp>();
             _signUpModule.OnSignUpSuccess += new SignUp.SignUpSuccessHandler(delegate
             {
                 InitLoginModule();

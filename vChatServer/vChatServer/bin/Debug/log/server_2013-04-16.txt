@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 16/04/2013 09:51:14 - Server da khoi dong thanh cong.
 16/04/2013 09:51:35 - itexplore(127.0.0.1:19710) da ket noi den server.
 16/04/2013 09:51:46 - itexplore(127.0.0.1:19710) da ngat ket noi.
@@ -59,3 +60,11 @@
 16/04/2013 11:34:17 - itexplore(127.0.0.1:24626) da ngat ket noi.
 16/04/2013 11:35:26 - itexplore(127.0.0.1:24642) da ket noi den server.
 16/04/2013 11:35:32 - itexplore(127.0.0.1:24642) da ngat ket noi.
+=======
+16/04/2013 11:01:55 - Server da khoi dong thanh cong.
+16/04/2013 09:04:37 - (127.0.0.1:7023) da ngat ket noi.
+16/04/2013 09:10:19 - symaci(127.0.0.1:7030) da ket noi den server.
+16/04/2013 09:10:28 - symaci(127.0.0.1:7030) da ngat ket noi.
+16/04/2013 09:20:59 - symaci(127.0.0.1:7091) da ket noi den server.
+16/04/2013 09:21:07 - symaci(127.0.0.1:7091) da ngat ket noi.
+>>>>>>> ThoTran/master

@@ -14,7 +14,8 @@ namespace Core.Client
     public class Client
     {
         public Socket Socket { get; private set; }
-        public string User { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
         public bool IsConnected
         {
             get
@@ -26,7 +27,6 @@ namespace Core.Client
         private BackgroundWorker _ReceiveWorker = new BackgroundWorker();
         private BackgroundWorker _DoReceiveWorker = new BackgroundWorker();
         private BackgroundWorker _SendWorker = new BackgroundWorker();
-        private BackgroundWorker _ConnectWorker = new BackgroundWorker();
         private IPEndPoint _ServerIP;
         public IPAddress ServerIP { get { return this._ServerIP.Address; } }
         public int Port { get; private set; }
@@ -49,11 +49,10 @@ namespace Core.Client
 
         public void Connect()
         {
-            this._ConnectWorker.DoWork+=new DoWorkEventHandler(connectToServer);
-            this._ConnectWorker.RunWorkerAsync();
+            Connect(false);
         }
 
-        private void connectToServer(object sender, DoWorkEventArgs e)
+        public void Connect(bool doThrow)
         {
             try
             {
@@ -69,18 +68,28 @@ namespace Core.Client
             {
                 this.OnCritical(ex.StackTrace);
                 this.OnConnectFailed();
+                if (doThrow)
+                    throw ex;
             }
         }
 
         private void ReceiveCommand(object sender, DoWorkEventArgs e)
         {
-            while (this.Socket.Connected)
+            try
             {
-                byte[] buffer = new byte[4];
-                this._Stream.Read(buffer, 0, 4);
-                buffer = new byte[BitConverter.ToInt32(buffer, 0)];
-                this._Stream.Read(buffer, 0, buffer.Length);
-                _DoReceiveWorker.RunWorkerAsync(buffer);
+                while (this.Socket.Connected)
+                {
+                    byte[] buffer = new byte[4];
+                    this._Stream.Read(buffer, 0, 4);
+                    buffer = new byte[BitConverter.ToInt32(buffer, 0)];
+                    this._Stream.Read(buffer, 0, buffer.Length);
+                    _DoReceiveWorker.RunWorkerAsync(buffer);
+                }
+            }
+            catch
+            {
+                this.ID = -1;
+                this.Name = "";
             }
         }
 

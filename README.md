@@ -3,6 +3,31 @@
 
 ## Update Log
 -------------
+
+#### Update 17.04 10:06 AM
+- Cho phép chỉnh sửa Friend List bằng cách đánh check vào những contact cần chỉnh sửa (Sellect All, Deselect All) (Chưa có code)
+- Thêm control `ImageButton` (`vChat.Control`). Cách sử dụng:
+
+```c#
+	<ImageButton Name="btnTest" Text="Test" Image="Image/test.png" Command="{Binding TestCommand}" Click="btnTest_Click"/>
+```
+
+#### Update 17.04 3:28 AM
+- Cập nhật tính năng phân luồng để hiện lên progress khi đang login
+- Cải thiện thông báo lỗi khi login không đúng hoặc khi cookie bị sửa đổi
+- Tối ưu phần **core**
+
+#### Update 16.04 9:21 PM
+- Sửa lại phần layout, bỏ StackPanel và chuyển lại Grid như cũ (cái này muốn add cùng lúc 2 control lên thì tạo StackPanel và phân panel ra)
+- Sau khi login thành công, **ID** và **Name** của **User** sẽ được lưu trong client. Cách sử dụng:
+
+```c#
+// lấy ra id hiện hành
+int userID = this.Get<Client>().ID;
+// lấy ra username hiện hành
+int userName = this.Get<Client>().Name;
+``` 
+
 #### Update 15.04 3:20 AM
 - Thêm method `LoginHash` trong **vChatService** dùng để xác nhận login hợp lệ của 1 tài khoản với tham số password truyền vào đã được mã hoá MD5 sẵn (tạo ra cái này để làm cookie)
 - Thêm extension method `Panel.LoadModule(params object[] args)` dùng để tạo 1 module và truyền tham số tương ứng vào constructor nếu có
