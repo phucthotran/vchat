@@ -4,6 +4,9 @@
 ## Update Log
 -------------
 
+#### Update 17.04 11:42 AM
+- Fix lỗi bể layout của FriendList
+
 #### Update 17.04 10:06 AM
 - Cho phép chỉnh sửa Friend List bằng cách đánh check vào những contact cần chỉnh sửa (Sellect All, Deselect All) (Chưa có code)
 - Thêm control `ImageButton` (`vChat.Control`). Cách sử dụng:
