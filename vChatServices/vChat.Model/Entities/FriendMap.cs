@@ -25,7 +25,10 @@ namespace vChat.Model.Entities
         public virtual FriendGroup FriendGroup { get; set; }
 
         [DataMember]
-        public bool IsAvailable { get; set; }
+        public bool IsAccepted { get; set; }
+
+        [DataMember]
+        public bool IsIgnored { get; set; }
 
         [IgnoreDataMember]
         public Byte[] RowVersion { get; set; }

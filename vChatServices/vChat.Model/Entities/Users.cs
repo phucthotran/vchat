@@ -4,6 +4,7 @@ using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using System.Xml.Schema;
 using System.Xml;
+using System.Collections.ObjectModel;
 
 namespace vChat.Model.Entities
 {

@@ -59,6 +59,12 @@ namespace vChat.WCF
             return unc.FriendList(UserID);
         }
 
+        [OperationBehavior]
+        public List<Users> FriendRequests(int UserID)
+        {
+            return unc.FriendRequests(UserID);
+        }
+
         /// <summary>
         /// Add new friend
         /// </summary>
@@ -73,6 +79,19 @@ namespace vChat.WCF
         public MethodInvokeResult AddFriend(int UserID, String FriendName, int GroupID)
         {
             return unc.AddFriend(UserID, FriendName, GroupID);
+        }
+
+        /// <summary>
+        /// Add new group
+        /// </summary>
+        /// <param name="UserID">UserID of group's owner</param>
+        /// <param name="Name">Group's name (Min: 1, Max: 45)</param>
+        /// <param name="NewGroupID">Push new group id back to you</param>
+        /// <returns>Status.SUCCESS, Status.FAIL</returns>
+        [OperationBehavior]
+        public MethodInvokeResult AddGroup(int UserID, String Name, out int NewGroupID)
+        {
+            return unc.AddGroup(UserID, Name, out NewGroupID);
         }
 
         /// <summary>
@@ -143,6 +162,55 @@ namespace vChat.WCF
         public MethodInvokeResult ChangePassword(int UserID, string OldPassword, string NewPassword)
         {
             return unc.ChangePassword(UserID, OldPassword, NewPassword);
+        }
+
+        /// <summary>
+        /// Accept a friend request
+        /// </summary>
+        /// <param name="UserID">UserID of user received request</param>
+        /// <param name="FriendID">UserID of user raise request</param>
+        /// <param name="GroupID">GroupID of group need to be added</param>
+        /// <returns>Status.SUCCESS, Status.FAIL</returns>
+        [OperationBehavior]
+        public MethodInvokeResult AcceptFriendRequest(int UserID, int FriendID, int GroupID)
+        {
+            return unc.AcceptFriendRequest(UserID, FriendID, GroupID);
+        }
+
+        /// <summary>
+        /// Ignore a friend request
+        /// </summary>
+        /// <param name="UserID">UserID of user received request</param>
+        /// <param name="FriendID">UserID of user raise request</param>
+        /// <param name="GroupID">GroupID of group need to be added</param>
+        /// <returns>Status.SUCCESS, Status.FAIL</returns>
+        [OperationBehavior]
+        public MethodInvokeResult IgnoreFriendRequest(int UserID, int FriendID)
+        {
+            return unc.IgnoreFriendRequest(UserID, FriendID);
+        }
+
+        /// <summary>
+        /// Move contact to new group
+        /// </summary>
+        /// <param name="UserID">UserID of user owned contact</param>
+        /// <param name="FriendID">UserID of contact need to be moved</param>
+        /// <param name="NewGroupID">GroupID of group move to</param>
+        /// <returns>Status.SUCCESS, Status.FAIL</returns>
+        public MethodInvokeResult MoveContact(int UserID, int FriendID, int NewGroupID)
+        {
+            return unc.MoveContact(UserID, FriendID, NewGroupID);
+        }
+
+        /// <summary>
+        /// Remove contact from user's friendlist
+        /// </summary>
+        /// <param name="UserID">UserIf of user owned contact</param>
+        /// <param name="FriendID">UserID of contact need to be removed</param>
+        /// <returns>Status.SUCCESS, Status.FAIL</returns>
+        public MethodInvokeResult RemoveContact(int UserID, int FriendID)
+        {
+            return unc.RemoveContact(UserID, FriendID);
         }
 
         /// <summary>

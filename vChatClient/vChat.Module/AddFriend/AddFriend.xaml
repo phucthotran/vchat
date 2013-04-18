@@ -4,14 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+             xmlns:local="clr-namespace:vChat.Module.AddFriend"
              MinHeight="95" MinWidth="310">
-    <Grid>
+    <Grid Margin="5">
         <StackPanel>
-            <TextBlock>Your friend's account name</TextBlock>
-            <TextBox Name="txtFriendName"></TextBox>
-            <TextBlock>Select group</TextBlock>
-            <ComboBox Name="lstFriend"></ComboBox>
-            <Button Name="btnAdd" Click="btnAdd_Click">Add Friend</Button>
+            <TextBlock>Tên tài khoản (của bạn bè của bạn)</TextBlock>
+            <TextBox Name="txtFriendName" Text="{Binding FriendName}" Margin="0, 5, 0, 0" Padding="3"></TextBox>
+            <TextBlock Margin="0, 5, 0, 0">Thêm vào nhóm có sẵn</TextBlock>
+            <ComboBox Name="lstFriend" ItemsSource="{Binding Groups}" DisplayMemberPath="Name" SelectedValuePath="GroupID" SelectedIndex="0" Margin="0, 5, 0, 0"/>
+            <TextBlock Margin="0, 5, 0, 0">Hoặc thêm vào nhóm mới (Bỏ trống nếu thêm vào nhóm có sẵn)</TextBlock>
+            <TextBox Name="tbGroupName" Text="{Binding NewGroupName}" Margin="0, 5, 0, 0" Padding="3"></TextBox>
+            <Button Name="btnAdd" Click="btnAdd_Click" Margin="0, 5, 0, 0" Padding="3">Thêm Bạn</Button>
         </StackPanel>
     </Grid>
 </UserControl>

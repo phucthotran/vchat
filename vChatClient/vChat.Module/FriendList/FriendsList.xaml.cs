@@ -13,6 +13,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using vChat.Model.Entities;
 using vChat.Model;
+using System.ComponentModel;
+using Core.Client;
 
 namespace vChat.Module.FriendList
 {
@@ -21,48 +23,132 @@ namespace vChat.Module.FriendList
     /// </summary>
     public partial class FriendsList : UserControl
     {
-        public delegate void SearchHandler(bool Status);
-        public event SearchHandler OnSearchSuccess;
-        public event SearchHandler OnSearchFail;
-        private ContextMenu _contextMenu;
+        public delegate void AddFriendButtonHandler(object sender, RoutedEventArgs e);
+        public event AddFriendButtonHandler OnAddFriendClick;
+
+        public delegate void GroupClickHandler(object sender, GroupArgs e);
+        public event GroupClickHandler OnGroupClick;
+
+        public delegate void FriendClickHandler(object sender, FriendArgs e);
+        public event FriendClickHandler OnFriendClick;
+
+        #region CLASS MEMBER
+
         private GroupTreeViewModel _GroupTree;
+        private RequestViewModel _RequestVM;
+        private int _UserID;
+
+        #endregion
 
         public FriendsList()
         {
             InitializeComponent();
         }
 
-        private void TreeFriend_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-        {
-            FriendGroup fg = TreeFriend.SelectedItem as FriendGroup;
-
-            if (fg == null)
-                return;
-
-            foreach (FriendGroup itemobj in TreeFriend.Items)
-            {                                
-                if(fg.GroupID == itemobj.GroupID)
-                {
-                    ItemContainerGenerator groupContainer = TreeFriend.ItemContainerGenerator;
-                    TreeViewItem groupControl = groupContainer.ContainerFromItem(itemobj) as TreeViewItem;
-
-                    if (groupControl.ContextMenu == null)
-                    {
-                        ContextMenu groupCtxMenu = new ContextMenu();
-                        groupCtxMenu.Items.Add("Remove group: " + fg.Name);
-
-                        groupControl.ContextMenu = groupCtxMenu;
-                    }
-                }
-            }
-        }
+        #region MAIN METHOD
 
         public void SetupData(int UserID)
         {
-            GroupFriendList Friends = FriendList(UserID);
-            _GroupTree = new GroupTreeViewModel(Friends.FriendGroups);
+            _UserID = UserID;
+
+            GroupFriendList GroupFriend = FriendList(UserID);
+
+            _GroupTree = new GroupTreeViewModel(GroupFriend.FriendGroups);
+            _GroupTree.OnMoveContact += new GroupTreeViewModel.FriendHandler(GroupTree_OnMoveContact);
+            _GroupTree.OnRemoveContact += new GroupTreeViewModel.FriendHandler(GroupTree_OnRemoveContact);
+
+            _RequestVM = new RequestViewModel(FriendRequests(UserID));
+            _RequestVM.OnAcceptRequest += new RequestViewModel.FriendRequestHandler(RequestVM_OnAcceptRequest);
+            _RequestVM.OnIgnoreRequest += new RequestViewModel.FriendRequestHandler(RequestVM_OnIgnoreRequest);
+
             base.DataContext = _GroupTree;
-            //btnTest.DataContext = _GroupTree;
+            friendRequestZone.DataContext = _RequestVM;
+            cbRequestGroup.ItemsSource = GroupFriend.FriendGroups;
+            cbNewGroup.ItemsSource = GroupFriend.FriendGroups;
+        }
+
+        #endregion
+
+        #region EVENT PERFORM
+
+        private void GroupTree_OnMoveContact(Users Friend, FriendGroup OldGroup)
+        {
+            FriendGroup NewGroup = (FriendGroup)cbNewGroup.SelectedItem;
+
+            MoveContact(_UserID, Friend.UserID, NewGroup.GroupID);
+
+            _GroupTree.MoveFriend(Friend, OldGroup, NewGroup);
+
+            TreeFriend.UpdateLayout();
+        }
+
+        private void GroupTree_OnRemoveContact(Users Friend, FriendGroup OldGroup)
+        {
+            RemoveContact(_UserID, Friend.UserID);
+
+            _GroupTree.RemoveFriend(Friend, OldGroup);
+
+            TreeFriend.UpdateLayout();
+        }
+
+        private void TreeFriend_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            if (TreeFriend.SelectedItem is FriendViewModel)
+            {
+                FriendViewModel SelectedFriend = TreeFriend.SelectedItem as FriendViewModel;
+                Users FriendArg = SelectedFriend.Friend;
+
+                OnFriendClick(this, new FriendArgs(
+                        FriendArg.UserID,
+                        FriendArg.Username,
+                        FriendArg.FirstName,
+                        FriendArg.LastName
+                    ));
+            }
+            else if (TreeFriend.SelectedItem is GroupViewModel)
+            {
+                GroupViewModel SelectedGroup = TreeFriend.SelectedItem as GroupViewModel;
+                FriendGroup GroupArg = SelectedGroup.Group;
+
+                OnGroupClick(this, new GroupArgs(
+                        GroupArg.GroupID,
+                        GroupArg.Name
+                    ));
+            }
+        }
+
+        private void RequestVM_OnAcceptRequest(Users Friend)
+        {
+            FriendGroup SelectedGroup = (FriendGroup)cbRequestGroup.SelectedItem;
+
+            AcceptRequest(_UserID, Friend.UserID, SelectedGroup.GroupID);
+
+            _GroupTree.AppendFriend(Friend, SelectedGroup);
+
+            _RequestVM.RemoveRequest(Friend);
+
+            if (_RequestVM.Requests.Count == 0)
+            {
+                requestTaskZone.Visibility = System.Windows.Visibility.Collapsed;
+                chkRequestTaskDone.IsEnabled = false;
+            }
+
+            friendRequestZone.UpdateLayout();
+            TreeFriend.UpdateLayout();
+        }
+
+        private void RequestVM_OnIgnoreRequest(Users Friend)
+        {
+            IgnoreRequest(_UserID, Friend.UserID);
+            _RequestVM.RemoveRequest(Friend);
+
+            if (_RequestVM.Requests.Count == 0)
+            {
+                requestTaskZone.Visibility = System.Windows.Visibility.Collapsed;
+                chkRequestTaskDone.IsEnabled = false;
+            }
+
+            friendRequestZone.UpdateLayout();
         }
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
@@ -70,120 +156,7 @@ namespace vChat.Module.FriendList
             if (e.Key == Key.Enter)
                 _GroupTree.SearchCommand.Execute(null);
         }
-
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
-        {
-            //List<FriendGroup> fg = (List<FriendGroup>)TreeFriend.ItemsSource;
-
-            //for (int i = 0; i < fg.Count; i++)
-            //{
-            //    FriendGroup group = fg.ElementAt(i);
-
-            //    for (int j = 0; j < group.Friends.Count; j++)
-            //    {
-            //        Users friend = group.Friends.ElementAt(j);
-
-            //        if (!txtSearch.Text.ToLower().Contains(friend.Username))
-            //        {
-            //            group.Friends.RemoveAt(j);
-
-            //            if (group.Friends.Count == 0)
-            //                fg.RemoveAt(i);
-            //        }
-            //    }
-            //}                       
-
-            string SearchText = txtSearch.Text.ToLower();
-            TreeFriend.UpdateLayout();
-            
-            foreach (FriendGroup GroupItemObj in TreeFriend.Items)
-            {
-                TreeViewItem GroupItem = TreeFriend.ItemContainerGenerator.ContainerFromItem(GroupItemObj) as TreeViewItem;
-
-                ItemContainerGenerator GroupItemContainer = TreeFriend.ItemContainerGenerator;
-                ItemsControl GroupControl = GroupItemContainer.ContainerFromItem(GroupItemObj) as ItemsControl;
-
-                TreeFriend.SelectItem(GroupItemObj.Friends[0]);
-
-                ItemContainerGenerator ChildItemContainer = GroupControl.ItemContainerGenerator;
-                ItemsControl ChildControl = ChildItemContainer.ContainerFromItem(GroupItemObj.Friends[0]) as ItemsControl;
-
-                if (GroupItem != null)
-                {
-                    GroupItem.IsExpanded = true;
-
-                    List<TreeViewItem> lstChild = GetChild(GroupItem);
-
-                    GroupItem.IsExpanded = false;
-                }
-            }
-            
-            //TreeFriend.ItemsSource = fg;
-            //TreeFriend.Items.Refresh();
-
-            //foreach (object item in TreeFriend.Items)
-            //{
-            //    TreeViewItem treeItem = TreeFriend.ItemContainerGenerator.ContainerFromItem(item) as TreeViewItem;
-
-            //    if (treeItem != null)
-            //    {
-            //        ExpandAll(treeItem, true);
-            //        treeItem.IsExpanded = true;
-            //    }
-            //}
-        }
-
-        private List<TreeViewItem> GetChild(ItemsControl GroupItem)
-        {
-            List<TreeViewItem> lstTree = new List<TreeViewItem>();
-
-            foreach (object ChildObj in GroupItem.Items)
-            {
-                ItemsControl Child = GroupItem.ItemContainerGenerator.ContainerFromItem(ChildObj) as TreeViewItem;
-
-                if (Child != null)
-                    GetChild(Child);
-
-                TreeViewItem item = Child as TreeViewItem;
-
-                if (item != null)
-                    lstTree.Add(item);
-            }
-
-            return lstTree;
-        }
-
-        private void HideAll(ItemsControl GroupItem)
-        {
-            foreach (object ChildItemObj in GroupItem.Items)
-            {
-                ItemsControl ChildItem = GroupItem.ItemContainerGenerator.ContainerFromItem(ChildItemObj) as ItemsControl;
-
-                if (ChildItem != null)
-                    HideAll(ChildItem);
-
-                TreeViewItem item = ChildItem as TreeViewItem;
-
-                if (item != null)
-                    item.Visibility = System.Windows.Visibility.Hidden;
-            }
-        }
-
-        private void ExpandAll(ItemsControl items, bool expand)
-        {
-            foreach (object obj in items.Items)
-            {
-                ItemsControl childControl = items.ItemContainerGenerator.ContainerFromItem(obj) as ItemsControl;
-
-                if (childControl != null)
-                    ExpandAll(childControl, expand);
-
-                TreeViewItem item = childControl as TreeViewItem;
-                if (item != null)
-                    item.IsExpanded = true;
-            }
-        }
-
+  
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {            
             btnSelectAll.Visibility = System.Windows.Visibility.Visible;
@@ -200,90 +173,91 @@ namespace vChat.Module.FriendList
         {
             btnDone.IsEnabled = false;
         }
-    }
 
-    public static class Extension
-    {
-        public static void SelectItem(this TreeView treeView, object item)
+        private void chkRequestTaskDone_Checked(object sender, RoutedEventArgs e)
         {
-            ExpandAndSelectItem(treeView, item);
+            btnRequestTaskDone.IsEnabled = true;
         }
 
-        private static bool ExpandAndSelectItem(ItemsControl parentContainer, object itemToSelect)
+        private void chkRequestTaskDone_Unchecked(object sender, RoutedEventArgs e)
         {
-            //check all items at the current level
-            foreach (Object item in parentContainer.Items)
-            {
-                TreeViewItem currentContainer = parentContainer.ItemContainerGenerator.ContainerFromItem(item) as TreeViewItem;
-
-                //if the data item matches the item we want to select, set the corresponding
-                //TreeViewItem IsSelected to true
-                if (item == itemToSelect && currentContainer != null)
-                {
-                    currentContainer.IsSelected = true;
-                    currentContainer.BringIntoView();
-                    currentContainer.Focus();
-
-                    //the item was found
-                    return true;
-                }
-            }
-
-            //if we get to this point, the selected item was not found at the current level, so we must check the children
-            foreach (Object item in parentContainer.Items)
-            {
-                TreeViewItem currentContainer = parentContainer.ItemContainerGenerator.ContainerFromItem(item) as TreeViewItem;
-
-                //if children exist
-                if (currentContainer != null && currentContainer.Items.Count > 0)
-                {
-                    //keep track of if the TreeViewItem was expanded or not
-                    bool wasExpanded = currentContainer.IsExpanded;
-
-                    //expand the current TreeViewItem so we can check its child TreeViewItems
-                    currentContainer.IsExpanded = true;
-
-                    //if the TreeViewItem child containers have not been generated, we must listen to
-                    //the StatusChanged event until they are
-                    if (currentContainer.ItemContainerGenerator.Status != System.Windows.Controls.Primitives.GeneratorStatus.ContainersGenerated)
-                    {
-                        //store the event handler in a variable so we can remove it (in the handler itself)
-                        EventHandler eh = null;
-                        eh = new EventHandler(delegate
-                        {
-                            if (currentContainer.ItemContainerGenerator.Status == System.Windows.Controls.Primitives.GeneratorStatus.ContainersGenerated)
-                            {
-                                if (ExpandAndSelectItem(currentContainer, itemToSelect) == false)
-                                {
-                                    //The assumption is that code executing in this EventHandler is the result of the parent not
-                                    //being expanded since the containers were not generated.
-                                    //since the itemToSelect was not found in the children, collapse the parent since it was previously collapsed
-                                    currentContainer.IsExpanded = false;
-                                }
-
-                                //remove the StatusChanged event handler since we just handled it (we only needed it once)
-                                currentContainer.ItemContainerGenerator.StatusChanged -= eh;
-                            }
-                        });
-                        currentContainer.ItemContainerGenerator.StatusChanged += eh;
-                    }
-                    else //otherwise the containers have been generated, so look for item to select in the children
-                    {
-                        if (ExpandAndSelectItem(currentContainer, itemToSelect) == false)
-                        {
-                            //restore the current TreeViewItem's expanded state
-                            currentContainer.IsExpanded = wasExpanded;
-                        }
-                        else //otherwise the node was found and selected, so return true
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
-
-            //no item was found
-            return false;
+            btnRequestTaskDone.IsEnabled = false;
         }
-    }
+
+        private void btnRequestTaskDone_Click(object sender, RoutedEventArgs e)
+        {
+            String Tag = null;
+
+            if (cbRequestTask.SelectedItem != null)
+                Tag = ((ComboBoxItem)cbRequestTask.SelectedItem).Tag.ToString();
+
+            switch (Tag)
+            {
+                case "Accept":
+                    _RequestVM.AcceptCommand.Execute(null);
+                    break;
+                case "Ignore":
+                    _RequestVM.IgnoreCommand.Execute(null);
+                    break;
+            }
+        }
+
+        private void btnAddFriend_Click(object sender, RoutedEventArgs e)
+        {
+            OnAddFriendClick(sender, e);
+        }
+
+        private void cbTask_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            String Tag = null;
+
+            if (cbTask.SelectedItem != null)
+                Tag = ((ComboBoxItem)cbTask.SelectedItem).Tag.ToString();
+
+            switch (Tag)
+            {
+                case "MoveContact":
+                    tblNewGroup.Visibility = System.Windows.Visibility.Visible;
+                    cbNewGroup.Visibility = System.Windows.Visibility.Visible;
+                    break;
+
+                case "RemoveContact":
+                    tblNewGroup.Visibility = System.Windows.Visibility.Collapsed;
+                    cbNewGroup.Visibility = System.Windows.Visibility.Collapsed;
+                    break;
+            }
+        }
+
+        private void btnDone_Click(object sender, RoutedEventArgs e)
+        {
+            String Tag = null;
+
+            if (cbTask.SelectedItem != null)
+                Tag = ((ComboBoxItem)cbTask.SelectedItem).Tag.ToString();
+
+            switch (Tag)
+            {
+                case "MoveContact":                    
+                    _GroupTree.MoveCommand.Execute(null);                    
+                    break;
+
+                case "RemoveContact":
+                    _GroupTree.RemoveCommand.Execute(null);
+                    break;
+            }
+
+            chkDone.IsChecked = false;
+            btnDone.IsEnabled = false;
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            _GroupTree.CancelEditCommand.Execute(null);
+            btnSelectAll.Visibility = System.Windows.Visibility.Collapsed;
+            btnDeselectAll.Visibility = System.Windows.Visibility.Collapsed;
+            completeTask.Visibility = System.Windows.Visibility.Collapsed;
+        }
+
+        #endregion                
+    }    
 }

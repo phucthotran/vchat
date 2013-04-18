@@ -36,6 +36,11 @@ namespace vChat.Data
             return UserTask.FriendList(UserID);
         }
 
+        public List<Users> FriendRequests(int UserID)
+        {
+            return UserTask.FriendRequests(UserID);
+        }
+
         public MethodInvokeResult AddFriend(int UserID, String FriendName, int GroupID)
         {
             SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Add friend Success" };
@@ -50,6 +55,23 @@ namespace vChat.Data
             FriendGroup group_info = GroupTask.Get(GroupID) as FriendGroup;
 
             return UserTask.AddFriend(user_info, friend_info, group_info) ? SUCCESS : FAIL;
+        }
+
+        public MethodInvokeResult AddGroup(int UserID, String Name, out int NewGroupID)
+        {
+            SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Add group Success" };
+            FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Add group Fail" };
+
+            FriendGroup new_group = new FriendGroup
+            {
+                Name = Name,
+                Owner = new Users().Get(UserID)
+            };
+
+            bool r = new_group.New();
+            NewGroupID = new_group.GroupID;
+
+            return r ? SUCCESS : FAIL;
         }
 
         public MethodInvokeResult Login(string Username, string Password)
@@ -116,6 +138,52 @@ namespace vChat.Data
             r = user_info.Update();
 
             return r ? SUCCESS : FAIL;
+        }
+
+        public MethodInvokeResult AcceptFriendRequest(int UserID, int FriendID, int GroupID)
+        {
+            SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Process friend requests success" };
+            FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Process friend requests fail" };
+
+            Users user = UserTask.Get(UserID);
+            Users friend = UserTask.Get(FriendID);
+            FriendGroup group = GroupTask.Get(GroupID) as FriendGroup;
+
+            return UserTask.ReponseFriendRequest(user, friend, group, true, false) ? SUCCESS : FAIL;
+        }
+
+        public MethodInvokeResult IgnoreFriendRequest(int UserID, int FriendID)
+        {
+            SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Process friend requests success" };
+            FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Process friend requests fail" };
+
+            Users user = UserTask.Get(UserID);
+            Users friend = UserTask.Get(FriendID);            
+
+            return UserTask.ReponseFriendRequest(user, friend, null, false, true) ? SUCCESS : FAIL;
+        }
+
+        public MethodInvokeResult MoveContact(int UserID, int FriendID, int NewGroupID)
+        {
+            SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Move contact requests success" };
+            FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Move contact requests fail" };
+
+            Users user = UserTask.Get(UserID);
+            Users friend = UserTask.Get(FriendID);
+            FriendGroup group = GroupTask.Get(NewGroupID) as FriendGroup;
+
+            return UserTask.MoveContact(user, friend, group) ? SUCCESS : FAIL;
+        }
+
+        public MethodInvokeResult RemoveContact(int UserID, int FriendID)
+        {
+            SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Remove contact requests success" };
+            FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Remove contact requests fail" };
+
+            Users user = UserTask.Get(UserID);
+            Users friend = UserTask.Get(FriendID);
+
+            return UserTask.RemoveContact(user, friend) ? SUCCESS : FAIL;
         }
 
         public MethodInvokeResult Deactive(int UserID)

@@ -77,21 +77,24 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddFriend\AddedInfo.cs" />
+    <Compile Include="AddFriend\AddFriendArgs.cs" />
     <Compile Include="AddFriend\AddFriend.xaml.cs">
       <DependentUpon>AddFriend.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FriendList\FriendInfo.cs" />
-    <Compile Include="FriendList\FriendItem.cs" />
+    <Compile Include="AddFriend\AddFriendController.cs" />
+    <Compile Include="FriendList\BaseCommand.cs" />
+    <Compile Include="FriendList\Command.cs" />
+    <Compile Include="FriendList\FriendArgs.cs" />
     <Compile Include="FriendList\FriendsList.xaml.cs">
       <DependentUpon>FriendsList.xaml</DependentUpon>
     </Compile>
     <Compile Include="FriendList\FriendsListController.cs" />
     <Compile Include="FriendList\FriendViewModel.cs" />
-    <Compile Include="FriendList\GroupInfo.cs" />
-    <Compile Include="FriendList\GroupItem.cs" />
+    <Compile Include="FriendList\GroupArgs.cs" />
     <Compile Include="FriendList\GroupTreeViewModel.cs" />
     <Compile Include="FriendList\GroupViewModel.cs" />
+    <Compile Include="FriendList\RequestViewModel.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Login\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -160,6 +163,15 @@
   <ItemGroup>
     <Resource Include="FriendList\Image\edit.png" />
     <Resource Include="FriendList\Image\select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FriendList\Image\request.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FriendList\Image\addfriend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FriendList\Image\group.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

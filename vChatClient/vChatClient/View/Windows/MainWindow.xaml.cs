@@ -35,7 +35,7 @@ namespace vChat.View.Windows
         public MainWindow()
         {
             InitializeComponent();
-            InitLoginModule();            
+            InitLoginModule();
         }
 
         private void InitLoginModule()
@@ -50,43 +50,55 @@ namespace vChat.View.Windows
         {
             _friendListModule = Grid.LoadModule<FriendsList>();
             _friendListModule.SetupData(UserID);
+            _friendListModule.OnAddFriendClick += new FriendsList.AddFriendButtonHandler(FriendList_OnAddFriendClick);
+            _friendListModule.OnFriendClick += new FriendsList.FriendClickHandler(FriendList_OnFriendClick);
+            _friendListModule.OnGroupClick += new FriendsList.GroupClickHandler(FriendList_OnGroupClick);
         }
 
-        private void InitAddFriendModule()
+        private void FriendList_OnGroupClick(object sender, GroupArgs e)
         {
-            _addFriendModule = Grid.LoadModule<AddFriend>();
-            _addFriendModule.OnAddingFriend += new AddFriend.AddingFriend(AddFriend_OnAddingFriend);
+            MessageBox.Show(String.Format("ID: {0}, Name: {1}", e.GroupID, e.Name));
+        }
+
+        private void FriendList_OnFriendClick(object sender, FriendArgs e)
+        {
+            MessageBox.Show(String.Format("ID: {0}, Username: {1}, FirstName: {2}, LastName: {3}", e.UserID, e.Username, e.FirstName, e.LastName));
+        }
+
+        private void FriendList_OnAddFriendClick(object sender, RoutedEventArgs e)
+        {
+            Window n = new Window {
+                Content = _addFriendModule, 
+                Title = "Add Friend", 
+                SizeToContent = System.Windows.SizeToContent.WidthAndHeight, 
+                WindowStartupLocation = System.Windows.WindowStartupLocation.CenterOwner 
+            };
+            n.ShowDialog();
+        }
+
+        private void InitAddFriendModule(int UserID)
+        {
+            _addFriendModule = new AddFriend();
+            _addFriendModule.SetupData(UserID);
+            _addFriendModule.OnAddFriendSuccess += new AddFriend.AddingHandler(AddFriend_OnAddFriendSuccess);
+            _addFriendModule.OnAddFriendError += new AddFriend.AddingHandler(AddFriend_OnAddFriendError);
+        }
+
+        private void AddFriend_OnAddFriendSuccess(object sender, AddFriendArgs e)
+        {
+            MessageBox.Show(String.Format("Add Success - FriendName: {0}, GroupName: {1}", e.FriendName, e.GroupName));
+        }
+
+        private void AddFriend_OnAddFriendError(object sender, AddFriendArgs e)
+        {
+            MessageBox.Show(String.Format("Add Error - FriendName: {0}, GroupName: {1}", e.FriendName, e.GroupName ?? "NULL"));
         }
 
         private void Login_OnLoginSuccess(Users UserLogged)
         {
             LogOut.Visibility = System.Windows.Visibility.Visible;
             InitFriendsListModule(UserLogged.UserID);
-        }
-
-        private void FriendList_OnGroupItemClick(GroupInfo e)
-        {
-            MessageBox.Show(String.Format("ID: {0}, Name: {1}", e.ID, e.Name));
-        }
-
-        void AddFriend_OnAddingFriend(AddedInfo e)
-        {
-            //Users u = App.UserService.FindName(e.Value);
-            //MethodInvokeResult result = App.UserService.AddFriend(UserID, e.Value, e.Group.GroupID);
-
-            //if (result.Status == MethodInvokeResult.RESULT.SUCCESS)
-            //{
-            //    MessageBox.Show(result.Message);
-            //}
-            //else
-            //{
-            //    MessageBox.Show(result.Message);
-            //}
-        }
-
-        private void FriendList_OnFriendItemClick(FriendInfo e)
-        {
-            MessageBox.Show(String.Format("ID: {0}, Name: {1}", e.ID, e.Name));
+            InitAddFriendModule(UserLogged.UserID);            
         }
 
         private void Login_OnLoginFailed()

@@ -30,11 +30,23 @@
   <wsdl:message name="IUserService_FriendList_OutputMessage">
     <wsdl:part name="parameters" element="tns:FriendListResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_FriendRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:FriendRequests" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_FriendRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FriendRequestsResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_AddFriend_InputMessage">
     <wsdl:part name="parameters" element="tns:AddFriend" />
   </wsdl:message>
   <wsdl:message name="IUserService_AddFriend_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddFriendResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddGroup" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddGroupResponse" />
   </wsdl:message>
   <wsdl:message name="IUserService_Login_InputMessage">
     <wsdl:part name="parameters" element="tns:Login" />
@@ -65,6 +77,30 @@
   </wsdl:message>
   <wsdl:message name="IUserService_ChangePassword_OutputMessage">
     <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AcceptFriendRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptFriendRequest" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AcceptFriendRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptFriendRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IgnoreFriendRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:IgnoreFriendRequest" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IgnoreFriendRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IgnoreFriendRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_MoveContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveContact" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_MoveContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoveContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_RemoveContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveContact" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_RemoveContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveContactResponse" />
   </wsdl:message>
   <wsdl:message name="IUserService_Deactive_InputMessage">
     <wsdl:part name="parameters" element="tns:Deactive" />
@@ -103,9 +139,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/FriendList" message="tns:IUserService_FriendList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/FriendListResponse" message="tns:IUserService_FriendList_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="FriendRequests">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/FriendRequests" message="tns:IUserService_FriendRequests_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/FriendRequestsResponse" message="tns:IUserService_FriendRequests_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddFriend">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/AddFriend" message="tns:IUserService_AddFriend_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/AddFriendResponse" message="tns:IUserService_AddFriend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/AddGroup" message="tns:IUserService_AddGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/AddGroupResponse" message="tns:IUserService_AddGroup_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/Login" message="tns:IUserService_Login_InputMessage" />
@@ -126,6 +170,22 @@
     <wsdl:operation name="ChangePassword">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/ChangePassword" message="tns:IUserService_ChangePassword_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/ChangePasswordResponse" message="tns:IUserService_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptFriendRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/AcceptFriendRequest" message="tns:IUserService_AcceptFriendRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/AcceptFriendRequestResponse" message="tns:IUserService_AcceptFriendRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IgnoreFriendRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/IgnoreFriendRequest" message="tns:IUserService_IgnoreFriendRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/IgnoreFriendRequestResponse" message="tns:IUserService_IgnoreFriendRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/MoveContact" message="tns:IUserService_MoveContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/MoveContactResponse" message="tns:IUserService_MoveContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/RemoveContact" message="tns:IUserService_RemoveContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/RemoveContactResponse" message="tns:IUserService_RemoveContact_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Deactive">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/Deactive" message="tns:IUserService_Deactive_InputMessage" />
@@ -173,8 +233,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="FriendRequests">
+      <soap:operation soapAction="http://tempuri.org/IUserService/FriendRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddFriend">
       <soap:operation soapAction="http://tempuri.org/IUserService/AddFriend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroup">
+      <soap:operation soapAction="http://tempuri.org/IUserService/AddGroup" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -220,6 +298,42 @@
     </wsdl:operation>
     <wsdl:operation name="ChangePassword">
       <soap:operation soapAction="http://tempuri.org/IUserService/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptFriendRequest">
+      <soap:operation soapAction="http://tempuri.org/IUserService/AcceptFriendRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IgnoreFriendRequest">
+      <soap:operation soapAction="http://tempuri.org/IUserService/IgnoreFriendRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveContact">
+      <soap:operation soapAction="http://tempuri.org/IUserService/MoveContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveContact">
+      <soap:operation soapAction="http://tempuri.org/IUserService/RemoveContact" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

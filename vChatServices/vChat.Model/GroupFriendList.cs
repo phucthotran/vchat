@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using System.Text;
 using vChat.Model.Entities;
 using System.Runtime.Serialization;
+using System.Collections.ObjectModel;
 
 namespace vChat.Model
 {
     [DataContract(IsReference = true, Namespace = "http://vchat/GroupFriendList")]
     public class GroupFriendList
     {
-        private List<FriendGroup> _FriendGroups;
+        private ObservableCollection<FriendGroup> _FriendGroups;
 
         [DataMember]
-        public List<FriendGroup> FriendGroups
+        public ObservableCollection<FriendGroup> FriendGroups
         {
             get
             {
                 if (_FriendGroups == null)
                 {
-                    _FriendGroups = new List<FriendGroup>();
+                    _FriendGroups = new ObservableCollection<FriendGroup>();
                     return _FriendGroups;
                 }
 
