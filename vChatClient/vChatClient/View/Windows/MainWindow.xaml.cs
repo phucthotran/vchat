@@ -19,6 +19,7 @@ using vChat.Module.SignUp;
 using vChat.Module.FriendList;
 using vChat.Module.AddFriend;
 using Core.Client;
+using Core.Data;
 
 namespace vChat.View.Windows
 {
@@ -35,7 +36,26 @@ namespace vChat.View.Windows
         public MainWindow()
         {
             InitializeComponent();
-            InitLoginModule();            
+            this.InitTheme();
+            InitLoginModule();         
+        }
+
+        private void InitClientListener()
+        {
+            Client client = App.Current.FindResource("Client") as Client;
+            client.CommandBinding(CommandType.Chat, res =>
+            {
+                Window chatWindow = null;
+                foreach (Window window in App.Current.Windows)
+                {
+                    if (window.GetType() == typeof(ChatWindow) && ((ChatWindow)window).TargetUser == res.TargetUser)
+                    { 
+                        chatWindow = window;
+                        break;
+                    }
+                }
+
+            });
         }
 
         private void InitLoginModule()

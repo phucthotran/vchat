@@ -5,8 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:v="clr-namespace:vChat.Control;assembly=vChat.Control"
              xmlns:ma="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-             mc:Ignorable="d" xmlns:my="http://metro.mahapps.com/winfx/xaml/controls" d:DesignHeight="277" d:DesignWidth="257">
-    <Grid Name="Grid" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center">
+             mc:Ignorable="d" xmlns:my="http://metro.mahapps.com/winfx/xaml/controls"
+             Width="300" Height="280"
+             >
+    <Grid Name="Grid" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid Name="LoginPanel">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />

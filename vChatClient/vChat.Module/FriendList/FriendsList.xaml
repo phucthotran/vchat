@@ -8,7 +8,10 @@
              FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
              mc:Ignorable="d" MinWidth="400" MinHeight="250">
     <Grid Margin="5">
-        <DockPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <DockPanel HorizontalAlignment="Stretch">
             <Grid HorizontalAlignment="Stretch" DockPanel.Dock="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -34,7 +37,7 @@
                     </Expander.Content>
                 </Expander>
                 <DockPanel DockPanel.Dock="Bottom">
-                    <ScrollViewer DockPanel.Dock="Top" Height="400" MaxHeight="600">
+                    <ScrollViewer DockPanel.Dock="Top">
                         <TreeView Name="TreeFriend" ItemsSource="{Binding Groups}" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedItemChanged="TreeFriend_SelectedItemChanged">
                             <TreeView.ItemContainerStyle>
                                 <Style TargetType="{x:Type TreeViewItem}">

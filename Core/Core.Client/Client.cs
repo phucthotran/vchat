@@ -28,9 +28,9 @@ namespace Core.Client
         private BackgroundWorker _DoReceiveWorker = new BackgroundWorker();
         private BackgroundWorker _SendWorker = new BackgroundWorker();
         private IPEndPoint _ServerIP;
+        private CommandExecuter _Executer = new CommandExecuter();
         public IPAddress ServerIP { get { return this._ServerIP.Address; } }
         public int Port { get; private set; }
-
         public Client()
         {
             InitClient(IPAddress.Parse(ConfigurationManager.AppSettings["Server IP"]), Int32.Parse(ConfigurationManager.AppSettings["Port"]));
@@ -73,6 +73,11 @@ namespace Core.Client
             }
         }
 
+        public void CommandBinding(CommandType type, Action<CommandResponse> action)
+        {
+            _Executer.Set(type, action);
+        }
+
         private void ReceiveCommand(object sender, DoWorkEventArgs e)
         {
             try
@@ -99,7 +104,8 @@ namespace Core.Client
             {
                 byte[] buffer = (byte[])e.Argument;
                 Command cmd = buffer.ConvertTo<Command>();
-                InvokeCommand(cmd);
+                _Executer[cmd.Type].DynamicInvoke(new CommandResponse(cmd));
+             //   InvokeCommand(cmd);
             }
             catch (Exception ex)
             {
@@ -107,6 +113,7 @@ namespace Core.Client
             }
         }
 
+        /*
         private void InvokeCommand(Command cmd)
         {
             if (cmd.Invoker != null)
@@ -125,7 +132,7 @@ namespace Core.Client
                     method.Invoke(cmd.Invoker, @params);
                 }
             }
-        }
+        } */
 
         public void SendCommand(object invoker, CommandType cmdType, string toUser, params object[] obj)
         {

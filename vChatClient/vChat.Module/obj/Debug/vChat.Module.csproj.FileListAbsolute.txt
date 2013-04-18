@@ -76,3 +76,5 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\bin\Debug\System.Windows.Interactivity.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\bin\Debug\vChat.Control.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\bin\Debug\vChat.Lib.pdb
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\Chat\Chat.baml
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\Chat\Chat.g.cs

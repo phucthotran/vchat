@@ -85,6 +85,60 @@ namespace System
         {
             return (T)Application.Current.FindResource(typeof(T).Name);
         }
+
+        private static ResourceDictionary Theme = null;
+
+        public static void InitTheme(this Window w)
+        {
+            if (Theme == null)
+            {
+                Theme = new ResourceDictionary();
+                Theme.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml", UriKind.RelativeOrAbsolute) });
+                Theme.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml", UriKind.RelativeOrAbsolute) });
+                Theme.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml", UriKind.RelativeOrAbsolute) });
+                Theme.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml", UriKind.RelativeOrAbsolute) });
+                Theme.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml", UriKind.RelativeOrAbsolute) });
+                Theme.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("pack://application:,,,/MahApps.Metro;component/Styles/FlatButton.xaml", UriKind.RelativeOrAbsolute) });
+            }
+            w.Resources = Theme;
+        }
+
+        public static void Show(this Window w, UserControl uc)
+        {
+            w.Content = uc;
+            w.InitTheme();
+            w.Show();
+        }
+
+        public static void Show(this Window w, Panel panel, UserControl uc)
+        {
+            panel.Children.Clear();
+            panel.Children.Add(uc);
+            w.InitTheme();
+            w.Show();
+        }
+
+        public static Window Show(this UserControl uc)
+        {
+            Window nw = new Window()
+            {
+                Content = uc
+            };
+            nw.InitTheme();
+            nw.Show();
+            return nw;
+        }
+
+        public static Window ShowDialog(this UserControl uc)
+        {
+            Window nw = new Window()
+            {
+                Content = uc
+            };
+            nw.InitTheme();
+            nw.ShowDialog();
+            return nw;
+        }
     }
 
     public class ModuleCannotInitException : Exception

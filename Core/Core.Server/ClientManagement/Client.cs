@@ -16,6 +16,7 @@ namespace Core.Server.ClientManagement
         public string User { get; set; }
         public Socket Socket { get; private set; }
         public NetworkStream Stream { get; private set; }
+        public CommandExecuter Executer { get; private set; }
 
         public Client(Socket socket)
         {
@@ -29,6 +30,7 @@ namespace Core.Server.ClientManagement
         // Methods
         private void Init(Socket socket, ConnectedHandler handler)
         {
+            Executer = new CommandExecuter();
             this.Socket = socket;
             this.Stream = new NetworkStream(this.Socket);
             this.OnConnected += handler;
