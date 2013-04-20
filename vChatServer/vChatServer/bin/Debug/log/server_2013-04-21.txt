@@ -1,0 +1,40 @@
+21/04/2013 12:01:00 - Server da khoi dong thanh cong.
+21/04/2013 12:05:27 - symaci(127.0.0.1:45604) da ket noi den server.
+21/04/2013 12:05:33 - symaci(127.0.0.1:45604) da ngat ket noi.
+21/04/2013 12:12:06 - symaci(127.0.0.1:45649) da ket noi den server.
+21/04/2013 12:12:14 - symaci(127.0.0.1:45649) da ngat ket noi.
+21/04/2013 12:14:29 - symaci(127.0.0.1:45660) da ket noi den server.
+21/04/2013 12:14:32 - symaci(127.0.0.1:45660) da ngat ket noi.
+21/04/2013 12:30:04 - symaci(127.0.0.1:45738) da ket noi den server.
+21/04/2013 12:30:14 - symaci(127.0.0.1:45738) da ngat ket noi.
+21/04/2013 12:31:01 - symaci(127.0.0.1:45745) da ket noi den server.
+21/04/2013 12:31:04 - symaci(127.0.0.1:45745) da ngat ket noi.
+21/04/2013 12:31:16 - symaci(127.0.0.1:45751) da ket noi den server.
+21/04/2013 12:31:38 - symaci(127.0.0.1:45751) da ngat ket noi.
+21/04/2013 12:34:46 - symaci(127.0.0.1:45786) da ket noi den server.
+21/04/2013 12:34:47 - symaci(127.0.0.1:45786) da ngat ket noi.
+21/04/2013 12:34:51 - symaci(127.0.0.1:45792) da ket noi den server.
+21/04/2013 12:34:52 - symaci(127.0.0.1:45792) da ngat ket noi.
+21/04/2013 12:34:56 - symaci(127.0.0.1:45798) da ket noi den server.
+21/04/2013 12:35:00 - symaci(127.0.0.1:45798) da ngat ket noi.
+21/04/2013 12:38:00 - symaci(127.0.0.1:45835) da ket noi den server.
+21/04/2013 12:38:05 - symaci(127.0.0.1:45835) da ngat ket noi.
+21/04/2013 12:38:26 - symaci(127.0.0.1:45843) da ket noi den server.
+21/04/2013 12:38:34 - symaci(127.0.0.1:45843) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">asasdsad</Paragraph>
+21/04/2013 12:38:36 - symaci(127.0.0.1:45843) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">asdasd</Paragraph>
+21/04/2013 12:38:38 - symaci(127.0.0.1:45843) da ngat ket noi.
+21/04/2013 12:39:35 - symaci(127.0.0.1:45850) da ket noi den server.
+21/04/2013 12:40:03 - symaci(127.0.0.1:45850) da ngat ket noi.
+21/04/2013 12:40:34 - symaci(127.0.0.1:45858) da ket noi den server.
+21/04/2013 12:40:37 - symaci(127.0.0.1:45858) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">as</Paragraph>
+21/04/2013 12:40:42 - symaci(127.0.0.1:45858) da ngat ket noi.
+21/04/2013 12:41:45 - symaci(127.0.0.1:45865) da ket noi den server.
+21/04/2013 12:41:49 - symaci(127.0.0.1:45865) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">as</Paragraph>
+21/04/2013 12:41:51 - symaci(127.0.0.1:45865) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">asfasd</Paragraph>
+21/04/2013 12:41:53 - symaci(127.0.0.1:45865) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">asdsadsadsdsd</Paragraph>
+21/04/2013 12:42:04 - symaci(127.0.0.1:45865) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">wfwwsfwsagggegegegasada</Paragraph>
+21/04/2013 12:42:09 - symaci(127.0.0.1:45865) da ngat ket noi.
+21/04/2013 12:43:32 - symaci(127.0.0.1:45918) da ket noi den server.
+21/04/2013 12:43:37 - symaci(127.0.0.1:45918) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">asd</Paragraph>
+21/04/2013 12:43:42 - symaci(127.0.0.1:45918) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sadsd</Paragraph>
+21/04/2013 12:44:03 - symaci(127.0.0.1:45918) da ngat ket noi.

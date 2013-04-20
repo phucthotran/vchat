@@ -20,6 +20,7 @@ using vChat.Module.FriendList;
 using vChat.Module.AddFriend;
 using Core.Client;
 using Core.Data;
+using System.ComponentModel;
 
 namespace vChat.View.Windows
 {
@@ -39,6 +40,9 @@ namespace vChat.View.Windows
             this.InitTheme();
             InitLoginModule();
             InitClientListener();
+            this.Width = 300;
+            this.MinWidth = 300;
+            this.Height = SystemParameters.WorkArea.Height;
         }
 
         private void InitClientListener()

@@ -1,1 +1,37 @@
-20/04/2013 08:22:24 - Server da khoi dong thanh cong.
+20/04/2013 08:26:52 - Server da khoi dong thanh cong.
+20/04/2013 08:28:13 - symaci(127.0.0.1:44100) da ket noi den server.
+20/04/2013 08:28:19 - symaci(127.0.0.1:44100) da ngat ket noi.
+20/04/2013 08:29:45 - symaci(127.0.0.1:44107) da ket noi den server.
+20/04/2013 08:29:58 - symaci(127.0.0.1:44107) da ngat ket noi.
+20/04/2013 08:31:27 - symaci(127.0.0.1:44114) da ket noi den server.
+20/04/2013 08:31:31 - symaci(127.0.0.1:44114) da ngat ket noi.
+20/04/2013 08:37:05 - symaci(127.0.0.1:44176) da ket noi den server.
+20/04/2013 08:37:13 - symaci(127.0.0.1:44176) da ngat ket noi.
+20/04/2013 08:50:43 - symaci(127.0.0.1:44353) da ket noi den server.
+20/04/2013 08:50:47 - symaci(127.0.0.1:44353) da ngat ket noi.
+20/04/2013 08:54:14 - symaci(127.0.0.1:44364) da ket noi den server.
+20/04/2013 08:54:16 - symaci(127.0.0.1:44364) da ngat ket noi.
+20/04/2013 09:01:14 - symaci(127.0.0.1:44563) da ket noi den server.
+20/04/2013 09:01:16 - symaci(127.0.0.1:44563) da ngat ket noi.
+20/04/2013 09:03:43 - (127.0.0.1:44578) da ngat ket noi.
+20/04/2013 09:20:18 - (127.0.0.1:44582) da ngat ket noi.
+20/04/2013 09:20:34 - symaci(127.0.0.1:44732) da ket noi den server.
+20/04/2013 09:20:40 - symaci(127.0.0.1:44732) da ngat ket noi.
+20/04/2013 09:21:44 - symaci(127.0.0.1:44744) da ket noi den server.
+20/04/2013 09:21:46 - symaci(127.0.0.1:44744) da ngat ket noi.
+20/04/2013 09:23:10 - symaci(127.0.0.1:44753) da ket noi den server.
+20/04/2013 09:23:12 - symaci(127.0.0.1:44753) da ngat ket noi.
+20/04/2013 09:31:17 - symaci(127.0.0.1:44869) da ket noi den server.
+20/04/2013 09:31:18 - symaci(127.0.0.1:44869) da ngat ket noi.
+20/04/2013 10:11:21 - symaci(127.0.0.1:45124) da ket noi den server.
+20/04/2013 10:11:26 - symaci(127.0.0.1:45124) da ngat ket noi.
+20/04/2013 10:18:11 - symaci(127.0.0.1:45178) da ket noi den server.
+20/04/2013 10:18:13 - symaci(127.0.0.1:45178) da ngat ket noi.
+20/04/2013 10:21:38 - symaci(127.0.0.1:45190) da ket noi den server.
+20/04/2013 10:21:41 - symaci(127.0.0.1:45190) da ngat ket noi.
+20/04/2013 10:24:42 - symaci(127.0.0.1:45208) da ket noi den server.
+20/04/2013 10:24:49 - symaci(127.0.0.1:45208) da ngat ket noi.
+20/04/2013 10:25:36 - symaci(127.0.0.1:45212) da ket noi den server.
+20/04/2013 10:25:48 - symaci(127.0.0.1:45212) da ngat ket noi.
+20/04/2013 10:43:07 - symaci(127.0.0.1:45333) da ket noi den server.
+20/04/2013 10:43:10 - symaci(127.0.0.1:45333) da ngat ket noi.

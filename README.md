@@ -3,12 +3,17 @@
 
 ## Update Log
 -------------
+#### Update 21.04 2:06 AM
+- Sửa lỗi đăng nhập không được sau khi đăng xuất
+- Chỉnh sửa cách thức hiển thị của MainWindow (MinWidth = 300, Height = chiều cao tối đa của màn hình)
+- Chỉnh sửa ChatWindow
+
 #### Update 20.04 3:55 PM
 - Tái tổ chức solution **Core**
 - Ứng dụng queue vào việc gửi và nhận command trong client
 - Thêm chức năng chat giữa các client
 - Thêm method `this.InitTheme()` để khởi tạo theme cho window
-- [Task mới](#TASK.md)
+- [Task mới](TASK.md)
 
 #### Update 18.04 11:20 PM
 - Thêm method `AddGroup` dùng để tạo group mới nếu người dùng mong muốn

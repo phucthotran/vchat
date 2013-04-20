@@ -9,7 +9,7 @@
             <Button IsDefault="True" Name="Submit" Content="Gửi" DockPanel.Dock="Right" Width="61" Click="Submit_Click" />
             <RichTextBox Name="MessageInput" DockPanel.Dock="Left" MinHeight="50"></RichTextBox>
         </DockPanel>
-        <RichTextBox Name="MessageView" DockPanel.Dock="Top" MinHeight="250" MinWidth="400">
+        <RichTextBox Name="MessageView" IsReadOnly="True" DockPanel.Dock="Top" MinHeight="250" MinWidth="400">
             <RichTextBox.Resources>
                 <Style TargetType="{x:Type Paragraph}">
                     <Setter Property="Margin" Value="0"/>
