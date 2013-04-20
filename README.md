@@ -3,10 +3,16 @@
 
 ## Update Log
 -------------
+#### Update 20.04 3:55 PM
+- Tái tổ chức solution **Core**
+- Ứng dụng queue vào việc gửi và nhận command trong client
+- Thêm chức năng chat giữa các client
+- Thêm method `this.InitTheme()` để khởi tạo theme cho window
+- [Task mới](#TASK.md)
 
-#### Update 18.04 11.20 PM
+#### Update 18.04 11:20 PM
 - Thêm method `AddGroup` dùng để tạo group mới nếu người dùng mong muốn
-- Thêm danh sách **Yêu Cầu Kết Bạn* để người dùng có thể quản lý các yêu cầu kết bạn của mình
+- Thêm danh sách **Yêu Cầu Kết Bạn** để người dùng có thể quản lý các yêu cầu kết bạn của mình
 - Thêm method mới vào `vChat.WCF`: **AcceptFriendRequest**, **IgnoreFriendRequest**, **FriendRequests**, **MoveContact**, **RemoveContact**
 - Hoàn thiện chức năng **Chỉnh Sửa Bạn Bè**
 - Thêm method mới vào `vChat.Module` trong class Helper **ShowMessage**: dùng cho hiển thị các kết quả trả về từ server (qua class `MethodInvokeResult`), tạm thời hiển thị qua MessageBox. Sử dụng:
