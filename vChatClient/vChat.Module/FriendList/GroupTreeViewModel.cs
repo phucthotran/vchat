@@ -123,7 +123,7 @@ namespace vChat.Module.FriendList
             if (Group == null)
                 return;
 
-            GroupViewModel MatchGroup = _Groups.FirstOrDefault(g => g.Equals(Group));
+            GroupViewModel MatchGroup = _Groups.FirstOrDefault(g => g.Group.Equals(Group));
 
             if(MatchGroup != null)
                 _Groups.Remove(MatchGroup);

@@ -4,9 +4,14 @@
 ## Update Log
 -------------
 
+#### Update 19.04
+- Thêm method mới vào `vChat.WCF: **GroupInfo**, **RemoveGroup**
+- Hoàn Thiện **Yêu Cầu Kết Bạn**: update yêu cầu kết bạn theo thời gian thực
+- Thêm context menu cho FriendList
+
 #### Update 18.04 11.20 PM
-- Thêm method `AddGroup` dùng để tạo group mới nếu người dùng mong muốn
-- Thêm danh sách **Yêu Cầu Kết Bạn* để người dùng có thể quản lý các yêu cầu kết bạn của mình
+- Thêm method `AddGroup` (`vChat.WCF`) dùng để tạo group mới nếu người dùng mong muốn
+- Thêm danh sách **Yêu Cầu Kết Bạn** để người dùng có thể quản lý các yêu cầu kết bạn của mình
 - Thêm method mới vào `vChat.WCF`: **AcceptFriendRequest**, **IgnoreFriendRequest**, **FriendRequests**, **MoveContact**, **RemoveContact**
 - Hoàn thiện chức năng **Chỉnh Sửa Bạn Bè**
 - Thêm method mới vào `vChat.Module` trong class Helper **ShowMessage**: dùng cho hiển thị các kết quả trả về từ server (qua class `MethodInvokeResult`), tạm thời hiển thị qua MessageBox. Sử dụng:
@@ -28,7 +33,7 @@
 		MessageBox.Show(String.Format("Add Error - FriendName: {0}, GroupName: {1}", e.FriendName, e.GroupName ?? "NULL"));
 	}
 ```
-- Thêm 2 event cho `FriendList` module: **OnFriendClick** và ** OnGroupClick**, **OnAddFriendClick**. VD:
+- Thêm 3 event cho `FriendList` module: **OnFriendClick** và **OnGroupClick**, **OnAddFriendClick**. VD:
 
 ```c#
 

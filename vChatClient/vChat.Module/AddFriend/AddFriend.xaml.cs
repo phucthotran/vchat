@@ -29,6 +29,7 @@ namespace vChat.Module.AddFriend
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private FriendList.FriendsList _IntegratedModule;
         private int _UserID;
         private ObservableCollection<FriendGroup> _Groups;
         private String _FriendName;
@@ -68,7 +69,7 @@ namespace vChat.Module.AddFriend
         public AddFriend()
         {
             InitializeComponent();
-        }        
+        }
 
         public void SetupData(int UserID)
         {
@@ -82,16 +83,30 @@ namespace vChat.Module.AddFriend
             DataContext = this;
         }
 
+        public void SetDefaultGroup(FriendGroup SelectGroup)
+        {
+            if (SelectGroup == null)
+                return;
+
+            int pos = lstGroup.Items.IndexOf(SelectGroup);
+            lstGroup.SelectedIndex = pos;
+        }
+
+        public void IntegratedWith(FriendList.FriendsList IntegratedModule)
+        {
+            _IntegratedModule = IntegratedModule;
+        }
+
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if(lstFriend.SelectedItem == null && NewGroupName == null)
+            if(lstGroup.SelectedItem == null && NewGroupName == null)
             {
                 MessageBox.Show("Hãy nhập tên nhóm bạn cần thêm bạn bè vào");
                 OnAddFriendError(this, new AddFriendArgs(FriendName, NewGroupName));
                 return;
             }
 
-            FriendGroup SelectedGroup = (FriendGroup)lstFriend.SelectionBoxItem;
+            FriendGroup SelectedGroup = (FriendGroup)lstGroup.SelectionBoxItem;
 
             int NewGroupID = 0;
 
@@ -100,7 +115,13 @@ namespace vChat.Module.AddFriend
                     OnAddFriendError(this, new AddFriendArgs(FriendName, NewGroupName));
 
             if (AddNewFriend(_UserID, FriendName, NewGroupID != 0 ? NewGroupID : SelectedGroup.GroupID))
+            {
+                _IntegratedModule.AddFriendWork(
+                    FindUser(FriendName), 
+                    NewGroupID != 0 ? GetGroup(NewGroupID) : SelectedGroup);
+
                 OnAddFriendSuccess(this, new AddFriendArgs(FriendName, NewGroupName != null ? NewGroupName : SelectedGroup.Name));
+            }
             else
                 OnAddFriendError(this, new AddFriendArgs(FriendName, NewGroupName != null ? NewGroupName : SelectedGroup.Name));
         }

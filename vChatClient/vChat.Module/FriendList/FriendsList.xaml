@@ -41,8 +41,9 @@
                     <Expander Name="friendRequestZone">
                         <Expander.Header>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="Image/request.png" Margin="0, 0, 3, 0"/>
+                                <Image Source="Image/request.png" Margin="0, 0, 3, 0"/>                                
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Yêu Cầu Kết Bạn</TextBlock>
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 0, 0" Foreground="Red" Text="{Binding Requests.Count}"/>
                             </StackPanel>
                         </Expander.Header>
                         <Expander.Content>
@@ -76,7 +77,7 @@
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
-                                <StackPanel Name="requestTaskZone" Margin="0, 5, 0, 5">
+                                <StackPanel Name="requestTaskZone" Margin="0, 5, 0, 5" Visibility="Collapsed">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition/>
@@ -106,9 +107,10 @@
                 </StackPanel>
                 <DockPanel DockPanel.Dock="Bottom">
                     <ScrollViewer Height="400" MaxHeight="600" DockPanel.Dock="Top">
-                        <TreeView Name="TreeFriend" ItemsSource="{Binding Groups}" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedItemChanged="TreeFriend_SelectedItemChanged">
+                        <TreeView Name="TreeFriend" ItemsSource="{Binding Groups}" SelectedItemChanged="TreeFriend_SelectedItemChanged" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                             <TreeView.ItemContainerStyle>
                                 <Style TargetType="{x:Type TreeViewItem}">
+                                    <EventSetter Event="MouseDoubleClick" Handler="TreeFriend_MouseDoubleClick"/>
                                     <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
                                     <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
                                     <Setter Property="FontWeight" Value="Normal" />
@@ -120,6 +122,14 @@
                                 </Style>
                             </TreeView.ItemContainerStyle>
                             <TreeView.Resources>
+                                <ContextMenu x:Key="GroupContext" StaysOpen="True">
+                                    <MenuItem Name="mnuAddFriend" Header="Thêm Bạn" Click="mnuAddFriend_Click"/>
+                                    <MenuItem Name="mnuRemoveGroup" Header="Xóa Nhóm" Click="mnuRemoveGroup_Click"/>
+                                </ContextMenu>
+                                <ContextMenu x:Key="FriendContext" StaysOpen="True">
+                                    <MenuItem Name="mnuFriendDetail" Header="Xem Chi Tiết" Click="mnuFriendDetail_Click"/>
+                                </ContextMenu>
+                                
                                 <HierarchicalDataTemplate DataType="{x:Type local:GroupViewModel}" ItemsSource="{Binding Children}">
                                     <StackPanel Orientation="Horizontal" Margin="2, 2, 2, 2">
                                         <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" Visibility="{Binding ToogleCheckbox}"></CheckBox>

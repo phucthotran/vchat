@@ -18,6 +18,9 @@ namespace vChat.Service.UserService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/Info", ReplyAction="http://tempuri.org/IUserService/InfoResponse")]
         vChat.Model.Entities.Users Info(int UserID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GroupInfo", ReplyAction="http://tempuri.org/IUserService/GroupInfoResponse")]
+        vChat.Model.Entities.FriendGroup GroupInfo(int GroupID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/FindName", ReplyAction="http://tempuri.org/IUserService/FindNameResponse")]
         vChat.Model.Entities.Users FindName(string Username);
         
@@ -32,6 +35,9 @@ namespace vChat.Service.UserService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/AddGroup", ReplyAction="http://tempuri.org/IUserService/AddGroupResponse")]
         vChat.Model.MethodInvokeResult AddGroup(out int NewGroupID, int UserID, string Name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/RemoveGroup", ReplyAction="http://tempuri.org/IUserService/RemoveGroupResponse")]
+        vChat.Model.MethodInvokeResult RemoveGroup(int GroupID, bool RemoveContact);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/Login", ReplyAction="http://tempuri.org/IUserService/LoginResponse")]
         vChat.Model.MethodInvokeResult Login(string Username, string Password);
@@ -104,6 +110,10 @@ namespace vChat.Service.UserService {
             return base.Channel.Info(UserID);
         }
         
+        public vChat.Model.Entities.FriendGroup GroupInfo(int GroupID) {
+            return base.Channel.GroupInfo(GroupID);
+        }
+        
         public vChat.Model.Entities.Users FindName(string Username) {
             return base.Channel.FindName(Username);
         }
@@ -122,6 +132,10 @@ namespace vChat.Service.UserService {
         
         public vChat.Model.MethodInvokeResult AddGroup(out int NewGroupID, int UserID, string Name) {
             return base.Channel.AddGroup(out NewGroupID, UserID, Name);
+        }
+        
+        public vChat.Model.MethodInvokeResult RemoveGroup(int GroupID, bool RemoveContact) {
+            return base.Channel.RemoveGroup(GroupID, RemoveContact);
         }
         
         public vChat.Model.MethodInvokeResult Login(string Username, string Password) {

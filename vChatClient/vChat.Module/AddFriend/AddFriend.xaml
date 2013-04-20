@@ -11,7 +11,7 @@
             <TextBlock>Tên tài khoản (của bạn bè của bạn)</TextBlock>
             <TextBox Name="txtFriendName" Text="{Binding FriendName}" Margin="0, 5, 0, 0" Padding="3"></TextBox>
             <TextBlock Margin="0, 5, 0, 0">Thêm vào nhóm có sẵn</TextBlock>
-            <ComboBox Name="lstFriend" ItemsSource="{Binding Groups}" DisplayMemberPath="Name" SelectedValuePath="GroupID" SelectedIndex="0" Margin="0, 5, 0, 0"/>
+            <ComboBox Name="lstGroup" ItemsSource="{Binding Groups}" DisplayMemberPath="Name" SelectedValuePath="GroupID" SelectedIndex="0" Margin="0, 5, 0, 0"/>
             <TextBlock Margin="0, 5, 0, 0">Hoặc thêm vào nhóm mới (Bỏ trống nếu thêm vào nhóm có sẵn)</TextBlock>
             <TextBox Name="tbGroupName" Text="{Binding NewGroupName}" Margin="0, 5, 0, 0" Padding="3"></TextBox>
             <Button Name="btnAdd" Click="btnAdd_Click" Margin="0, 5, 0, 0" Padding="3">Thêm Bạn</Button>

@@ -94,7 +94,7 @@ namespace vChat.Module.FriendList
         public ObservableCollection<RequestViewModel> Requests
         {
             get { return _Requests; }
-            set { _Requests = value; }
+            //set { _Requests = value; }
         }
 
         #endregion

@@ -13,6 +13,9 @@ namespace vChat.Model
         Users Info(int UserID);
 
         [OperationContract]
+        FriendGroup GroupInfo(int GroupID);
+
+        [OperationContract]
         Users FindName(String Username);
 
         [OperationContract]
@@ -25,7 +28,10 @@ namespace vChat.Model
         MethodInvokeResult AddFriend(int UserID, String FriendName, int GroupID);
 
         [OperationContract]
-        MethodInvokeResult AddGroup(int UserID, String Name, out int NewGroupID);        
+        MethodInvokeResult AddGroup(int UserID, String Name, out int NewGroupID);
+
+        [OperationContract]
+        MethodInvokeResult RemoveGroup(int GroupID, bool RemoveContact);
 
         [OperationContract]
         MethodInvokeResult Login(String Username, String Password);

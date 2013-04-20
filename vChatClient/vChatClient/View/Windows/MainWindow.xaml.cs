@@ -50,14 +50,9 @@ namespace vChat.View.Windows
         {
             _friendListModule = Grid.LoadModule<FriendsList>();
             _friendListModule.SetupData(UserID);
-            _friendListModule.OnAddFriendClick += new FriendsList.AddFriendButtonHandler(FriendList_OnAddFriendClick);
+            //_friendListModule.OnAddFriendClick += new FriendsList.AddFriendButtonHandler(FriendList_OnAddFriendClick);
             _friendListModule.OnFriendClick += new FriendsList.FriendClickHandler(FriendList_OnFriendClick);
-            _friendListModule.OnGroupClick += new FriendsList.GroupClickHandler(FriendList_OnGroupClick);
-        }
-
-        private void FriendList_OnGroupClick(object sender, GroupArgs e)
-        {
-            MessageBox.Show(String.Format("ID: {0}, Name: {1}", e.GroupID, e.Name));
+            //_friendListModule.OnGroupClick += new FriendsList.GroupClickHandler(FriendList_OnGroupClick);
         }
 
         private void FriendList_OnFriendClick(object sender, FriendArgs e)
@@ -80,6 +75,7 @@ namespace vChat.View.Windows
         {
             _addFriendModule = new AddFriend();
             _addFriendModule.SetupData(UserID);
+            //_addFriendModule.IntegratedWith(_friendListModule);
             _addFriendModule.OnAddFriendSuccess += new AddFriend.AddingHandler(AddFriend_OnAddFriendSuccess);
             _addFriendModule.OnAddFriendError += new AddFriend.AddingHandler(AddFriend_OnAddFriendError);
         }

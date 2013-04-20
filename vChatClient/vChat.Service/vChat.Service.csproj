@@ -62,6 +62,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\DataSources\vChat.Model.Entities.Conversation.datasource" />
+    <None Include="Properties\DataSources\vChat.Model.Entities.FriendGroup.datasource" />
     <None Include="Properties\DataSources\vChat.Model.Entities.Users.datasource" />
     <None Include="Properties\DataSources\vChat.Model.GroupFriendList.datasource" />
     <None Include="Properties\DataSources\vChat.Model.MethodInvokeResult.datasource" />

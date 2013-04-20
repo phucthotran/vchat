@@ -26,6 +26,11 @@ namespace vChat.Data
             return UserTask.Get(UserID);
         }
 
+        public FriendGroup GroupInfo(int GroupID)
+        {
+            return GroupTask.Get(GroupID) as FriendGroup;
+        }
+
         public Users FindName(String Username)
         {
             return UserTask.GetByName(Username);
@@ -72,6 +77,16 @@ namespace vChat.Data
             NewGroupID = new_group.GroupID;
 
             return r ? SUCCESS : FAIL;
+        }
+
+        public MethodInvokeResult RemoveGroup(int GroupID, bool RemoveContact)
+        {
+            SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Remove group Success" };
+            FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Remove group Fail" };
+
+            FriendGroup group = GroupTask.Get(GroupID) as FriendGroup;
+
+            return UserTask.RemoveGroup(group, RemoveContact) ? SUCCESS : FAIL;
         }
 
         public MethodInvokeResult Login(string Username, string Password)

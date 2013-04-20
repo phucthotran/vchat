@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://vchat/entities/FriendGroup" elementFormDefault="qualified" targetNamespace="http://vchat/entities/FriendGroup" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd2" namespace="http://vchat/entities/Users" />
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://vchat/GroupFriendList" elementFormDefault="qualified" targetNamespace="http://vchat/GroupFriendList" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd3" namespace="http://vchat/entities/FriendGroup" />
   <xs:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="ArrayOfFriendGroup">
+  <xs:complexType name="GroupFriendList">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="FriendGroup" nillable="true" type="tns:FriendGroup" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfFriendGroup" nillable="true" type="tns:ArrayOfFriendGroup" />
-  <xs:complexType name="FriendGroup">
-    <xs:sequence>
-      <xs:element xmlns:q1="http://vchat/entities/Users" minOccurs="0" name="Friends" nillable="true" type="q1:ArrayOfUsers" />
-      <xs:element minOccurs="0" name="GroupID" type="xs:int" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element xmlns:q2="http://vchat/entities/Users" minOccurs="0" name="Owner" nillable="true" type="q2:Users" />
+      <xs:element xmlns:q1="http://vchat/entities/FriendGroup" minOccurs="0" name="FriendGroups" nillable="true" type="q1:ArrayOfFriendGroup" />
     </xs:sequence>
     <xs:attribute ref="ser:Id" />
     <xs:attribute ref="ser:Ref" />
   </xs:complexType>
-  <xs:element name="FriendGroup" nillable="true" type="tns:FriendGroup" />
+  <xs:element name="GroupFriendList" nillable="true" type="tns:GroupFriendList" />
 </xs:schema>

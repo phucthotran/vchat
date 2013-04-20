@@ -112,6 +112,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="RemoveGroup\RemoveGroup.xaml.cs">
+      <DependentUpon>RemoveGroup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SignUp\SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
@@ -148,6 +151,10 @@
     <Page Include="Login\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RemoveGroup\RemoveGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SignUp\SignUp.xaml">
       <Generator>MSBuild:Compile</Generator>

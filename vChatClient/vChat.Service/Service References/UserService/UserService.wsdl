@@ -5,8 +5,8 @@
       <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd2" namespace="http://vchat/entities/Users" />
-      <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd3" namespace="http://vchat/GroupFriendList" />
-      <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd4" namespace="http://vchat/entities/FriendGroup" />
+      <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd3" namespace="http://vchat/entities/FriendGroup" />
+      <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd4" namespace="http://vchat/GroupFriendList" />
       <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/vChat.Model" />
       <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import schemaLocation="http://localhost:6566/vChat/UserService.svc?xsd=xsd7" namespace="http://vchat/entities/Conversation" />
@@ -17,6 +17,12 @@
   </wsdl:message>
   <wsdl:message name="IUserService_Info_OutputMessage">
     <wsdl:part name="parameters" element="tns:InfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GroupInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GroupInfo" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GroupInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GroupInfoResponse" />
   </wsdl:message>
   <wsdl:message name="IUserService_FindName_InputMessage">
     <wsdl:part name="parameters" element="tns:FindName" />
@@ -47,6 +53,12 @@
   </wsdl:message>
   <wsdl:message name="IUserService_AddGroup_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_RemoveGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveGroup" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_RemoveGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveGroupResponse" />
   </wsdl:message>
   <wsdl:message name="IUserService_Login_InputMessage">
     <wsdl:part name="parameters" element="tns:Login" />
@@ -131,6 +143,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/Info" message="tns:IUserService_Info_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/InfoResponse" message="tns:IUserService_Info_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GroupInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GroupInfo" message="tns:IUserService_GroupInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GroupInfoResponse" message="tns:IUserService_GroupInfo_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="FindName">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/FindName" message="tns:IUserService_FindName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/FindNameResponse" message="tns:IUserService_FindName_OutputMessage" />
@@ -150,6 +166,10 @@
     <wsdl:operation name="AddGroup">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/AddGroup" message="tns:IUserService_AddGroup_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/AddGroupResponse" message="tns:IUserService_AddGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/RemoveGroup" message="tns:IUserService_RemoveGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/RemoveGroupResponse" message="tns:IUserService_RemoveGroup_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/Login" message="tns:IUserService_Login_InputMessage" />
@@ -215,6 +235,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GroupInfo">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GroupInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="FindName">
       <soap:operation soapAction="http://tempuri.org/IUserService/FindName" style="document" />
       <wsdl:input>
@@ -253,6 +282,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddGroup">
       <soap:operation soapAction="http://tempuri.org/IUserService/AddGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveGroup">
+      <soap:operation soapAction="http://tempuri.org/IUserService/RemoveGroup" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

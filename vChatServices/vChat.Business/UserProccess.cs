@@ -46,6 +46,14 @@ namespace vChat.Business
             return unc.Info(UserID);
         }
 
+        public FriendGroup GroupInfo(int GroupID)
+        {
+            if (GroupID == 0)
+                return null;
+
+            return unc.GroupInfo(GroupID);
+        }
+
         public GroupFriendList FriendList(int UserID)
         {
             try
@@ -133,6 +141,28 @@ namespace vChat.Business
             }
 
             return unc.AddGroup(UserID, Name, out NewGroupID);
+        }
+
+        public MethodInvokeResult RemoveGroup(int GroupID, bool RemoveContact)
+        {
+            try
+            {
+                ValidationController.Prepare();
+
+                GroupID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
+
+                ValidationController.Validate(); //throw ValidateException
+            }
+            catch (ValidateException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
+            }
+            catch (ArgumentNullException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = ex.Message, Exception = new ExceptionInfo(ex) };
+            }
+
+            return unc.RemoveGroup(GroupID, RemoveContact);
         }
 
         public MethodInvokeResult Login(string Username, string Password)

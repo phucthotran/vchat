@@ -10,11 +10,27 @@ namespace vChat.Data
 {
     public static class DataAccessExtender
     {
-        private static vChatContext db;
+        private static vChatContext _db;
 
         static DataAccessExtender()
         {
-            db = new vChatContext();
+            //db = new vChatContext();
+        }
+
+        public static vChatContext db
+        {
+            get 
+            {
+                if (_db == null)
+                    _db = new vChatContext();
+
+                _db.Users.Create();
+                _db.Question.Create();
+                _db.FriendList.Create();
+                _db.FriendGroup.Create();
+
+                return _db;
+            }
         }
 
         #region DB OPERATION
@@ -272,6 +288,31 @@ namespace vChat.Data
             return r;
         }
 
+        public static bool RemoveGroup(this Users mm, FriendGroup Group, bool RemoveContact)
+        {
+            bool done = false;
+
+            if (RemoveContact)
+            {
+                //Get all friend in group
+                List<FriendMap> friends = db.FriendList.Where(fm => fm.FriendGroup.Equals(Group)).ToList();
+
+                //Remove all contact
+                foreach (FriendMap friend in friends)
+                {
+                    done = friend.Remove();
+
+                    if (done == false)
+                        return false;
+                }
+            }
+
+            //Remove group
+            done = Group.Remove();
+
+            return done;
+        }
+
         public static bool MoveContact(this Users um, Users User, Users Friend, FriendGroup NewGroup)
         {
             FriendMap FriendMap = db.FriendList
@@ -321,23 +362,21 @@ namespace vChat.Data
                 //.ToList()
                 .DistinctList();
 
-            List<FriendGroup> GROUPS = new List<FriendGroup>(Groups);
-
-            foreach (FriendGroup Group in GROUPS)
+            foreach (FriendGroup Group in Groups)
             {
                 List<FriendMap> FriendMapFiltered = FriendMap.Where(fm => fm.FriendGroup.GroupID == Group.GroupID).ToList();
                 List<Users> MyFriends = FriendMapFiltered.Select(mf => mf.Friend).ToList();
 
-                foreach(Users friend in MyFriends)
+                foreach (Users friend in MyFriends)
                 {
-                    if(!Group.Friends.Contains(friend))
+                    if (!Group.Friends.Contains(friend))
                         Group.Friends.Add(friend);
                 }
             }
 
             GroupFriendList GroupFriendList = new GroupFriendList();
 
-            foreach(FriendGroup Group in GROUPS)
+            foreach(FriendGroup Group in Groups)
                 GroupFriendList.FriendGroups.Add(Group);
 
             return GroupFriendList;

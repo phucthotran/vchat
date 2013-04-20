@@ -33,6 +33,17 @@ namespace vChat.WCF
         }
 
         /// <summary>
+        /// Get group info by ID
+        /// </summary>
+        /// <param name="GroupID">Group ID</param>
+        /// <returns>Return group info (FriendGroup object)</returns>
+        [OperationBehavior]
+        public FriendGroup GroupInfo(int GroupID)
+        {
+            return unc.GroupInfo(GroupID);
+        }
+
+        /// <summary>
         /// Find user by name
         /// </summary>
         /// <param name="Username">Username</param>
@@ -92,6 +103,17 @@ namespace vChat.WCF
         public MethodInvokeResult AddGroup(int UserID, String Name, out int NewGroupID)
         {
             return unc.AddGroup(UserID, Name, out NewGroupID);
+        }
+
+        /// <summary>
+        /// Remove a group
+        /// </summary>
+        /// <param name="GroupID">GroupID of group to be removed</param>
+        /// <param name="RemoveContact">Remove contact in group whether or not</param>
+        /// <returns>Status.SUCCESS, Status.FAIL</returns>
+        public MethodInvokeResult RemoveGroup(int GroupID, bool RemoveContact)
+        {
+            return unc.RemoveGroup(GroupID, RemoveContact);
         }
 
         /// <summary>

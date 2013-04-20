@@ -44,5 +44,11 @@ namespace vChat.Module.FriendList
             MethodInvokeResult result = this.Get<UserServiceClient>().RemoveContact(UserID, FriendID);
             Helper.ShowMessage(result);
         }
+
+        private void RemoveGroup(int GroupID, bool RemoveContact)
+        {
+            MethodInvokeResult result = this.Get<UserServiceClient>().RemoveGroup(GroupID, RemoveContact);
+            Helper.ShowMessage(result);
+        }
     }
 }

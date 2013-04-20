@@ -1,0 +1,39 @@
+20/04/2013 08:32:32 - Server da khoi dong thanh cong.
+20/04/2013 09:24:50 - itexplore(127.0.0.1:11473) da ket noi den server.
+20/04/2013 09:25:16 - itexplore(127.0.0.1:11473) da ngat ket noi.
+20/04/2013 09:27:23 - itexplore(127.0.0.1:11510) da ket noi den server.
+20/04/2013 09:27:41 - itexplore(127.0.0.1:11510) da ngat ket noi.
+20/04/2013 09:28:06 - itexplore(127.0.0.1:11545) da ket noi den server.
+20/04/2013 09:28:55 - itexplore(127.0.0.1:11545) da ngat ket noi.
+20/04/2013 09:29:41 - itexplore(127.0.0.1:11622) da ket noi den server.
+20/04/2013 09:31:39 - itexplore(127.0.0.1:11622) da ngat ket noi.
+20/04/2013 09:33:27 - itexplore(127.0.0.1:11676) da ket noi den server.
+20/04/2013 09:33:38 - itexplore(127.0.0.1:11676) da ngat ket noi.
+20/04/2013 09:34:02 - itexplore(127.0.0.1:11708) da ket noi den server.
+20/04/2013 09:34:17 - itexplore(127.0.0.1:11708) da ngat ket noi.
+20/04/2013 09:34:40 - itexplore(127.0.0.1:11750) da ket noi den server.
+20/04/2013 09:36:32 - itexplore(127.0.0.1:11750) da ngat ket noi.
+20/04/2013 09:37:51 - itexplore(127.0.0.1:11819) da ket noi den server.
+20/04/2013 09:39:04 - itexplore(127.0.0.1:11819) da ngat ket noi.
+20/04/2013 09:39:45 - itexplore(127.0.0.1:11935) da ket noi den server.
+20/04/2013 09:44:12 - itexplore(127.0.0.1:11935) da ngat ket noi.
+20/04/2013 09:45:36 - itexplore(127.0.0.1:12022) da ket noi den server.
+20/04/2013 09:47:03 - itexplore(127.0.0.1:12022) da ngat ket noi.
+20/04/2013 09:47:39 - itexplore(127.0.0.1:12048) da ket noi den server.
+20/04/2013 09:47:55 - itexplore(127.0.0.1:12048) da ngat ket noi.
+20/04/2013 09:51:57 - itexplore(127.0.0.1:12243) da ket noi den server.
+20/04/2013 09:52:14 - itexplore(127.0.0.1:12243) da ngat ket noi.
+20/04/2013 09:52:33 - itexplore(127.0.0.1:12266) da ket noi den server.
+20/04/2013 09:52:59 - itexplore(127.0.0.1:12266) da ngat ket noi.
+20/04/2013 09:56:59 - itexplore(127.0.0.1:12437) da ket noi den server.
+20/04/2013 09:58:02 - itexplore(127.0.0.1:12437) da ngat ket noi.
+20/04/2013 09:58:53 - itexplore(127.0.0.1:12459) da ket noi den server.
+20/04/2013 09:59:04 - itexplore(127.0.0.1:12459) da ngat ket noi.
+20/04/2013 09:59:18 - itexplore(127.0.0.1:12494) da ket noi den server.
+20/04/2013 10:00:33 - itexplore(127.0.0.1:12494) da ngat ket noi.
+20/04/2013 10:00:59 - itexplore(127.0.0.1:12606) da ket noi den server.
+20/04/2013 10:01:19 - itexplore(127.0.0.1:12606) da ngat ket noi.
+20/04/2013 10:03:33 - itexplore(127.0.0.1:12638) da ket noi den server.
+20/04/2013 10:03:56 - itexplore(127.0.0.1:12638) da ngat ket noi.
+20/04/2013 10:05:27 - itexplore(127.0.0.1:12699) da ket noi den server.
+20/04/2013 10:06:35 - itexplore(127.0.0.1:12699) da ngat ket noi.
