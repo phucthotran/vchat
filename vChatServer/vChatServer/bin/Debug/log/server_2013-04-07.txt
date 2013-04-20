@@ -1,4 +1,0 @@
-07/04/2013 08:58:06 - Server da khoi dong thanh cong.
-07/04/2013 08:58:29 - symaci(127.0.0.1:12141) da ket noi den server.
-07/04/2013 08:58:47 - symaci(127.0.0.1:12141) da ket noi den server.
-07/04/2013 09:22:35 - symaci(127.0.0.1:12141) da ngat ket noi.

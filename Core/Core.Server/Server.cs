@@ -109,9 +109,9 @@ namespace Core.Server
                     this.OnCritical(ex.StackTrace);
                 }
             }
-            if (!cmd.ToUser.Equals("SERVER"))
+            if (!cmd.TargetUser.Equals("SERVER"))
             {
-                Client target = this.ClientManager.GetClient(cmd.ToUser);
+                Client target = this.ClientManager.GetClient(cmd.TargetUser);
                 if (target != null)
                 {
                     target.SendCommand(cmd);

@@ -17,6 +17,7 @@ namespace vChat.Data
         public vChatContext() : base(GetConnection(@"C:\Connect.txt"))
         {
             Configuration.ProxyCreationEnabled = false;
+            //Configuration.AutoDetectChangesEnabled = false;
             Configuration.LazyLoadingEnabled = false;            
             System.Data.Entity.Database.SetInitializer<vChatContext>(new CreateDatabaseIfNotExists<vChatContext>());
         }

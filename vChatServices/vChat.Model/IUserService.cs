@@ -19,7 +19,13 @@ namespace vChat.Model
         GroupFriendList FriendList(int UserID);
 
         [OperationContract]
+        List<Users> FriendRequests(int UserID);
+
+        [OperationContract]
         MethodInvokeResult AddFriend(int UserID, String FriendName, int GroupID);
+
+        [OperationContract]
+        MethodInvokeResult AddGroup(int UserID, String Name, out int NewGroupID);        
 
         [OperationContract]
         MethodInvokeResult Login(String Username, String Password);
@@ -35,6 +41,18 @@ namespace vChat.Model
 
         [OperationContract]
         MethodInvokeResult ChangePassword(int UserID, String OldPassword, String NewPassword);
+
+        [OperationContract]
+        MethodInvokeResult AcceptFriendRequest(int UserID, int FriendID, int GroupID);
+
+        [OperationContract]
+        MethodInvokeResult IgnoreFriendRequest(int UserID, int FriendID);
+
+        [OperationContract]
+        MethodInvokeResult MoveContact(int UserID, int FriendID, int NewGroupID);
+
+        [OperationContract]
+        MethodInvokeResult RemoveContact(int UserID, int FriendID);
 
         [OperationContract]
         MethodInvokeResult Deactive(int UserID);

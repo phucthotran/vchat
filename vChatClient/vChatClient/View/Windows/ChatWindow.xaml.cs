@@ -11,40 +11,45 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Core.Data;
+using vChat.Module.Chat;
+using Core.Client;
+using System.ComponentModel;
+using MahApps.Metro.Controls;
 
 namespace vChat.View.Windows
 {
     /// <summary>
     /// Interaction logic for ChatWindow.xaml
     /// </summary>
-    public partial class ChatWindow : Window
+    public partial class ChatWindow : MetroWindow
     {
-        public string TargetUser { get; set; }
+        private Client _Client;
+        private Chat _ChatModule;
 
-        public ChatWindow()
+        public string TargetUser { get; private set; }
+
+        public ChatWindow(string targetUser)
+        {
+            Init(targetUser);
+        }
+
+        public void Init(string targetUser)
         {
             InitializeComponent();
+            this.Title = targetUser;
+            this.InitTheme();
+            _Client = this.Get<Client>();
+            TargetUser = targetUser;
+            _ChatModule = MainPanel.LoadModule<Chat>(targetUser);
+            _ChatModule.OnSendMessage += new Chat.SendMessageHandler(message =>
+            {
+                _Client.SendCommand(new Command(CommandType.Chat, targetUser, new CommandMetadata(_Client.Name, message)));
+            });
         }
-        /*
-        [Invoke(CommandType.Chat)]
+
         public void ReceiveMessage(string fromUser, string message)
         {
-            Window wdChat = App.WindowList.Find(f => f.GetType() == typeof(WDChat) && ((WDChat)f).TargetUser == fromUser);
-            if (wdChat == null)
-            {
-                Thread thread = new Thread(() =>
-                {
-                    wdChat = new WDChat(fromUser, message);
-                    App.WindowList.Add(wdChat);
-                    System.Windows.Threading.Dispatcher.Run();
-                });
-                thread.SetApartmentState(ApartmentState.STA);
-                thread.Start();
-            }
-            else
-            {
-                ((WDChat)wdChat).ReceiveMessage(message);
-            }
-        }*/
+            _ChatModule.ReceiveMessage(fromUser, message);
+        }
     }
 }

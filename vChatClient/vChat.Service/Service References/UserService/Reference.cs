@@ -24,8 +24,14 @@ namespace vChat.Service.UserService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/FriendList", ReplyAction="http://tempuri.org/IUserService/FriendListResponse")]
         vChat.Model.GroupFriendList FriendList(int UserID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/FriendRequests", ReplyAction="http://tempuri.org/IUserService/FriendRequestsResponse")]
+        vChat.Model.Entities.Users[] FriendRequests(int UserID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/AddFriend", ReplyAction="http://tempuri.org/IUserService/AddFriendResponse")]
         vChat.Model.MethodInvokeResult AddFriend(int UserID, string FriendName, int GroupID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/AddGroup", ReplyAction="http://tempuri.org/IUserService/AddGroupResponse")]
+        vChat.Model.MethodInvokeResult AddGroup(out int NewGroupID, int UserID, string Name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/Login", ReplyAction="http://tempuri.org/IUserService/LoginResponse")]
         vChat.Model.MethodInvokeResult Login(string Username, string Password);
@@ -41,6 +47,18 @@ namespace vChat.Service.UserService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/ChangePassword", ReplyAction="http://tempuri.org/IUserService/ChangePasswordResponse")]
         vChat.Model.MethodInvokeResult ChangePassword(int UserID, string OldPassword, string NewPassword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/AcceptFriendRequest", ReplyAction="http://tempuri.org/IUserService/AcceptFriendRequestResponse")]
+        vChat.Model.MethodInvokeResult AcceptFriendRequest(int UserID, int FriendID, int GroupID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/IgnoreFriendRequest", ReplyAction="http://tempuri.org/IUserService/IgnoreFriendRequestResponse")]
+        vChat.Model.MethodInvokeResult IgnoreFriendRequest(int UserID, int FriendID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/MoveContact", ReplyAction="http://tempuri.org/IUserService/MoveContactResponse")]
+        vChat.Model.MethodInvokeResult MoveContact(int UserID, int FriendID, int NewGroupID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/RemoveContact", ReplyAction="http://tempuri.org/IUserService/RemoveContactResponse")]
+        vChat.Model.MethodInvokeResult RemoveContact(int UserID, int FriendID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/Deactive", ReplyAction="http://tempuri.org/IUserService/DeactiveResponse")]
         vChat.Model.MethodInvokeResult Deactive(int UserID);
@@ -94,8 +112,16 @@ namespace vChat.Service.UserService {
             return base.Channel.FriendList(UserID);
         }
         
+        public vChat.Model.Entities.Users[] FriendRequests(int UserID) {
+            return base.Channel.FriendRequests(UserID);
+        }
+        
         public vChat.Model.MethodInvokeResult AddFriend(int UserID, string FriendName, int GroupID) {
             return base.Channel.AddFriend(UserID, FriendName, GroupID);
+        }
+        
+        public vChat.Model.MethodInvokeResult AddGroup(out int NewGroupID, int UserID, string Name) {
+            return base.Channel.AddGroup(out NewGroupID, UserID, Name);
         }
         
         public vChat.Model.MethodInvokeResult Login(string Username, string Password) {
@@ -116,6 +142,22 @@ namespace vChat.Service.UserService {
         
         public vChat.Model.MethodInvokeResult ChangePassword(int UserID, string OldPassword, string NewPassword) {
             return base.Channel.ChangePassword(UserID, OldPassword, NewPassword);
+        }
+        
+        public vChat.Model.MethodInvokeResult AcceptFriendRequest(int UserID, int FriendID, int GroupID) {
+            return base.Channel.AcceptFriendRequest(UserID, FriendID, GroupID);
+        }
+        
+        public vChat.Model.MethodInvokeResult IgnoreFriendRequest(int UserID, int FriendID) {
+            return base.Channel.IgnoreFriendRequest(UserID, FriendID);
+        }
+        
+        public vChat.Model.MethodInvokeResult MoveContact(int UserID, int FriendID, int NewGroupID) {
+            return base.Channel.MoveContact(UserID, FriendID, NewGroupID);
+        }
+        
+        public vChat.Model.MethodInvokeResult RemoveContact(int UserID, int FriendID) {
+            return base.Channel.RemoveContact(UserID, FriendID);
         }
         
         public vChat.Model.MethodInvokeResult Deactive(int UserID) {

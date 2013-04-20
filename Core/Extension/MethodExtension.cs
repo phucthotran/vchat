@@ -6,6 +6,8 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Xml;
 
 namespace System
 {
@@ -86,6 +88,11 @@ namespace System
             return (T)Application.Current.FindResource(typeof(T).Name);
         }
 
+        public static T Get<T>(this Window w)
+        {
+            return (T)Application.Current.FindResource(typeof(T).Name);
+        }
+
         private static ResourceDictionary Theme = null;
 
         public static void InitTheme(this Window w)
@@ -102,43 +109,35 @@ namespace System
             }
             w.Resources = Theme;
         }
-
-        public static void Show(this Window w, UserControl uc)
+        /*
+        public static string ExportXaml(this RichTextBox rt)
         {
-            w.Content = uc;
-            w.InitTheme();
-            w.Show();
-        }
-
-        public static void Show(this Window w, Panel panel, UserControl uc)
-        {
-            panel.Children.Clear();
-            panel.Children.Add(uc);
-            w.InitTheme();
-            w.Show();
-        }
-
-        public static Window Show(this UserControl uc)
-        {
-            Window nw = new Window()
+            
+            TextRange range = new TextRange(rt.Document.find, rt.Document.ContentEnd);
+            using (MemoryStream stream = new MemoryStream())
             {
-                Content = uc
-            };
-            nw.InitTheme();
-            nw.Show();
-            return nw;
+                range.Save(stream, DataFormats.Xaml);
+                return Encoding.UTF8.GetString(stream.ToArray());
+            }
         }
 
-        public static Window ShowDialog(this UserControl uc)
+        public static void ImportXaml(this RichTextBox rt, string xaml)
         {
-            Window nw = new Window()
-            {
-                Content = uc
-            };
-            nw.InitTheme();
-            nw.ShowDialog();
-            return nw;
+            rt.Document = new FlowDocument();
+            rt.AppendXaml(xaml);
         }
+
+        public static void AppendXaml(this RichTextBox rt, string xaml)
+        {
+            
+            StringReader stringReader = new StringReader(xaml);
+            using (XmlReader xmlReader = XmlReader.Create(stringReader))
+            {
+                Section sec = System.Windows.Markup.XamlReader.Load(xmlReader) as Section;
+                while (sec.Blocks.Count > 0)
+                    rt.Document.Blocks.Add(sec.Blocks.FirstBlock);
+            }
+        } */
     }
 
     public class ModuleCannotInitException : Exception
@@ -156,4 +155,6 @@ namespace System
             this.ModuleName = module.FullName;
         }
     }
+
+
 }

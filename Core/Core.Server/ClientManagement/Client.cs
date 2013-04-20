@@ -65,7 +65,7 @@ namespace Core.Server.ClientManagement
         {
             byte[] buffer = (byte[])e.Argument;
             Command cmd = buffer.ConvertTo<Command>();
-            cmd.FromUser = this.User;
+            cmd.Metadata.TargetUser = this.User;
 
             this.OnReceived(this, cmd);
         }

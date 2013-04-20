@@ -9,18 +9,31 @@ using System.Windows;
 
 namespace vChat.Module.FriendList
 {
-    public class GroupTreeViewModel
+    public partial class GroupTreeViewModel
     {
-        private ReadOnlyCollection<GroupViewModel> _Groups;       
+        public delegate void FriendHandler(Users Friend, FriendGroup OldGroup);
+        public event FriendHandler OnMoveContact;
+        public event FriendHandler OnRemoveContact;
+
+        #region CLASS MEMBER
+
+        private readonly ObservableCollection<GroupViewModel> _Groups;       
         private readonly ICommand _SearchCommand;
         private String _SearchText = String.Empty;
-        private IEnumerator<FriendViewModel> _MatchingFriendEnumerator;
+        private List<FriendViewModel> _MatchFriends;
 
         private readonly ICommand _EditCommand;
-        private readonly ICommand _SelectAllCommand;
-        private readonly ICommand _UnselectAllCommand;
+        private readonly ICommand _CancelEditCommand;
+        private readonly ICommand _SelectCommand;
+        private readonly ICommand _DeselectCommand;
+        private readonly ICommand _MoveCommand;
+        private readonly ICommand _RemoveCommand;
 
-        public ReadOnlyCollection<GroupViewModel> Groups
+        #endregion
+
+        #region PROPERTY
+
+        public ObservableCollection<GroupViewModel> Groups
         {
             get { return _Groups; }
         }
@@ -39,7 +52,13 @@ namespace vChat.Module.FriendList
                     return;
 
                 _SearchText = value;
-                _MatchingFriendEnumerator = null;
+                
+                //Reset Search Result
+                if(_MatchFriends != null)
+                    foreach (FriendViewModel Friend in _MatchFriends)
+                        Friend.MatchColor = System.Windows.Media.Brushes.Black;
+
+                _MatchFriends = null;
             }
         }
 
@@ -48,206 +67,203 @@ namespace vChat.Module.FriendList
             get { return _EditCommand; }
         }
 
-        public ICommand SelectAllCommand
+        public ICommand CancelEditCommand
         {
-            get { return _SelectAllCommand; }
+            get { return _CancelEditCommand; }
         }
 
-        public ICommand UnselectAllCommand
+        public ICommand SelectCommand
         {
-            get { return _UnselectAllCommand; }
+            get { return _SelectCommand; }
         }
 
-        public GroupTreeViewModel(List<FriendGroup> Groups)
+        public ICommand DeselectCommand
         {
-            _Groups = new ReadOnlyCollection<GroupViewModel>(
-                    (from child in Groups
-                     select new GroupViewModel(child))
-                     .ToList()
-                );
-
-            _SearchCommand = new SearchFriendCommand(this);
-            _EditCommand = new EditFLCommand(this);
-            _SelectAllCommand = new SelectAllFLCommand(this);
-            _UnselectAllCommand = new UnselectAllFLCommand(this);
+            get { return _DeselectCommand; }
         }
+
+        public ICommand MoveCommand
+        {
+            get { return _MoveCommand; }
+        }
+
+        public ICommand RemoveCommand
+        {
+            get { return _RemoveCommand; }
+        }
+
+        #endregion
+
+        public GroupTreeViewModel(ObservableCollection<FriendGroup> Groups)
+        {
+            _Groups = new ObservableCollection<GroupViewModel>();
+
+            foreach (FriendGroup child in Groups)
+                _Groups.Add(new GroupViewModel(child));
+
+            _SearchCommand = new SearchTask(this);
+            _EditCommand = new EditTask(this);
+            _SelectCommand = new SelectTask(this);
+            _DeselectCommand = new DeselectTask(this);
+            _MoveCommand = new MoveTask(this);
+            _RemoveCommand = new RemoveTask(this);
+            _CancelEditCommand = new CancelEditTask(this);
+        }
+
+        #region MAIN METHOD
+
+        public void AppendGroup(FriendGroup Group)
+        {
+            if(Group != null)
+                _Groups.Add(new GroupViewModel(Group));
+        }
+
+        public void RemoveGroup(FriendGroup Group)
+        {
+            if (Group == null)
+                return;
+
+            GroupViewModel MatchGroup = _Groups.FirstOrDefault(g => g.Equals(Group));
+
+            if(MatchGroup != null)
+                _Groups.Remove(MatchGroup);
+        }
+
+        public void AppendFriend(Users Friend, FriendGroup Group)
+        {
+            if (Friend == null || Group == null)
+                return;
+
+            GroupViewModel ParentGroup = _Groups.FirstOrDefault(g => g.Group.Equals(Group));
+
+            if(ParentGroup != null)
+                ParentGroup.Children.Add(new FriendViewModel(Friend, ParentGroup));
+        }
+
+        public void RemoveFriend(Users Friend, FriendGroup Group)
+        {
+            if (Friend == null || Group == null)
+                return;
+
+            GroupViewModel ParentGroup = _Groups.FirstOrDefault(g => g.Group.Equals(Group));
+            FriendViewModel MatchFriend = ParentGroup.Children.FirstOrDefault(f => f.Friend.Equals(Friend));
+
+            if (ParentGroup != null && MatchFriend != null)
+                ParentGroup.Children.Remove(MatchFriend);
+        }
+
+        public void MoveFriend(Users Friend, FriendGroup OldGroup, FriendGroup NewGroup)
+        {
+            if (Friend == null || OldGroup == null || NewGroup == null)
+                return;
+
+            GroupViewModel NewParentGroup = _Groups.FirstOrDefault(g => g.Group.Equals(NewGroup));
+            GroupViewModel ParentGroup = _Groups.FirstOrDefault(g => g.Group.Equals(OldGroup));
+            FriendViewModel MatchFriend = ParentGroup.Children.FirstOrDefault(f => f.Friend.Equals(Friend));
+
+            FriendViewModel MatchFriendStateFull = new FriendViewModel(Friend, NewParentGroup);
+            MatchFriendStateFull.ToogleCheckbox = MatchFriend.ToogleCheckbox;
+            
+            ParentGroup.Children.Remove(MatchFriend);
+            NewParentGroup.Children.Add(MatchFriendStateFull);
+        }
+
+        #endregion
+
+        #region COMMAND PREFORM
 
         private void PerformSearch()
         {
-            if (_MatchingFriendEnumerator == null || !_MatchingFriendEnumerator.MoveNext())
-                this.VertifyMatchingUserEnumerator();
-
-            var user = _MatchingFriendEnumerator.Current;
-
-            if (user == null)
+            if (String.IsNullOrWhiteSpace(_SearchText))
                 return;
 
-            if (user.Parent != null)
-                user.Parent.IsExpanded = true;
+            _MatchFriends = new List<FriendViewModel>();
 
-            user.IsSelected = true;
-        }
-
-        private void VertifyMatchingUserEnumerator()
-        {
-            List<FriendViewModel> MatchFriends = new List<FriendViewModel>();
-
-            foreach (GroupViewModel gvm in _Groups)
-                foreach (FriendViewModel uvm in gvm.Children)
-                    if (uvm.NameContainsText(_SearchText))
-                        MatchFriends.Add(uvm);
-
-            _MatchingFriendEnumerator = MatchFriends.GetEnumerator();
-
-            if (!_MatchingFriendEnumerator.MoveNext())
+            foreach (GroupViewModel Parent in _Groups)
             {
-                MessageBox.Show(
-                    "No matching names were found",
-                    "Try Again",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information
-                    );
+                _MatchFriends.AddRange(Parent.Children
+                                      .Where(f => (f.Friend.FirstName + " " + f.Friend.LastName)
+                                      .IndexOf(_SearchText, StringComparison.InvariantCultureIgnoreCase) > -1)
+                                      .ToList());
             }
-        }
+
+            foreach (FriendViewModel Friend in _MatchFriends)
+            {
+                Friend.Parent.IsExpanded = true;
+                Friend.MatchColor = System.Windows.Media.Brushes.Red;
+            }
+        }        
 
         private void PerformEdit()
         {
-            foreach(GroupViewModel gvm in _Groups)
+            foreach(GroupViewModel Parent in _Groups)
             {
-                gvm.ToogleCheckbox = Visibility.Visible;
-                foreach (FriendViewModel uvm in gvm.Children)
-                    uvm.ToogleCheckbox = Visibility.Visible;
+                Parent.ToogleCheckbox = Visibility.Visible;
+                foreach (FriendViewModel Child in Parent.Children)
+                    Child.ToogleCheckbox = Visibility.Visible;
             }
         }
 
-        private void PerformSelectAll()
+        private void PerformCancelEdit()
         {
-            foreach (GroupViewModel gvm in _Groups)
+            foreach (GroupViewModel Parent in _Groups)
             {
-                gvm.IsChecked = true;
-                foreach (FriendViewModel uvm in gvm.Children)
-                    uvm.IsChecked = true;
+                Parent.ToogleCheckbox = Visibility.Collapsed;
+                foreach (FriendViewModel Child in Parent.Children)
+                    Child.ToogleCheckbox = Visibility.Collapsed;
             }
         }
 
-        private void PerformUnselectAll()
+        private void PerformSelect()
         {
-            foreach (GroupViewModel gvm in _Groups)
+            foreach (GroupViewModel Parent in _Groups)
             {
-                gvm.IsChecked = false;
-                foreach (FriendViewModel uvm in gvm.Children)
-                    uvm.IsChecked = false;
+                Parent.IsChecked = true;
+                foreach (FriendViewModel Child in Parent.Children)
+                    Child.IsChecked = true;
             }
         }
 
-        private IEnumerable<FriendViewModel> FindMatches(String SearchText, FriendViewModel Friend)
+        private void PerformDeselect()
         {
-            if (Friend.NameContainsText(SearchText))
-                yield return Friend;
+            foreach (GroupViewModel Parent in _Groups)
+            {
+                Parent.IsChecked = false;
+                foreach (FriendViewModel Child in Parent.Children)
+                    Child.IsChecked = false;
+            }
         }
 
-        private class SearchFriendCommand : ICommand
+        private void PerformMove()
         {
-            private readonly GroupTreeViewModel _GroupTree;
+            List<FriendViewModel> MatchFriends = new List<FriendViewModel>();
 
-            public SearchFriendCommand(GroupTreeViewModel GroupTree)
+            foreach (GroupViewModel Parent in _Groups)
             {
-                _GroupTree = GroupTree;
+                MatchFriends.AddRange(Parent.Children
+                                      .Where(f => f.IsChecked == true)
+                                      .ToList());
             }
 
-            public bool CanExecute(object Parameter)
-            {
-                return true;
-            }
-
-            event EventHandler ICommand.CanExecuteChanged
-            {
-                add { }
-                remove { }
-            }
-
-            public void Execute(object Parameter)
-            {
-                _GroupTree.PerformSearch();
-            }
+            foreach (FriendViewModel child in MatchFriends)
+                OnMoveContact(child.Friend, child.Parent.Group);
         }
 
-        private class EditFLCommand : ICommand
+        private void PerformRemove()
         {
-            private readonly GroupTreeViewModel _GroupTree;
+            List<FriendViewModel> MatchFriends = new List<FriendViewModel>();
 
-            public EditFLCommand(GroupTreeViewModel GroupTree)
+            foreach (GroupViewModel Parent in _Groups)
             {
-                _GroupTree = GroupTree;
+                MatchFriends.AddRange(Parent.Children
+                                      .Where(f => f.IsChecked == true)
+                                      .ToList());
             }
 
-            public bool CanExecute(object Parameter)
-            {
-                return true;
-            }
-
-            event EventHandler ICommand.CanExecuteChanged
-            {
-                add { }
-                remove { }
-            }
-
-            public void Execute(object Parameter)
-            {
-                _GroupTree.PerformEdit();
-            }
+            foreach (FriendViewModel child in MatchFriends)
+                OnRemoveContact(child.Friend, child.Parent.Group);
         }
 
-        private class SelectAllFLCommand : ICommand
-        {
-            private readonly GroupTreeViewModel _GroupTree;
-
-            public SelectAllFLCommand(GroupTreeViewModel GroupTree)
-            {
-                _GroupTree = GroupTree;
-            }
-
-            public bool CanExecute(object Parameter)
-            {
-                return true;
-            }
-
-            event EventHandler ICommand.CanExecuteChanged
-            {
-                add { }
-                remove { }
-            }
-
-            public void Execute(object Parameter)
-            {
-                _GroupTree.PerformSelectAll();
-            }
-        }
-
-        private class UnselectAllFLCommand : ICommand
-        {
-            private readonly GroupTreeViewModel _GroupTree;
-
-            public UnselectAllFLCommand(GroupTreeViewModel GroupTree)
-            {
-                _GroupTree = GroupTree;
-            }
-
-            public bool CanExecute(object Parameter)
-            {
-                return true;
-            }
-
-            event EventHandler ICommand.CanExecuteChanged
-            {
-                add { }
-                remove { }
-            }
-
-            public void Execute(object Parameter)
-            {
-                _GroupTree.PerformUnselectAll();
-            }
-        }
+        #endregion
     }
 }

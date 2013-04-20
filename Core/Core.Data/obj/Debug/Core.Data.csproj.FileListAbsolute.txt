@@ -18,3 +18,5 @@ D:\vChatProject\Core\Core.Data\bin\Debug\Core.Data.pdb
 D:\vChatProject\Core\Core.Data\obj\Debug\Core.Data.dll
 D:\vChatProject\Core\Core.Data\obj\Debug\Core.Data.pdb
 D:\vChatProject\Core\Core.Data\obj\Debug\Core.Data.csprojResolveAssemblyReference.cache
+D:\vChatProject\Core\Core.Data\bin\Debug\Extension.dll
+D:\vChatProject\Core\Core.Data\bin\Debug\Extension.pdb

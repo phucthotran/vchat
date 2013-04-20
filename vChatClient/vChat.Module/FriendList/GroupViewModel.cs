@@ -13,6 +13,9 @@ namespace vChat.Module.FriendList
     public class GroupViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        #region CLASS MEMBER
+
         private readonly ObservableCollection<FriendViewModel> _Children;
         private readonly FriendGroup _Group;
 
@@ -20,6 +23,15 @@ namespace vChat.Module.FriendList
         private bool _IsSelected;
         private bool _IsChecked;
         private Visibility _ToogleCheckbox = Visibility.Collapsed; //Default
+
+        #endregion
+
+        #region PROPERTY
+
+        public FriendGroup Group
+        {
+            get { return _Group; }
+        }
 
         public String GroupName
         {
@@ -65,6 +77,11 @@ namespace vChat.Module.FriendList
                 if (value != _IsChecked)
                 {
                     _IsChecked = value;
+
+                    //Set IsChecked property for all child
+                    foreach (FriendViewModel child in _Children)
+                        child.IsChecked = value;
+
                     this.OnPropertyChanged("IsChecked");
                 }
             }
@@ -82,6 +99,8 @@ namespace vChat.Module.FriendList
                 }
             }
         }
+
+        #endregion
 
         public GroupViewModel(FriendGroup Group)
         {

@@ -25,7 +25,7 @@ namespace Core.Data
         public object[] Params { get; private set; }
         public CommandResponse(Command cmd)
         {
-            this.TargetUser = cmd.FromUser;
+            this.TargetUser = cmd.Metadata.TargetUser;
             this.Params = cmd.Metadata.Datas;
         }
     }

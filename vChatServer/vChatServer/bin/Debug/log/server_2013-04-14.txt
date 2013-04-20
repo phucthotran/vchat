@@ -1,5 +1,0 @@
-14/04/2013 03:58:14 - Server da khoi dong thanh cong.
-14/04/2013 03:58:56 - symaci(127.0.0.1:49851) da ket noi den server.
-14/04/2013 03:59:43 - symaci(127.0.0.1:49851) da ngat ket noi.
-14/04/2013 04:00:20 - symaci(127.0.0.1:49945) da ket noi den server.
-14/04/2013 04:02:35 - symaci(127.0.0.1:49945) da ngat ket noi.

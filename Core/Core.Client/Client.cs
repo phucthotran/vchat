@@ -27,6 +27,8 @@ namespace Core.Client
         private BackgroundWorker _ReceiveWorker = new BackgroundWorker();
         private BackgroundWorker _DoReceiveWorker = new BackgroundWorker();
         private BackgroundWorker _SendWorker = new BackgroundWorker();
+        private Queue<byte[]> _DoReceiveQueue = new Queue<byte[]>();
+        private Queue<Command> _SendQueue = new Queue<Command>();
         private IPEndPoint _ServerIP;
         private CommandExecuter _Executer = new CommandExecuter();
         public IPAddress ServerIP { get { return this._ServerIP.Address; } }
@@ -61,6 +63,7 @@ namespace Core.Client
                 this.OnConnected();
                 this._ReceiveWorker.DoWork += new DoWorkEventHandler(ReceiveCommand);
                 this._DoReceiveWorker.DoWork += new DoWorkEventHandler(doReceive);
+                this._DoReceiveWorker.RunWorkerCompleted+=new RunWorkerCompletedEventHandler(doReceiveComplete);
                 this._SendWorker.DoWork += new DoWorkEventHandler(sendCommand);
                 this._ReceiveWorker.RunWorkerAsync();
             }
@@ -71,6 +74,13 @@ namespace Core.Client
                 if (doThrow)
                     throw ex;
             }
+        }
+
+        public void Disconnect()
+        {
+            this.Socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.DontLinger, false);
+            this.Socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+            this.Socket.Disconnect(true);
         }
 
         public void CommandBinding(CommandType type, Action<CommandResponse> action)
@@ -88,7 +98,14 @@ namespace Core.Client
                     this._Stream.Read(buffer, 0, 4);
                     buffer = new byte[BitConverter.ToInt32(buffer, 0)];
                     this._Stream.Read(buffer, 0, buffer.Length);
-                    _DoReceiveWorker.RunWorkerAsync(buffer);
+                    _DoReceiveQueue.Enqueue(buffer);
+                    if (!_DoReceiveWorker.IsBusy)
+                    {
+                        while (_DoReceiveQueue.Count > 0)
+                        {
+                            _DoReceiveWorker.RunWorkerAsync(_DoReceiveQueue.Dequeue());
+                        }
+                    }
                 }
             }
             catch
@@ -100,17 +117,14 @@ namespace Core.Client
 
         private void doReceive(object sender, DoWorkEventArgs e)
         {
-            try
-            {
-                byte[] buffer = (byte[])e.Argument;
-                Command cmd = buffer.ConvertTo<Command>();
-                _Executer[cmd.Type].DynamicInvoke(new CommandResponse(cmd));
-             //   InvokeCommand(cmd);
-            }
-            catch (Exception ex)
-            {
-                this.OnCritical(ex.StackTrace);
-            }
+            byte[] buffer = e.Argument as byte[];
+            e.Result = buffer.ConvertTo<Command>();
+        }
+
+        private void doReceiveComplete(object sender, RunWorkerCompletedEventArgs e)
+        {
+            Command cmd = e.Result as Command;
+            _Executer[cmd.Type].DynamicInvoke(new CommandResponse(cmd));
         }
 
         /*
@@ -134,24 +148,26 @@ namespace Core.Client
             }
         } */
 
-        public void SendCommand(object invoker, CommandType cmdType, string toUser, params object[] obj)
+        public void SendCommand(Command cmd)
         {
-            Command cmd = new Command(cmdType, new CommandMetadata(obj));
-            cmd.ToUser = toUser;
-            cmd.Invoker = invoker;
-            this._SendWorker.RunWorkerAsync(cmd);
+            _SendQueue.Enqueue(cmd);
+            if (!_SendWorker.IsBusy)
+                _SendWorker.RunWorkerAsync();
         }
 
         private void sendCommand(object sender, DoWorkEventArgs e)
         {
-            Command cmd = (Command)e.Argument;
-            byte[] buffer = new byte[4];
-            byte[] cmdBuffer = cmd.ToBytes<Command>();
-            buffer = BitConverter.GetBytes(cmdBuffer.Length);
-            this._Stream.Write(buffer, 0, 4);
-            this._Stream.Flush();
-            this._Stream.Write(cmdBuffer, 0, cmdBuffer.Length);
-            this._Stream.Flush();
+            while (_SendQueue.Count > 0)
+            {
+                Command cmd = _SendQueue.Dequeue();
+                byte[] buffer = new byte[4];
+                byte[] cmdBuffer = cmd.ToBytes<Command>();
+                buffer = BitConverter.GetBytes(cmdBuffer.Length);
+                this._Stream.Write(buffer, 0, 4);
+                this._Stream.Flush();
+                this._Stream.Write(cmdBuffer, 0, cmdBuffer.Length);
+                this._Stream.Flush();
+            }
         }
 
 

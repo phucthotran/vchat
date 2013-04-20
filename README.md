@@ -4,6 +4,56 @@
 ## Update Log
 -------------
 
+#### Update 18.04 11.20 PM
+- Thêm method `AddGroup` dùng để tạo group mới nếu người dùng mong muốn
+- Thêm danh sách **Yêu Cầu Kết Bạn* để người dùng có thể quản lý các yêu cầu kết bạn của mình
+- Thêm method mới vào `vChat.WCF`: **AcceptFriendRequest**, **IgnoreFriendRequest**, **FriendRequests**, **MoveContact**, **RemoveContact**
+- Hoàn thiện chức năng **Chỉnh Sửa Bạn Bè**
+- Thêm method mới vào `vChat.Module` trong class Helper **ShowMessage**: dùng cho hiển thị các kết quả trả về từ server (qua class `MethodInvokeResult`), tạm thời hiển thị qua MessageBox. Sử dụng:
+
+```c#
+	Helper.ShowMessage(DoiTuongMethodInvokeResult);
+```
+
+- Tái tổ chức và hoàn thiện chức năng cho `AddFriend` module. Có 2 sự kiện cần lưu ý là: **OnAddFriendSuccess** và **OnAddFriendError**. VD:
+
+```c#
+	private void AddFriend_OnAddFriendSuccess(object sender, AddFriendArgs e)
+	{
+		MessageBox.Show(String.Format("Add Success - FriendName: {0}, GroupName: {1}", e.FriendName, e.GroupName));
+	}
+	
+	private void AddFriend_OnAddFriendError(object sender, AddFriendArgs e)
+	{
+		MessageBox.Show(String.Format("Add Error - FriendName: {0}, GroupName: {1}", e.FriendName, e.GroupName ?? "NULL"));
+	}
+```
+- Thêm 2 event cho `FriendList` module: **OnFriendClick** và ** OnGroupClick**, **OnAddFriendClick**. VD:
+
+```c#
+
+	private void FriendList_OnAddFriendClick(object sender, RoutedEventArgs e)
+	{
+		Window AddFriendWind = new Window {
+			Content = _addFriendModule, 
+			Title = "Add Friend", 
+			SizeToContent = System.Windows.SizeToContent.WidthAndHeight, 
+			WindowStartupLocation = System.Windows.WindowStartupLocation.CenterOwner 
+		};
+		AddFriendWind.ShowDialog();
+	}
+
+	private void FriendList_OnGroupClick(object sender, GroupArgs e)
+	{
+		MessageBox.Show(String.Format("ID: {0}, Name: {1}", e.GroupID, e.Name));
+	}
+
+	private void FriendList_OnFriendClick(object sender, FriendArgs e)
+	{
+		MessageBox.Show(String.Format("ID: {0}, Username: {1}, FirstName: {2}, LastName: {3}", e.UserID, e.Username, e.FirstName, e.LastName));
+	}
+```
+
 #### Update 17.04 11:42 AM
 - Fix lỗi bể layout của FriendList
 
