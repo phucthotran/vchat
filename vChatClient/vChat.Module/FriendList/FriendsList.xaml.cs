@@ -29,8 +29,8 @@ namespace vChat.Module.FriendList
         //public delegate void AddFriendButtonHandler(object sender, RoutedEventArgs e);
         //public event AddFriendButtonHandler OnAddFriendClick;
 
-        public delegate void FriendClickHandler(object sender, FriendArgs e);
-        public event FriendClickHandler OnFriendClick;
+        public delegate void MouseEventHandler(object sender, FriendArgs e);
+        public event MouseEventHandler OnFriendDoubleClick;
 
         #region CLASS MEMBER
 
@@ -425,7 +425,7 @@ namespace vChat.Module.FriendList
                 FriendViewModel SelectedFriend = TreeFriend.SelectedItem as FriendViewModel;
                 Users FriendArg = SelectedFriend.Friend;
 
-                OnFriendClick(this, new FriendArgs(
+                OnFriendDoubleClick(this, new FriendArgs(
                         FriendArg.UserID,
                         FriendArg.Username,
                         FriendArg.FirstName,

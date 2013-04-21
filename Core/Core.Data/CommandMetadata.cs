@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Net;
+using System.Runtime.Serialization.Formatters.Soap;
 
 namespace Core.Data
 {
@@ -19,9 +20,10 @@ namespace Core.Data
             }
         }
 
-        public object[] Datas { get; private set; }
+        public object[] Datas = new object[10];
 
-        public CommandMetadata(params object[] objs)
+        public string TargetUser { get; set; }
+        public CommandMetadata(string targetUser, params object[] objs)
         {
             this.Datas = objs;
         }

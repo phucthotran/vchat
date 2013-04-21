@@ -1,0 +1,10 @@
+﻿<ma:MetroWindow x:Class="vChat.View.Windows.ChatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ChatWindow" Height="300" Width="300"
+        xmlns:ma="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
+    <DockPanel LastChildFill="True">
+        <Grid Name="RightPanel" DockPanel.Dock="Right"></Grid>
+        <Grid Name="MainPanel" DockPanel.Dock="Top"></Grid>
+    </DockPanel>
+</ma:MetroWindow>

@@ -19,6 +19,7 @@ using vChat.Module.SignUp;
 using vChat.Module.FriendList;
 using vChat.Module.AddFriend;
 using Core.Client;
+using Core.Data;
 
 namespace vChat.View.Windows
 {
@@ -35,7 +36,15 @@ namespace vChat.View.Windows
         public MainWindow()
         {
             InitializeComponent();
+            this.InitTheme();
             InitLoginModule();
+            InitClientListener();
+        }
+
+        private void InitClientListener()
+        {
+            Client client = this.Get<Client>();
+            client.CommandBinding(CommandType.Chat, ChatListener);
         }
 
         private void InitLoginModule()
@@ -50,14 +59,13 @@ namespace vChat.View.Windows
         {
             _friendListModule = Grid.LoadModule<FriendsList>();
             _friendListModule.SetupData(UserID);
-            //_friendListModule.OnAddFriendClick += new FriendsList.AddFriendButtonHandler(FriendList_OnAddFriendClick);
-            _friendListModule.OnFriendClick += new FriendsList.FriendClickHandler(FriendList_OnFriendClick);
-            //_friendListModule.OnGroupClick += new FriendsList.GroupClickHandler(FriendList_OnGroupClick);
+            _friendListModule.OnFriendDoubleClick += new FriendsList.MouseEventHandler(FriendList_OnFriendDoubleClick);
         }
 
-        private void FriendList_OnFriendClick(object sender, FriendArgs e)
+        private void FriendList_OnFriendDoubleClick(object sender, FriendArgs e)
         {
-            MessageBox.Show(String.Format("ID: {0}, Username: {1}, FirstName: {2}, LastName: {3}", e.UserID, e.Username, e.FirstName, e.LastName));
+            //MessageBox.Show(String.Format("ID: {0}, Username: {1}, FirstName: {2}, LastName: {3}", e.UserID, e.Username, e.FirstName, e.LastName));
+            new ChatWindow(e.Username).Show();
         }
 
         private void FriendList_OnAddFriendClick(object sender, RoutedEventArgs e)
@@ -117,6 +125,7 @@ namespace vChat.View.Windows
 
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
+            this.Get<Client>().Disconnect();
             Cookie.Instance.Unset("user", "pass", "expire");
             Cookie.Instance.Save();
             InitLoginModule();

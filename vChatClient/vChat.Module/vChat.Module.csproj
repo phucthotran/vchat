@@ -81,6 +81,10 @@
     <Compile Include="AddFriend\AddFriend.xaml.cs">
       <DependentUpon>AddFriend.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Chat\Chat.xaml.cs">
+      <DependentUpon>Chat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Chat\ChatController.cs" />
     <Compile Include="AddFriend\AddFriendController.cs" />
     <Compile Include="FriendList\BaseCommand.cs" />
     <Compile Include="FriendList\Command.cs" />
@@ -141,6 +145,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="AddFriend\AddFriend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Chat\Chat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

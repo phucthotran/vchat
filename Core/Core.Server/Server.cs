@@ -51,6 +51,10 @@ namespace Core.Server
             this.ClientManager = new ClientManager();
             this._LogWorker = new BackgroundWorker();
             this._LogWorker.DoWork += new DoWorkEventHandler(writeLog);
+            if (!Directory.Exists("log"))
+            {
+                Directory.CreateDirectory("log");
+            }
             string logToday = string.Format("log/server_{0:yyyy-MM-dd}.txt", DateTime.Today);
             if (!File.Exists(logToday))
             {
@@ -59,10 +63,6 @@ namespace Core.Server
             _fsLog = new FileStream(logToday, FileMode.Open, FileAccess.ReadWrite);
             _swLog = new StreamWriter(_fsLog);
             _swLog.AutoFlush = true;
-            if (!Directory.Exists("log"))
-            {
-                Directory.CreateDirectory("log");
-            }
         }
         private void ClientOnConnected(Client client)
         {
@@ -109,9 +109,9 @@ namespace Core.Server
                     this.OnCritical(ex.StackTrace);
                 }
             }
-            if (!cmd.ToUser.Equals("SERVER"))
+            if (!cmd.TargetUser.Equals("SERVER"))
             {
-                Client target = this.ClientManager.GetClient(cmd.ToUser);
+                Client target = this.ClientManager.GetClient(cmd.TargetUser);
                 if (target != null)
                 {
                     target.SendCommand(cmd);

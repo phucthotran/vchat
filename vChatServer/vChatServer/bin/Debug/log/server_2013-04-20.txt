@@ -1,13 +1,10 @@
-20/04/2013 08:32:32 - Server da khoi dong thanh cong.
-20/04/2013 09:24:50 - itexplore(127.0.0.1:11473) da ket noi den server.
-20/04/2013 09:25:16 - itexplore(127.0.0.1:11473) da ngat ket noi.
-20/04/2013 09:27:23 - itexplore(127.0.0.1:11510) da ket noi den server.
-20/04/2013 09:27:41 - itexplore(127.0.0.1:11510) da ngat ket noi.
-20/04/2013 09:28:06 - itexplore(127.0.0.1:11545) da ket noi den server.
-20/04/2013 09:28:55 - itexplore(127.0.0.1:11545) da ngat ket noi.
-20/04/2013 09:29:41 - itexplore(127.0.0.1:11622) da ket noi den server.
-20/04/2013 09:31:39 - itexplore(127.0.0.1:11622) da ngat ket noi.
-20/04/2013 09:33:27 - itexplore(127.0.0.1:11676) da ket noi den server.
+20/04/2013 11:44:51 - Server da khoi dong thanh cong.
+20/04/2013 11:45:20 - itexplore(127.0.0.1:15610) da ket noi den server.
+20/04/2013 11:46:16 - itexplore(127.0.0.1:15610) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">okay</Paragraph>
+20/04/2013 11:46:24 - itexplore(127.0.0.1:15610) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">haha</Paragraph>
+20/04/2013 11:46:31 - itexplore(127.0.0.1:15610) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">hoho</Paragraph>
+20/04/2013 11:46:57 - itexplore(127.0.0.1:15610) da ngat ket noi.
+1676) da ket noi den server.
 20/04/2013 09:33:38 - itexplore(127.0.0.1:11676) da ngat ket noi.
 20/04/2013 09:34:02 - itexplore(127.0.0.1:11708) da ket noi den server.
 20/04/2013 09:34:17 - itexplore(127.0.0.1:11708) da ngat ket noi.
@@ -37,3 +34,6 @@
 20/04/2013 10:03:56 - itexplore(127.0.0.1:12638) da ngat ket noi.
 20/04/2013 10:05:27 - itexplore(127.0.0.1:12699) da ket noi den server.
 20/04/2013 10:06:35 - itexplore(127.0.0.1:12699) da ngat ket noi.
+=======
+20/04/2013 08:22:24 - Server da khoi dong thanh cong.
+>>>>>>> ThoTran/master

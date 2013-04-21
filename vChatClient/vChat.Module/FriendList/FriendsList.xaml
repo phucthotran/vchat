@@ -63,14 +63,14 @@
                                                 <CheckBox Content="{Binding FriendName}">
                                                     <CheckBox.Style>
                                                         <Style TargetType="{x:Type CheckBox}">
-                                                                <Setter Property="IsChecked" Value="{Binding IsSelected}"/>
-                                                                <Style.Triggers>
+                                                            <Setter Property="IsChecked" Value="{Binding IsSelected}"/>
+                                                            <Style.Triggers>
                                                                 <Trigger Property="IsMouseOver" Value="True">
                                                                     <Setter Property="Foreground" Value="Blue"/>
                                                                     <Setter Property="ToolTip" Value="Click để chat"/>
                                                                 </Trigger>
                                                             </Style.Triggers>
-                                                        </Style>                                                    
+                                                        </Style>
                                                     </CheckBox.Style>
                                                 </CheckBox>
                                             </Grid>
@@ -149,31 +149,31 @@
                         </TreeView>
                     </ScrollViewer>
                     <Border Name="completeTask" BorderBrush="#FFB4B4B4" BorderThickness="1" DockPanel.Dock="Bottom" Visibility="Collapsed" Margin="5">
-                    <StackPanel>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
 
-                            <TextBlock Text="Chọn Thao Tác" VerticalAlignment="Center" Margin="5, 0, 0, 0" Grid.Row="0" Grid.Column="0"/>
-                            <ComboBox Name="cbTask" Height="30" Margin="5" Grid.Row="0" Grid.Column="1" SelectionChanged="cbTask_SelectionChanged">
-                                <ComboBoxItem Content="Chuyển Sang Nhóm Mới" Tag="MoveContact"/>
-                                <ComboBoxItem Content="Xóa Liên Lạc" Tag="RemoveContact"/>
-                            </ComboBox>
-                            <TextBlock Name="tblNewGroup" Text="Nhóm" VerticalAlignment="Center" Visibility="Collapsed" Margin="5, 0, 0, 0" Grid.Row="1" Grid.Column="0"/>
-                            <ComboBox Name="cbNewGroup" ItemsSource="{Binding}" DisplayMemberPath="Name" SelectedValuePath="GroupID" SelectedIndex="0" Height="30" Margin="5" Grid.Row="1" Grid.Column="1" Visibility="Collapsed"/>
-                        </Grid>
-                        <StackPanel Orientation="Horizontal" Margin="0, 5, 0, 5">
-                            <CheckBox Name="chkDone" Content="Xác Nhận" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5, 0, 0, 0" Checked="chkDone_Checked" Unchecked="chkDone_Unchecked" />
-                            <Button Name="btnDone" Content="Hoàn Thành" FontSize="13" IsEnabled="False" Padding="3" Margin="5, 0, 0, 0" Click="btnDone_Click"/>
-                            <Button Name="btnCancel" Content="Hủy Bỏ" FontSize="13" Padding="3" Margin="5, 0, 0, 0" Click="btnCancel_Click"/>
+                                <TextBlock Text="Chọn Thao Tác" VerticalAlignment="Center" Margin="5, 0, 0, 0" Grid.Row="0" Grid.Column="0"/>
+                                <ComboBox Name="cbTask" Height="30" Margin="5" Grid.Row="0" Grid.Column="1" SelectionChanged="cbTask_SelectionChanged">
+                                    <ComboBoxItem Content="Chuyển Sang Nhóm Mới" Tag="MoveContact"/>
+                                    <ComboBoxItem Content="Xóa Liên Lạc" Tag="RemoveContact"/>
+                                </ComboBox>
+                                <TextBlock Name="tblNewGroup" Text="Nhóm" VerticalAlignment="Center" Visibility="Collapsed" Margin="5, 0, 0, 0" Grid.Row="1" Grid.Column="0"/>
+                                <ComboBox Name="cbNewGroup" ItemsSource="{Binding}" DisplayMemberPath="Name" SelectedValuePath="GroupID" SelectedIndex="0" Height="30" Margin="5" Grid.Row="1" Grid.Column="1" Visibility="Collapsed"/>
+                            </Grid>
+                            <StackPanel Orientation="Horizontal" Margin="0, 5, 0, 5">
+                                <CheckBox Name="chkDone" Content="Xác Nhận" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5, 0, 0, 0" Checked="chkDone_Checked" Unchecked="chkDone_Unchecked" />
+                                <Button Name="btnDone" Content="Hoàn Thành" FontSize="13" IsEnabled="False" Padding="3" Margin="5, 0, 0, 0" Click="btnDone_Click"/>
+                                <Button Name="btnCancel" Content="Hủy Bỏ" FontSize="13" Padding="3" Margin="5, 0, 0, 0" Click="btnCancel_Click"/>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
                     </Border>
                 </DockPanel>
             </DockPanel>

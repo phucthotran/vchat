@@ -44,7 +44,7 @@ namespace vChat.Module.Login
             Client client = this.Get<Client>();
             if (!client.Socket.Connected)
                 client.Connect(true);
-            client.SendCommand(null, CommandType.LogIn, "SERVER", user);
+            client.SendCommand(new Command(CommandType.LogIn, "SERVER", new CommandMetadata(user, user)));
             client.Name = user;
         }
 

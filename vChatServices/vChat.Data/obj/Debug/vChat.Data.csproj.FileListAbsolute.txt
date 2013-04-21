@@ -35,3 +35,4 @@ D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.csproj.GenerateRes
 D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.dll
 D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.AddSomeFieldsInFriendMap.resources
+D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.AddSomeFieldsInFriendMap.resources
