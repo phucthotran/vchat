@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 21/04/2013 03:43:44 - Server da khoi dong thanh cong.
 21/04/2013 03:45:02 - itexplore(127.0.0.1:3854) da ket noi den server.
 21/04/2013 03:45:08 - itexplore(127.0.0.1:3854) da ngat ket noi.
@@ -24,6 +25,8 @@
 21/04/2013 10:16:14 - itexplore(127.0.0.1:19980) da ket noi den server.
 21/04/2013 10:16:30 - itexplore(127.0.0.1:19980) da ngat ket noi.
 =======
+=======
+>>>>>>> ThoTran/master
 21/04/2013 12:01:00 - Server da khoi dong thanh cong.
 21/04/2013 12:05:27 - symaci(127.0.0.1:45604) da ket noi den server.
 21/04/2013 12:05:33 - symaci(127.0.0.1:45604) da ngat ket noi.
@@ -64,4 +67,7 @@
 21/04/2013 12:43:37 - symaci(127.0.0.1:45918) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">asd</Paragraph>
 21/04/2013 12:43:42 - symaci(127.0.0.1:45918) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sadsd</Paragraph>
 21/04/2013 12:44:03 - symaci(127.0.0.1:45918) da ngat ket noi.
+<<<<<<< HEAD
+>>>>>>> ThoTran/master
+=======
 >>>>>>> ThoTran/master

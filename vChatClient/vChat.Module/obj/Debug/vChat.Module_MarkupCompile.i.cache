@@ -16,5 +16,5 @@ DEBUG;TRACE
 25-1843337072
 AddFriend\AddFriend.xaml;Chat\Chat.xaml;FriendList\FriendsList.xaml;Login\Login.xaml;RemoveGroup\RemoveGroup.xaml;SignUp\SignUp.xaml;
 
-True
+False
 
