@@ -5,12 +5,6 @@
         xmlns:params="http://schemas.codeplex.com/elysium/params"
         xmlns:ma="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="" WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-    <ResourceDictionary>
-        <ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary.MergedDictionaries>
-    </ResourceDictionary>
-    </Window.Resources>
     <ma:MetroWindow.WindowCommands>
         <ma:WindowCommands>
             <Button Name="LogOut" Content="Đăng xuất" Click="LogOut_Click" />

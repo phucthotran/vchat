@@ -3,23 +3,6 @@ C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\Command\bin\Debug
 C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\Command\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\Command\obj\Debug\Core.Data.dll
 C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\Command\obj\Debug\Core.Data.pdb
-D:\vchat\Core\Core.Data\bin\Debug\Core.Data.dll
-D:\vchat\Core\Core.Data\bin\Debug\Core.Data.pdb
-D:\vchat\Core\Core.Data\obj\Debug\ResolveAssemblyReference.cache
-D:\vchat\Core\Core.Data\obj\Debug\Core.Data.dll
-D:\vchat\Core\Core.Data\obj\Debug\Core.Data.pdb
-D:\vchat_2\Core\Core.Data\bin\Debug\Core.Data.dll
-D:\vchat_2\Core\Core.Data\bin\Debug\Core.Data.pdb
-D:\vchat_2\Core\Core.Data\obj\Debug\ResolveAssemblyReference.cache
-D:\vchat_2\Core\Core.Data\obj\Debug\Core.Data.dll
-D:\vchat_2\Core\Core.Data\obj\Debug\Core.Data.pdb
-D:\vChatProject\Core\Core.Data\bin\Debug\Core.Data.dll
-D:\vChatProject\Core\Core.Data\bin\Debug\Core.Data.pdb
-D:\vChatProject\Core\Core.Data\obj\Debug\Core.Data.dll
-D:\vChatProject\Core\Core.Data\obj\Debug\Core.Data.pdb
-D:\vChatProject\Core\Core.Data\obj\Debug\Core.Data.csprojResolveAssemblyReference.cache
-D:\vChatProject\Core\Core.Data\bin\Debug\Extension.dll
-D:\vChatProject\Core\Core.Data\bin\Debug\Extension.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Data\bin\Debug\Core.Data.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Data\bin\Debug\Core.Data.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Data\bin\Debug\Extension.dll

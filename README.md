@@ -3,13 +3,18 @@
 
 ## Update Log
 -------------
-<<<<<<< HEAD
 
-#### Update 21.04
+#### Update 21.04 3:56 PM
 - Thêm method mới vào `vChat.WCF: **GroupInfo**, **RemoveGroup**
 - Hoàn Thiện **Yêu Cầu Kết Bạn**: update yêu cầu kết bạn theo thời gian thực
-- Thêm context menu cho FriendList
+- Thêm context menu cho FriendList: **Thêm Bạn** (đã hoàn thiện), **Xóa Nhóm** (hoàn thiện), **Xem Chi Tiết**
 - Chỉnh event click cho FriendList thành double click
+- Thêm module `RemoveGroup` dùng cho thao tác xóa nhóm trên FriendList
+
+#### Update 21.04 2:06 AM
+- Sửa lỗi đăng nhập không được sau khi đăng xuất
+- Chỉnh sửa cách thức hiển thị của MainWindow (MinWidth = 300, Height = chiều cao tối đa của màn hình)
+- Chỉnh sửa ChatWindow
 
 #### Update 20.04 3:55 PM
 - Tái tổ chức solution **Core**

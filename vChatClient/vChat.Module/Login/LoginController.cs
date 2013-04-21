@@ -42,7 +42,7 @@ namespace vChat.Module.Login
         private void DoConnect(string user)
         {
             Client client = this.Get<Client>();
-            if (!client.Socket.Connected)
+            if (!client.IsConnected)
                 client.Connect(true);
             client.SendCommand(new Command(CommandType.LogIn, "SERVER", new CommandMetadata(user, user)));
             client.Name = user;

@@ -94,6 +94,7 @@ namespace vChat.Module.FriendList
             _AddFriendWin.ResizeMode = ResizeMode.NoResize;
             _AddFriendWin.ShowInTaskbar = false;
             _AddFriendWin.Content = _AddFriendModule;
+            _AddFriendWin.InitTheme();
         }
 
         private void CreateRemoveGroupWindow()
@@ -105,6 +106,7 @@ namespace vChat.Module.FriendList
             _RemoveGroupWin.ResizeMode = ResizeMode.NoResize;
             _RemoveGroupWin.ShowInTaskbar = false;
             _RemoveGroupWin.Content = _RemoveGroupModule;
+            _RemoveGroupWin.InitTheme();
         }
 
         public void AddFriendWork(Users Friend, FriendGroup Group)
@@ -409,8 +411,6 @@ namespace vChat.Module.FriendList
             FriendViewModel SelectedFriend = TreeFriend.SelectedItem as FriendViewModel;
         }
 
-        #endregion
-
         private void TreeFriend_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             TreeViewItem dbclickItem = e.Source as TreeViewItem;
@@ -433,5 +433,9 @@ namespace vChat.Module.FriendList
                     ));
             }
         }
+
+        #endregion
+
+        
     }    
 }

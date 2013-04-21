@@ -34,6 +34,7 @@ namespace vChat.Module.Chat
         {
             this.TargetUser = targetUser;
             InitializeComponent();
+            MessageView.Document.Blocks.Remove(MessageView.Document.Blocks.FirstBlock);
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)

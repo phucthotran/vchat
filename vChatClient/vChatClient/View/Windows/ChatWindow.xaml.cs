@@ -36,6 +36,8 @@ namespace vChat.View.Windows
         public void Init(string targetUser)
         {
             InitializeComponent();
+            this.Topmost = true;
+            this.Focus();
             this.Title = targetUser;
             this.InitTheme();
             _Client = this.Get<Client>();

@@ -27,11 +27,11 @@ namespace Core.Client
         private BackgroundWorker _ReceiveWorker = new BackgroundWorker();
         private BackgroundWorker _DoReceiveWorker = new BackgroundWorker();
         private BackgroundWorker _SendWorker = new BackgroundWorker();
+        private BackgroundWorker _DisconnectWorker = new BackgroundWorker();
         private Queue<byte[]> _DoReceiveQueue = new Queue<byte[]>();
         private Queue<Command> _SendQueue = new Queue<Command>();
-        private IPEndPoint _ServerIP;
         private CommandExecuter _Executer = new CommandExecuter();
-        public IPAddress ServerIP { get { return this._ServerIP.Address; } }
+        public IPAddress ServerIP { get; private set; }
         public int Port { get; private set; }
         public Client()
         {
@@ -45,7 +45,8 @@ namespace Core.Client
 
         private void InitClient(IPAddress serverIP, int port)
         {
-            _ServerIP = new IPEndPoint(serverIP, port);
+            this.ServerIP = serverIP;
+            this.Port = port;
             this.Socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
 
@@ -58,13 +59,14 @@ namespace Core.Client
         {
             try
             {
-                this.Socket.Connect(this._ServerIP);
+                this.Socket.Connect(new IPEndPoint(ServerIP, Port));
                 this._Stream = new NetworkStream(this.Socket);
                 this.OnConnected();
                 this._ReceiveWorker.DoWork += new DoWorkEventHandler(ReceiveCommand);
                 this._DoReceiveWorker.DoWork += new DoWorkEventHandler(doReceive);
                 this._DoReceiveWorker.RunWorkerCompleted+=new RunWorkerCompletedEventHandler(doReceiveComplete);
                 this._SendWorker.DoWork += new DoWorkEventHandler(sendCommand);
+                this._DisconnectWorker.DoWork += new DoWorkEventHandler(_DisconnectWorker_DoWork);
                 this._ReceiveWorker.RunWorkerAsync();
             }
             catch (Exception ex)
@@ -76,11 +78,15 @@ namespace Core.Client
             }
         }
 
+        void _DisconnectWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            this.Socket.Close();
+            this.Socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        }
+
         public void Disconnect()
         {
-            this.Socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.DontLinger, false);
-            this.Socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-            this.Socket.Disconnect(true);
+            _DisconnectWorker.RunWorkerAsync();
         }
 
         public void CommandBinding(CommandType type, Action<CommandResponse> action)
@@ -157,16 +163,23 @@ namespace Core.Client
 
         private void sendCommand(object sender, DoWorkEventArgs e)
         {
-            while (_SendQueue.Count > 0)
+            Command cmd = null;
+            try
             {
-                Command cmd = _SendQueue.Dequeue();
-                byte[] buffer = new byte[4];
-                byte[] cmdBuffer = cmd.ToBytes<Command>();
-                buffer = BitConverter.GetBytes(cmdBuffer.Length);
-                this._Stream.Write(buffer, 0, 4);
-                this._Stream.Flush();
-                this._Stream.Write(cmdBuffer, 0, cmdBuffer.Length);
-                this._Stream.Flush();
+                while (_SendQueue.Count > 0)
+                {
+                    cmd = _SendQueue.Dequeue();
+                    byte[] buffer = new byte[4];
+                    byte[] cmdBuffer = cmd.ToBytes<Command>();
+                    buffer = BitConverter.GetBytes(cmdBuffer.Length);
+                    this._Stream.Write(buffer, 0, 4);
+                    this._Stream.Flush();
+                    this._Stream.Write(cmdBuffer, 0, cmdBuffer.Length);
+                    this._Stream.Flush();
+                }
+            }
+            catch
+            {
             }
         }
 
