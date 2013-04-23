@@ -30,17 +30,11 @@ namespace vChat.Module.AddFriend
         {
             MethodInvokeResult result = this.Get<UserServiceClient>().AddGroup(out NewGroupID, UserID, Name);
 
-            switch (result.Status)
-            {
-                case MethodInvokeResult.RESULT.SUCCESS:
-                    return true;
+            Helper.ShowMessage(result);
 
-                case MethodInvokeResult.RESULT.FAIL:
-                    String errors = String.Join(",", result.Errors);
-                    MessageBox.Show("Please fix following errors: \n {0}", errors);
-                    return false;
-            }
-
+            if (result.Status == MethodInvokeResult.RESULT.SUCCESS)
+                return true;
+            //else
             return false;
         }
 
@@ -48,21 +42,11 @@ namespace vChat.Module.AddFriend
         {
             MethodInvokeResult result = this.Get<UserServiceClient>().AddFriend(UserID, FriendName, GroupID);
 
-            switch (result.Status)
-            {
-                case MethodInvokeResult.RESULT.INPUT_ERROR:
-                    MessageBox.Show(result.Message);
-                    return false;
+            Helper.ShowMessage(result);
 
-                case MethodInvokeResult.RESULT.SUCCESS:
-                    return true;
-
-                case MethodInvokeResult.RESULT.FAIL:
-                    String errors = String.Join(",", result.Errors);
-                    MessageBox.Show("Please fix following errors: \n {0}", errors);
-                    return false;
-            }
-
+            if (result.Status == MethodInvokeResult.RESULT.SUCCESS)
+                return true;
+            //else
             return false;
         }
     }

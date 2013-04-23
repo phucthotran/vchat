@@ -1,5 +1,8 @@
 ## Yêu cầu hiện tại
 -------------------
+#### TASK 23.04
+- Bổ sung các thông tin khi đăng kí tài khoản (câu hỏi bí mật và câu trả lời) (Phương) 
+
 #### TASK 20.04
 - Bug cần fix: 
   - Đăng xuất không được và đăng nhập lần thứ 2 không được (lỗi reuse socket) (Phương)

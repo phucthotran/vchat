@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using vChat.Model.Entities;
 using System.Windows;
+using System.Windows.Media;
 
 namespace vChat.Module.FriendList
 {
@@ -21,6 +22,7 @@ namespace vChat.Module.FriendList
         private readonly ICommand _SearchCommand;
         private String _SearchText = String.Empty;
         private List<FriendViewModel> _MatchFriends;
+        private Brush _MatchColor = Brushes.Red;
 
         private readonly ICommand _EditCommand;
         private readonly ICommand _CancelEditCommand;
@@ -182,15 +184,16 @@ namespace vChat.Module.FriendList
             foreach (GroupViewModel Parent in _Groups)
             {
                 _MatchFriends.AddRange(Parent.Children
-                                      .Where(f => (f.Friend.FirstName + " " + f.Friend.LastName)
-                                      .IndexOf(_SearchText, StringComparison.InvariantCultureIgnoreCase) > -1)
+                                      .Where(friend => friend.NameContainsText(_SearchText))
+                                      //.Where(f => (f.Friend.FirstName + " " + f.Friend.LastName)
+                                      //.IndexOf(_SearchText, StringComparison.InvariantCultureIgnoreCase) > -1)
                                       .ToList());
             }
 
             foreach (FriendViewModel Friend in _MatchFriends)
             {
                 Friend.Parent.IsExpanded = true;
-                Friend.MatchColor = System.Windows.Media.Brushes.Red;
+                Friend.MatchColor = _MatchColor;
             }
         }        
 
@@ -241,7 +244,7 @@ namespace vChat.Module.FriendList
             foreach (GroupViewModel Parent in _Groups)
             {
                 MatchFriends.AddRange(Parent.Children
-                                      .Where(f => f.IsChecked == true)
+                                      .Where(friend => friend.IsChecked == true)
                                       .ToList());
             }
 
@@ -256,7 +259,7 @@ namespace vChat.Module.FriendList
             foreach (GroupViewModel Parent in _Groups)
             {
                 MatchFriends.AddRange(Parent.Children
-                                      .Where(f => f.IsChecked == true)
+                                      .Where(friend => friend.IsChecked == true)
                                       .ToList());
             }
 

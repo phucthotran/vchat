@@ -17,7 +17,6 @@ namespace vChat.Data
         public vChatContext() : base(GetConnection(@"C:\Connect.txt"))
         {
             Configuration.ProxyCreationEnabled = false;
-            //Configuration.AutoDetectChangesEnabled = false;
             Configuration.LazyLoadingEnabled = false;            
             System.Data.Entity.Database.SetInitializer<vChatContext>(new CreateDatabaseIfNotExists<vChatContext>());
         }
@@ -38,7 +37,7 @@ namespace vChat.Data
         public DbSet<Question> Question { get; set; }
         public DbSet<Conversation> Conversation { get; set; }
         public DbSet<FriendGroup> FriendGroup { get; set; }
-        public DbSet<FriendMap> FriendList { get; set; }
+        public DbSet<FriendMap> FriendMap { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

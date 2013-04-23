@@ -5,42 +5,55 @@ using System.Text;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using vChat.Model.Entities;
+using System.Windows.Controls;
 using System.Windows;
-using System.Windows.Media;
 
 namespace vChat.Module.FriendList
 {
-    public class FriendViewModel : INotifyPropertyChanged
+    public class GroupViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
         #region CLASS MEMBER
 
-        private readonly GroupViewModel _Parent;
-        private readonly Users _Friend;
+        private readonly ObservableCollection<FriendViewModel> _Children;
+        private readonly FriendGroup _Group;
 
+        private bool _IsExpanded;
         private bool _IsSelected;
         private bool _IsChecked;
         private Visibility _ToogleCheckbox = Visibility.Collapsed; //Default
-        private Brush _MatchColor = Brushes.Black; //Default (Not yet search)
 
         #endregion
 
         #region PROPERTY
 
-        public GroupViewModel Parent
+        public FriendGroup Group
         {
-            get { return _Parent; }
+            get { return _Group; }
         }
 
-        public Users Friend
+        public String GroupName
         {
-            get { return _Friend; }
+            get { return _Group.Name; }
         }
 
-        public String FriendName
+        public ObservableCollection<FriendViewModel> Children
         {
-            get { return (String.Format("{0} {1}", _Friend.FirstName, _Friend.LastName)); }
+            get { return _Children; }
+        }
+
+        public bool IsExpanded
+        {
+            get { return _IsExpanded; }
+            set
+            {
+                if (value != _IsExpanded)
+                {
+                    _IsExpanded = value;
+                    this.OnPropertyChanged("IsExpanded");
+                }
+            }
         }
 
         public bool IsSelected
@@ -65,12 +78,9 @@ namespace vChat.Module.FriendList
                 {
                     _IsChecked = value;
 
-                    //If all child element was checked, Parent would be checked
-                    int totalChild = _Parent.Children.Count;
-                    int totalChecked = _Parent.Children.Where(p => p.IsChecked == value).Count();
-
-                    if (totalChecked == totalChild)
-                        _Parent.IsChecked = value;
+                    //Set IsChecked property for all child
+                    foreach (FriendViewModel child in _Children)
+                        child.IsChecked = value;
 
                     this.OnPropertyChanged("IsChecked");
                 }
@@ -90,31 +100,23 @@ namespace vChat.Module.FriendList
             }
         }
 
-        public Brush MatchColor
-        {
-            get { return _MatchColor; }
-            set
-            {
-                if (value != _MatchColor)
-                {
-                    _MatchColor = value;
-                    this.OnPropertyChanged("MatchColor");
-                }
-            }
-        }
-
         #endregion
 
-        public FriendViewModel(Users Friend, GroupViewModel Parent)
+        public GroupViewModel(FriendGroup Group)
         {
-            _Friend = Friend;
-            _Parent = Parent;
+            _Group = Group;
+
+            _Children = new ObservableCollection<FriendViewModel>(
+                    (from Friend in _Group.Friends
+                     select new FriendViewModel(Friend, this))
+                     .ToList()
+                );      
         }
 
-        protected virtual void OnPropertyChanged(String PropertyName)
+        protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
+            if (this.PropertyChanged != null)
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

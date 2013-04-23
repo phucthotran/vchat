@@ -13,6 +13,9 @@ namespace vChat.Data.Mapping
             Property(u => u.Password).IsRequired().HasMaxLength(45);
             Property(u => u.FirstName).IsRequired().HasMaxLength(45);
             Property(u => u.LastName).IsRequired().HasMaxLength(45);
+            Property(u => u.Picture)
+                                    //.IsRequired()
+                                    .HasColumnType("varbinary");
             Property(u => u.Answer).IsRequired().HasMaxLength(50);
             Property(u => u.Birthdate).IsRequired();
             Property(u => u.RowVersion).IsRowVersion();

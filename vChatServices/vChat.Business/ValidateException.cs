@@ -32,7 +32,7 @@ namespace vChat.Business
 
         public ValidateException(List<String> errors)
         {
-            this.Errors.AddRange(errors);            
+            this.Errors.AddRange(errors);
         }
     }
 }

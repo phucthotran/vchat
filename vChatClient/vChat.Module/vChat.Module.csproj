@@ -88,16 +88,16 @@
     <Compile Include="AddFriend\AddFriendController.cs" />
     <Compile Include="FriendList\BaseCommand.cs" />
     <Compile Include="FriendList\Command.cs" />
-    <Compile Include="FriendList\FriendArgs.cs" />
+    <Compile Include="FriendList\Model\FriendArgs.cs" />
     <Compile Include="FriendList\FriendsList.xaml.cs">
       <DependentUpon>FriendsList.xaml</DependentUpon>
     </Compile>
     <Compile Include="FriendList\FriendsListController.cs" />
-    <Compile Include="FriendList\FriendViewModel.cs" />
-    <Compile Include="FriendList\GroupArgs.cs" />
-    <Compile Include="FriendList\GroupTreeViewModel.cs" />
-    <Compile Include="FriendList\GroupViewModel.cs" />
-    <Compile Include="FriendList\RequestViewModel.cs" />
+    <Compile Include="FriendList\ViewModel\FriendViewModel.cs" />
+    <Compile Include="FriendList\Model\GroupArgs.cs" />
+    <Compile Include="FriendList\ViewModel\GroupTreeViewModel.cs" />
+    <Compile Include="FriendList\ViewModel\GroupViewModel.cs" />
+    <Compile Include="FriendList\ViewModel\RequestViewModel.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Login\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>

@@ -13,3 +13,4 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Service\bin\Debug\vChat.Model.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Service\obj\Debug\vChat.Service.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Service\obj\Debug\vChat.Service.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Service\obj\Debug\vChat.Service.csprojResolveAssemblyReference.cache

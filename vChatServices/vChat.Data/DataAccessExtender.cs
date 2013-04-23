@@ -12,11 +12,6 @@ namespace vChat.Data
     {
         private static vChatContext _db;
 
-        static DataAccessExtender()
-        {
-            //db = new vChatContext();
-        }
-
         public static vChatContext db
         {
             get 
@@ -26,7 +21,7 @@ namespace vChat.Data
 
                 _db.Users.Create();
                 _db.Question.Create();
-                _db.FriendList.Create();
+                _db.FriendMap.Create();
                 _db.FriendGroup.Create();
 
                 return _db;
@@ -35,9 +30,9 @@ namespace vChat.Data
 
         #region DB OPERATION
 
-        public static IDbModel Get(this IDbModel m, int ID)
+        public static T Get<T>(this IDbModel m, int ID) where T : class
         {
-            return db.Set(m.GetType()).Find(new Object[] { ID }) as IDbModel;
+            return db.Set(m.GetType()).Find(new Object[] { ID }) as T;
         }
 
         public static bool New(this IDbModel m)
@@ -76,9 +71,7 @@ namespace vChat.Data
                 saveFailed = false;
 
                 try
-                {
-                    //db.ChangeTracker.DetectChanges();
-                    
+                {                   
                     db.SaveChanges();
                 }
                 catch (InvalidOperationException)
@@ -106,8 +99,6 @@ namespace vChat.Data
 
                 try
                 {
-                    //db.ChangeTracker.DetectChanges();
-
                     db.Set(m.GetType()).Remove(m);
                     db.SaveChanges();
                 }
@@ -158,21 +149,6 @@ namespace vChat.Data
                 beginPosIdx++;
             }
 
-            //for (int i = 0; i < lstCompare.Count; i++)
-            //{
-            //    TEntity compareEntity = lstCompare.ElementAt(i);
-
-            //    for (int j = lstCompare.Count - 1; j > i; j--)
-            //    {
-            //        TEntity toBeCompareEntity = lstCompare.ElementAt(j);
-
-            //        if (compareEntity.Equals(toBeCompareEntity))
-            //        {
-            //            lstCompare.RemoveAt(j);                        
-            //        }
-            //    }
-            //}
-
             return lstCompare;
         }
 
@@ -212,16 +188,45 @@ namespace vChat.Data
 
         #region USER EXTENSIONS METHOD
 
-        public static Users Get(this Users um, int UserID)
+        public static bool AddFriend(this Users um, Users User, Users Friend, FriendGroup Group)
         {
-            return db.Users
+            db.FriendMap.Add(new FriendMap
+            {
+                User = User,
+                Friend = Friend,
+                FriendGroup = Group
+            });
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (InvalidOperationException)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool Deactive(this Users um, int UserID, bool Status)
+        {
+            Users userInfo = db.Users.FirstOrDefault(u => u.UserID == UserID);
+            userInfo.Deactive = Status;
+
+            return userInfo.Update();
+        }
+
+        //public static Users Get(this Users um, int UserID)
+        //{
+            //return db.Users
                 //.Include(u => u.Question)
                 //.Include(u => u.SentMessage)
                 //.Include(u => u.ReceivedMessage)
                 //.Include(u => u.FriendsFake)
                 //.Include(u => u.Friends)
-                .FirstOrDefault(u => u.UserID == UserID);
-        }
+                //.FirstOrDefault(u => u.UserID == UserID);
+        //}
 
         public static Users GetByName(this Users um, String Username)
         {
@@ -250,44 +255,6 @@ namespace vChat.Data
                 .FirstOrDefault(u => u.Username.Equals(Username)) != null;
         }
 
-        public static bool DeactiveAccount(this Users um, int UserID, bool Status)
-        {
-            Users user_info = db.Users.FirstOrDefault(u => u.UserID == UserID);
-            user_info.Deactive = Status;
-
-            bool r = user_info.Update();
-
-            return r;
-        }
-
-        public static bool ReponseFriendRequest(this Users um, Users User, Users Friend, FriendGroup Group, bool IsAccepted, bool IsIgnored)
-        {
-            FriendMap FriendRequest = db.FriendList
-                                        .Include(m => m.User)
-                                        .Include(m => m.Friend)
-                                        .FirstOrDefault(m => m.User.UserID == Friend.UserID && m.Friend.UserID == User.UserID);
-
-            FriendRequest.IsAccepted = IsAccepted;
-            FriendRequest.IsIgnored = IsIgnored;
-            
-            if(IsAccepted){
-                FriendMap ConnectFriend = new FriendMap
-                {
-                    User = User,
-                    Friend = Friend,
-                    FriendGroup = Group,
-                    IsAccepted = true,
-                    IsIgnored = false
-                };
-
-                ConnectFriend.New();
-            }
-
-            bool r = FriendRequest.Update();
-
-            return r;
-        }
-
         public static bool RemoveGroup(this Users mm, FriendGroup Group, bool RemoveContact)
         {
             bool done = false;
@@ -295,14 +262,16 @@ namespace vChat.Data
             if (RemoveContact)
             {
                 //Get all friend in group
-                List<FriendMap> friends = db.FriendList.Where(fm => fm.FriendGroup.Equals(Group)).ToList();
+                List<FriendMap> friends = db.FriendMap
+                                                      .Where(fm => fm.FriendGroup.Equals(Group))
+                                                      .ToList();
 
                 //Remove all contact
                 foreach (FriendMap friend in friends)
                 {
                     done = friend.Remove();
 
-                    if (done == false)
+                    if (!done)
                         return false;
                 }
             }
@@ -315,11 +284,14 @@ namespace vChat.Data
 
         public static bool MoveContact(this Users um, Users User, Users Friend, FriendGroup NewGroup)
         {
-            FriendMap FriendMap = db.FriendList
+            FriendMap FriendMap = db.FriendMap
                 .Include(m => m.User)
                 .Include(m => m.Friend)
                 .Include(m => m.FriendGroup)
-                .FirstOrDefault(m => m.User.UserID == User.UserID && m.Friend.UserID == Friend.UserID);
+                .FirstOrDefault(
+                                m => m.User.UserID == User.UserID
+                                    && m.Friend.UserID == Friend.UserID
+                                );
 
             FriendMap.FriendGroup = NewGroup;
 
@@ -328,38 +300,80 @@ namespace vChat.Data
 
         public static bool RemoveContact(this Users um, Users User, Users Friend)
         {
-            FriendMap FriendMap = db.FriendList
+            FriendMap FriendMap = db.FriendMap
                 .Include(m => m.User)
                 .Include(m => m.Friend)
-                .FirstOrDefault(m => m.User.UserID == User.UserID && m.Friend.UserID == Friend.UserID);
+                .FirstOrDefault(
+                                m => m.User.UserID == User.UserID
+                                    && m.Friend.UserID == Friend.UserID
+                                );
 
             return FriendMap.Remove();
         }
 
-        public static List<Users> FriendRequests(this Users um, int UserID)
+        public static List<Users> Requests(this Users um, int UserID)
         {
-            return db.FriendList
+            return db.FriendMap
                 .Include(m => m.User)
                 .Include(m => m.Friend)
-                .Where(m => m.Friend.UserID == UserID && m.IsAccepted == false && m.IsIgnored == false)
+                .Where(
+                       m => m.Friend.UserID == UserID
+                           && m.IsAccepted == false && m.IsIgnored == false
+                       )
                 .Select(m => m.User)
                 .ToList();
         }
 
+        public static bool RequestProcess(this Users um, Users User, Users Friend, FriendGroup Group, bool IsAccepted, bool IsIgnored)
+        {
+            FriendMap Request = db.FriendMap
+                                            .Include(m => m.User)
+                                            .Include(m => m.Friend)
+                                            .FirstOrDefault(
+                                                            m => m.User.UserID == Friend.UserID
+                                                                && m.Friend.UserID == User.UserID
+                                                            );
+
+            Request.IsAccepted = IsAccepted;
+            Request.IsIgnored = IsIgnored;
+
+            bool MapFriendSuccess = false;
+
+            if (IsAccepted)
+            {
+                FriendMap ConnectFriend = new FriendMap
+                {
+                    User = User,
+                    Friend = Friend,
+                    FriendGroup = Group,
+                    IsAccepted = true,
+                    IsIgnored = false
+                };
+
+                MapFriendSuccess = ConnectFriend.New();
+            }
+
+            if (IsAccepted && !MapFriendSuccess)
+                return false;
+
+            return Request.Update();
+        }
+
         public static GroupFriendList FriendList(this Users um, int UserID)
-        {            
+        {
             List<FriendGroup> Groups = db.FriendGroup
                 .Include(g => g.Owner)
                 .Where(g => g.Owner.UserID == UserID)
-                //.ToList()
                 .DistinctList();
 
-            List<FriendMap> FriendMap = db.FriendList
+            List<FriendMap> FriendMap = db.FriendMap
                 .Include(m => m.User)
                 .Include(m => m.Friend)
                 .Include(m => m.FriendGroup)
-                .Where(m => m.User.UserID == UserID && m.IsAccepted == true && m.IsIgnored == false)
-                //.ToList()
+                .Where(
+                        m => m.User.UserID == UserID
+                            && m.IsAccepted == true && m.IsIgnored == false
+                        )
                 .DistinctList();
 
             foreach (FriendGroup Group in Groups)
@@ -376,25 +390,11 @@ namespace vChat.Data
 
             GroupFriendList GroupFriendList = new GroupFriendList();
 
-            foreach(FriendGroup Group in Groups)
+            foreach (FriendGroup Group in Groups)
                 GroupFriendList.FriendGroups.Add(Group);
 
             return GroupFriendList;
-        }
-
-        /*
-        public static List<Users> FriendList(this Users um, int UserID)
-        {
-            return db.FriendList
-                .Include(f => f.User)
-                //.Include(f => f.Friend)
-                //.Include(f => f.FriendGroup)
-                .Where(f => f.Friend.UserID == UserID)
-                .DistinctList()
-                .Select(f => f.User)
-                .ToList();
-        }
-        */
+        }        
 
         #endregion
 
@@ -416,33 +416,27 @@ namespace vChat.Data
                 .ToList();
         }
 
-        public static List<Conversation> GetConversations(this Conversation conv, int UserID)
+        public static List<Conversation> GetByUser(this Conversation conv, int UserID)
         {
             return db.Conversation
                 .Include(c => c.SentBy)
                 .Include(c => c.SendTo)
                 .Where(c => c.SentBy.UserID == UserID || c.SendTo.UserID == UserID)                
-                //.ToList()
                 .DistinctList();
         }
 
-        public static List<Conversation> GetNewestConversations(this Conversation conv, int UserID)
+        public static List<Conversation> GetNewestByUser(this Conversation conv, int UserID)
         {
             return db.Conversation
                 .Include(c => c.SentBy)
                 .Include(c => c.SendTo)
                 .Where(c => c.SendTo.UserID == UserID && c.IsRead == false)
-                .ToList();
+                .DistinctList();
         }
 
         #endregion
 
         #region QUESTION EXTENSIONS METHOD
-
-        //public static Question Get(this Question qes, int QuestionID)
-        //{
-        //    return db.Question.SingleOrDefault(q => q.QuestionID == QuestionID);
-        //}
 
         public static List<Question> GetAll(this Question q)
         {
@@ -452,26 +446,6 @@ namespace vChat.Data
         #endregion
 
         #region FRIEND MAP EXTENSIONS METHDO
-
-        public static bool AddFriend(this Users um, Users User, Users Friend, FriendGroup Group)
-        {
-            db.FriendList.Add(new FriendMap{
-                    User = User,
-                    Friend = Friend,
-                    FriendGroup = Group
-                });
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (InvalidOperationException)
-            {
-                return false;
-            }
-
-            return true;
-        }
 
         #endregion
     }

@@ -25,10 +25,14 @@ namespace vChat.Business
                 ValidationController.Prepare();
 
                 Username.RequiredArgument("Username")
-                    .NotNull() //throw ArgumentNullExption
+                    .NotNull() //throw ArgumentNullException
                     .Between(6, 45);
 
                 ValidationController.Validate(); //throw ValidateException
+            }
+            catch (ArgumentNullException)
+            {
+                return null;
             }
             catch (ValidateException)
             {
@@ -40,16 +44,36 @@ namespace vChat.Business
 
         public Users Info(int UserID)
         {
-            if (UserID == 0)
+            try
+            {
+                ValidationController.Prepare();
+
+                UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
+
+                ValidationController.Validate(); //throw ValidateException
+            }
+            catch (ValidateException)
+            {
                 return null;
+            }
 
             return unc.Info(UserID);
         }
 
         public FriendGroup GroupInfo(int GroupID)
         {
-            if (GroupID == 0)
+            try
+            {
+                ValidationController.Prepare();
+
+                GroupID.RequiredArgumentWithStruct("GroupID").BeginFrom(1);
+
+                ValidationController.Validate(); //throw ValidateException
+            }
+            catch (ValidateException)
+            {
                 return null;
+            }
 
             return unc.GroupInfo(GroupID);
         }
@@ -279,10 +303,6 @@ namespace vChat.Business
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = ex.Message, Exception = new ExceptionInfo(ex) };
             }
-            catch (Exception ex)
-            {
-                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
-            }
 
             return unc.UserExist(Username);
         }
@@ -311,10 +331,6 @@ namespace vChat.Business
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = ex.Message, Exception = new ExceptionInfo(ex) };
             }
-            catch (Exception ex)
-            {
-                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
-            }
 
             return unc.ChangePassword(UserID, MD5Encrypt.Hash(OldPassword), MD5Encrypt.Hash(NewPassword));
         }
@@ -335,10 +351,6 @@ namespace vChat.Business
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
             }
-            catch (Exception ex)
-            {
-                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
-            }
 
             return unc.AcceptFriendRequest(UserID, FriendID, GroupID);
         }
@@ -357,10 +369,6 @@ namespace vChat.Business
             catch (ValidateException ex)
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
-            }
-            catch (Exception ex)
-            {
-                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
             }
 
             return unc.IgnoreFriendRequest(UserID, FriendID);
@@ -382,10 +390,6 @@ namespace vChat.Business
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
             }
-            catch (Exception ex)
-            {
-                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
-            }
 
             return unc.MoveContact(UserID, FriendID, NewGroupID);
         }
@@ -404,10 +408,6 @@ namespace vChat.Business
             catch (ValidateException ex)
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
-            }
-            catch (Exception ex)
-            {
-                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
             }
 
             return unc.RemoveContact(UserID, FriendID);

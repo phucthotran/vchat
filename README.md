@@ -4,6 +4,13 @@
 ## Update Log
 -------------
 
+#### Update 23.04 7:10 PM
+- Tối ưu code `FriendList`, `AddFriend` module
+- Tối ưu code `vChatServices`: **vChat.Data**, **vChat.Business**
+- Thêm field **Picture** vào entity `Users` (`vChat.Model`)
+- Chỉnh lại giao diện cho `SignUp` module: căn giữa theo chiều ngang và dọc, chỉnh lại kích thước
+- [Task mới](TASK.md)
+
 #### Update 21.04 3:56 PM
 - Thêm method mới vào `vChat.WCF: **GroupInfo**, **RemoveGroup**
 - Hoàn Thiện **Yêu Cầu Kết Bạn**: update yêu cầu kết bạn theo thời gian thực

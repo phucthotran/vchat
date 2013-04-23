@@ -27,6 +27,9 @@ namespace vChat.Model.Entities
         public String LastName { get; set; }
 
         [DataMember]
+        public byte[] Picture { get; set; }
+
+        [DataMember]
         public String Answer { get; set; }
 
         [DataMember]
@@ -42,17 +45,17 @@ namespace vChat.Model.Entities
         public virtual Question Question { get; set; }
 
         [IgnoreDataMember]
-        public virtual IList<Conversation> SentMessage { get; set; }
+        public virtual ObservableCollection<Conversation> SentMessage { get; set; }
 
         [IgnoreDataMember]
-        public virtual IList<Conversation> ReceivedMessage { get; set; }
+        public virtual ObservableCollection<Conversation> ReceivedMessage { get; set; }
                 
         // Fake friends list. Use for mapping on database purpose only
         [IgnoreDataMember]
-        public virtual IList<FriendMap> FriendsFake { get; set; }
+        public virtual ObservableCollection<FriendMap> FriendsFake { get; set; }
 
         [IgnoreDataMember]
-        public virtual IList<FriendMap> Friends { get; set; }
+        public virtual ObservableCollection<FriendMap> Friends { get; set; }
 
         public override int GetHashCode()
         {

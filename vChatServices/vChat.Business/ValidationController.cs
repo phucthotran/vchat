@@ -32,13 +32,13 @@ namespace vChat.Business
 
         public static void NewError(String Error)
         {
-            _errors.Add(Error);
+            Errors.Add(Error);
         }
 
         public static void Validate()
         {
-            if (_errors.Count > 0)
-                throw new ValidateException(_errors);
+            if (Errors.Count > 0)
+                throw new ValidateException(Errors);
         }
     }
 }

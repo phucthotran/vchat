@@ -10,19 +10,18 @@ using System.Windows.Input;
 namespace vChat.Module.FriendList
 {
     public partial class RequestViewModel : INotifyPropertyChanged
-    {
-        
+    {        
         public event PropertyChangedEventHandler PropertyChanged;
-        public delegate void FriendRequestHandler(Users Friend);
-        public event FriendRequestHandler OnAcceptRequest;
-        public event FriendRequestHandler OnIgnoreRequest;
+        public delegate void RequestHandler(Users Friend);
+        public event RequestHandler OnAcceptRequest;
+        public event RequestHandler OnIgnoreRequest;
 
         #region CLASS MEMBER
 
         private readonly ICommand _AcceptCommand;
         private readonly ICommand _IgnoreCommand;
 
-        private ObservableCollection<RequestViewModel> _Requests;
+        private readonly ObservableCollection<RequestViewModel> _Requests;
         private readonly Users _Friend;
         private bool _IsSelected;
         private bool _IsIgnored = true; //Default
@@ -93,8 +92,7 @@ namespace vChat.Module.FriendList
 
         public ObservableCollection<RequestViewModel> Requests
         {
-            get { return _Requests; }
-            //set { _Requests = value; }
+            get { return _Requests; }            
         }
 
         #endregion
@@ -106,11 +104,12 @@ namespace vChat.Module.FriendList
 
         public RequestViewModel(List<Users> Friends)
         {
-            _Requests = new ObservableCollection<RequestViewModel>();
-
-            foreach (Users Friend in Friends)
-                _Requests.Add(new RequestViewModel(Friend));
-
+            _Requests = new ObservableCollection<RequestViewModel>(
+                    (from Friend in Friends
+                    select new RequestViewModel(Friend))
+                    .ToList()
+                );
+            
             _AcceptCommand = new AcceptTask(this);
             _IgnoreCommand = new IgnoreTask(this);
         }

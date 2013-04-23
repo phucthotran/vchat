@@ -74,6 +74,10 @@
     <Compile Include="Migrations\201304171019147_AddSomeFieldsInFriendMap.Designer.cs">
       <DependentUpon>201304171019147_AddSomeFieldsInFriendMap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201304231150344_EditUsersTable.cs" />
+    <Compile Include="Migrations\201304231150344_EditUsersTable.Designer.cs">
+      <DependentUpon>201304231150344_EditUsersTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UserProccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201304171019147_AddSomeFieldsInFriendMap.resx">
       <DependentUpon>201304171019147_AddSomeFieldsInFriendMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201304231150344_EditUsersTable.resx">
+      <DependentUpon>201304231150344_EditUsersTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

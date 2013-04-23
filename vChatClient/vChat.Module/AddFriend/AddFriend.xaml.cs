@@ -74,11 +74,7 @@ namespace vChat.Module.AddFriend
         public void SetupData(int UserID)
         {
             _UserID = UserID;
-            _Groups = new ObservableCollection<FriendGroup>();
-            GroupFriendList Friends = FriendList(UserID);
-
-            foreach (FriendGroup child in Friends.FriendGroups)
-                _Groups.Add(child);
+            _Groups = FriendList(UserID).FriendGroups;
 
             DataContext = this;
         }
@@ -88,8 +84,8 @@ namespace vChat.Module.AddFriend
             if (SelectGroup == null)
                 return;
 
-            int pos = lstGroup.Items.IndexOf(SelectGroup);
-            lstGroup.SelectedIndex = pos;
+            int pos = cbGroup.Items.IndexOf(SelectGroup);
+            cbGroup.SelectedIndex = pos;
         }
 
         public void IntegratedWith(FriendList.FriendsList IntegratedModule)
@@ -99,14 +95,14 @@ namespace vChat.Module.AddFriend
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if(lstGroup.SelectedItem == null && NewGroupName == null)
+            if (cbGroup.SelectedItem == null && NewGroupName == null)
             {
                 MessageBox.Show("Hãy nhập tên nhóm bạn cần thêm bạn bè vào");
                 OnAddFriendError(this, new AddFriendArgs(FriendName, NewGroupName));
                 return;
             }
 
-            FriendGroup SelectedGroup = (FriendGroup)lstGroup.SelectionBoxItem;
+            FriendGroup SelectedGroup = (FriendGroup)cbGroup.SelectionBoxItem;
 
             int NewGroupID = 0;
 
@@ -116,7 +112,7 @@ namespace vChat.Module.AddFriend
 
             if (AddNewFriend(_UserID, FriendName, NewGroupID != 0 ? NewGroupID : SelectedGroup.GroupID))
             {
-                _IntegratedModule.AddFriendWork(
+                _IntegratedModule.DoAddFriend(
                     FindUser(FriendName), 
                     NewGroupID != 0 ? GetGroup(NewGroupID) : SelectedGroup);
 

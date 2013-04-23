@@ -32,7 +32,6 @@ namespace vChat.View.Windows
         private Login _loginModule;
         private SignUp _signUpModule;
         private FriendsList _friendListModule;
-        private AddFriend _addFriendModule;
 
         public MainWindow()
         {
@@ -67,46 +66,14 @@ namespace vChat.View.Windows
         }
 
         private void FriendList_OnFriendDoubleClick(object sender, FriendArgs e)
-        {
-            //MessageBox.Show(String.Format("ID: {0}, Username: {1}, FirstName: {2}, LastName: {3}", e.UserID, e.Username, e.FirstName, e.LastName));
+        {            
             new ChatWindow(e.Username).Show();
-        }
-
-        private void FriendList_OnAddFriendClick(object sender, RoutedEventArgs e)
-        {
-            Window n = new Window {
-                Content = _addFriendModule, 
-                Title = "Add Friend", 
-                SizeToContent = System.Windows.SizeToContent.WidthAndHeight, 
-                WindowStartupLocation = System.Windows.WindowStartupLocation.CenterOwner 
-            };
-            n.ShowDialog();
-        }
-
-        private void InitAddFriendModule(int UserID)
-        {
-            _addFriendModule = new AddFriend();
-            _addFriendModule.SetupData(UserID);
-            //_addFriendModule.IntegratedWith(_friendListModule);
-            _addFriendModule.OnAddFriendSuccess += new AddFriend.AddingHandler(AddFriend_OnAddFriendSuccess);
-            _addFriendModule.OnAddFriendError += new AddFriend.AddingHandler(AddFriend_OnAddFriendError);
-        }
-
-        private void AddFriend_OnAddFriendSuccess(object sender, AddFriendArgs e)
-        {
-            MessageBox.Show(String.Format("Add Success - FriendName: {0}, GroupName: {1}", e.FriendName, e.GroupName));
-        }
-
-        private void AddFriend_OnAddFriendError(object sender, AddFriendArgs e)
-        {
-            MessageBox.Show(String.Format("Add Error - FriendName: {0}, GroupName: {1}", e.FriendName, e.GroupName ?? "NULL"));
         }
 
         private void Login_OnLoginSuccess(Users UserLogged)
         {
             LogOut.Visibility = System.Windows.Visibility.Visible;
-            InitFriendsListModule(UserLogged.UserID);
-            InitAddFriendModule(UserLogged.UserID);            
+            InitFriendsListModule(UserLogged.UserID);          
         }
 
         private void Login_OnLoginFailed()

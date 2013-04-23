@@ -88,9 +88,9 @@ namespace vChat.Module.RemoveGroup
             FriendGroup GroupMoveTo = cbGroupMoveTo.SelectedItem as FriendGroup;
 
             if (_IsMoveContact)
-                _IntegratedModule.RemoveGroupWork(RemoveContact : false, GroupMoveTo : GroupMoveTo);
+                _IntegratedModule.DoRemoveGroup(RemoveContact : false, GroupMoveTo : GroupMoveTo);
             else if(_IsRemoveContact)
-                _IntegratedModule.RemoveGroupWork(RemoveContact : true);
+                _IntegratedModule.DoRemoveGroup(RemoveContact : true);
         }
     }
 }
