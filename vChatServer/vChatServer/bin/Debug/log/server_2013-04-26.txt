@@ -1,0 +1,70 @@
+26/04/2013 02:51:51 - Server da khoi dong thanh cong.
+26/04/2013 02:52:13 - symaci(127.0.0.1:14506) da ket noi den server.
+26/04/2013 02:52:14 - itexplore(127.0.0.1:14512) da ket noi den server.
+26/04/2013 02:52:31 - symaci(127.0.0.1:14506) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">dfdasf</Paragraph>
+26/04/2013 02:52:34 - itexplore(127.0.0.1:14512) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">safsdf</Paragraph>
+26/04/2013 02:52:45 - symaci(127.0.0.1:14506) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">dfdsf</Paragraph>
+26/04/2013 02:52:47 - itexplore(127.0.0.1:14512) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">afsdf</Paragraph>
+26/04/2013 02:52:51 - symaci(127.0.0.1:14506) da ngat ket noi.
+26/04/2013 02:52:52 - itexplore(127.0.0.1:14512) da ngat ket noi.
+26/04/2013 02:53:09 - itexplore(127.0.0.1:14649) da ket noi den server.
+26/04/2013 02:53:09 - symaci(127.0.0.1:14656) da ket noi den server.
+26/04/2013 02:53:24 - itexplore(127.0.0.1:14649) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">cvcxvzxc</Paragraph>
+26/04/2013 02:53:29 - symaci(127.0.0.1:14656) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">zxcvxcv</Paragraph>
+26/04/2013 02:53:39 - itexplore(127.0.0.1:14649) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">dasfdsf</Paragraph>
+26/04/2013 02:53:41 - symaci(127.0.0.1:14656) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sdafsdf</Paragraph>
+26/04/2013 02:59:21 - symaci(127.0.0.1:14656) da ngat ket noi.
+26/04/2013 02:59:23 - itexplore(127.0.0.1:14649) da ngat ket noi.
+26/04/2013 02:59:41 - itexplore(127.0.0.1:16373) da ket noi den server.
+26/04/2013 02:59:51 - symaci(127.0.0.1:16397) da ket noi den server.
+26/04/2013 03:00:17 - symaci(127.0.0.1:16397) da ngat ket noi.
+26/04/2013 03:00:23 - symaci(127.0.0.1:16472) da ket noi den server.
+26/04/2013 03:02:11 - symaci(127.0.0.1:16472) da ngat ket noi.
+26/04/2013 03:02:14 - itexplore(127.0.0.1:16373) da ngat ket noi.
+26/04/2013 03:03:49 - symaci(127.0.0.1:16885) da ket noi den server.
+26/04/2013 03:03:50 - itexplore(127.0.0.1:16900) da ket noi den server.
+26/04/2013 03:04:20 - symaci(127.0.0.1:16885) da ngat ket noi.
+26/04/2013 03:05:49 - itexplore(127.0.0.1:16900) da ngat ket noi.
+26/04/2013 03:08:09 - itexplore(127.0.0.1:17310) da ket noi den server.
+26/04/2013 03:09:30 - itexplore(127.0.0.1:17310) da ngat ket noi.
+26/04/2013 03:11:07 - itexplore(127.0.0.1:17417) da ket noi den server.
+26/04/2013 03:12:23 - itexplore(127.0.0.1:17417) da ngat ket noi.
+26/04/2013 03:13:25 - itexplore(127.0.0.1:17504) da ket noi den server.
+26/04/2013 03:15:54 - itexplore(127.0.0.1:17504) da ngat ket noi.
+26/04/2013 03:16:06 - itexplore(127.0.0.1:17714) da ket noi den server.
+26/04/2013 03:17:02 - itexplore(127.0.0.1:17714) da ngat ket noi.
+26/04/2013 03:33:53 - itexplore(127.0.0.1:18216) da ket noi den server.
+26/04/2013 03:33:53 - symaci(127.0.0.1:18222) da ket noi den server.
+26/04/2013 03:35:35 - symaci(127.0.0.1:18222) da ngat ket noi.
+26/04/2013 03:35:37 - itexplore(127.0.0.1:18216) da ngat ket noi.
+26/04/2013 03:42:03 - itexplore(127.0.0.1:18735) da ket noi den server.
+26/04/2013 03:42:13 - symaci(127.0.0.1:18755) da ket noi den server.
+26/04/2013 03:43:16 - symaci(127.0.0.1:18755) da ngat ket noi.
+26/04/2013 03:43:23 - symaci(127.0.0.1:18931) da ket noi den server.
+26/04/2013 03:45:20 - symaci(127.0.0.1:18931) da ngat ket noi.
+26/04/2013 03:45:55 - itexplore(127.0.0.1:18735) da ngat ket noi.
+26/04/2013 04:06:50 - itexplore(127.0.0.1:20141) da ket noi den server.
+26/04/2013 04:06:51 - symaci(127.0.0.1:20147) da ket noi den server.
+26/04/2013 04:06:58 - itexplore(127.0.0.1:20141) da ngat ket noi.
+26/04/2013 04:06:59 - symaci(127.0.0.1:20147) da ngat ket noi.
+26/04/2013 04:22:55 - itexplore(127.0.0.1:20677) da ket noi den server.
+26/04/2013 04:22:55 - shinichikudo(127.0.0.1:20678) da ket noi den server.
+26/04/2013 04:24:08 - shinichikudo(127.0.0.1:20678) da ngat ket noi.
+26/04/2013 04:24:10 - itexplore(127.0.0.1:20677) da ngat ket noi.
+26/04/2013 04:24:44 - symaci(127.0.0.1:20859) da ket noi den server.
+26/04/2013 04:24:45 - itexplore(127.0.0.1:20866) da ket noi den server.
+26/04/2013 04:25:14 - symaci(127.0.0.1:20859) da ngat ket noi.
+26/04/2013 04:25:21 - symaci(127.0.0.1:20958) da ket noi den server.
+26/04/2013 04:28:18 - symaci(127.0.0.1:20958) da ngat ket noi.
+26/04/2013 04:28:19 - itexplore(127.0.0.1:20866) da ngat ket noi.
+26/04/2013 04:29:14 - symaci(127.0.0.1:21576) da ket noi den server.
+26/04/2013 04:29:35 - symaci(127.0.0.1:21576) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">dsfsdf</Paragraph>
+26/04/2013 04:29:37 - itexplore(127.0.0.1:21577) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sdfsdf</Paragraph>
+26/04/2013 04:29:45 - symaci(127.0.0.1:21576) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sdfsdf</Paragraph>
+26/04/2013 04:29:47 - itexplore(127.0.0.1:21577) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sdfsdf</Paragraph>
+26/04/2013 04:29:49 - symaci(127.0.0.1:21576) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sdfsdf</Paragraph>
+26/04/2013 04:29:52 - itexplore(127.0.0.1:21577) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sdfsdf</Paragraph>
+26/04/2013 04:29:53 - symaci(127.0.0.1:21576) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sdfsdf</Paragraph>
+26/04/2013 04:29:56 - itexplore(127.0.0.1:21577) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sdfsdfsdfds</Paragraph>
+26/04/2013 04:30:02 - itexplore(127.0.0.1:21577) da ngat ket noi.
+26/04/2013 04:30:02 - symaci(127.0.0.1:21576) da ngat ket noi.

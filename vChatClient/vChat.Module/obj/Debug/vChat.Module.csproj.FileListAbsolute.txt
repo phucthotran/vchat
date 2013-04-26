@@ -41,3 +41,5 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.csproj.GenerateResource.Cache
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Upload\UploadImage.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Upload\UploadImage.g.cs

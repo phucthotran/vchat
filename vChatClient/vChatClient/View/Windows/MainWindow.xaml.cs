@@ -63,6 +63,15 @@ namespace vChat.View.Windows
             _friendListModule = Grid.LoadModule<FriendsList>();
             _friendListModule.SetupData(UserID);
             _friendListModule.OnFriendDoubleClick += new FriendsList.MouseEventHandler(FriendList_OnFriendDoubleClick);
+
+            vChat.Module.Upload.UploadImage UploadImageModule = new vChat.Module.Upload.UploadImage();
+            UploadImageModule.UploadFor(UserID);
+
+            MahApps.Metro.Controls.MetroWindow w = new MahApps.Metro.Controls.MetroWindow();
+            w.InitTheme();
+            w.SizeToContent = System.Windows.SizeToContent.WidthAndHeight;
+            w.Content = UploadImageModule;
+            w.Show();
         }
 
         private void FriendList_OnFriendDoubleClick(object sender, FriendArgs e)

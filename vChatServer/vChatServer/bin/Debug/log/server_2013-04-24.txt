@@ -1,0 +1,53 @@
+24/04/2013 04:59:30 - Server da khoi dong thanh cong.
+24/04/2013 05:07:55 - itexplore(127.0.0.1:50773) da ket noi den server.
+24/04/2013 05:08:27 - itexplore(127.0.0.1:50773) da ngat ket noi.
+24/04/2013 05:09:31 - itexplore(127.0.0.1:50813) da ket noi den server.
+24/04/2013 05:09:55 - itexplore(127.0.0.1:50813) da ngat ket noi.
+24/04/2013 05:11:03 - itexplore(127.0.0.1:50843) da ket noi den server.
+24/04/2013 05:11:11 - itexplore(127.0.0.1:50843) da ngat ket noi.
+24/04/2013 05:18:46 - itexplore(127.0.0.1:51396) da ket noi den server.
+24/04/2013 05:18:55 - itexplore(127.0.0.1:51396) da ngat ket noi.
+24/04/2013 05:19:25 - itexplore(127.0.0.1:51421) da ket noi den server.
+24/04/2013 05:19:44 - itexplore(127.0.0.1:51421) da ngat ket noi.
+24/04/2013 05:20:58 - itexplore(127.0.0.1:51527) da ket noi den server.
+24/04/2013 05:21:11 - itexplore(127.0.0.1:51527) da ngat ket noi.
+24/04/2013 05:21:37 - itexplore(127.0.0.1:51546) da ket noi den server.
+24/04/2013 05:21:53 - itexplore(127.0.0.1:51546) da ngat ket noi.
+24/04/2013 05:22:20 - itexplore(127.0.0.1:51576) da ket noi den server.
+24/04/2013 05:22:34 - itexplore(127.0.0.1:51576) da ngat ket noi.
+24/04/2013 05:22:59 - itexplore(127.0.0.1:51605) da ket noi den server.
+24/04/2013 05:23:14 - itexplore(127.0.0.1:51605) da ngat ket noi.
+24/04/2013 05:25:00 - itexplore(127.0.0.1:51660) da ket noi den server.
+24/04/2013 05:28:38 - shinichikudo(127.0.0.1:51895) da ket noi den server.
+24/04/2013 05:35:13 - shinichikudo(127.0.0.1:51895) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">clgt</Paragraph>
+24/04/2013 05:35:24 - itexplore(127.0.0.1:51660) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">what the fuck</Paragraph>
+24/04/2013 05:35:35 - shinichikudo(127.0.0.1:51895) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">dm vkl</Paragraph>
+24/04/2013 05:35:35 - shinichikudo(127.0.0.1:51895) da gui: Chat - <Paragraph xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">wtf</Paragraph>
+24/04/2013 05:35:48 - shinichikudo(127.0.0.1:51895) da ngat ket noi.
+24/04/2013 05:35:49 - itexplore(127.0.0.1:51660) da ngat ket noi.
+24/04/2013 10:22:22 - itexplore(127.0.0.1:60873) da ket noi den server.
+24/04/2013 10:22:53 - itexplore(127.0.0.1:60873) da ngat ket noi.
+24/04/2013 10:23:19 - itexplore(127.0.0.1:60978) da ket noi den server.
+24/04/2013 10:23:54 - itexplore(127.0.0.1:60978) da ngat ket noi.
+24/04/2013 10:24:20 - itexplore(127.0.0.1:61012) da ket noi den server.
+24/04/2013 10:25:10 - itexplore(127.0.0.1:61012) da ngat ket noi.
+24/04/2013 10:25:42 - itexplore(127.0.0.1:61045) da ket noi den server.
+24/04/2013 10:27:13 - itexplore(127.0.0.1:61045) da ngat ket noi.
+24/04/2013 10:28:02 - itexplore(127.0.0.1:61088) da ket noi den server.
+24/04/2013 10:30:32 - itexplore(127.0.0.1:61088) da ngat ket noi.
+24/04/2013 10:30:47 - itexplore(127.0.0.1:61164) da ket noi den server.
+24/04/2013 10:31:18 - itexplore(127.0.0.1:61164) da ngat ket noi.
+24/04/2013 10:37:45 - itexplore(127.0.0.1:61303) da ket noi den server.
+24/04/2013 10:40:54 - itexplore(127.0.0.1:61303) da ngat ket noi.
+24/04/2013 10:58:03 - itexplore(127.0.0.1:61723) da ket noi den server.
+24/04/2013 10:59:23 - itexplore(127.0.0.1:61723) da ngat ket noi.
+24/04/2013 10:59:37 - shinichikudo(127.0.0.1:61791) da ket noi den server.
+24/04/2013 10:59:55 - shinichikudo(127.0.0.1:61791) da ngat ket noi.
+24/04/2013 11:00:23 - shinichikudo(127.0.0.1:61848) da ket noi den server.
+24/04/2013 11:00:44 - shinichikudo(127.0.0.1:61848) da ngat ket noi.
+24/04/2013 11:01:07 - shinichikudo(127.0.0.1:61879) da ket noi den server.
+24/04/2013 11:01:27 - shinichikudo(127.0.0.1:61879) da ngat ket noi.
+24/04/2013 11:01:34 - itexplore(127.0.0.1:61920) da ket noi den server.
+24/04/2013 11:01:50 - itexplore(127.0.0.1:61920) da ngat ket noi.
+24/04/2013 11:06:35 - itexplore(127.0.0.1:62037) da ket noi den server.
+24/04/2013 11:06:55 - itexplore(127.0.0.1:62037) da ngat ket noi.

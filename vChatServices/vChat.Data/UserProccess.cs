@@ -23,12 +23,12 @@ namespace vChat.Data
 
         public Users Info(int UserID)
         {
-            return UserTask.Get<Users>(UserID);
+            return UserTask.Get(UserID) as Users;
         }
 
         public FriendGroup GroupInfo(int GroupID)
         {
-            return GroupTask.Get<FriendGroup>(GroupID);
+            return GroupTask.Get(GroupID) as FriendGroup;
         }
 
         public Users FindName(String Username)
@@ -55,9 +55,9 @@ namespace vChat.Data
             if (!UserTask.IsExist(FriendName))
                 return INPUT_ERROR;
 
-            Users userInfo = UserTask.Get<Users>(UserID);
+            Users userInfo = UserTask.Get(UserID) as Users;
             Users friendInfo = UserTask.GetByName(FriendName);
-            FriendGroup groupInfo = GroupTask.Get<FriendGroup>(GroupID);
+            FriendGroup groupInfo = GroupTask.Get(GroupID) as FriendGroup;
 
             return UserTask.AddFriend(userInfo, friendInfo, groupInfo) ? SUCCESS : FAIL;
         }
@@ -70,7 +70,7 @@ namespace vChat.Data
             FriendGroup newGroup = new FriendGroup
             {
                 Name = Name,
-                Owner = new Users().Get<Users>(UserID)
+                Owner = new Users().Get(UserID) as Users
             };
 
             bool r = newGroup.New();
@@ -84,7 +84,7 @@ namespace vChat.Data
             SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Xóa nhóm thành công" };
             FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình xóa nhóm. Vui lòng thử lại sau" };
 
-            FriendGroup group = GroupTask.Get<FriendGroup>(GroupID);
+            FriendGroup group = GroupTask.Get(GroupID) as FriendGroup;
 
             return UserTask.RemoveGroup(group, RemoveContact) ? SUCCESS : FAIL;
         }
@@ -117,7 +117,7 @@ namespace vChat.Data
                 Password = Password,
                 FirstName = FirstName,
                 LastName = LastName,
-                Question = new Question().Get<Question>(QuestionID),
+                Question = new Question().Get(QuestionID) as Question,
                 Answer = Answer,
                 Birthdate = Birthdate
             };
@@ -133,13 +133,24 @@ namespace vChat.Data
             return UserTask.IsExist(Username) ? SUCCESS : FAIL;
         }
 
+        public MethodInvokeResult ChangeProfilePicture(int UserID, byte[] ImageBytes)
+        {
+            SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Cập nhập ảnh đại diện thành công" };
+            FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình cập nhập ảnh đại diện. Vui lòng thử lại sau" };
+
+            Users userInfo = UserTask.Get(UserID) as Users;
+            userInfo.Picture = ImageBytes;
+
+            return userInfo.Update() ? SUCCESS : FAIL;
+        }
+
         public MethodInvokeResult ChangePassword(int UserID, string OldPassword, string NewPassword)
         {
             SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Đổi mật khẩu thành công" };
             FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình đổi mật khẩu. Vui lòng thử lại sau" };
             INPUT_ERROR = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = "Sai mật khẩu hiện tại. Vui lòng kiểm tra lại thông tin" };
 
-            Users userInfo = UserTask.Get<Users>(UserID);
+            Users userInfo = UserTask.Get(UserID) as Users;
 
             String oldPwdFromDB = userInfo.Password;
 
@@ -158,9 +169,9 @@ namespace vChat.Data
             SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Xử lý yêu cầu kết bạn thành công" };
             FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình xử lý yêu cầu kết bạn. Vui lòng thử lại sau" };
 
-            Users user = UserTask.Get<Users>(UserID);
-            Users friend = UserTask.Get<Users>(FriendID);
-            FriendGroup group = GroupTask.Get<FriendGroup>(GroupID);
+            Users user = UserTask.Get(UserID) as Users;
+            Users friend = UserTask.Get(FriendID) as Users;
+            FriendGroup group = GroupTask.Get(GroupID) as FriendGroup;
 
             return UserTask.RequestProcess(user, friend, group, true, false) ? SUCCESS : FAIL;
         }
@@ -170,8 +181,8 @@ namespace vChat.Data
             SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Xử lý yêu cầu kết bạn thành công" };
             FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình xử lý yêu cầu kết bạn. Vui lòng thử lại sau" };
 
-            Users user = UserTask.Get<Users>(UserID);
-            Users friend = UserTask.Get<Users>(FriendID);
+            Users user = UserTask.Get(UserID) as Users;
+            Users friend = UserTask.Get(FriendID) as Users;
 
             return UserTask.RequestProcess(user, friend, null, false, true) ? SUCCESS : FAIL;
         }
@@ -181,9 +192,9 @@ namespace vChat.Data
             SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Di chuyển danh sách bạn bè thành công" };
             FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình di chuyển danh sách bạn bè. Vui lòng thử lại sau" };
 
-            Users user = UserTask.Get<Users>(UserID);
-            Users friend = UserTask.Get<Users>(FriendID);
-            FriendGroup group = GroupTask.Get<FriendGroup>(NewGroupID);
+            Users user = UserTask.Get(UserID) as Users;
+            Users friend = UserTask.Get(FriendID) as Users;
+            FriendGroup group = GroupTask.Get(NewGroupID) as FriendGroup;
 
             return UserTask.MoveContact(user, friend, group) ? SUCCESS : FAIL;
         }
@@ -193,8 +204,8 @@ namespace vChat.Data
             SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Xóa bạn bè thành công" };
             FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình xóa bạn bè. Vui lòng thử lại sau" };
 
-            Users user = UserTask.Get<Users>(UserID);
-            Users friend = UserTask.Get<Users>(FriendID);
+            Users user = UserTask.Get(UserID) as Users;
+            Users friend = UserTask.Get(FriendID) as Users;
 
             return UserTask.RemoveContact(user, friend) ? SUCCESS : FAIL;
         }

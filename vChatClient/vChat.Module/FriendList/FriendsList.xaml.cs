@@ -149,25 +149,14 @@ namespace vChat.Module.FriendList
         #region EVENT PERFORM
 
         private void UpdateRequest_Tick(object sender, EventArgs e)
-        {
-            int currentTotalRequest = _RequestVM.Requests.Count;
+        {            
+            int totalRequest = _RequestVM.Requests.Count;
 
-            if (currentTotalRequest == 0)
-                requestTaskZone.Visibility = System.Windows.Visibility.Collapsed;
-            else
-                requestTaskZone.Visibility = System.Windows.Visibility.Visible;
+            requestTaskZone.Visibility = totalRequest == 0 ? Visibility.Collapsed : Visibility.Visible;
 
-            List<Users> Requests = FriendRequests(_UserID);
+            List<Users> Requests = FriendRequests(_UserID).Skip(totalRequest).ToList(); //Skip amount of "totalRequest" request got before
 
             if (Requests.Count == 0)
-                return;
-
-            int totalRequestInDB = Requests.Count;
-
-            if (totalRequestInDB > currentTotalRequest) //Has new request
-                for (int i = 0; i < currentTotalRequest; i++)
-                    Requests.RemoveAt(i); //Remove all old request
-            else if (totalRequestInDB == currentTotalRequest) //Have no new request
                 return;
 
             foreach (Users Friend in Requests)

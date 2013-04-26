@@ -29,6 +29,8 @@ namespace vChat.Business
                     .Between(6, 45);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.FindName(Username);
             }
             catch (ArgumentNullException)
             {
@@ -38,8 +40,10 @@ namespace vChat.Business
             {
                 return null;
             }
-
-            return unc.FindName(Username);
+            catch (Exception)
+            {
+                return null;
+            }            
         }
 
         public Users Info(int UserID)
@@ -51,13 +55,17 @@ namespace vChat.Business
                 UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.Info(UserID);
             }
             catch (ValidateException)
             {
                 return null;
             }
-
-            return unc.Info(UserID);
+            catch (Exception)
+            {
+                return null;
+            }            
         }
 
         public FriendGroup GroupInfo(int GroupID)
@@ -69,13 +77,17 @@ namespace vChat.Business
                 GroupID.RequiredArgumentWithStruct("GroupID").BeginFrom(1);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.GroupInfo(GroupID);
             }
             catch (ValidateException)
             {
                 return null;
             }
-
-            return unc.GroupInfo(GroupID);
+            catch (Exception)
+            {
+                return null;
+            }            
         }
 
         public GroupFriendList FriendList(int UserID)
@@ -87,13 +99,17 @@ namespace vChat.Business
                 UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.FriendList(UserID);
             }
             catch (ValidateException)
             {
                 return null;
             }
-
-            return unc.FriendList(UserID);
+            catch (Exception)
+            {
+                return null;
+            }            
         }
 
         public List<Users> FriendRequests(int UserID)
@@ -105,13 +121,17 @@ namespace vChat.Business
                 UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.FriendRequests(UserID);
             }
             catch (ValidateException)
             {
                 return null;
             }
-
-            return unc.FriendRequests(UserID);
+            catch (Exception)
+            {
+                return null;
+            }            
         }
 
         public MethodInvokeResult AddFriend(int UserID, String FriendName, int GroupID)
@@ -127,6 +147,8 @@ namespace vChat.Business
                 GroupID.RequiredArgumentWithStruct("GroupID").BeginFrom(1);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.AddFriend(UserID, FriendName, GroupID);
             }
             catch (ValidateException ex)
             {
@@ -136,8 +158,10 @@ namespace vChat.Business
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = ex.Message, Exception = new ExceptionInfo(ex) };
             }
-
-            return unc.AddFriend(UserID, FriendName, GroupID);
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            }                        
         }
 
         public MethodInvokeResult AddGroup(int UserID, String Name, out int NewGroupID)
@@ -152,19 +176,25 @@ namespace vChat.Business
                     .Between(1, 45);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.AddGroup(UserID, Name, out NewGroupID);
             }
             catch (ValidateException ex)
             {
-                NewGroupID = 0;
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
             }
             catch (ArgumentNullException ex)
             {
-                NewGroupID = 0;
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = ex.Message, Exception = new ExceptionInfo(ex) };
             }
-
-            return unc.AddGroup(UserID, Name, out NewGroupID);
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            }
+            finally
+            {
+                NewGroupID = 0;
+            }            
         }
 
         public MethodInvokeResult RemoveGroup(int GroupID, bool RemoveContact)
@@ -176,6 +206,8 @@ namespace vChat.Business
                 GroupID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.RemoveGroup(GroupID, RemoveContact);
             }
             catch (ValidateException ex)
             {
@@ -185,8 +217,10 @@ namespace vChat.Business
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = ex.Message, Exception = new ExceptionInfo(ex) };
             }
-
-            return unc.RemoveGroup(GroupID, RemoveContact);
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            }            
         }
 
         public MethodInvokeResult Login(string Username, string Password)
@@ -202,6 +236,8 @@ namespace vChat.Business
                 Password.RequiredArgument("Password").NotNull().Between(8, 45);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.Login(Username, MD5Encrypt.Hash(Password));
             }
             catch (ValidateException ex)
             {
@@ -214,9 +250,7 @@ namespace vChat.Business
             catch (Exception ex)
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
-            }
-
-            return unc.Login(Username, MD5Encrypt.Hash(Password));
+            }            
         }
 
         public MethodInvokeResult LoginHash(string Username, string Password)
@@ -232,6 +266,8 @@ namespace vChat.Business
                 Password.RequiredArgument("Password").NotNull().Between(8, 45);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.LoginHash(Username, Password);
             }
             catch (ValidateException ex)
             {
@@ -244,9 +280,7 @@ namespace vChat.Business
             catch (Exception ex)
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
-            }
-
-            return unc.LoginHash(Username, Password);
+            }            
         }
 
         public MethodInvokeResult Signup(string Username, string Password, string FirstName, string LastName, int QuestionID, string Answer, DateTime Birthdate)
@@ -266,6 +300,8 @@ namespace vChat.Business
                 Birthdate.RequiredArgumentWithStruct("Birthdate").NotNull();
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.Signup(Username, MD5Encrypt.Hash(Password), FirstName, LastName, QuestionID, Answer, Birthdate);
             }
             catch (ValidateException ex)
             {
@@ -278,9 +314,7 @@ namespace vChat.Business
             catch (Exception ex)
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
-            }
-
-            return unc.Signup(Username, MD5Encrypt.Hash(Password), FirstName, LastName, QuestionID, Answer, Birthdate);
+            }            
         }
 
         public MethodInvokeResult UserExist(string Username)
@@ -294,6 +328,8 @@ namespace vChat.Business
                     .Between(6, 45);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.UserExist(Username);
             }
             catch (ValidateException ex)
             {
@@ -303,8 +339,38 @@ namespace vChat.Business
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = ex.Message, Exception = new ExceptionInfo(ex) };
             }
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            }            
+        }
 
-            return unc.UserExist(Username);
+        public MethodInvokeResult ChangeProfilePicture(int UserID, byte[] ImageBytes)
+        {
+            try
+            {
+                ValidationController.Prepare();
+
+                UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
+                ImageBytes.RequiredArgument("ImageBytes")
+                    .NotNull(); //throw ArgumentNullException                    
+
+                ValidationController.Validate(); //throw ValidateException
+
+                return unc.ChangeProfilePicture(UserID, ImageBytes);
+            }
+            catch (ValidateException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
+            }
+            catch (ArgumentNullException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = ex.Message, Exception = new ExceptionInfo(ex) };
+            }
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            }            
         }
 
         public MethodInvokeResult ChangePassword(int UserID, string OldPassword, string NewPassword)
@@ -322,6 +388,8 @@ namespace vChat.Business
                 NewPassword.RequiredArgument("NewPassword").NotNull().Between(8, 45);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.ChangePassword(UserID, MD5Encrypt.Hash(OldPassword), MD5Encrypt.Hash(NewPassword));
             }
             catch (ValidateException ex)
             {
@@ -331,8 +399,10 @@ namespace vChat.Business
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = ex.Message, Exception = new ExceptionInfo(ex) };
             }
-
-            return unc.ChangePassword(UserID, MD5Encrypt.Hash(OldPassword), MD5Encrypt.Hash(NewPassword));
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            }            
         }
 
         public MethodInvokeResult AcceptFriendRequest(int UserID, int FriendID, int GroupID)
@@ -346,13 +416,17 @@ namespace vChat.Business
                 GroupID.RequiredArgumentWithStruct("GroupID").BeginFrom(1);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.AcceptFriendRequest(UserID, FriendID, GroupID);
             }
             catch (ValidateException ex)
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
             }
-
-            return unc.AcceptFriendRequest(UserID, FriendID, GroupID);
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            }            
         }
 
         public MethodInvokeResult IgnoreFriendRequest(int UserID, int FriendID)
@@ -365,13 +439,17 @@ namespace vChat.Business
                 FriendID.RequiredArgumentWithStruct("FriendID").BeginFrom(1);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.IgnoreFriendRequest(UserID, FriendID);
             }
             catch (ValidateException ex)
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
             }
-
-            return unc.IgnoreFriendRequest(UserID, FriendID);
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            }            
         }
 
         public MethodInvokeResult MoveContact(int UserID, int FriendID, int NewGroupID)
@@ -385,13 +463,17 @@ namespace vChat.Business
                 NewGroupID.RequiredArgumentWithStruct("NewGroupID").BeginFrom(1);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.MoveContact(UserID, FriendID, NewGroupID);
             }
             catch (ValidateException ex)
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
             }
-
-            return unc.MoveContact(UserID, FriendID, NewGroupID);
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            }            
         }
 
         public MethodInvokeResult RemoveContact(int UserID, int FriendID)
@@ -404,13 +486,17 @@ namespace vChat.Business
                 FriendID.RequiredArgumentWithStruct("FriendID").BeginFrom(1);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.RemoveContact(UserID, FriendID);
             }
             catch (ValidateException ex)
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
             }
-
-            return unc.RemoveContact(UserID, FriendID);
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            }            
         }
 
         public MethodInvokeResult Deactive(int UserID)
@@ -432,13 +518,17 @@ namespace vChat.Business
                 UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.GetConversations(UserID);
             }
             catch (ValidateException)
             {
                 return null;
             }
-
-            return unc.GetConversations(UserID);
+            catch (Exception)
+            {
+                return null;
+            }            
         }
 
         public List<Conversation> GetNewestConversations(int UserID)
@@ -450,13 +540,17 @@ namespace vChat.Business
                 UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
 
                 ValidationController.Validate(); //throw ValidateException
+
+                return unc.GetNewestConversations(UserID);
             }
             catch (ValidateException)
             {
                 return null;
             }
-
-            return unc.GetNewestConversations(UserID);
+            catch (Exception)
+            {
+                return null;
+            }            
         }
     }
 }

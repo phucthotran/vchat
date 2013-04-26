@@ -7,6 +7,8 @@ using System.Collections.ObjectModel;
 using vChat.Model.Entities;
 using System.Windows;
 using System.Windows.Media;
+using System.IO;
+using System.Windows.Media.Imaging;
 
 namespace vChat.Module.FriendList
 {
@@ -41,6 +43,24 @@ namespace vChat.Module.FriendList
         public String FriendName
         {
             get { return (String.Format("{0} {1}", _Friend.FirstName, _Friend.LastName)); }
+        }
+
+        public ImageSource ProfilePicture
+        {
+            get
+            {
+                if (_Friend.Picture == null)
+                    return null;
+                                
+                MemoryStream msImage = new MemoryStream(_Friend.Picture);
+                
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.StreamSource = msImage;
+                bitmap.EndInit();                                
+
+                return bitmap as ImageSource;
+            }
         }
 
         public bool IsSelected

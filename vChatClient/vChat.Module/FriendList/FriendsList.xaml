@@ -12,7 +12,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <DockPanel>
-            <StackPanel DockPanel.Dock="Top">
+            <StackPanel DockPanel.Dock="Top">                
                 <Grid DockPanel.Dock="Top">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -21,7 +21,7 @@
                     <TextBox Name="txtSearch" Padding="3" Height="30" Grid.Column="0" VerticalContentAlignment="Center" KeyDown="txtSearch_KeyDown" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                     <Button Name="btnSearch" Height="36" Padding="3" BorderThickness="1" FontSize="13" BorderBrush="#FFB1B1B1" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding SearchCommand}">Tìm Kiếm</Button>
                 </Grid>
-                <StackPanel>
+                <StackPanel>                    
                     <Expander>
                         <Expander.Header>
                             <StackPanel Orientation="Horizontal">
@@ -146,7 +146,11 @@
                             <DataTemplate DataType="{x:Type local:FriendViewModel}">
                                 <StackPanel Orientation="Horizontal" Margin="2, 2, 2, 2">
                                     <CheckBox IsChecked="{Binding IsChecked}" Visibility="{Binding ToogleCheckbox}"/>
-                                    <Rectangle Height="48" Width="48" Stroke="Beige" Fill="Brown" Margin="0, 0, 5, 0"/>
+                                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFBEBEBE" CornerRadius="1" Padding="5" Margin="0, 0, 5, 0">
+                                        <Border Background="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <Image Source="{Binding ProfilePicture}" Height="48" Width="48" Stretch="Uniform" />
+                                        </Border>      
+                                    </Border>
                                     <TextBlock Text="{Binding Path=FriendName}" Foreground="{Binding MatchColor}"/>
                                 </StackPanel>
                             </DataTemplate>

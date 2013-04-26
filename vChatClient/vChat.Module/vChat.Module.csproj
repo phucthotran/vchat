@@ -123,6 +123,10 @@
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
     <Compile Include="SignUp\SignUpController.cs" />
+    <Compile Include="Upload\UploadImage.xaml.cs">
+      <DependentUpon>UploadImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\UploadImageController.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -167,6 +171,10 @@
     <Page Include="SignUp\SignUp.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Upload\UploadImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

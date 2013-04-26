@@ -46,6 +46,9 @@ namespace vChat.Model
         MethodInvokeResult UserExist(String Username);
 
         [OperationContract]
+        MethodInvokeResult ChangeProfilePicture(int UserID, byte[] ImageBytes);
+
+        [OperationContract]
         MethodInvokeResult ChangePassword(int UserID, String OldPassword, String NewPassword);
 
         [OperationContract]

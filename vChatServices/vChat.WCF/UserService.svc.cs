@@ -171,6 +171,18 @@ namespace vChat.WCF
         }
 
         /// <summary>
+        /// Change user's profile picture
+        /// </summary>
+        /// <param name="UserID">User ID</param>
+        /// <param name="ImageBytes">Bytes of image</param>
+        /// <returns></returns>
+        [OperationBehavior]
+        public MethodInvokeResult ChangeProfilePicture(int UserID, byte[] ImageBytes)
+        {
+            return unc.ChangeProfilePicture(UserID, ImageBytes);
+        }
+
+        /// <summary>
         /// Change user password
         /// </summary>
         /// <param name="UserID">User ID</param>

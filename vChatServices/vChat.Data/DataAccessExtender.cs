@@ -16,24 +16,28 @@ namespace vChat.Data
         {
             get 
             {
-                if (_db == null)
-                    _db = new vChatContext();
+                //if (_db == null)
+                //{
+                //    _db = new vChatContext();
+                //}
+                
+                //_db.Users.Create();
+                //_db.Question.Create();
+                //_db.FriendMap.Create();
+                //_db.FriendGroup.Create();
 
-                _db.Users.Create();
-                _db.Question.Create();
-                _db.FriendMap.Create();
-                _db.FriendGroup.Create();
+                //return _db;
 
-                return _db;
+                return new vChatContext();
             }
         }
 
         #region DB OPERATION
 
-        public static T Get<T>(this IDbModel m, int ID) where T : class
-        {
-            return db.Set(m.GetType()).Find(new Object[] { ID }) as T;
-        }
+        //public static IDbModel Get(this IDbModel m, int ID)
+        //{
+        //    return db.Set(m.GetType()).Find(new Object[] { ID }) as IDbModel;
+        //}
 
         public static bool New(this IDbModel m)
         {
@@ -44,8 +48,12 @@ namespace vChat.Data
 
                 try
                 {
-                    db.Set(m.GetType()).Add(m);
-                    db.SaveChanges();
+                    vChatContext dbProcess = db;
+
+                    dbProcess.Set(m.GetType()).Attach(m);
+                    dbProcess.Entry(m).State = System.Data.EntityState.Added;
+
+                    dbProcess.SaveChanges();
                 }
                 catch (InvalidOperationException)
                 {
@@ -71,8 +79,13 @@ namespace vChat.Data
                 saveFailed = false;
 
                 try
-                {                   
-                    db.SaveChanges();
+                {
+                    vChatContext dbProcess = db;
+
+                    dbProcess.Set(m.GetType()).Attach(m);
+                    dbProcess.Entry(m).State = System.Data.EntityState.Modified;
+
+                    dbProcess.SaveChanges();
                 }
                 catch (InvalidOperationException)
                 {
@@ -99,8 +112,13 @@ namespace vChat.Data
 
                 try
                 {
-                    db.Set(m.GetType()).Remove(m);
-                    db.SaveChanges();
+                    vChatContext dbProcess = db;
+
+                    dbProcess.Set(m.GetType()).Attach(m);
+
+                    dbProcess.Set(m.GetType()).Remove(m);                   
+
+                    dbProcess.SaveChanges();
                 }
                 catch (InvalidOperationException)
                 {
@@ -190,23 +208,14 @@ namespace vChat.Data
 
         public static bool AddFriend(this Users um, Users User, Users Friend, FriendGroup Group)
         {
-            db.FriendMap.Add(new FriendMap
+            FriendMap newFriend = new FriendMap
             {
                 User = User,
                 Friend = Friend,
                 FriendGroup = Group
-            });
+            };
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (InvalidOperationException)
-            {
-                return false;
-            }
-
-            return true;
+            return newFriend.New();
         }
 
         public static bool Deactive(this Users um, int UserID, bool Status)
@@ -217,16 +226,16 @@ namespace vChat.Data
             return userInfo.Update();
         }
 
-        //public static Users Get(this Users um, int UserID)
-        //{
-            //return db.Users
+        public static Users Get(this Users um, int UserID)
+        {
+            return db.Users
                 //.Include(u => u.Question)
                 //.Include(u => u.SentMessage)
                 //.Include(u => u.ReceivedMessage)
                 //.Include(u => u.FriendsFake)
                 //.Include(u => u.Friends)
-                //.FirstOrDefault(u => u.UserID == UserID);
-        //}
+                .FirstOrDefault(u => u.UserID == UserID);
+        }
 
         public static Users GetByName(this Users um, String Username)
         {
@@ -398,6 +407,16 @@ namespace vChat.Data
 
         #endregion
 
+        #region FRIENDGROUP EXTENSIONS METHOD
+
+        public static FriendGroup Get(this FriendGroup fg, int GroupID)
+        {
+            return db.FriendGroup
+                .FirstOrDefault(g => g.GroupID == GroupID);
+        }
+
+        #endregion
+
         #region CONVERSATION EXTENSIONS METHOD
 
         public static Conversation Get(this Conversation conv, int ConversationID)
@@ -438,6 +457,12 @@ namespace vChat.Data
 
         #region QUESTION EXTENSIONS METHOD
 
+        public static Question Get(this Question qs, int QuestionID)
+        {
+            return db.Question
+                .FirstOrDefault(q => q.QuestionID == QuestionID);
+        }
+
         public static List<Question> GetAll(this Question q)
         {
             return db.Question.ToList();
@@ -446,6 +471,25 @@ namespace vChat.Data
         #endregion
 
         #region FRIEND MAP EXTENSIONS METHDO
+
+        public static FriendMap Get(this FriendMap fm, int FriendMapID)
+        {
+            return db.FriendMap
+                .FirstOrDefault(m => m.FriendMapID == FriendMapID);
+        }
+
+        //public static bool Remove(this FriendMap fm)
+        //{
+        //    db.FriendMap.Attach(fm);
+        //    db.Entry(fm).State = System.Data.EntityState.Deleted;
+
+        //    db.FriendMap.Remove(fm);
+        //    int i = db.SaveChanges();
+
+        //    db.Entry(fm).State = System.Data.EntityState.Detached;
+
+        //    return true;
+        //}
 
         #endregion
     }

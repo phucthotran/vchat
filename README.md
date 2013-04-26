@@ -4,6 +4,15 @@
 ## Update Log
 -------------
 
+#### Update 26.04 4:40 PM
+- Thêm module `UploadImage` dùng cho upload ảnh đại diện (profile picture)
+- Thêm method `ChangeProfilePicture` (`vChat.WCF`): update ảnh đại diện cho người dùng
+- Resize ảnh và chuyển sang byte để lưu xuống database cho `UploadImage` module
+- Hiển thị ảnh đại diện trên **FriendList**
+- Fix lỗi khi đăng nhập cùng lúc (**thử lại lần nữa cho chắc ăn nha**)
+- Kiểm tra lỗi **Yêu Cầu Kết Bạn**: Không có lỗi
+- Catch những exception không thể kiểm soát (Unhandle exception) trong `vChat.Data`
+
 #### Update 23.04 7:10 PM
 - Tối ưu code `FriendList`, `AddFriend` module
 - Tối ưu code `vChatServices`: **vChat.Data**, **vChat.Business**

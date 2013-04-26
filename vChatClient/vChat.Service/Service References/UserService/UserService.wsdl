@@ -84,6 +84,12 @@
   <wsdl:message name="IUserService_UserExist_OutputMessage">
     <wsdl:part name="parameters" element="tns:UserExistResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_ChangeProfilePicture_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeProfilePicture" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ChangeProfilePicture_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeProfilePictureResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_ChangePassword_InputMessage">
     <wsdl:part name="parameters" element="tns:ChangePassword" />
   </wsdl:message>
@@ -186,6 +192,10 @@
     <wsdl:operation name="UserExist">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UserExist" message="tns:IUserService_UserExist_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/UserExistResponse" message="tns:IUserService_UserExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeProfilePicture">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/ChangeProfilePicture" message="tns:IUserService_ChangeProfilePicture_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/ChangeProfilePictureResponse" message="tns:IUserService_ChangeProfilePicture_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ChangePassword">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/ChangePassword" message="tns:IUserService_ChangePassword_InputMessage" />
@@ -327,6 +337,15 @@
     </wsdl:operation>
     <wsdl:operation name="UserExist">
       <soap:operation soapAction="http://tempuri.org/IUserService/UserExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeProfilePicture">
+      <soap:operation soapAction="http://tempuri.org/IUserService/ChangeProfilePicture" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
