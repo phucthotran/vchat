@@ -32,18 +32,18 @@ namespace vChatServer
 
         void server_OnClientDisconnected(Core.Server.ClientManagement.Client client)
         {
-            _server.Logging(String.Format("{0}({1}) da ngat ket noi.", client.User, client.Socket.RemoteEndPoint));
+            _server.Logging(String.Format("{0}({1}) da ngat ket noi.", client.Name, client.Socket.RemoteEndPoint));
         }
 
         void server_OnClientReceived(Core.Server.ClientManagement.Client client, Core.Data.Command cmd)
         {
             if (cmd.Type == CommandType.LogIn)
             {
-                _server.Logging(String.Format("{0}({1}) da ket noi den server.", client.User, client.Socket.RemoteEndPoint));
+                _server.Logging(String.Format("{0}({1}) da ket noi den server.", client.Name, client.Socket.RemoteEndPoint));
             }
             else
             {
-                _server.Logging(String.Format("{0}({1}) da gui: {2}", client.User, client.Socket.RemoteEndPoint, cmd.ToString()));
+                _server.Logging(String.Format("{0}({1}) da gui: {2}", client.Name, client.Socket.RemoteEndPoint, cmd.ToString()));
             }
         }
 

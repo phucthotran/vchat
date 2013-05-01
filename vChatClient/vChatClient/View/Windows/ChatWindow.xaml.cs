@@ -32,7 +32,6 @@ namespace vChat.View.Windows
         private SendFilePanel _SendFilePanel;
 
         public string TargetUser { get; private set; }
-        public EndPoint ep { get; set; }
         public ChatWindow(string targetUser)
         {
             Init(targetUser);
@@ -57,20 +56,20 @@ namespace vChat.View.Windows
                 Dictionary<string, string> SendFilePath = this.Get<Dictionary<string, string>>("SendFilePath");
                 SendFile[id] = new SortedList<int, byte[]>();
                 SendFilePath[id] = fileDialog.FileName;
-                _Client.SendCommand(new Command(CommandType.SendFileAccept, targetUser, new CommandMetadata(_Client.Name, id)));
+                _Client.SendCommand(CommandType.SendFileAccept, targetUser, id);
             });
             _SendFilePanel.OnSendFileRejected += new SendFilePanel.SendFileRejectedHandler(id =>
             {
-                _Client.SendCommand(new Command(CommandType.SendFileReject, targetUser, new CommandMetadata(_Client.Name, id)));
+                _Client.SendCommand(CommandType.SendFileReject, targetUser, id);
             });
             _ChatModule.OnSendMessage += new Chat.SendMessageHandler(message =>
             {
-                _Client.SendCommand(new Command(CommandType.Chat, targetUser, new CommandMetadata(_Client.Name, message, _Client.Socket.LocalEndPoint)));
+                _Client.SendCommand(CommandType.Chat, targetUser, message);
             });
             _ChatModule.OnSendFile += new Chat.SendFileHandler(fileSending =>
             {
                 _SendFilePanel.Append(TargetUser, true, fileSending);
-                _Client.SendCommand(new Command(CommandType.SendFileRequest, targetUser, new CommandMetadata(_Client.Name, fileSending)));
+                _Client.SendCommand(CommandType.SendFileRequest, targetUser, fileSending);
             });
         }
 
@@ -100,18 +99,23 @@ namespace vChat.View.Windows
                     count = reader.Read(data, 0, buffer);
                     if (count < buffer)
                         data = data.Take(count).ToArray();
-                    _Client.SendCommand(new Command(CommandType.SendFileProcess, TargetUser, new CommandMetadata(_Client.Name, id, data, chunk)));
+                    _Client.SendCommand(CommandType.SendFileProcess, TargetUser, id, data, chunk);
                     sended += count;
                 }
             }
-            _Client.SendCommand(new Command(CommandType.SendFileSuccess, TargetUser, new CommandMetadata(_Client.Name, id)));
+            _Client.SendCommand(CommandType.SendFileSuccess, TargetUser, id);
         }
 
         public void IsRejectFile(string id)
         {
             FileProcess fileProcess = _SendFilePanel.Find(id);
             fileProcess.Cancel(false);
-            // do do do
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+                this.Close();
         }
     }
 }

@@ -38,7 +38,6 @@ namespace vChat.View.Windows
                     chatWindow.ReceiveMessage(res.TargetUser, res.Params[0] as string);
                     chatWindow.Show();
                 }
-                chatWindow.ep = res.Params[1] as EndPoint; // need fix - hoat dong khi chat 1 dong
             }
             else
             {

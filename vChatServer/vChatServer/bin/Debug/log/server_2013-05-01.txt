@@ -1,14 +1,19 @@
-01/05/2013 05:48:44 - Server da khoi dong thanh cong.
-01/05/2013 05:51:49 - symaci(127.0.0.1:9567) da ket noi den server.
-01/05/2013 05:51:58 - symaci(127.0.0.1:9567) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">df</TextBlock> :: 127.0.0.1:9567
-01/05/2013 05:52:08 - symaci(127.0.0.1:9567) da ngat ket noi.
-01/05/2013 05:53:57 - symaci(127.0.0.1:9596) da ket noi den server.
-01/05/2013 05:54:12 - symaci(127.0.0.1:9596) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">ffd</TextBlock> :: 127.0.0.1:9596
-01/05/2013 05:54:19 - symaci(127.0.0.1:9596) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">fdfd</TextBlock> :: 127.0.0.1:9596
-01/05/2013 05:54:25 - symaci(127.0.0.1:9596) da ngat ket noi.
-01/05/2013 05:56:56 - symaci(127.0.0.1:9675) da ket noi den server.
-01/05/2013 05:57:01 - symaci(127.0.0.1:9675) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">d</TextBlock> :: 127.0.0.1:9675
-01/05/2013 05:57:11 - symaci(127.0.0.1:9675) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">dfd</TextBlock> :: 127.0.0.1:9675
+01/05/2013 11:57:48 - Server da khoi dong thanh cong.
+01/05/2013 11:58:05 - symaci(127.0.0.1:16400) da ket noi den server.
+01/05/2013 11:58:13 - symaci(127.0.0.1:16400) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sd</TextBlock>
+01/05/2013 11:58:50 - symaci(127.0.0.1:16400) da ngat ket noi.
+- symaci(127.0.0.1:15476) da ket noi den server.
+01/05/2013 11:40:43 - symaci(127.0.0.1:15476) da ngat ket noi.
+01/05/2013 11:42:54 - symaci(127.0.0.1:15611) da ket noi den server.
+01/05/2013 11:43:06 - symaci(127.0.0.1:15611) da ngat ket noi.
+01/05/2013 11:43:27 - symaci(127.0.0.1:15647) da ket noi den server.
+01/05/2013 11:43:34 - symaci(127.0.0.1:15647) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">asas</TextBlock>
+01/05/2013 11:43:36 - symaci(127.0.0.1:15647) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">as</TextBlock>
+01/05/2013 11:43:39 - symaci(127.0.0.1:15647) da ngat ket noi.
+01/05/2013 11:44:03 - symaci(127.0.0.1:15717) da ket noi den server.
+01/05/2013 11:44:29 - symaci(127.0.0.1:15717) da ngat ket noi.
+01/05/2013 11:44:48 - symaci(127.0.0.1:15828) da ket noi den server.
+:9675
 01/05/2013 05:57:17 - symaci(127.0.0.1:9675) da ngat ket noi.
 01/05/2013 05:57:53 - symaci(127.0.0.1:9704) da ket noi den server.
 01/05/2013 05:58:08 - symaci(127.0.0.1:9704) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sdds</TextBlock> :: 127.0.0.1:9704

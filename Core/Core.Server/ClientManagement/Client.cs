@@ -14,9 +14,17 @@ namespace Core.Server.ClientManagement
     {
         private Task sendTasker;
 
-        public string User { get; set; }
         public Socket Socket { get; private set; }
-        public CommandExecuter Executer { get; private set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsConnected
+        {
+            get
+            {
+                return (Socket != null) ? Socket.Connected : false;
+            }
+        }
+        private CommandExecuter _Executer = new CommandExecuter();
 
         public Client(Socket socket)
         {
@@ -30,7 +38,6 @@ namespace Core.Server.ClientManagement
         // Methods
         private void Init(Socket socket, ConnectedHandler handler)
         {
-            Executer = new CommandExecuter();
             this.Socket = socket;
             Socket.ReceiveBufferSize = 1024 * 1024 * 100;
             Socket.SendBufferSize = 1024 * 1024 * 100;
@@ -53,7 +60,7 @@ namespace Core.Server.ClientManagement
                 else
                 {
                     Command cmd = buffer.ConvertTo<Command>();
-                    cmd.Metadata.TargetUser = this.User;
+                    cmd.Metadata.TargetUser = this.Name;
                     this.OnReceived(this, cmd);
                     buffer = new byte[4];
                 }

@@ -17,6 +17,7 @@ namespace vChat.Module.Chat
     {
         public void ReceiveMessage(string fromUser, string message)
         {
+            SoundMessageIncome.Play();
             MessageView.Document.Blocks.Add(StyledText.LoadXaml(fromUser, false, message));
             MessageView.ScrollToEnd();
         }

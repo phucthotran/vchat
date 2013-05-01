@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientManagement\Client.cs" />
-    <Compile Include="ClientManagement\ClientManager.cs" />
+    <Compile Include="ClientManagement\ClientCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="ServerConfig.cs" />

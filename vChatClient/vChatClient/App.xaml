@@ -4,7 +4,7 @@
              Startup="App_Startup">
     <Application.Resources>
         <ResourceDictionary>
-
+    
             <GeometryGroup x:Key="SampleIcon16px">
                 <RectangleGeometry Rect="2.5,2.5,1,1"/>
                 <RectangleGeometry Rect="7.5,2.5,1,1"/>

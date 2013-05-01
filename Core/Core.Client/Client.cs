@@ -20,6 +20,8 @@ namespace Core.Client
 {
     public class Client
     {
+        private Task sendTasker;
+
         public Socket Socket { get; private set; }
         public int ID { get; set; }
         public string Name { get; set; }
@@ -31,7 +33,7 @@ namespace Core.Client
             }
         }
         private CommandExecuter _Executer = new CommandExecuter();
-        private Task sendTasker;
+        
         public IPAddress ServerIP { get; private set; }
         public int Port { get; private set; }
         public Client()
@@ -117,18 +119,32 @@ namespace Core.Client
                 this.Name = "";
             }
         }
-        public void SendCommand(Command cmd)
+        /// <summary>
+        /// Gửi command đến TargetUser với một hoặc nhiều gói dữ liệu Data.
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="TargetUser"></param>
+        /// <param name="Data"></param>
+        public void SendCommand(CommandType Type, string TargetUser, params object[] Data)
         {
-            if (sendTasker == null || sendTasker.IsCompleted)
-            {
-                sendTasker = Task.Factory.StartNew(SendCommandProcess, cmd);
-            }
-            else
-            {
-                sendTasker = sendTasker.ContinueWith(t => { SendCommandProcess(cmd); });
-            }
+            this.SendCommand(Type, new string[] { TargetUser }, Data);
         }
 
+        public void SendCommand(CommandType Type, string[] TargetUsers, params object[] Data)
+        {
+            foreach (string user in TargetUsers)
+            {
+                Command cmd = new Command(Type, user, new CommandMetadata(this.Name, Data));
+                if (sendTasker == null || sendTasker.IsCompleted)
+                {
+                    sendTasker = Task.Factory.StartNew(SendCommandProcess, cmd);
+                }
+                else
+                {
+                    sendTasker = sendTasker.ContinueWith(t => { SendCommandProcess(cmd); });
+                }
+            }
+        }
         private void SendCommandProcess(object cmd)
         {
             byte[] buffer = new byte[4];

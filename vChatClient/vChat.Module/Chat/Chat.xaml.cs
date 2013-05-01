@@ -68,5 +68,20 @@ namespace vChat.Module.Chat
         {
             e.Handled = true;
         }
+
+        private void Submit_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            SubmitIcon.Fill = Brushes.White;
+        }
+
+        private void Submit_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            SubmitIcon.Fill = Brushes.Black;
+        }
+
+        private void SoundMessageIncome_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            SoundMessageIncome.Stop();
+        }
     }
 }

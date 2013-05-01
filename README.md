@@ -4,7 +4,14 @@
 ## Update Log
 -------------
 
-#### Update 05.01 6:10 PM
+#### U[date 02.05 3:07 AM
+- Thêm tính năng nhấp nháy Window khi không focus
+- Sửa lỗi các cửa sổ thuộc `MainWindow` không tắt khi nhấn đăng xuất
+- Thêm tính năng hỏi người dùng khi nhấn tắt `MainWindow` hoặc nhấn Esc
+- Thêm icon vào trong các button của `Chat` module
+- Thêm âm thanh khi có tin nhắn gửi đến
+
+#### Update 01.05 6:10 PM
 - Tái cấu trúc solution **Core**, loại bỏ BackgroundWorker mà thay vào bằng `Task` và áp dụng `Async Socket`
 - Tái cấu trúc lại cách thức binding command từ client
 - Tạo `MainWindowListener` dùng để xử lý các `Command` được server gửi đến
