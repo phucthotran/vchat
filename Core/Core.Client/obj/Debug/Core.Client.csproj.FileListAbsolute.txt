@@ -43,3 +43,9 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\obj\Debug\Core.Client.csprojResolveAssemblyReference.cache
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\obj\Debug\Core.Client.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\obj\Debug\Core.Client.pdb
+D:\vChatProject\Core\Core.Client\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Client.DataStore.dll
+D:\vChatProject\Core\Core.Client\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Client.Cache.dll
+D:\vChatProject\Core\Core.Client\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Client.RuleEngine.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Client.DataStore.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Client.Cache.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Client.RuleEngine.dll

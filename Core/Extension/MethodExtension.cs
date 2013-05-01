@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Xml;
+using System.Runtime.Serialization.Formatters.Soap;
 
 namespace System
 {
@@ -21,11 +22,18 @@ namespace System
         /// <returns></returns>
         public static T ConvertTo<T>(this byte[] bytes)
         {
-            using (MemoryStream ms = new MemoryStream(bytes, 0, bytes.Length))
+            try
             {
-                ms.Write(bytes, 0, bytes.Length);
-                ms.Position = 0L;
-                return (T)new BinaryFormatter().Deserialize(ms);
+                using (MemoryStream ms = new MemoryStream(bytes, 0, bytes.Length))
+                {
+                    ms.Write(bytes, 0, bytes.Length);
+                    ms.Position = 0L;
+                    return (T)new SoapFormatter().Deserialize(ms);
+                }
+            }
+            catch
+            {
+                return default(T);
             }
         }
         /// <summary>
@@ -36,11 +44,17 @@ namespace System
         /// <returns></returns>
         public static byte[] ToBytes<T>(this T obj)
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            using (MemoryStream ms = new MemoryStream())
+            try
             {
-                bf.Serialize(ms, obj);
-                return ms.ToArray();
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    new SoapFormatter().Serialize(ms, obj);
+                    return ms.ToArray();
+                }
+            }
+            catch
+            {
+                return null;
             }
         }
         /// <summary>
@@ -55,42 +69,44 @@ namespace System
 
         public static T LoadModule<T>(this Panel panel)
         {
-            try
-            {
-                object moduleInstance = Activator.CreateInstance(typeof(T));
-                panel.Children.Clear();
-                panel.Children.Add((UIElement)moduleInstance);
-                return (T)moduleInstance;
-            }
-            catch
-            {
-                throw new ModuleCannotInitException(typeof(T));
-            }
+            return panel.LoadModule<T>(null);
         }
 
         public static T LoadModule<T>(this Panel panel, params object[] args)
         {
-            try
+            IEnumerable<object> element = panel.Children.Cast<object>().Where(e => e.GetType() == typeof(T));
+            if (element.Count() > 0)
             {
-                object moduleInstance = Activator.CreateInstance(typeof(T), args);
-                panel.Children.Clear();
-                panel.Children.Add((UIElement)moduleInstance);
-                return (T)moduleInstance;
+                return (T)element.ElementAt(0);
             }
-            catch
-            {
-                throw new ModuleCannotInitException(typeof(T));
-            }
+            object moduleInstance;
+            if (args == null)
+                moduleInstance = Activator.CreateInstance(typeof(T));
+            else  
+                moduleInstance = Activator.CreateInstance(typeof(T), args);
+            panel.Children.Clear();
+            panel.Children.Add((UIElement)moduleInstance);
+            return (T)moduleInstance;
         }
 
         public static T Get<T>(this UserControl uc)
         {
-            return (T)Application.Current.FindResource(typeof(T).Name);
+            return uc.Get<T>(typeof(T).Name);
         }
 
         public static T Get<T>(this Window w)
         {
-            return (T)Application.Current.FindResource(typeof(T).Name);
+            return w.Get<T>(typeof(T).Name);
+        }
+
+        public static T Get<T>(this UserControl uc, string Key)
+        {
+            return (T)Application.Current.FindResource(Key);
+        }
+
+        public static T Get<T>(this Window w, string Key)
+        {
+            return (T)Application.Current.FindResource(Key);
         }
 
         private static ResourceDictionary Theme = null;
@@ -109,52 +125,5 @@ namespace System
             }
             w.Resources = Theme;
         }
-        /*
-        public static string ExportXaml(this RichTextBox rt)
-        {
-            
-            TextRange range = new TextRange(rt.Document.find, rt.Document.ContentEnd);
-            using (MemoryStream stream = new MemoryStream())
-            {
-                range.Save(stream, DataFormats.Xaml);
-                return Encoding.UTF8.GetString(stream.ToArray());
-            }
-        }
-
-        public static void ImportXaml(this RichTextBox rt, string xaml)
-        {
-            rt.Document = new FlowDocument();
-            rt.AppendXaml(xaml);
-        }
-
-        public static void AppendXaml(this RichTextBox rt, string xaml)
-        {
-            
-            StringReader stringReader = new StringReader(xaml);
-            using (XmlReader xmlReader = XmlReader.Create(stringReader))
-            {
-                Section sec = System.Windows.Markup.XamlReader.Load(xmlReader) as Section;
-                while (sec.Blocks.Count > 0)
-                    rt.Document.Blocks.Add(sec.Blocks.FirstBlock);
-            }
-        } */
     }
-
-    public class ModuleCannotInitException : Exception
-    {
-        public string ModuleName { get; set; }
-        public override string Message
-        {
-            get
-            {
-                return String.Format("Không thể khởi tạo module <{0}>.", ModuleName); 
-            }
-        }
-        public ModuleCannotInitException(Type module)
-        {
-            this.ModuleName = module.FullName;
-        }
-    }
-
-
 }

@@ -32,22 +32,31 @@ namespace vChat.View.Windows
         private Login _loginModule;
         private SignUp _signUpModule;
         private FriendsList _friendListModule;
+        public Dictionary<string, SortedList<int, byte[]>> SendFile;
+        public Dictionary<string, string> SendFilePath;
 
         public MainWindow()
         {
-            InitializeComponent();
-            this.InitTheme();
-            InitLoginModule();
-            InitClientListener();
             this.Width = 300;
             this.MinWidth = 300;
             this.Height = SystemParameters.WorkArea.Height;
+            this.SendFile = this.Get<Dictionary<string, SortedList<int, byte[]>>>("SendFile");
+            this.SendFilePath = this.Get<Dictionary<string, string>>("SendFilePath");
+            this.InitTheme();
+            InitializeComponent();            
+            InitLoginModule();
+            InitClientListener();            
         }
 
         private void InitClientListener()
         {
             Client client = this.Get<Client>();
             client.CommandBinding(CommandType.Chat, ChatListener);
+            client.CommandBinding(CommandType.SendFileAccept, AcceptFileListener);
+            client.CommandBinding(CommandType.SendFileReject, RejectFileListener);
+            client.CommandBinding(CommandType.SendFileRequest, RequestFileListener);
+            client.CommandBinding(CommandType.SendFileProcess, ProcessFileListener);
+            client.CommandBinding(CommandType.SendFileSuccess, SuccessFileListener);
         }
 
         private void InitLoginModule()

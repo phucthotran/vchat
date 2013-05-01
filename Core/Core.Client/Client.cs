@@ -8,6 +8,13 @@ using System.Net;
 using System.Configuration;
 using Core.Data;
 using System.Reflection;
+using System.IO;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Collections.Concurrent;
+using System.Windows.Threading;
+using System.Collections.ObjectModel;
+using Microsoft.TeamFoundation.WorkItemTracking.Client;
 
 namespace Core.Client
 {
@@ -24,13 +31,8 @@ namespace Core.Client
             }
         }
         private NetworkStream _Stream;
-        private BackgroundWorker _ReceiveWorker = new BackgroundWorker();
-        private BackgroundWorker _DoReceiveWorker = new BackgroundWorker();
-        private BackgroundWorker _SendWorker = new BackgroundWorker();
-        private BackgroundWorker _DisconnectWorker = new BackgroundWorker();
-        private Queue<byte[]> _DoReceiveQueue = new Queue<byte[]>();
-        private Queue<Command> _SendQueue = new Queue<Command>();
         private CommandExecuter _Executer = new CommandExecuter();
+        private Task sendTasker;
         public IPAddress ServerIP { get; private set; }
         public int Port { get; private set; }
         public Client()
@@ -60,14 +62,12 @@ namespace Core.Client
             try
             {
                 this.Socket.Connect(new IPEndPoint(ServerIP, Port));
+                Socket.ReceiveBufferSize = 1024 * 1024 * 100;
+                Socket.SendBufferSize = 1024 * 1024 * 100;
                 this._Stream = new NetworkStream(this.Socket);
                 this.OnConnected();
-                this._ReceiveWorker.DoWork += new DoWorkEventHandler(ReceiveCommand);
-                this._DoReceiveWorker.DoWork += new DoWorkEventHandler(doReceive);
-                this._DoReceiveWorker.RunWorkerCompleted+=new RunWorkerCompletedEventHandler(doReceiveComplete);
-                this._SendWorker.DoWork += new DoWorkEventHandler(sendCommand);
-                this._DisconnectWorker.DoWork += new DoWorkEventHandler(_DisconnectWorker_DoWork);
-                this._ReceiveWorker.RunWorkerAsync();
+                byte[] buffer = new byte[4];
+                Socket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, new AsyncCallback(receiveCommand), buffer);
             }
             catch (Exception ex)
             {
@@ -78,15 +78,12 @@ namespace Core.Client
             }
         }
 
-        void _DisconnectWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            this.Socket.Close();
-            this.Socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        }
-
         public void Disconnect()
         {
-            _DisconnectWorker.RunWorkerAsync();
+            this.Socket.BeginDisconnect(false, ar =>
+            {
+                this.Socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            }, null);
         }
 
         public void CommandBinding(CommandType type, Action<CommandResponse> action)
@@ -94,95 +91,54 @@ namespace Core.Client
             _Executer.Set(type, action);
         }
 
-        private void ReceiveCommand(object sender, DoWorkEventArgs e)
+        private void receiveCommand(IAsyncResult ar)
         {
             try
             {
-                while (this.Socket.Connected)
+                byte[] buffer = (byte[])ar.AsyncState; 
+                Socket.EndReceive(ar);
+                if (buffer.Length == 4)
                 {
-                    byte[] buffer = new byte[4];
-                    this._Stream.Read(buffer, 0, 4);
-                    buffer = new byte[BitConverter.ToInt32(buffer, 0)];
-                    this._Stream.Read(buffer, 0, buffer.Length);
-                    _DoReceiveQueue.Enqueue(buffer);
-                    if (!_DoReceiveWorker.IsBusy)
-                    {
-                        while (_DoReceiveQueue.Count > 0)
-                        {
-                            _DoReceiveWorker.RunWorkerAsync(_DoReceiveQueue.Dequeue());
-                        }
-                    }
+                    int bufferSize = BitConverter.ToInt32(buffer, 0);
+ 
+                    buffer = new byte[bufferSize];
+                    Socket.Receive(buffer);
                 }
+           //     else
+          //      {
+                    Command cmd = buffer.ConvertTo<Command>();
+                    _Executer[cmd.Type].DynamicInvoke(new CommandResponse(cmd));
+                    buffer = new byte[4];
+          //      }
+                Socket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, new AsyncCallback(receiveCommand), buffer);
             }
-            catch
+            catch (Exception e)
             {
+                throw e;
                 this.ID = -1;
                 this.Name = "";
             }
         }
-
-        private void doReceive(object sender, DoWorkEventArgs e)
-        {
-            byte[] buffer = e.Argument as byte[];
-            e.Result = buffer.ConvertTo<Command>();
-        }
-
-        private void doReceiveComplete(object sender, RunWorkerCompletedEventArgs e)
-        {
-            Command cmd = e.Result as Command;
-            _Executer[cmd.Type].DynamicInvoke(new CommandResponse(cmd));
-        }
-
-        /*
-        private void InvokeCommand(Command cmd)
-        {
-            if (cmd.Invoker != null)
-            {
-                Type clazz = cmd.Invoker.GetType();
-                MethodInfo method = clazz
-                    .GetMethods().Where(m => m.GetCustomAttributes(typeof(InvokeAttribute), false).Length > 0
-                                        && (m.GetCustomAttributes(typeof(InvokeAttribute), false)[0]
-                                            as InvokeAttribute).CommandType == cmd.Type)
-                    .SingleOrDefault();
-                if (method != null)
-                {
-                    object[] @params = new object[cmd.Metadata.Datas.Length + 1];
-                    @params[0] = cmd.FromUser;
-                    cmd.Metadata.Datas.CopyTo(@params, 1);
-                    method.Invoke(cmd.Invoker, @params);
-                }
-            }
-        } */
-
         public void SendCommand(Command cmd)
         {
-            _SendQueue.Enqueue(cmd);
-            if (!_SendWorker.IsBusy)
-                _SendWorker.RunWorkerAsync();
+            if (sendTasker == null || sendTasker.IsCompleted)
+            {
+                sendTasker = Task.Factory.StartNew(SendCommandProcess, cmd);
+            }
+            else
+            {
+                sendTasker = sendTasker.ContinueWith(t => { SendCommandProcess(cmd); });
+            }
         }
 
-        private void sendCommand(object sender, DoWorkEventArgs e)
+        private void SendCommandProcess(object cmd)
         {
-            Command cmd = null;
-            try
-            {
-                while (_SendQueue.Count > 0)
-                {
-                    cmd = _SendQueue.Dequeue();
-                    byte[] buffer = new byte[4];
-                    byte[] cmdBuffer = cmd.ToBytes<Command>();
-                    buffer = BitConverter.GetBytes(cmdBuffer.Length);
-                    this._Stream.Write(buffer, 0, 4);
-                    this._Stream.Flush();
-                    this._Stream.Write(cmdBuffer, 0, cmdBuffer.Length);
-                    this._Stream.Flush();
-                }
-            }
-            catch
-            {
-            }
+            byte[] buffer = new byte[4];
+            byte[] cmdBuffer = ((Command)cmd).ToBytes();
+            buffer = BitConverter.GetBytes(cmdBuffer.Length);
+            this.Socket.Send(buffer);
+            this.Socket.Send(cmdBuffer);
         }
-
 
         public delegate void ConnectedHandler();
         public event ConnectedHandler OnConnected = delegate { };

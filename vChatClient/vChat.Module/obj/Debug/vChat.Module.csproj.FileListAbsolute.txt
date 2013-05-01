@@ -43,3 +43,9 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Upload\UploadImage.baml
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Upload\UploadImage.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\FileProcess.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\SendFilePanel.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\FileProcess.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\SendFilePanel.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat\ViewParts\ChatToolBar.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat\ViewParts\ChatToolBar.baml

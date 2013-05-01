@@ -56,6 +56,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
@@ -81,11 +82,23 @@
     <Compile Include="AddFriend\AddFriend.xaml.cs">
       <DependentUpon>AddFriend.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Chat.SendFilePanel\FileProcess.xaml.cs">
+      <DependentUpon>FileProcess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Chat.SendFilePanel\SendFilePanel.xaml.cs">
+      <DependentUpon>SendFilePanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Chat\Chat.xaml.cs">
       <DependentUpon>Chat.xaml</DependentUpon>
     </Compile>
     <Compile Include="Chat\ChatController.cs" />
     <Compile Include="AddFriend\AddFriendController.cs" />
+    <Compile Include="Chat\Parts\Message.cs" />
+    <Compile Include="Chat\Parts\StyledText.cs" />
+    <Compile Include="Chat\ViewParts\ChatToolBar.xaml.cs">
+      <DependentUpon>ChatToolBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Chat\ViewParts\IconHelper.cs" />
     <Compile Include="FriendList\BaseCommand.cs" />
     <Compile Include="FriendList\Command.cs" />
     <Compile Include="FriendList\Model\FriendArgs.cs" />
@@ -152,9 +165,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Chat.SendFilePanel\FileProcess.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Chat.SendFilePanel\SendFilePanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Chat\Chat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Chat\ViewParts\ChatToolBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="FriendList\FriendsList.xaml">
       <SubType>Designer</SubType>
@@ -195,6 +220,25 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="FriendList\Image\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Chat\Images\charactergrowfont.png" />
+    <Resource Include="Chat\Images\charactershrinkfont.png" />
+    <Resource Include="Chat\Images\editcopy.png" />
+    <Resource Include="Chat\Images\editcut.png" />
+    <Resource Include="Chat\Images\editpaste.png" />
+    <Resource Include="Chat\Images\editredo.png" />
+    <Resource Include="Chat\Images\editundo.png" />
+    <Resource Include="Chat\Images\fileopen.png" />
+    <Resource Include="Chat\Images\filesave.png" />
+    <Resource Include="Chat\Images\listbullets.png" />
+    <Resource Include="Chat\Images\listnumbering.png" />
+    <Resource Include="Chat\Images\paragraphcenterjustify.png" />
+    <Resource Include="Chat\Images\paragraphdecreaseindentation.png" />
+    <Resource Include="Chat\Images\paragraphfulljustify.png" />
+    <Resource Include="Chat\Images\paragraphincreaseindentation.png" />
+    <Resource Include="Chat\Images\paragraphleftjustify.png" />
+    <Resource Include="Chat\Images\paragraphrightjustify.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

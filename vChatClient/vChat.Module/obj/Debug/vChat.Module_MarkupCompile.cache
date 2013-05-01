@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-7855096120
+10746412774
 
-261437245015
-25-1843337072
-AddFriend\AddFriend.xaml;Chat\Chat.xaml;FriendList\FriendsList.xaml;Login\Login.xaml;RemoveGroup\RemoveGroup.xaml;SignUp\SignUp.xaml;Upload\UploadImage.xaml;
+321870960515
+26-1474442795
+AddFriend\AddFriend.xaml;Chat.SendFilePanel\FileProcess.xaml;Chat.SendFilePanel\SendFilePanel.xaml;Chat\Chat.xaml;Chat\ViewParts\ChatToolBar.xaml;FriendList\FriendsList.xaml;Login\Login.xaml;RemoveGroup\RemoveGroup.xaml;SignUp\SignUp.xaml;Upload\UploadImage.xaml;
 
 False
 

@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="vChat.Module.Chat.SendFilePanel.FileProcess"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:el="clr-namespace:Elysium.Controls;assembly=Elysium"
+             xmlns:ma="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             mc:Ignorable="d" >
+    <StackPanel>
+        <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" Name="textBlock1" VerticalAlignment="Top">
+            <Run Name="Sender" FontWeight="Bold" FontSize="14">Bạn</Run>
+            đang gửi file đến
+            <Run Name="Receiver" FontWeight="Bold" FontSize="14">bạn</Run>
+            <LineBreak/>
+            - Tên file: <Image Name="FileIcon" Width="16" Height="16"></Image> <Run Name="FileName">asda.txt</Run> 
+            <LineBreak/>
+            - Dung lượng: <Run Name="FileSize">23.25 MB</Run>
+        </TextBlock>
+        <StackPanel Name="IsSelfAction"  Orientation="Horizontal">
+            <TextBlock>Đang đợi chấp nhận...</TextBlock>
+            <Button Name="btCancel" Content="Hủy bỏ" Click="btReject_Click"></Button>
+        </StackPanel>
+        <StackPanel Name="IsnotSelfAction" Orientation="Horizontal">
+            <Button Name="btAccept" Content="Chấp nhận" Click="btAccept_Click"></Button>
+            <Button Name="btReject" Content="Từ chối" Click="btReject_Click"></Button>
+        </StackPanel>
+        <ma:MetroProgressBar Name="SendingProgress" Visibility="Collapsed"></ma:MetroProgressBar>
+        <TextBlock Name="Message" Visibility="Collapsed"></TextBlock>
+    </StackPanel>
+</UserControl>

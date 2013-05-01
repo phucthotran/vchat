@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ServiceModel;
-using vChat.Lib.Serialize;
 using vChat.Model;
 using vChat.Model.Entities;
 

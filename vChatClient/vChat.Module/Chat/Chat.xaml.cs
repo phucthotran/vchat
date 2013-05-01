@@ -18,6 +18,8 @@ using System.IO;
 using System.Xml;
 using vChat.Control;
 using System.Windows.Markup;
+using vChat.Module.Chat.Parts;
+using vChat.Module.Chat.ViewParts;
 
 namespace vChat.Module.Chat
 {
@@ -28,25 +30,37 @@ namespace vChat.Module.Chat
     {
         public delegate void SendMessageHandler(string blocks);
         public event SendMessageHandler OnSendMessage = delegate { };
+
+        public delegate void SendFileHandler(FileSending fileSending);
+        public event SendFileHandler OnSendFile = delegate { };
+
         private string TargetUser { get; set; }
 
         public Chat(string targetUser)
         {
             this.TargetUser = targetUser;
+            this.MinHeight = 250;
+            this.MinWidth = 400;
             InitializeComponent();
             MessageView.Document.Blocks.Remove(MessageView.Document.Blocks.FirstBlock);
+            ChatToolBar.SendFileEvent += new ViewParts.ChatToolBar.SendFileHandler(SendFile_Handler);
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            Block block = MessageInput.Document.Blocks.FirstBlock;
-            if (block != null)
+            TextBlock messageBlock = new TextBlock();
+            messageBlock.Inlines.AddRange(((Paragraph)MessageInput.Document.Blocks.FirstBlock).Inlines.ToList());
+            StyledText styledText = new StyledText(this.Get<Client>().Name, true, messageBlock);
+            if (messageBlock.Inlines.Count > 0)
             {
-                MessageView.Document.Blocks.Add(block);
-                OnSendMessage(XamlWriter.Save(block));
-                Paragraph p = MessageView.Document.Blocks.LastBlock as Paragraph;
-                p.Inlines.InsertBefore(p.Inlines.FirstInline, new UserDefined().SetText(this.Get<Client>().Name, true));
+                MessageView.Document.Blocks.Add(styledText);
+                OnSendMessage(XamlWriter.Save(messageBlock));
             }
+        }
+
+        private void SendFile_Handler(FileSending fileSending)
+        {
+            OnSendFile(fileSending);
         }
     }
 }

@@ -17,4 +17,3 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat.Control.csproj.GenerateResource.Cache
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat.Control.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat.Control.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat.Control.csprojResolveAssemblyReference.cache

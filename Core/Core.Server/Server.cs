@@ -8,6 +8,7 @@ using System.Net;
 using System.Reflection;
 using Core.Server.ClientManagement;
 using Core.Data;
+using System.Threading.Tasks;
 
 namespace Core.Server
 {
@@ -16,10 +17,9 @@ namespace Core.Server
         #region Fields
         private bool _IsStarted;
         private Socket _Socket;
-        private BackgroundWorker _ListenWorker;
-        private BackgroundWorker _LogWorker;
         private static FileStream _fsLog;
         private static StreamWriter _swLog;
+        private Task logTasker;
         #endregion
 
         #region Properties
@@ -49,8 +49,6 @@ namespace Core.Server
             }
             this._IsStarted = false;
             this.ClientManager = new ClientManager();
-            this._LogWorker = new BackgroundWorker();
-            this._LogWorker.DoWork += new DoWorkEventHandler(writeLog);
             if (!Directory.Exists("log"))
             {
                 Directory.CreateDirectory("log");
@@ -118,60 +116,44 @@ namespace Core.Server
                 }
             }
         }
-        private void listeningConnection(object sender, DoWorkEventArgs e)
+
+        private void listeningConnection()
         {
-            this._IsStarted = true;
-            while (this._IsStarted)
+            if (_IsStarted)
             {
-                Client client = new Client(this._Socket.Accept(), new Client.ConnectedHandler(this.ClientOnConnected));
-                this.ClientManager.Add(client);
-                client.OnDisconnected += new Client.DisconnectedHandler(this.ClientOnDisconnected);
-                client.OnReceived += new Client.ReceivedHandler(this.ClientOnReceived);
+                _Socket.BeginAccept(ar =>
+                {
+                    listeningConnection();
+                    Client client = new Client(_Socket.EndAccept(ar), new Client.ConnectedHandler(this.ClientOnConnected));
+                    this.ClientManager.Add(client);
+                    client.OnDisconnected += new Client.DisconnectedHandler(this.ClientOnDisconnected);
+                    client.OnReceived += new Client.ReceivedHandler(this.ClientOnReceived);
+                }, null);
             }
-        }
-
-        private void writeLog(object sender, DoWorkEventArgs e)
-        {
-            string log = (string)e.Argument;
-            string logToday = string.Format("log/server_{0:yyyy-MM-dd}.txt", DateTime.Today);
-            if (!File.Exists(logToday))
-            {
-                File.Create(logToday).Dispose();
-                _fsLog = new FileStream(logToday, FileMode.Open, FileAccess.ReadWrite);
-                _swLog = new StreamWriter(_fsLog);
-                _swLog.AutoFlush = true;
-            }
-            string tmpLog = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss") + " - " + log;
-            Console.WriteLine(tmpLog);
-            _swLog.WriteLine(tmpLog);
-        }
-
-        private static object GetField(string description, Type type)
-        {
-            FieldInfo[] fields = type.GetFields();
-            var field = fields
-                            .SelectMany(f => f.GetCustomAttributes(
-                                typeof(DescriptionAttribute), false), (
-                                    f, a) => new { Field = f, Att = a })
-                            .Where(a => ((DescriptionAttribute)a.Att)
-                                .Description == description).SingleOrDefault();
-            return (field == null) ? null : field.Field.GetRawConstantValue();
-        }
-
-        private static string GetDes<T>(T obj)
-        {
-            DescriptionAttribute desType = obj.GetType()
-                  .GetField(obj.ToString())
-                  .GetCustomAttributes(typeof(DescriptionAttribute), false)
-                  .SingleOrDefault() as DescriptionAttribute;
-            return desType == null ? obj.ToString() : desType.Description;
         }
         #endregion
 
         #region Public Methods
-        public void Logging(string log)
+        public void Logging(string logSend)
         {
-            this._LogWorker.RunWorkerAsync(log);
+            Action<object> action = log =>
+            {
+                string logToday = string.Format("log/server_{0:yyyy-MM-dd}.txt", DateTime.Today);
+                if (!File.Exists(logToday))
+                {
+                    File.Create(logToday).Dispose();
+                    _fsLog = new FileStream(logToday, FileMode.Open, FileAccess.ReadWrite);
+                    _swLog = new StreamWriter(_fsLog);
+                    _swLog.AutoFlush = true;
+                }
+                string tmpLog = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss") + " - " + log;
+                Console.WriteLine(tmpLog);
+                _swLog.WriteLine(tmpLog);
+            };
+            if (logTasker == null || logTasker.IsCompleted)
+                logTasker = Task.Factory.StartNew(action, logSend);
+            else
+                logTasker = logTasker.ContinueWith(t => action(logSend));
         }
         public void Restart()
         {
@@ -189,10 +171,8 @@ namespace Core.Server
                     this._Socket.Listen(100);
 
                     this.OnStartSuccess();
-
-                    this._ListenWorker = new BackgroundWorker();
-                    this._ListenWorker.DoWork += new DoWorkEventHandler(this.listeningConnection);
-                    this._ListenWorker.RunWorkerAsync();
+                    _IsStarted = true;
+                    listeningConnection();
                 }
                 else
                 {
@@ -210,7 +190,6 @@ namespace Core.Server
             if (this._IsStarted)
             {
                 this._IsStarted = false;
-                this._ListenWorker.CancelAsync();
                 this.ClientManager.Clear();
                 this.OnStop();
             }

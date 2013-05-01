@@ -4,7 +4,8 @@
         Title="ChatWindow" Height="300" Width="300"
         xmlns:ma="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
     <DockPanel LastChildFill="True">
-        <Grid Name="RightPanel" DockPanel.Dock="Right"></Grid>
+        <Grid Name="FilePanel" DockPanel.Dock="Right"></Grid>
+        <Grid Name="TestPanel" DockPanel.Dock="Right"></Grid>
         <Grid Name="MainPanel" DockPanel.Dock="Top"></Grid>
     </DockPanel>
 </ma:MetroWindow>

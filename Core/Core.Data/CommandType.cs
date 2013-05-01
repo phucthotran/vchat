@@ -11,6 +11,13 @@ namespace Core.Data
     {
         LogIn,
         LogOut,
-        Chat
+        Chat,
+        SendFileAccept,
+        SendFileReject,
+        SendFileRequest,
+        SendFileProcess,
+        ReceiveFileProcess,
+        SendFileSuccess,
+        ReceiveFileSuccess
     }
 }

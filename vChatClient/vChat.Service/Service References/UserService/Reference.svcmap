@@ -18,19 +18,19 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:6566/vChat/UserService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:60111/UserService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="UserService.xsd" MetadataType="Schema" ID="542490ee-f30a-4191-9977-7c2d59a014ab" SourceId="1" SourceUrl="http://localhost:6566/vChat/UserService.svc?xsd=xsd4" />
-    <MetadataFile FileName="UserService.disco" MetadataType="Disco" ID="ca4a0038-5a98-4c85-a5f1-c38f80e17f87" SourceId="1" SourceUrl="http://localhost:6566/vChat/UserService.svc?disco" />
-    <MetadataFile FileName="UserService1.xsd" MetadataType="Schema" ID="d9405335-5ab2-4085-9516-61b11d8f14dc" SourceId="1" SourceUrl="http://localhost:6566/vChat/UserService.svc?xsd=xsd6" />
-    <MetadataFile FileName="UserService2.xsd" MetadataType="Schema" ID="dd37b9b1-ea70-4bd5-8ae0-966761b7253a" SourceId="1" SourceUrl="http://localhost:6566/vChat/UserService.svc?xsd=xsd1" />
-    <MetadataFile FileName="UserService3.xsd" MetadataType="Schema" ID="529b28c2-df36-4c2e-8e03-00bbe12025b4" SourceId="1" SourceUrl="http://localhost:6566/vChat/UserService.svc?xsd=xsd3" />
-    <MetadataFile FileName="UserService4.xsd" MetadataType="Schema" ID="2e296bbc-3c7d-42af-9b95-2f0eb28a4625" SourceId="1" SourceUrl="http://localhost:6566/vChat/UserService.svc?xsd=xsd7" />
-    <MetadataFile FileName="UserService5.xsd" MetadataType="Schema" ID="de5b91e4-da04-475f-b6f3-5a7bfab7db2a" SourceId="1" SourceUrl="http://localhost:6566/vChat/UserService.svc?xsd=xsd5" />
-    <MetadataFile FileName="UserService6.xsd" MetadataType="Schema" ID="c213bceb-eea7-4232-8d36-d335a7fea1da" SourceId="1" SourceUrl="http://localhost:6566/vChat/UserService.svc?xsd=xsd0" />
-    <MetadataFile FileName="UserService7.xsd" MetadataType="Schema" ID="1f792dbc-cd81-4b7e-8da8-973647421d61" SourceId="1" SourceUrl="http://localhost:6566/vChat/UserService.svc?xsd=xsd2" />
-    <MetadataFile FileName="UserService.wsdl" MetadataType="Wsdl" ID="f17c5e89-4b2f-40d7-99a4-e7b5408b118c" SourceId="1" SourceUrl="http://localhost:6566/vChat/UserService.svc?wsdl" />
+    <MetadataFile FileName="UserService8.xsd" MetadataType="Schema" ID="26b47397-b709-4729-8518-03ae713cf969" SourceId="1" SourceUrl="http://localhost:60111/UserService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UserService81.xsd" MetadataType="Schema" ID="1511be34-32f2-431b-9f74-9347e3d08fa6" SourceId="1" SourceUrl="http://localhost:60111/UserService.svc?xsd=xsd6" />
+    <MetadataFile FileName="UserService82.xsd" MetadataType="Schema" ID="141ea5a6-1707-4f4a-9374-28e97dbcd413" SourceId="1" SourceUrl="http://localhost:60111/UserService.svc?xsd=xsd5" />
+    <MetadataFile FileName="UserService83.xsd" MetadataType="Schema" ID="cb373801-7914-4ef1-bd9a-0102ad4a3c8c" SourceId="1" SourceUrl="http://localhost:60111/UserService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UserService84.xsd" MetadataType="Schema" ID="c645e47c-5b71-41f7-8d65-4a6ee7033ad8" SourceId="1" SourceUrl="http://localhost:60111/UserService.svc?xsd=xsd4" />
+    <MetadataFile FileName="UserService1.wsdl" MetadataType="Wsdl" ID="5ffd4ee2-6fab-447e-8bfc-0b7ce39d87b2" SourceId="1" SourceUrl="http://localhost:60111/UserService.svc?wsdl" />
+    <MetadataFile FileName="UserService85.xsd" MetadataType="Schema" ID="3ee5abc5-36f4-4658-a270-db6d22173905" SourceId="1" SourceUrl="http://localhost:60111/UserService.svc?xsd=xsd3" />
+    <MetadataFile FileName="UserService86.xsd" MetadataType="Schema" ID="f4130033-d150-421a-8e0e-7c949aad9d12" SourceId="1" SourceUrl="http://localhost:60111/UserService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UserService87.xsd" MetadataType="Schema" ID="3c7c3bfc-7ab0-4bd3-9a79-fa3d0a808fb7" SourceId="1" SourceUrl="http://localhost:60111/UserService.svc?xsd=xsd7" />
+    <MetadataFile FileName="UserService1.disco" MetadataType="Disco" ID="5fcae0af-a5ae-43c4-896a-5d6b89a4a1f1" SourceId="1" SourceUrl="http://localhost:60111/UserService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
