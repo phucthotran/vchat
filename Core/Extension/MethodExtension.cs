@@ -28,7 +28,7 @@ namespace System
                 {
                     ms.Write(bytes, 0, bytes.Length);
                     ms.Position = 0L;
-                    return (T)new SoapFormatter().Deserialize(ms);
+                    return (T)new BinaryFormatter().Deserialize(ms);
                 }
             }
             catch
@@ -48,7 +48,7 @@ namespace System
             {
                 using (MemoryStream ms = new MemoryStream())
                 {
-                    new SoapFormatter().Serialize(ms, obj);
+                    new BinaryFormatter().Serialize(ms, obj);
                     return ms.ToArray();
                 }
             }

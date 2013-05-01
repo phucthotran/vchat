@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\
 vChat.Control
 none
 false
@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 31560568701
 
-7-23846563
-14-1036433265
+7-198674576
+14987340785
 FieldWarner.xaml;ImageButton.xaml;Themes\Generic.xaml;
 
-False
+True
 

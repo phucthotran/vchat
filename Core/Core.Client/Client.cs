@@ -30,7 +30,6 @@ namespace Core.Client
                 return (Socket != null) ? Socket.Connected : false;
             }
         }
-        private NetworkStream _Stream;
         private CommandExecuter _Executer = new CommandExecuter();
         private Task sendTasker;
         public IPAddress ServerIP { get; private set; }
@@ -64,7 +63,6 @@ namespace Core.Client
                 this.Socket.Connect(new IPEndPoint(ServerIP, Port));
                 Socket.ReceiveBufferSize = 1024 * 1024 * 100;
                 Socket.SendBufferSize = 1024 * 1024 * 100;
-                this._Stream = new NetworkStream(this.Socket);
                 this.OnConnected();
                 byte[] buffer = new byte[4];
                 Socket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, new AsyncCallback(receiveCommand), buffer);

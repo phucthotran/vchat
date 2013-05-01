@@ -54,6 +54,7 @@ namespace vChat.Module.Chat
             if (messageBlock.Inlines.Count > 0)
             {
                 MessageView.Document.Blocks.Add(styledText);
+                MessageView.ScrollToEnd();
                 OnSendMessage(XamlWriter.Save(messageBlock));
             }
         }
@@ -61,6 +62,11 @@ namespace vChat.Module.Chat
         private void SendFile_Handler(FileSending fileSending)
         {
             OnSendFile(fileSending);
+        }
+
+        private void MessageView_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

@@ -1,5 +1,71 @@
-01/05/2013 02:28:49 - Server da khoi dong thanh cong.
-01/05/2013 03:29:47 - itexplore(127.0.0.1:29625) da ket noi den server.
-01/05/2013 03:30:10 - itexplore(127.0.0.1:29625) da gui: SendFileRequest - WPF+TreeView+ViewModel[Converted] (846.66 KB) 
-01/05/2013 03:30:25 - itexplore(127.0.0.1:29625) da gui: SendFileReject - 54d1e0a9-a9b7-44bc-8452-afda1ed2c6e4
-01/05/2013 03:30:30 - itexplore(127.0.0.1:29625) da ngat ket noi.
+01/05/2013 05:48:44 - Server da khoi dong thanh cong.
+01/05/2013 05:51:49 - symaci(127.0.0.1:9567) da ket noi den server.
+01/05/2013 05:51:58 - symaci(127.0.0.1:9567) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">df</TextBlock> :: 127.0.0.1:9567
+01/05/2013 05:52:08 - symaci(127.0.0.1:9567) da ngat ket noi.
+01/05/2013 05:53:57 - symaci(127.0.0.1:9596) da ket noi den server.
+01/05/2013 05:54:12 - symaci(127.0.0.1:9596) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">ffd</TextBlock> :: 127.0.0.1:9596
+01/05/2013 05:54:19 - symaci(127.0.0.1:9596) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">fdfd</TextBlock> :: 127.0.0.1:9596
+01/05/2013 05:54:25 - symaci(127.0.0.1:9596) da ngat ket noi.
+01/05/2013 05:56:56 - symaci(127.0.0.1:9675) da ket noi den server.
+01/05/2013 05:57:01 - symaci(127.0.0.1:9675) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">d</TextBlock> :: 127.0.0.1:9675
+01/05/2013 05:57:11 - symaci(127.0.0.1:9675) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">dfd</TextBlock> :: 127.0.0.1:9675
+01/05/2013 05:57:17 - symaci(127.0.0.1:9675) da ngat ket noi.
+01/05/2013 05:57:53 - symaci(127.0.0.1:9704) da ket noi den server.
+01/05/2013 05:58:08 - symaci(127.0.0.1:9704) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sdds</TextBlock> :: 127.0.0.1:9704
+01/05/2013 05:58:31 - symaci(127.0.0.1:9704) da ngat ket noi.
+01/05/2013 05:59:37 - symaci(127.0.0.1:9787) da ket noi den server.
+01/05/2013 05:59:57 - symaci(127.0.0.1:9787) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">d</TextBlock> :: 127.0.0.1:9787
+01/05/2013 06:00:46 - symaci(127.0.0.1:9787) da ngat ket noi.
+01/05/2013 06:01:34 - symaci(127.0.0.1:9888) da ket noi den server.
+01/05/2013 06:01:39 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">fdfd</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:11 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">r</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:12 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">e</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:15 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /> :: 127.0.0.1:9888
+01/05/2013 06:09:15 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">e</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:16 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">e</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:18 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /> :: 127.0.0.1:9888
+01/05/2013 06:09:20 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">et</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:20 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">et</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:20 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">e</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:21 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">tete</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:21 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">t</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:21 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">et</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:21 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">et</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:22 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">e</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:22 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">te</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:22 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">t</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:22 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">e</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:22 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">te</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:23 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">tet</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:23 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">et</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:23 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">e</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:23 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">te</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:23 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">t</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:23 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">e</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:23 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">te</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:24 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">t</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:24 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">ete</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:24 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">t</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:24 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">et</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:24 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">e</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:24 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">t</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:25 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">et</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:25 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">etete</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:25 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">t</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:25 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">e</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:25 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">t</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:25 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">et</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:26 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">et</TextBlock> :: 127.0.0.1:9888
+01/05/2013 06:09:26 - symaci(127.0.0.1:9888) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">e</TextBlock> :: 127.0.0.1:9888
+crosoft.com/winfx/2006/xaml/presentation">f</TextBlock> :: 127.0.0.1:8515
+01/05/2013 05:37:42 - symaci(127.0.0.1:8515) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sf</TextBlock> :: 127.0.0.1:8515
+01/05/2013 05:37:42 - symaci(127.0.0.1:8515) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">af</TextBlock> :: 127.0.0.1:8515
+01/05/2013 05:37:43 - symaci(127.0.0.1:8515) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sdf</TextBlock> :: 127.0.0.1:8515
+01/05/2013 05:37:43 - symaci(127.0.0.1:8515) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sdg</TextBlock> :: 127.0.0.1:8515
+01/05/2013 05:37:44 - symaci(127.0.0.1:8515) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sgd</TextBlock> :: 127.0.0.1:8515
+01/05/2013 05:37:44 - symaci(127.0.0.1:8515) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">df</TextBlock> :: 127.0.0.1:8515
+01/05/2013 05:37:44 - symaci(127.0.0.1:8515) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">hdfh</TextBlock> :: 127.0.0.1:8515
+01/05/2013 05:46:27 - symaci(127.0.0.1:8515) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">dss</TextBlock> :: 127.0.0.1:8515
+01/05/2013 05:46:31 - symaci(127.0.0.1:8515) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">asd</TextBlock> :: 127.0.0.1:8515
+01/05/2013 05:46:34 - symaci(127.0.0.1:8515) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">a</TextBlock> :: 127.0.0.1:8515
+01/05/2013 05:48:15 - symaci(127.0.0.1:8515) da ngat ket noi.

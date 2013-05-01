@@ -4,6 +4,13 @@
 ## Update Log
 -------------
 
+#### Update 05.01 6:10 PM
+- Tái cấu trúc solution **Core**, loại bỏ BackgroundWorker mà thay vào bằng `Task` và áp dụng `Async Socket`
+- Tái cấu trúc lại cách thức binding command từ client
+- Tạo `MainWindowListener` dùng để xử lý các `Command` được server gửi đến
+- Tạo `SendFilePanel` dùng để hiển thị những file được client gửi đến
+- Fix lỗi khiến cho server chủ động disconnect client.
+
 #### Update 26.04 4:40 PM
 - Thêm module `UploadImage` dùng cho upload ảnh đại diện (profile picture)
 - Thêm method `ChangeProfilePicture` (`vChat.WCF`): update ảnh đại diện cho người dùng

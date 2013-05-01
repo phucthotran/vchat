@@ -76,3 +76,42 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Extension.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Model.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Lib.pdb
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.exe.config
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat.exe
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat.pdb
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.exe
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.pdb
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\Core.Client.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\Core.Data.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\Elysium.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\Elysium.Notifications.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\Extension.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\MahApps.Metro.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\Microsoft.Windows.Shell.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.Control.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.Model.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.Module.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.Service.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.Lib.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\Microsoft.Expression.Drawing.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\System.Windows.Interactivity.dll
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.Control.pdb
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.Module.pdb
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.Service.pdb
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\Core.Client.pdb
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\Core.Data.pdb
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\Extension.pdb
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.Model.pdb
+D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.Lib.pdb
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChatClient.csprojResolveAssemblyReference.cache
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\Themes\Generic.baml
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\ChatWindow.baml
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\MainWindow.baml
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\App.baml
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\ChatWindow.g.cs
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\MainWindow.g.cs
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\App.g.cs
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat_MarkupCompile.cache
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat.g.resources
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat.Properties.Resources.resources
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChatClient.csproj.GenerateResource.Cache

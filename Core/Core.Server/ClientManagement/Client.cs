@@ -16,7 +16,6 @@ namespace Core.Server.ClientManagement
 
         public string User { get; set; }
         public Socket Socket { get; private set; }
-        public NetworkStream Stream { get; private set; }
         public CommandExecuter Executer { get; private set; }
 
         public Client(Socket socket)
@@ -35,7 +34,6 @@ namespace Core.Server.ClientManagement
             this.Socket = socket;
             Socket.ReceiveBufferSize = 1024 * 1024 * 100;
             Socket.SendBufferSize = 1024 * 1024 * 100;
-            this.Stream = new NetworkStream(this.Socket);
             this.OnConnected += handler;
             this.OnConnected(this);
             byte[] buffer = new byte[4];
@@ -47,7 +45,6 @@ namespace Core.Server.ClientManagement
             try
             {
                 byte[] buffer = (byte[])ar.AsyncState;
-                Socket.EndReceive(ar);
                 if (buffer.Length == 4)
                 {
                     int bufferSize = BitConverter.ToInt32(buffer, 0);

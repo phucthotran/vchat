@@ -11,6 +11,6 @@
             <Button IsDefault="True" Name="Submit" Content="Gửi" DockPanel.Dock="Right" Width="61" Click="Submit_Click" />
             <RichTextBox Name="MessageInput" ScrollViewer.HorizontalScrollBarVisibility="Auto" DockPanel.Dock="Left" Height="50" AcceptsReturn="False"></RichTextBox>
         </DockPanel>
-        <RichTextBox Name="MessageView" ScrollViewer.HorizontalScrollBarVisibility="Auto" IsReadOnly="True" DockPanel.Dock="Top" MinHeight="200" MinWidth="400"></RichTextBox>
+        <RichTextBox Name="MessageView" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="False" DockPanel.Dock="Top" MinHeight="200" MinWidth="400" PreviewKeyDown="MessageView_PreviewKeyDown"></RichTextBox>
     </DockPanel>
 </UserControl>
