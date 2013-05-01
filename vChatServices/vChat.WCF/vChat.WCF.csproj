@@ -100,11 +100,11 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>False</AutoAssignPort>
-          <DevelopmentServerPort>60111</DevelopmentServerPort>
+          <DevelopmentServerPort>6566</DevelopmentServerPort>
           <DevelopmentServerVPath>/vChatServices</DevelopmentServerVPath>
           <IISUrl>http://localhost/vChatServices</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>True</UseCustomServer>
+          <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>http://localhost:60111</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
           <EnableWcfTestClientForSVCDefaultValue>True</EnableWcfTestClientForSVCDefaultValue>

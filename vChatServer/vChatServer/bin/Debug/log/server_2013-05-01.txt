@@ -1,1 +1,5 @@
-01/05/2013 11:44:19 - Server da khoi dong thanh cong.
+01/05/2013 02:28:49 - Server da khoi dong thanh cong.
+01/05/2013 03:29:47 - itexplore(127.0.0.1:29625) da ket noi den server.
+01/05/2013 03:30:10 - itexplore(127.0.0.1:29625) da gui: SendFileRequest - WPF+TreeView+ViewModel[Converted] (846.66 KB) 
+01/05/2013 03:30:25 - itexplore(127.0.0.1:29625) da gui: SendFileReject - 54d1e0a9-a9b7-44bc-8452-afda1ed2c6e4
+01/05/2013 03:30:30 - itexplore(127.0.0.1:29625) da ngat ket noi.

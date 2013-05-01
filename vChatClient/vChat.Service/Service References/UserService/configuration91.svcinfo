@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="XjSEW8feRl1gIyCVkLWERhQO0NI=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="i8M8O9wMJJwmnuqToYn2eWK9efg=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IUserService">
       <properties>
@@ -127,10 +127,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IUserService" contract="UserService.IUserService" bindingType="wsHttpBinding" address="http://localhost:60111/UserService.svc" bindingConfiguration="WSHttpBinding_IUserService">
+    <endpoint name="WSHttpBinding_IUserService" contract="UserService.IUserService" bindingType="wsHttpBinding" address="http://localhost:6566/vChatServices/UserService.svc" bindingConfiguration="WSHttpBinding_IUserService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:60111/UserService.svc</serializedValue>
+          <serializedValue>http://localhost:6566/vChatServices/UserService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
