@@ -129,6 +129,14 @@ namespace System
             w.Resources = Theme;
         }
 
+        public static void BringToFront(this Window w)
+        {
+            w.Activate();
+            w.Topmost = true;
+            w.Topmost = false;
+            w.Focus();
+        }
+
         public static void CloseHandler(this Window w, bool isHandle)
         {
             w.CloseHandler(isHandle, "Bạn có muốn tắt ứng dụng không?");

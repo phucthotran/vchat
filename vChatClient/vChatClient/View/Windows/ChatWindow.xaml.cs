@@ -19,6 +19,7 @@ using vChat.Module.Chat.SendFilePanel;
 using vChat.Module.Chat.ViewParts;
 using System.IO;
 using System.Net;
+using vChat.Module.Chat.Parts;
 
 namespace vChat.View.Windows
 {
@@ -73,9 +74,9 @@ namespace vChat.View.Windows
             });
         }
 
-        public void ReceiveMessage(string fromUser, string message)
+        public void ReceiveMessage(Message message)
         {
-            _ChatModule.ReceiveMessage(fromUser, message);
+            _ChatModule.ReceiveMessage(message);
         }
 
         public void IsRequestFile(string fromUser, object fileSending)
@@ -116,6 +117,11 @@ namespace vChat.View.Windows
         {
             if (e.Key == Key.Escape)
                 this.Close();
+        }
+
+        private void MetroWindow_Activated(object sender, EventArgs e)
+        {
+            this.StopFlashingWindow();
         }
     }
 }

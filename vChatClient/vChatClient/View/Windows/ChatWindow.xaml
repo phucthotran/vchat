@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ChatWindow"
         xmlns:ma="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" PreviewKeyDown="MetroWindow_PreviewKeyDown"
-        MinWidth="500" MinHeight="350">
+        MinWidth="500" MinHeight="350" Activated="MetroWindow_Activated">
     <DockPanel LastChildFill="True">
         <Grid Name="FilePanel" DockPanel.Dock="Right"></Grid>
         <Grid Name="TestPanel" DockPanel.Dock="Right"></Grid>

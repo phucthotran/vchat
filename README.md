@@ -4,7 +4,13 @@
 ## Update Log
 -------------
 
-#### U[date 02.05 3:07 AM
+#### Update 04.05 6:30 AM
+- Chỉnh sửa lại cách thức gửi và nhận tin nhắn
+- Thêm tính năng hiển thị thời gian gửi và nhận tin nhắn bằng cách nhấn nút `F2`
+- Thêm tính năng dùng lại tin nhắn đã gửi bằng cách nhấn phím Up hoặc Down
+- Thêm tính năng hiển thị popup góc dưới bên phải màn hình. Nhấn vào sẽ focus vào khung chat tương ứng
+
+#### Update 02.05 3:07 AM
 - Thêm tính năng nhấp nháy Window khi không focus
 - Sửa lỗi các cửa sổ thuộc `MainWindow` không tắt khi nhấn đăng xuất
 - Thêm tính năng hỏi người dùng khi nhấn tắt `MainWindow` hoặc nhấn Esc

@@ -21,6 +21,7 @@ using vChat.Module.AddFriend;
 using Core.Client;
 using Core.Data;
 using System.ComponentModel;
+using System.Windows.Controls.Primitives;
 
 namespace vChat.View.Windows
 {
@@ -43,9 +44,10 @@ namespace vChat.View.Windows
             this.SendFile = this.Get<Dictionary<string, SortedList<int, byte[]>>>("SendFile");
             this.SendFilePath = this.Get<Dictionary<string, string>>("SendFilePath");
             this.InitTheme();
-            InitializeComponent();            
+            InitializeComponent();
             InitLoginModule();
-            InitClientListener();            
+            InitClientListener();
+
         }
 
         private void InitClientListener()
@@ -85,9 +87,21 @@ namespace vChat.View.Windows
 
         private void FriendList_OnFriendDoubleClick(object sender, FriendArgs e)
         {
-            ChatWindow chatWindow = new ChatWindow(e.Username);
-            chatWindow.Show();
-            chatWindow.Focus();
+            ChatWindow chatWindow = null;
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() == typeof(ChatWindow) && ((ChatWindow)window).TargetUser == e.Username)
+                {
+                    chatWindow = window as ChatWindow;
+                    break;
+                }
+            }
+            if (chatWindow == null)
+            {
+                chatWindow = new ChatWindow(e.Username);
+                chatWindow.Show();
+            }
+            chatWindow.BringToFront();
         }
 
         private void Login_OnLoginSuccess(Users UserLogged)

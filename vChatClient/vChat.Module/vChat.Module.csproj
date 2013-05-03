@@ -94,7 +94,7 @@
     <Compile Include="Chat\ChatController.cs" />
     <Compile Include="AddFriend\AddFriendController.cs" />
     <Compile Include="Chat\Parts\Message.cs" />
-    <Compile Include="Chat\Parts\StyledText.cs" />
+    <Compile Include="Chat\Parts\MessagePopup.cs" />
     <Compile Include="Chat\ViewParts\ChatToolBar.xaml.cs">
       <DependentUpon>ChatToolBar.xaml</DependentUpon>
     </Compile>
