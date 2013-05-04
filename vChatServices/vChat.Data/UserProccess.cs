@@ -62,7 +62,7 @@ namespace vChat.Data
             return UserTask.AddFriend(userInfo, friendInfo, groupInfo) ? SUCCESS : FAIL;
         }
 
-        public MethodInvokeResult AddGroup(int UserID, String Name, out int NewGroupID)
+        public MethodInvokeResult AddGroup(int UserID, String Name, ref int NewGroupID)
         {
             SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Thêm nhóm thành công" };
             FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình thêm nhóm. Vui lòng thử lại sau" };

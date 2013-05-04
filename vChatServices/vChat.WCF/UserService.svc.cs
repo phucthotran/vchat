@@ -99,9 +99,9 @@ namespace vChat.WCF
         /// <param name="NewGroupID">Push new group id back to you</param>
         /// <returns>Status.SUCCESS, Status.FAIL</returns>
         [OperationBehavior]
-        public MethodInvokeResult AddGroup(int UserID, String Name, out int NewGroupID)
+        public MethodInvokeResult AddGroup(int UserID, String Name, ref int NewGroupID)
         {
-            return unc.AddGroup(UserID, Name, out NewGroupID);
+            return unc.AddGroup(UserID, Name, ref NewGroupID);
         }
 
         /// <summary>

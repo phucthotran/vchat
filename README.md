@@ -4,9 +4,18 @@
 ## Update Log
 -------------
 
+#### Update 05.05 4:00 AM
+- Fix lỗi thêm nhóm khi thêm bạn bè
+- Fix lỗi không xóa được nhóm
+- Chỉnh lại method **AddGroup** (`vChat.WCF`)
+- Fix lỗi **Yêu Cầu Kết Bạn** bị lặp
+- Fix lỗi không update được avatar
+- Fix lỗi khi đăng nhập vào tài khoản chưa có avatar
+- Fix lỗi **FriendList** không cập nhật bạn bè khi thêm bạn vào nhóm mới (nhóm chưa tồn tại)
+
 #### Update 05.05 2:10 AM
 - Fix lỗi Client.ID = 0;
-- Chỉnh lại config của **vChatWCF** (`vChatServices`): nhớ chỉnh lại port từ 80 sang 60111 nha
+- Chỉnh lại config của **vChatWCF** (`vChatServices`): nhớ chỉnh lại port từ 80 sang 60111 nha (trên IIS)
 - Fix lỗi **NullReferenceException** trong module `Avatar`
 
 #### Update 04.05 4:30 PM
@@ -42,7 +51,6 @@
 - Thêm module `Avatar` dùng cho việc thay đổi ảnh đại diện
 - Cơ cấu lại `UploadImage` module để làm việc với `Avatar` module
 - Chỉnh lại giao diện `FriendList`
->>>>>>> vchat/master
 
 #### Update 04.05 6:30 AM
 - Chỉnh sửa lại cách thức gửi và nhận tin nhắn

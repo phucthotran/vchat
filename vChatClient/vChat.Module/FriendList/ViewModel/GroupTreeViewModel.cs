@@ -138,8 +138,13 @@ namespace vChat.Module.FriendList
 
             GroupViewModel ParentGroup = _Groups.FirstOrDefault(g => g.Group.Equals(Group));
 
-            if(ParentGroup != null)
-                ParentGroup.Children.Add(new FriendViewModel(Friend, ParentGroup));
+            if (ParentGroup == null)
+            {
+                AppendGroup(Group);
+                ParentGroup = _Groups.FirstOrDefault(g => g.Group.Equals(Group));
+            }
+            
+            ParentGroup.Children.Add(new FriendViewModel(Friend, ParentGroup));
         }
 
         public void RemoveFriend(Users Friend, FriendGroup Group)

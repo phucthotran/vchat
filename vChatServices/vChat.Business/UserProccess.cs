@@ -164,7 +164,7 @@ namespace vChat.Business
             }                        
         }
 
-        public MethodInvokeResult AddGroup(int UserID, String Name, out int NewGroupID)
+        public MethodInvokeResult AddGroup(int UserID, String Name, ref int NewGroupID)
         {
             try
             {
@@ -177,7 +177,7 @@ namespace vChat.Business
 
                 ValidationController.Validate(); //throw ValidateException
 
-                return unc.AddGroup(UserID, Name, out NewGroupID);
+                return unc.AddGroup(UserID, Name, ref NewGroupID);
             }
             catch (ValidateException ex)
             {
@@ -190,11 +190,7 @@ namespace vChat.Business
             catch (Exception ex)
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
-            }
-            finally
-            {
-                NewGroupID = 0;
-            }            
+            }         
         }
 
         public MethodInvokeResult RemoveGroup(int GroupID, bool RemoveContact)

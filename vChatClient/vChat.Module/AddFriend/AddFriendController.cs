@@ -26,9 +26,9 @@ namespace vChat.Module.AddFriend
             return this.Get<UserServiceClient>().GroupInfo(GroupID);
         }
 
-        private bool AddNewGroup(int UserID, String Name, out int NewGroupID)
+        private bool AddNewGroup(int UserID, String Name, ref int NewGroupID)
         {
-            MethodInvokeResult result = this.Get<UserServiceClient>().AddGroup(out NewGroupID, UserID, Name);
+            MethodInvokeResult result = this.Get<UserServiceClient>().AddGroup(UserID, Name, ref NewGroupID);
 
             Helper.ShowMessage(result);
 

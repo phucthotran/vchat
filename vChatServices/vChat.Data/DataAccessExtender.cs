@@ -330,7 +330,7 @@ namespace vChat.Data
                            && m.IsAccepted == false && m.IsIgnored == false
                        )
                 .Select(m => m.User)
-                .ToList();
+                .DistinctList();
         }
 
         public static bool RequestProcess(this Users um, Users User, Users Friend, FriendGroup Group, bool IsAccepted, bool IsIgnored)
