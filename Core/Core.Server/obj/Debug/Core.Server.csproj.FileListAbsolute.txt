@@ -1,0 +1,8 @@
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\bin\Debug\Core.Server.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\bin\Debug\Core.Server.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\bin\Debug\Core.Data.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\bin\Debug\Extension.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\bin\Debug\Core.Data.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\bin\Debug\Extension.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\obj\Debug\Core.Server.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\obj\Debug\Core.Server.pdb

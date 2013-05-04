@@ -1,4 +1,4 @@
-04/05/2013 04:18:13 - Server da khoi dong thanh cong.
+04/05/2013 10:18:41 - Server da khoi dong thanh cong.
 04/05/2013 03:04:31 - itexplore(127.0.0.1:11057) da ket noi den server.
 04/05/2013 03:05:02 - shinichikudo(127.0.0.1:11096) da ket noi den server.
 04/05/2013 03:05:04 - itexplore(127.0.0.1:11057) da gui: CheckIP - shinichikudo

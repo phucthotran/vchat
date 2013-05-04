@@ -1,0 +1,5 @@
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Extension\bin\Debug\Extension.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Extension\bin\Debug\Extension.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Extension\obj\Debug\Extension.csprojResolveAssemblyReference.cache
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Extension\obj\Debug\Extension.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Extension\obj\Debug\Extension.pdb

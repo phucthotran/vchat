@@ -4,6 +4,11 @@
 ## Update Log
 -------------
 
+#### Update 05.05 2:10 AM
+- Fix lỗi Client.ID = 0;
+- Chỉnh lại config của **vChatWCF** (`vChatServices`): nhớ chỉnh lại port từ 80 sang 60111 nha
+- Fix lỗi **NullReferenceException** trong module `Avatar`
+
 #### Update 04.05 4:30 PM
 - Thêm thư viện mới: **NAudio** (thư mục **DllsReference\NAudio** )
 - Thêm module `VoIP` dùng cho chat voice

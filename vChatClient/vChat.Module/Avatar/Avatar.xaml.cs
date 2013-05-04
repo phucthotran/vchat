@@ -59,6 +59,9 @@ namespace vChat.Module.Avatar
 
         private ImageSource ConvertByteToImageSource(byte[] data)
         {
+            if (data == null)
+                return null;
+
             MemoryStream msImage = new MemoryStream(data);
             BitmapImage bitmap = new BitmapImage();
             bitmap.BeginInit();

@@ -38,7 +38,7 @@ namespace vChat.View.Windows
         public Dictionary<string, string> SendFilePath;
 
         public MainWindow()
-        {
+        {            
             this.Width = 300;
             this.MinWidth = 300;
             this.Height = SystemParameters.WorkArea.Height;

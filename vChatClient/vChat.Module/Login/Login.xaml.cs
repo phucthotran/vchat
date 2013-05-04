@@ -67,10 +67,10 @@ namespace vChat.Module.Login
             ProcessPanel.Visibility = System.Windows.Visibility.Collapsed;
             LoggingResponse res = e.Result as LoggingResponse;
             if (res.Success)
-            {
-                OnLoginSuccess(res.Users);
+            {                
                 this.Get<Core.Client.Client>().ID = res.Users.UserID;
                 this.Get<Core.Client.Client>().Name = res.Users.Username;
+                OnLoginSuccess(res.Users);
             }
             else
             {
