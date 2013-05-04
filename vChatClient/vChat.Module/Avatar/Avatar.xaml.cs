@@ -100,7 +100,7 @@ namespace vChat.Module.Avatar
             tbChangeAvatar.Foreground = Brushes.Black;
         }
 
-        public virtual void OnPropertyChanged(String PropertyName)
+        protected virtual void OnPropertyChanged(String PropertyName)
         {
             if (PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));

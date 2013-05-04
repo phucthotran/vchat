@@ -1,7 +1,0 @@
-22/04/2013 09:50:23 - Server da khoi dong thanh cong.
-22/04/2013 09:51:16 - itexplore(127.0.0.1:13817) da ket noi den server.
-22/04/2013 09:53:17 - itexplore(127.0.0.1:14051) da ket noi den server.
-22/04/2013 09:53:21 - itexplore(127.0.0.1:14051) da ngat ket noi.
-22/04/2013 09:53:36 - shinichikudo(127.0.0.1:14126) da ket noi den server.
-22/04/2013 09:54:27 - shinichikudo(127.0.0.1:14126) da ngat ket noi.
-22/04/2013 09:54:31 - itexplore(127.0.0.1:13817) da ngat ket noi.
