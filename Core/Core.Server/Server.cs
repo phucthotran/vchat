@@ -24,7 +24,7 @@ namespace Core.Server
 
         #region Properties
         public ServerConfig Config { get; private set; }
-        public ClientManager ClientManager { get; private set; }
+        public ClientCollection Clients { get; private set; }
         public object Invoker { get; set; }
         #endregion
 
@@ -48,7 +48,7 @@ namespace Core.Server
                 this.Config = new ServerConfig(true);
             }
             this._IsStarted = false;
-            this.ClientManager = new ClientManager();
+            this.Clients = new ClientCollection();
             if (!Directory.Exists("log"))
             {
                 Directory.CreateDirectory("log");
@@ -69,7 +69,7 @@ namespace Core.Server
         private void ClientOnDisconnected(Client client)
         {
             this.OnClientDisconnected(client);
-            this.ClientManager.Remove(client);
+            this.Clients.Remove(client);
         }
 
         private void ClientOnReceived(Client client, Command cmd)
@@ -109,7 +109,7 @@ namespace Core.Server
             }
             if (!cmd.TargetUser.Equals("SERVER"))
             {
-                Client target = this.ClientManager.GetClient(cmd.TargetUser);
+                Client target = this.Clients.GetClient(cmd.TargetUser);
                 if (target != null)
                 {
                     target.SendCommand(cmd);
@@ -125,7 +125,7 @@ namespace Core.Server
                 {
                     listeningConnection();
                     Client client = new Client(_Socket.EndAccept(ar), new Client.ConnectedHandler(this.ClientOnConnected));
-                    this.ClientManager.Add(client);
+                    this.Clients.Add(client);
                     client.OnDisconnected += new Client.DisconnectedHandler(this.ClientOnDisconnected);
                     client.OnReceived += new Client.ReceivedHandler(this.ClientOnReceived);
                 }, null);
@@ -134,6 +134,14 @@ namespace Core.Server
         #endregion
 
         #region Public Methods
+        public void SendCommand(Command cmd, params Client[] clients)
+        {
+            foreach (Client client in clients)
+            {
+                client.SendCommand(cmd);
+            }
+        }
+
         public void Logging(string logSend)
         {
             Action<object> action = log =>
@@ -190,7 +198,7 @@ namespace Core.Server
             if (this._IsStarted)
             {
                 this._IsStarted = false;
-                this.ClientManager.Clear();
+                this.Clients.Clear();
                 this.OnStop();
             }
             else

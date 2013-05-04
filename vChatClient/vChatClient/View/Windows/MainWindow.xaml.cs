@@ -21,6 +21,7 @@ using vChat.Module.AddFriend;
 using Core.Client;
 using Core.Data;
 using System.ComponentModel;
+using System.Windows.Controls.Primitives;
 
 namespace vChat.View.Windows
 {
@@ -43,9 +44,10 @@ namespace vChat.View.Windows
             this.SendFile = this.Get<Dictionary<string, SortedList<int, byte[]>>>("SendFile");
             this.SendFilePath = this.Get<Dictionary<string, string>>("SendFilePath");
             this.InitTheme();
-            InitializeComponent();            
+            InitializeComponent();
             InitLoginModule();
-            InitClientListener();            
+            InitClientListener();
+
         }
 
         private void InitClientListener()
@@ -75,14 +77,30 @@ namespace vChat.View.Windows
         }
 
         private void FriendList_OnFriendDoubleClick(object sender, FriendArgs e)
-        {            
-            new ChatWindow(e.Username).Show();
+        {
+            ChatWindow chatWindow = null;
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() == typeof(ChatWindow) && ((ChatWindow)window).TargetUser == e.Username)
+                {
+                    chatWindow = window as ChatWindow;
+                    break;
+                }
+            }
+            if (chatWindow == null)
+            {
+                chatWindow = new ChatWindow(e.Username);
+                chatWindow.Show();
+            }
+            chatWindow.BringToFront();
         }
 
         private void Login_OnLoginSuccess(Users UserLogged)
         {
+            if (!this.IsFocused)
+                this.FlashWindow();
             LogOut.Visibility = System.Windows.Visibility.Visible;
-            InitFriendsListModule(UserLogged.UserID);          
+            InitFriendsListModule(UserLogged.UserID);
         }
 
         private void Login_OnLoginFailed()
@@ -106,10 +124,36 @@ namespace vChat.View.Windows
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             this.Get<Client>().Disconnect();
+            foreach (Window window in App.Current.Windows)
+            {
+                if (window.GetType() != typeof(MainWindow))
+                {
+                    window.CloseHandler(false);
+                }
+            }
             Cookie.Instance.Unset("user", "pass", "expire");
             Cookie.Instance.Save();
             InitLoginModule();
             LogOut.Visibility = System.Windows.Visibility.Collapsed;
+        }
+
+        private void MetroWindow_Activated(object sender, EventArgs e)
+        {
+            this.StopFlashingWindow();
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
+        }
+
+        private void MetroWindow_Closing(object sender, CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.CloseHandler(true, e);
         }
     }
 }

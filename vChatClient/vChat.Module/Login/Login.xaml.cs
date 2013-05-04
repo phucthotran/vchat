@@ -51,6 +51,7 @@ namespace vChat.Module.Login
             if (loginSuccessHandler != null)
                 OnLoginSuccess += loginSuccessHandler;
             InitializeComponent();
+            tbUser.Focus();
             if (IsExistCookie())
             {
                 Cookie cookie = Cookie.Instance;

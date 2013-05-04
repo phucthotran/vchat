@@ -18,7 +18,7 @@ namespace vChatServer
         [Invoke(CommandType.LogIn)]
         public void UserLogIn(Client client, string user)
         {
-            client.User = user;
+            client.Name = user;
         }
     }
 }

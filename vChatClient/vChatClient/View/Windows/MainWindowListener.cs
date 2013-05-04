@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Documents;
 using System.Net;
 using System.IO;
+using vChat.Module.Chat.Parts;
 
 namespace vChat.View.Windows
 {
@@ -27,18 +28,31 @@ namespace vChat.View.Windows
                         break;
                     }
                 }
+                Message message = Message.LoadXamlContent(res.TargetUser, false, res.Params[0].ToString());       
+                message.IsDisplayUser = true;
+                FlowDocument messageDoc = new FlowDocument();
+                messageDoc.Blocks.AddRange(message);
+                string text = new TextRange(messageDoc.ContentStart, messageDoc.ContentEnd).Text;
+                text = text.Replace("\r\n", " ");
+                if (text.Length >= 30)
+                    text = text.Replace(text.Substring(30, text.Length - 30), "...");
                 if (chatWindow != null)
                 {
                     chatWindow.Focus();
-                    chatWindow.ReceiveMessage(res.TargetUser, res.Params[0] as string);
+                    chatWindow.ReceiveMessage(message);
                 }
                 else
                 {
                     chatWindow = new ChatWindow(res.TargetUser);
-                    chatWindow.ReceiveMessage(res.TargetUser, res.Params[0] as string);
+                    chatWindow.ReceiveMessage(message);
                     chatWindow.Show();
                 }
-                chatWindow.ep = res.Params[1] as EndPoint; // need fix - hoat dong khi chat 1 dong
+                MessagePopup.Display(text, delegate
+                {
+                    chatWindow.BringToFront();
+                }); 
+                if (!chatWindow.IsActive)
+                    chatWindow.FlashWindow();
             }
             else
             {
