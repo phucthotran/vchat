@@ -9,6 +9,9 @@ using System.Windows;
 using System.Windows.Media;
 using System.IO;
 using System.Windows.Media.Imaging;
+using Core.Data;
+using System.Net;
+using Core.Client;
 
 namespace vChat.Module.FriendList
 {
@@ -128,8 +131,8 @@ namespace vChat.Module.FriendList
         public FriendViewModel(Users Friend, GroupViewModel Parent)
         {
             _Friend = Friend;
-            _Parent = Parent;
-        }
+            _Parent = Parent;            
+        }       
 
         public bool NameContainsText(String Text)
         {

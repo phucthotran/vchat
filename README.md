@@ -4,10 +4,40 @@
 ## Update Log
 -------------
 
+#### Update 04.05 4:30 PM
+- Thêm thư viện mới: **NAudio** (thư mục **DllsReference\NAudio** )
+- Thêm module `VoIP` dùng cho chat voice
+- Tích hợp module `VoIP` vào `ChatWindow`
+
+#### Update 04.05 1:30 PM
+- Cách lấy IP của một username:
+
+```c#
+	// Đầu tiên phải binding command đến một method response
+	this.Get<Client>().CommandBinding(CommandType.CheckIP, res => 
+	{
+		// parameter đầu tiên trong res là RemoteEndPoint của username cần check
+		EndPoint ep = (EndPoint)res.Params[0];
+		// do work here
+	});
+	// Hoặc có thể binding vào một method nào đó
+	this.Get<Client>().CommandBinding(CommandType.CheckIP, OpenVoice);
+	public void OpenVoice(CommandResponse res)
+	{
+		EndPoint ep = (EndPoint)res.Params[0];
+	}
+	
+	// Sau đó cần gửi command lên server để lấy IP về
+	this.Get<Client>().SendCommand(CommandType.CheckIP, "SERVER", "username cần check");
+	
+	// nhớ là CommandBinding phải chạy trước thì SendCommand khi gửi lên mới có response được ...
+```
+=======
 #### Update 04.05 13:00 PM
 - Thêm module `Avatar` dùng cho việc thay đổi ảnh đại diện
 - Cơ cấu lại `UploadImage` module để làm việc với `Avatar` module
 - Chỉnh lại giao diện `FriendList`
+>>>>>>> vchat/master
 
 #### Update 04.05 6:30 AM
 - Chỉnh sửa lại cách thức gửi và nhận tin nhắn

@@ -18,6 +18,7 @@ namespace Core.Data
         SendFileProcess,
         ReceiveFileProcess,
         SendFileSuccess,
-        ReceiveFileSuccess
+        ReceiveFileSuccess,
+        CheckIP
     }
 }

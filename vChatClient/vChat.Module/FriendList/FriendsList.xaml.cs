@@ -41,8 +41,6 @@ namespace vChat.Module.FriendList
         private RequestViewModel _RequestVM;
         private int _UserID;
 
-        private bool IsUpdateRequest = true;
-
         #endregion
 
         public FriendsList()

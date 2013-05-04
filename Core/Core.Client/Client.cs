@@ -114,7 +114,6 @@ namespace Core.Client
             }
             catch (Exception e)
             {
-                throw e;
                 this.ID = -1;
                 this.Name = "";
             }
@@ -145,6 +144,7 @@ namespace Core.Client
                 }
             }
         }
+
         private void SendCommandProcess(object cmd)
         {
             byte[] buffer = new byte[4];

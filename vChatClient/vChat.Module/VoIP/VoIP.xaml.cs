@@ -73,8 +73,11 @@ namespace vChat.Module.VoIP
         {
             InitializeComponent();
 
-            DataContext = this;
+            DataContext = this;            
+        }
 
+        public void Init()
+        {
             clientName = this.Get<Client>().Name;
 
             localCmdIpEndp = new IPEndPoint(IPAddress.Any, COMMAND_PORT);

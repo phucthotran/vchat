@@ -12,8 +12,8 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <Button Name="btnCall" Click="btnCall_Click" Grid.Column="0" Content="Thực Hiện Cuộc Gọi Thoại Tới" Margin="0, 0, 3, 0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="5"/>
-        <TextBox Text="{Binding RemoteIPAddress}" Grid.Column="1" FontSize="13" Padding="5" Margin="0, 0, 3, 0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        <Button Name="btnEndCall" Click="btnEndCall_Click" Grid.Column="2" Content="Kết Thúc" Margin="0, 0, 3, 0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="5"/>
+        <Button Name="btnCall" Click="btnCall_Click" Grid.Column="0" Content="Thực Hiện Cuộc Gọi Thoại Tới" FontSize="13" Margin="0, 0, 3, 0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="5"/>
+        <TextBox Text="{Binding RemoteIPAddress}" Grid.Column="1" FontSize="13" VerticalContentAlignment="Center" Margin="0, 0, 3, 0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Button Name="btnEndCall" Click="btnEndCall_Click" Grid.Column="2" Content="Kết Thúc" FontSize="13" Margin="0, 0, 3, 0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="5"/>
     </Grid>
 </UserControl>

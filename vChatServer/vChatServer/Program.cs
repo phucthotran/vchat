@@ -8,7 +8,7 @@ namespace vChatServer
 {
     public class Program
     {
-        private Server _server;
+        public static Server _SERVER { get; set; }
         private Controller _invoker = new Controller();
         static void Main(string[] args)
         {
@@ -19,52 +19,52 @@ namespace vChatServer
 
         public void Run()
         {
-            _server = new Server();
-            _server.Invoker = _invoker;
-            _server.OnStartSuccess += new Server.StartSuccess(server_OnStartSuccess);
-            _server.OnStartFailed += new Server.StartFailed(server_OnStartFailed);
-            _server.OnStop += new Server.StopHandler(server_OnStop);
-            _server.OnCritical += new Server.Critical(server_OnCritical);
-            _server.OnClientReceived += new Server.ClientReceived(server_OnClientReceived);
-            _server.OnClientDisconnected += new Server.ClientDisconnected(server_OnClientDisconnected);
-            _server.Start();
+            _SERVER = new Server();
+            _SERVER.Invoker = _invoker;
+            _SERVER.OnStartSuccess += new Server.StartSuccess(server_OnStartSuccess);
+            _SERVER.OnStartFailed += new Server.StartFailed(server_OnStartFailed);
+            _SERVER.OnStop += new Server.StopHandler(server_OnStop);
+            _SERVER.OnCritical += new Server.Critical(server_OnCritical);
+            _SERVER.OnClientReceived += new Server.ClientReceived(server_OnClientReceived);
+            _SERVER.OnClientDisconnected += new Server.ClientDisconnected(server_OnClientDisconnected);
+            _SERVER.Start();
         }
 
         void server_OnClientDisconnected(Core.Server.ClientManagement.Client client)
         {
-            _server.Logging(String.Format("{0}({1}) da ngat ket noi.", client.Name, client.Socket.RemoteEndPoint));
+            _SERVER.Logging(String.Format("{0}({1}) da ngat ket noi.", client.Name, client.Socket.RemoteEndPoint));
         }
 
         void server_OnClientReceived(Core.Server.ClientManagement.Client client, Core.Data.Command cmd)
         {
             if (cmd.Type == CommandType.LogIn)
             {
-                _server.Logging(String.Format("{0}({1}) da ket noi den server.", client.Name, client.Socket.RemoteEndPoint));
+                _SERVER.Logging(String.Format("{0}({1}) da ket noi den server.", client.Name, client.Socket.RemoteEndPoint));
             }
             else
             {
-                _server.Logging(String.Format("{0}({1}) da gui: {2}", client.Name, client.Socket.RemoteEndPoint, cmd.ToString()));
+                _SERVER.Logging(String.Format("{0}({1}) da gui: {2}", client.Name, client.Socket.RemoteEndPoint, cmd.ToString()));
             }
         }
 
         void server_OnCritical(string message)
         {
-            _server.Logging(message);
+            _SERVER.Logging(message);
         }
 
         void server_OnStop()
         {
-            _server.Logging("Server da dung lai.");
+            _SERVER.Logging("Server da dung lai.");
         }
 
         void server_OnStartFailed()
         {
-            _server.Logging("Da co loi xay ra khi khoi dong server.");
+            _SERVER.Logging("Da co loi xay ra khi khoi dong server.");
         }
 
         void server_OnStartSuccess()
         {
-            _server.Logging("Server da khoi dong thanh cong.");
+            _SERVER.Logging("Server da khoi dong thanh cong.");
         }
 
     }
