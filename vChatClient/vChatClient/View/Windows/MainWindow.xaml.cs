@@ -22,6 +22,7 @@ using Core.Client;
 using Core.Data;
 using System.ComponentModel;
 using System.Windows.Controls.Primitives;
+using System.Net;
 
 namespace vChat.View.Windows
 {
@@ -47,7 +48,6 @@ namespace vChat.View.Windows
             InitializeComponent();
             InitLoginModule();
             InitClientListener();
-
         }
 
         private void InitClientListener()
@@ -140,8 +140,8 @@ namespace vChat.View.Windows
                     window.CloseHandler(false);
                 }
             }
-            Cookie.Instance.Unset("user", "pass", "expire");
-            Cookie.Instance.Save();
+            vChat.Module.Login.Cookie.Instance.Unset("user", "pass", "expire");
+            vChat.Module.Login.Cookie.Instance.Save();
             InitLoginModule();
             LogOut.Visibility = System.Windows.Visibility.Collapsed;
         }

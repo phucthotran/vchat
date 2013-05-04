@@ -16,5 +16,5 @@ DEBUG;TRACE
 26-1127805399
 AddFriend\AddFriend.xaml;Chat.SendFilePanel\FileProcess.xaml;Chat.SendFilePanel\SendFilePanel.xaml;Chat\Chat.xaml;Chat\ViewParts\ChatToolBar.xaml;FriendList\FriendsList.xaml;Login\Login.xaml;RemoveGroup\RemoveGroup.xaml;SignUp\SignUp.xaml;Upload\UploadImage.xaml;
 
-False
+True
 

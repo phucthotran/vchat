@@ -1,7 +1,10 @@
-04/05/2013 01:55:30 - Server da khoi dong thanh cong.
-04/05/2013 02:21:10 - symaci(127.0.0.1:45998) da ket noi den server.
-04/05/2013 02:21:43 - symaci(127.0.0.1:45998) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>d</Paragraph></FlowDocument>
-04/05/2013 02:21:44 - symaci(127.0.0.1:45998) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sd</Paragraph></FlowDocument>
+04/05/2013 01:23:30 - Server da khoi dong thanh cong.
+04/05/2013 01:23:45 - itexplore(127.0.0.1:52627) da ket noi den server.
+04/05/2013 01:23:45 - itexplore(127.0.0.1:52627) da gui: CheckIP - itexplore
+04/05/2013 01:23:59 - symaci(127.0.0.1:52648) da ket noi den server.
+04/05/2013 01:24:00 - symaci(127.0.0.1:52648) da gui: CheckIP - itexplore
+04/05/2013 01:24:51 - symaci(127.0.0.1:52648) da ngat ket noi.
+127.0.0.1:45998) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sd</Paragraph></FlowDocument>
 04/05/2013 02:21:46 - symaci(127.0.0.1:45998) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>ssd</Paragraph></FlowDocument>
 04/05/2013 02:21:50 - symaci(127.0.0.1:45998) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sd</Paragraph></FlowDocument>
 04/05/2013 02:21:52 - symaci(127.0.0.1:45998) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sd</Paragraph></FlowDocument>
