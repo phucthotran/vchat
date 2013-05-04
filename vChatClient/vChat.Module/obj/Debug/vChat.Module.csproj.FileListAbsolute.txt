@@ -49,3 +49,5 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\SendFilePanel.g.cs
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat\ViewParts\ChatToolBar.g.cs
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat\ViewParts\ChatToolBar.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Avatar\Avatar.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Avatar\Avatar.g.cs

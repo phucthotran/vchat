@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="vChat.Module.Avatar.Avatar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="75" d:DesignWidth="195">
+    <Grid>
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Border BorderThickness="1" BorderBrush="#FFCBCBCB">
+                <Image Name="imgAvatar" Source="{Binding Image}" Height="64" Width="64" Stretch="Uniform" VerticalAlignment="Center"/>
+            </Border>
+            <TextBlock Name="tbChangeAvatar" Text="Đổi Ảnh Đại Diện" Margin="10, 0, 0, 0" VerticalAlignment="Center" MouseDown="tbChangeAvatar_MouseDown" MouseEnter="tbChangeAvatar_MouseEnter" MouseLeave="tbChangeAvatar_MouseLeave"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

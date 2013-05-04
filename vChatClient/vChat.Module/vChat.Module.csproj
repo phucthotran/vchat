@@ -82,6 +82,10 @@
     <Compile Include="AddFriend\AddFriend.xaml.cs">
       <DependentUpon>AddFriend.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Avatar\Avatar.xaml.cs">
+      <DependentUpon>Avatar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Avatar\AvatarController.cs" />
     <Compile Include="Chat.SendFilePanel\FileProcess.xaml.cs">
       <DependentUpon>FileProcess.xaml</DependentUpon>
     </Compile>
@@ -165,6 +169,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Avatar\Avatar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Chat.SendFilePanel\FileProcess.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -240,6 +248,7 @@
     <Resource Include="Chat\Images\paragraphleftjustify.png" />
     <Resource Include="Chat\Images\paragraphrightjustify.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

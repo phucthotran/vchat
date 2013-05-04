@@ -1,0 +1,29 @@
+04/05/2013 11:31:34 - Server da khoi dong thanh cong.
+04/05/2013 11:32:13 - itexplore(127.0.0.1:5558) da ket noi den server.
+04/05/2013 11:33:00 - itexplore(127.0.0.1:5558) da ngat ket noi.
+04/05/2013 11:35:33 - itexplore(127.0.0.1:5672) da ket noi den server.
+04/05/2013 11:36:26 - itexplore(127.0.0.1:5672) da ngat ket noi.
+04/05/2013 12:08:08 - itexplore(127.0.0.1:6280) da ket noi den server.
+04/05/2013 12:08:17 - itexplore(127.0.0.1:6280) da ngat ket noi.
+04/05/2013 12:15:24 - itexplore(127.0.0.1:6542) da ket noi den server.
+04/05/2013 12:15:37 - itexplore(127.0.0.1:6542) da ngat ket noi.
+04/05/2013 12:15:52 - itexplore(127.0.0.1:6574) da ket noi den server.
+04/05/2013 12:16:59 - itexplore(127.0.0.1:6574) da ngat ket noi.
+04/05/2013 12:18:51 - itexplore(127.0.0.1:6669) da ket noi den server.
+04/05/2013 12:18:57 - itexplore(127.0.0.1:6669) da ngat ket noi.
+04/05/2013 12:20:49 - itexplore(127.0.0.1:6710) da ket noi den server.
+04/05/2013 12:20:53 - itexplore(127.0.0.1:6710) da ngat ket noi.
+04/05/2013 12:23:49 - itexplore(127.0.0.1:6826) da ket noi den server.
+04/05/2013 12:24:02 - itexplore(127.0.0.1:6826) da ngat ket noi.
+04/05/2013 12:25:16 - itexplore(127.0.0.1:6873) da ket noi den server.
+04/05/2013 12:25:21 - itexplore(127.0.0.1:6873) da ngat ket noi.
+04/05/2013 12:26:08 - itexplore(127.0.0.1:6893) da ket noi den server.
+04/05/2013 12:26:10 - itexplore(127.0.0.1:6893) da ngat ket noi.
+04/05/2013 12:28:11 - itexplore(127.0.0.1:6922) da ket noi den server.
+04/05/2013 12:28:22 - itexplore(127.0.0.1:6922) da ngat ket noi.
+04/05/2013 12:29:07 - itexplore(127.0.0.1:6955) da ket noi den server.
+04/05/2013 12:29:59 - itexplore(127.0.0.1:6955) da ngat ket noi.
+04/05/2013 12:31:16 - itexplore(127.0.0.1:7062) da ket noi den server.
+04/05/2013 12:32:47 - itexplore(127.0.0.1:7062) da ngat ket noi.
+04/05/2013 12:37:26 - itexplore(127.0.0.1:7169) da ket noi den server.
+04/05/2013 12:38:00 - itexplore(127.0.0.1:7169) da ngat ket noi.

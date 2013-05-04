@@ -21,6 +21,8 @@ namespace vChat.Module.Upload
     /// </summary>
     public partial class UploadImage : UserControl
     {
+        private Avatar.Avatar _IntegratedModule;
+
         private const int BUFFER_SIZE = 256;
         private byte[] _ImageBytes;
         private OpenFileDialog _OpenDialog;
@@ -45,7 +47,12 @@ namespace vChat.Module.Upload
 
         public void UploadFor(int UserID)
         {
-            _UserID = UserID;
+            _UserID = UserID;            
+        }
+
+        public void IntegratedWith(Avatar.Avatar IntegratedModule)
+        {
+            this._IntegratedModule = IntegratedModule;
         }
 
         private ImageSource ResizeImage(byte[] ImageBytes, int sourceWidth, int sourceHeight)
@@ -154,8 +161,10 @@ namespace vChat.Module.Upload
             imgPreview.Source = ResizeImage(_ImageBytes, (int)imgPreview.Source.Width, (int)imgPreview.Source.Height);
 
             //Get new image bytes after resize
-            _ImageBytes = GetEncodedImageData(imgPreview.Source, ".png");            
-        }        
+            _ImageBytes = GetEncodedImageData(imgPreview.Source, ".png");
+
+            btnUpload.IsEnabled = true;
+        }
 
         private void btnBrowse_Click(object sender, RoutedEventArgs e)
         {
@@ -165,6 +174,7 @@ namespace vChat.Module.Upload
         private void btnUpload_Click(object sender, RoutedEventArgs e)
         {
             ChangeProfilePicture(_UserID, _ImageBytes);
+            _IntegratedModule.ChangeAvatarWork(imgPreview.Source);
         }
 
         #endregion

@@ -16,7 +16,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button Content="Chọn Ảnh" Name="btnBrowse" FontSize="13" Padding="2" Margin="5" Grid.Column="0" Click="btnBrowse_Click" />
-            <Button Content="Hoàn Tất" Name="btnUpload" FontSize="13" Padding="2" Margin="5" Grid.Column="1" Click="btnUpload_Click" />
+            <Button Content="Hoàn Tất" Name="btnUpload" IsEnabled="False" FontSize="13" Padding="2" Margin="5" Grid.Column="1" Click="btnUpload_Click" />
         </Grid>
     </Grid>
 </UserControl>
