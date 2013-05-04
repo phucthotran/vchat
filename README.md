@@ -4,6 +4,7 @@
 ## Update Log
 -------------
 
+<<<<<<< HEAD
 #### Update 04.05 1:30 PM
 - Cách lấy IP của một username:
 
@@ -27,6 +28,12 @@
 	
 	// nhớ là CommandBinding phải chạy trước thì SendCommand khi gửi lên mới có response được ...
 ```
+=======
+#### Update 04.05 13:00 PM
+- Thêm module `Avatar` dùng cho việc thay đổi ảnh đại diện
+- Cơ cấu lại `UploadImage` module để làm việc với `Avatar` module
+- Chỉnh lại giao diện `FriendList`
+>>>>>>> vchat/master
 
 #### Update 04.05 6:30 AM
 - Chỉnh sửa lại cách thức gửi và nhận tin nhắn

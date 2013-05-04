@@ -100,3 +100,7 @@ D:\vChatProject\vChatClient\vChat.Module\obj\Debug\vChat.Module.Properties.Resou
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\vChat.Module.csproj.GenerateResource.Cache
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\vChat.Module.dll
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\vChat.Module.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Avatar\Avatar.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Avatar\Avatar.g.cs
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\Avatar\Avatar.baml
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\Avatar\Avatar.g.cs

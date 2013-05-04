@@ -59,6 +59,8 @@ namespace vChat.Module.FriendList
             GroupFriendList GroupFriend = FriendList(UserID);
             List<Users> Requests = FriendRequests(UserID);
 
+            ChangeAvatarModule.ChangeAvatarFor(UserID);
+
             _AddFriendModule = new AddFriend.AddFriend();
             _AddFriendModule.SetupData(UserID);
             _AddFriendModule.IntegratedWith(this);

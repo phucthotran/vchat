@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+01/05/2013 04:27:08 - Server da khoi dong thanh cong.
+01/05/2013 04:28:03 - itexplore(127.0.0.1:31238) da ket noi den server.
+01/05/2013 04:32:46 - itexplore(127.0.0.1:31238) da ngat ket noi.
+quest - WPF+TreeView+ViewModel[Converted] (846.66 KB) 
+01/05/2013 03:30:25 - itexplore(127.0.0.1:29625) da gui: SendFileReject - 54d1e0a9-a9b7-44bc-8452-afda1ed2c6e4
+01/05/2013 03:30:30 - itexplore(127.0.0.1:29625) da ngat ket noi.
+=======
 01/05/2013 11:57:48 - Server da khoi dong thanh cong.
 01/05/2013 11:58:05 - symaci(127.0.0.1:16400) da ket noi den server.
 01/05/2013 11:58:13 - symaci(127.0.0.1:16400) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">sd</TextBlock>
@@ -74,3 +82,4 @@ crosoft.com/winfx/2006/xaml/presentation">f</TextBlock> :: 127.0.0.1:8515
 01/05/2013 05:46:31 - symaci(127.0.0.1:8515) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">asd</TextBlock> :: 127.0.0.1:8515
 01/05/2013 05:46:34 - symaci(127.0.0.1:8515) da gui: Chat - <TextBlock xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">a</TextBlock> :: 127.0.0.1:8515
 01/05/2013 05:48:15 - symaci(127.0.0.1:8515) da ngat ket noi.
+>>>>>>> ThoTran/master
