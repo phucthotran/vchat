@@ -101,8 +101,8 @@ namespace vChat.Module.AddFriend
                 OnAddFriendError(this, new AddFriendArgs(FriendName, NewGroupName));
                 return;
             }
-
-            FriendGroup SelectedGroup = (FriendGroup)cbGroup.SelectionBoxItem;
+            
+            FriendGroup SelectedGroup = cbGroup.SelectionBoxItem as FriendGroup;
 
             int NewGroupID = 0;
 

@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace vChat.Module.VoIP
+{
+    public enum CallCommand
+    {
+        Invite, //Make a call.
+        Bye,    //End a call.
+        Busy,   //User busy.
+        OK,     //Response to an invite message. OK is send to indicate that call is accepted.
+        Null,   //No command.
+    }
+}

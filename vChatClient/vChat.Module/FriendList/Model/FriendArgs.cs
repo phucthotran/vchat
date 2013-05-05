@@ -4,10 +4,10 @@ namespace vChat.Module.FriendList
 {
     public class FriendArgs
     {
-        public int _UserID;
-        public String _Username;
-        public String _FirstName;
-        public String _LastName;
+        private int _UserID;
+        private String _Username;
+        private String _FirstName;
+        private String _LastName;
 
         public int UserID
         {
@@ -34,7 +34,7 @@ namespace vChat.Module.FriendList
             _UserID = UserID;
             _Username = Username;
             _FirstName = FirstName;
-            _LastName = LastName;
+            _LastName = LastName;            
         }
     }
 }

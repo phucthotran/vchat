@@ -47,18 +47,20 @@ namespace vChat.Module.Avatar
         }
 
         public void ChangeAvatarFor(int UserID)
-        {                
-            this.Image = ConvertByteToImageSource(GetInfo(UserID).Picture);            
+        {
+                this.Image = ConvertByteToImageSource(GetInfo(UserID).Picture);
 
-            _UploadAvatarModule = new Upload.UploadImage();
-            _UploadAvatarModule.UploadFor(UserID);
-            _UploadAvatarModule.IntegratedWith(this);
+                _UploadAvatarModule = new Upload.UploadImage();
+                _UploadAvatarModule.UploadFor(UserID);
+                _UploadAvatarModule.IntegratedWith(this);
 
-            DataContext = this;
+                DataContext = this;
         }
 
         private ImageSource ConvertByteToImageSource(byte[] data)
         {
+            if (data == null)
+                return null;
             MemoryStream msImage = new MemoryStream(data);
             BitmapImage bitmap = new BitmapImage();
             bitmap.BeginInit();
@@ -100,7 +102,7 @@ namespace vChat.Module.Avatar
             tbChangeAvatar.Foreground = Brushes.Black;
         }
 
-        public virtual void OnPropertyChanged(String PropertyName)
+        protected virtual void OnPropertyChanged(String PropertyName)
         {
             if (PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));

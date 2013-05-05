@@ -53,6 +53,12 @@
     <Reference Include="MahApps.Metro">
       <HintPath>..\..\DllsReference\MahApps\MahApps.Metro.dll</HintPath>
     </Reference>
+    <Reference Include="NAudio">
+      <HintPath>..\..\DllsReference\NAudio\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WindowsMediaFormat">
+      <HintPath>..\..\DllsReference\NAudio\NAudio.WindowsMediaFormat.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
@@ -144,6 +150,14 @@
       <DependentUpon>UploadImage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Upload\UploadImageController.cs" />
+    <Compile Include="VoIP\CallCommand.cs" />
+    <Compile Include="VoIP\DataPacket.cs" />
+    <Compile Include="VoIP\RecordEventArgs.cs" />
+    <Compile Include="VoIP\UncompressedPcmCodec.cs" />
+    <Compile Include="VoIP\VoIP.xaml.cs">
+      <DependentUpon>VoIP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VoIP\VoIPBase.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -206,6 +220,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Upload\UploadImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VoIP\VoIP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

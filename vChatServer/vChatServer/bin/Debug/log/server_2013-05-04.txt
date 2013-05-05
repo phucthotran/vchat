@@ -1,14 +1,23 @@
-04/05/2013 02:12:33 - Server da khoi dong thanh cong.
-04/05/2013 02:29:45 - symaci(127.0.0.1:54180) da ket noi den server.
-04/05/2013 02:31:45 - itexplore(127.0.0.1:54231) da ket noi den server.
-04/05/2013 02:32:35 - symaci(127.0.0.1:54180) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph /></FlowDocument>
-04/05/2013 02:33:03 - symaci(127.0.0.1:54180) da ngat ket noi.
-04/05/2013 02:35:29 - itexplore(127.0.0.1:54231) da ngat ket noi.
-04/05/2013 02:35:53 - itexplore(127.0.0.1:54280) da ket noi den server.
-04/05/2013 02:35:57 - itexplore(127.0.0.1:54280) da ngat ket noi.
-entation"><Paragraph>1</Paragraph></FlowDocument>
-04/05/2013 01:46:52 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>2</Paragraph></FlowDocument>
-04/05/2013 01:46:55 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>3</Paragraph></FlowDocument>
+04/05/2013 07:51:22 - Server da khoi dong thanh cong.
+04/05/2013 05:47:15 - symaci(127.0.0.1:55620) da ket noi den server.
+04/05/2013 05:47:50 - symaci(127.0.0.1:55620) da gui: CheckIP - symaci
+04/05/2013 05:48:56 - symaci(127.0.0.1:55620) da ngat ket noi.
+04/05/2013 05:49:28 - symaci(127.0.0.1:55725) da ket noi den server.
+04/05/2013 05:49:40 - symaci(127.0.0.1:55725) da ngat ket noi.
+04/05/2013 05:50:52 - (127.0.0.1:55735) da ngat ket noi.
+04/05/2013 05:53:40 - symaci(127.0.0.1:55755) da ket noi den server.
+04/05/2013 05:53:50 - symaci(127.0.0.1:55755) da ngat ket noi.
+04/05/2013 05:54:13 - itexplore(127.0.0.1:55762) da ket noi den server.
+04/05/2013 05:54:33 - itexplore(127.0.0.1:55762) da ngat ket noi.
+04/05/2013 06:00:35 - symaci(127.0.0.1:55797) da ket noi den server.
+04/05/2013 06:00:40 - symaci(127.0.0.1:55797) da ngat ket noi.
+04/05/2013 06:00:44 - itexplore(127.0.0.1:55810) da ket noi den server.
+04/05/2013 06:00:56 - itexplore(127.0.0.1:55810) da ngat ket noi.
+04/05/2013 06:01:16 - itexplore(127.0.0.1:55820) da ket noi den server.
+04/05/2013 06:01:33 - itexplore(127.0.0.1:55820) da ngat ket noi.
+04/05/2013 06:02:19 - itexplore(127.0.0.1:55830) da ket noi den server.
+04/05/2013 06:02:59 - itexplore(127.0.0.1:55830) da ngat ket noi.
+ragraph></FlowDocument>
 04/05/2013 01:46:56 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>4</Paragraph></FlowDocument>
 04/05/2013 01:46:57 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>5</Paragraph></FlowDocument>
 04/05/2013 01:46:58 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>6</Paragraph></FlowDocument>
@@ -32,6 +41,75 @@ entation"><Paragraph>1</Paragraph></FlowDocument>
 04/05/2013 01:47:41 - symaci(127.0.0.1:53702) da ngat ket noi.
 ePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>d</Paragraph></FlowDocument>
 04/05/2013 02:26:27 - symaci(127.0.0.1:45998) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rgrg</Paragraph></FlowDocument>
+=======
+04/05/2013 04:18:13 - Server da khoi dong thanh cong.
+04/05/2013 03:04:31 - itexplore(127.0.0.1:11057) da ket noi den server.
+04/05/2013 03:05:02 - shinichikudo(127.0.0.1:11096) da ket noi den server.
+04/05/2013 03:05:04 - itexplore(127.0.0.1:11057) da gui: CheckIP - shinichikudo
+04/05/2013 03:05:45 - itexplore(127.0.0.1:11057) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>vcvc</Paragraph></FlowDocument>
+04/05/2013 03:05:57 - shinichikudo(127.0.0.1:11096) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>chan vai</Paragraph></FlowDocument>
+04/05/2013 03:06:08 - shinichikudo(127.0.0.1:11096) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>chan thiet</Paragraph></FlowDocument>
+04/05/2013 03:06:09 - shinichikudo(127.0.0.1:11096) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>chan thiet</Paragraph></FlowDocument>
+04/05/2013 03:06:10 - shinichikudo(127.0.0.1:11096) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>chan thiet</Paragraph></FlowDocument>
+04/05/2013 03:06:11 - shinichikudo(127.0.0.1:11096) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>chan thiet</Paragraph></FlowDocument>
+04/05/2013 03:06:11 - shinichikudo(127.0.0.1:11096) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>chan thiet</Paragraph></FlowDocument>
+04/05/2013 03:06:12 - shinichikudo(127.0.0.1:11096) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>chan thiet</Paragraph></FlowDocument>
+04/05/2013 03:06:16 - itexplore(127.0.0.1:11057) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>vcvc</Paragraph></FlowDocument>
+04/05/2013 03:06:20 - itexplore(127.0.0.1:11057) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>vcvc</Paragraph></FlowDocument>
+04/05/2013 03:06:36 - shinichikudo(127.0.0.1:11096) da ngat ket noi.
+04/05/2013 03:06:37 - itexplore(127.0.0.1:11057) da ngat ket noi.
+04/05/2013 03:10:28 - itexplore(127.0.0.1:11799) da ket noi den server.
+04/05/2013 03:10:48 - shinichikudo(127.0.0.1:11831) da ket noi den server.
+04/05/2013 03:11:32 - itexplore(127.0.0.1:11799) da gui: CheckIP - shinichikudo
+04/05/2013 03:14:44 - itexplore(127.0.0.1:11799) da ngat ket noi.
+04/05/2013 03:14:47 - shinichikudo(127.0.0.1:11831) da ngat ket noi.
+04/05/2013 03:16:58 - itexplore(127.0.0.1:12232) da ket noi den server.
+04/05/2013 03:17:13 - itexplore(127.0.0.1:12232) da ngat ket noi.
+04/05/2013 03:20:41 - itexplore(127.0.0.1:12339) da ket noi den server.
+04/05/2013 03:20:52 - shinichikudo(127.0.0.1:12361) da ket noi den server.
+04/05/2013 03:21:08 - itexplore(127.0.0.1:12339) da gui: CheckIP - shinichikudo
+04/05/2013 03:21:55 - itexplore(127.0.0.1:12339) da ngat ket noi.
+04/05/2013 03:24:46 - shinichikudo(127.0.0.1:12361) da ngat ket noi.
+04/05/2013 03:24:56 - itexplore(127.0.0.1:12738) da ket noi den server.
+04/05/2013 03:25:33 - itexplore(127.0.0.1:12738) da ngat ket noi.
+04/05/2013 03:26:16 - itexplore(127.0.0.1:12776) da ket noi den server.
+04/05/2013 03:26:29 - itexplore(127.0.0.1:12776) da gui: CheckIP - shinichikudo
+04/05/2013 03:26:51 - itexplore(127.0.0.1:12776) da gui: CheckIP - shinichikudo
+04/05/2013 03:26:53 - itexplore(127.0.0.1:12776) da ngat ket noi.
+04/05/2013 03:28:10 - itexplore(127.0.0.1:12815) da ket noi den server.
+04/05/2013 03:29:15 - shinichikudo(127.0.0.1:12965) da ket noi den server.
+04/05/2013 03:29:23 - itexplore(127.0.0.1:12815) da gui: CheckIP - shinichikudo
+04/05/2013 03:29:28 - itexplore(127.0.0.1:12815) da gui: CheckIP - shinichikudo
+04/05/2013 03:29:28 - itexplore(127.0.0.1:12815) da gui: CheckIP - shinichikudo
+04/05/2013 03:30:12 - shinichikudo(127.0.0.1:12965) da ngat ket noi.
+04/05/2013 03:30:13 - itexplore(127.0.0.1:12815) da ngat ket noi.
+04/05/2013 03:52:28 - itexplore(127.0.0.1:13312) da ket noi den server.
+04/05/2013 03:52:47 - shinichikudo(127.0.0.1:13348) da ket noi den server.
+04/05/2013 03:53:17 - itexplore(127.0.0.1:13312) da gui: CheckIP - shinichikudo
+04/05/2013 03:53:28 - itexplore(127.0.0.1:13312) da ngat ket noi.
+04/05/2013 03:55:10 - shinichikudo(127.0.0.1:13348) da ngat ket noi.
+04/05/2013 03:55:20 - itexplore(127.0.0.1:13615) da ket noi den server.
+04/05/2013 03:55:36 - shinichikudo(127.0.0.1:13645) da ket noi den server.
+04/05/2013 03:55:40 - itexplore(127.0.0.1:13615) da gui: CheckIP - shinichikudo
+04/05/2013 03:56:01 - itexplore(127.0.0.1:13615) da ngat ket noi.
+04/05/2013 03:56:52 - shinichikudo(127.0.0.1:13645) da ngat ket noi.
+04/05/2013 03:57:02 - itexplore(127.0.0.1:13748) da ket noi den server.
+04/05/2013 03:57:19 - shinichikudo(127.0.0.1:13777) da ket noi den server.
+04/05/2013 03:57:21 - itexplore(127.0.0.1:13748) da gui: CheckIP - shinichikudo
+04/05/2013 03:57:53 - itexplore(127.0.0.1:13748) da ngat ket noi.
+04/05/2013 04:00:24 - shinichikudo(127.0.0.1:13777) da ngat ket noi.
+04/05/2013 04:00:57 - itexplore(127.0.0.1:14004) da ket noi den server.
+04/05/2013 04:00:58 - shinichikudo(127.0.0.1:14014) da ket noi den server.
+04/05/2013 04:01:01 - itexplore(127.0.0.1:14004) da gui: CheckIP - shinichikudo
+04/05/2013 04:02:08 - itexplore(127.0.0.1:14004) da ngat ket noi.
+04/05/2013 04:02:10 - shinichikudo(127.0.0.1:14014) da ngat ket noi.
+04/05/2013 04:04:03 - itexplore(127.0.0.1:14155) da ket noi den server.
+04/05/2013 04:04:17 - shinichikudo(127.0.0.1:14177) da ket noi den server.
+04/05/2013 04:04:18 - itexplore(127.0.0.1:14155) da gui: CheckIP - shinichikudo
+04/05/2013 04:04:39 - shinichikudo(127.0.0.1:14177) da ngat ket noi.
+04/05/2013 04:04:42 - itexplore(127.0.0.1:14155) da ngat ket noi.
+Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rgrg</Paragraph></FlowDocument>
+>>>>>>> vchat/master
 04/05/2013 02:26:32 - symaci(127.0.0.1:45998) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>srgsrgsr</Paragraph></FlowDocument>
 04/05/2013 02:26:33 - symaci(127.0.0.1:45998) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>srg</Paragraph></FlowDocument>
 04/05/2013 02:27:54 - symaci(127.0.0.1:45998) da ngat ket noi.

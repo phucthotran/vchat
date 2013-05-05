@@ -4,7 +4,11 @@
 ## Update Log
 -------------
 
-<<<<<<< HEAD
+#### Update 04.05 4:30 PM
+- Thêm thư viện mới: **NAudio** (thư mục **DllsReference\NAudio** )
+- Thêm module `VoIP` dùng cho chat voice
+- Tích hợp module `VoIP` vào `ChatWindow`
+
 #### Update 04.05 1:30 PM
 - Cách lấy IP của một username:
 

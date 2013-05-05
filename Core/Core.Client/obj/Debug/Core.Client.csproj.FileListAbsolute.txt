@@ -1,51 +1,12 @@
-C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\Core.Client\bin\Debug\Core.Client.dll
-C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\Core.Client\bin\Debug\Core.Client.pdb
-C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\Core.Client\bin\Debug\Core.Data.dll
-C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\Core.Client\bin\Debug\Extension.dll
-C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\Core.Client\bin\Debug\Core.Data.pdb
-C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\Core.Client\bin\Debug\Extension.pdb
-C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\Core.Client\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\Core.Client\obj\Debug\Core.Client.dll
-C:\Users\WIN7\Documents\Visual Studio 2010\Projects\ServerCore\Core.Client\obj\Debug\Core.Client.pdb
-D:\vchat\Core\Core.Client\obj\Debug\ResolveAssemblyReference.cache
-D:\vchat\Core\Core.Client\obj\Debug\Core.Client.dll
-D:\vchat\Core\Core.Client\obj\Debug\Core.Client.pdb
-D:\vchat\Core\Core.Client\bin\Debug\Core.Client.dll
-D:\vchat\Core\Core.Client\bin\Debug\Core.Client.pdb
-D:\vchat\Core\Core.Client\bin\Debug\Core.Data.dll
-D:\vchat\Core\Core.Client\bin\Debug\Extension.dll
-D:\vchat\Core\Core.Client\bin\Debug\Core.Data.pdb
-D:\vchat\Core\Core.Client\bin\Debug\Extension.pdb
-D:\vchat_2\Core\Core.Client\bin\Debug\Core.Client.dll
-D:\vchat_2\Core\Core.Client\bin\Debug\Core.Client.pdb
-D:\vchat_2\Core\Core.Client\bin\Debug\Core.Data.dll
-D:\vchat_2\Core\Core.Client\bin\Debug\Extension.dll
-D:\vchat_2\Core\Core.Client\bin\Debug\Core.Data.pdb
-D:\vchat_2\Core\Core.Client\bin\Debug\Extension.pdb
-D:\vchat_2\Core\Core.Client\obj\Debug\ResolveAssemblyReference.cache
-D:\vchat_2\Core\Core.Client\obj\Debug\Core.Client.dll
-D:\vchat_2\Core\Core.Client\obj\Debug\Core.Client.pdb
 D:\vChatProject\Core\Core.Client\bin\Debug\Core.Client.dll
 D:\vChatProject\Core\Core.Client\bin\Debug\Core.Client.pdb
 D:\vChatProject\Core\Core.Client\bin\Debug\Core.Data.dll
 D:\vChatProject\Core\Core.Client\bin\Debug\Extension.dll
+D:\vChatProject\Core\Core.Client\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Client.DataStore.dll
+D:\vChatProject\Core\Core.Client\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Client.Cache.dll
+D:\vChatProject\Core\Core.Client\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Client.RuleEngine.dll
 D:\vChatProject\Core\Core.Client\bin\Debug\Core.Data.pdb
 D:\vChatProject\Core\Core.Client\bin\Debug\Extension.pdb
 D:\vChatProject\Core\Core.Client\obj\Debug\Core.Client.csprojResolveAssemblyReference.cache
 D:\vChatProject\Core\Core.Client\obj\Debug\Core.Client.dll
 D:\vChatProject\Core\Core.Client\obj\Debug\Core.Client.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\bin\Debug\Core.Client.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\bin\Debug\Core.Client.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\bin\Debug\Core.Data.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\bin\Debug\Extension.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\bin\Debug\Core.Data.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\bin\Debug\Extension.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\obj\Debug\Core.Client.csprojResolveAssemblyReference.cache
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\obj\Debug\Core.Client.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\obj\Debug\Core.Client.pdb
-D:\vChatProject\Core\Core.Client\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Client.DataStore.dll
-D:\vChatProject\Core\Core.Client\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Client.Cache.dll
-D:\vChatProject\Core\Core.Client\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Client.RuleEngine.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Client.DataStore.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Client.Cache.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Client\bin\Debug\Microsoft.TeamFoundation.WorkItemTracking.Client.RuleEngine.dll

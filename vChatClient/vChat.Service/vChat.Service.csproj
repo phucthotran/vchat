@@ -69,28 +69,28 @@
     <None Include="Properties\DataSources\vChat.Model.GroupFriendList.datasource" />
     <None Include="Properties\DataSources\vChat.Model.MethodInvokeResult.datasource" />
     <None Include="Service References\UserService\UserService1.wsdl" />
+    <None Include="Service References\UserService\UserService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\UserService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\UserService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\UserService13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\UserService14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\UserService15.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\UserService\UserService8.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserService\UserService81.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService82.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService83.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService84.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService85.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService86.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService87.xsd">
+    <None Include="Service References\UserService\UserService9.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

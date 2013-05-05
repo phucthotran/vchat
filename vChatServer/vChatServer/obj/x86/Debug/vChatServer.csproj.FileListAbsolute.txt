@@ -1,36 +1,6 @@
-D:\vchat\vChatServer\vChatServer\bin\Debug\vChatServer.exe
-D:\vchat\vChatServer\vChatServer\bin\Debug\vChatServer.pdb
-D:\vchat\vChatServer\vChatServer\bin\Debug\Core.Data.pdb
-D:\vchat\vChatServer\vChatServer\bin\Debug\Core.Server.pdb
-D:\vchat\vChatServer\vChatServer\bin\Debug\Extension.pdb
-D:\vchat\vChatServer\vChatServer\obj\x86\Debug\ResolveAssemblyReference.cache
-D:\vchat\vChatServer\vChatServer\obj\x86\Debug\vChatServer.Properties.Resources.resources
-D:\vchat\vChatServer\vChatServer\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
-D:\vchat\vChatServer\vChatServer\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
-D:\vchat\vChatServer\vChatServer\obj\x86\Debug\vChatServer.exe
-D:\vchat\vChatServer\vChatServer\obj\x86\Debug\vChatServer.pdb
-D:\vChat\vChatServer\vChatServer\bin\Debug\vChatServer.exe.config
-D:\vchat\vChatServer\vChatServer\bin\Debug\Core.Data.dll
-D:\vchat\vChatServer\vChatServer\bin\Debug\Core.Server.dll
-D:\vchat\vChatServer\vChatServer\bin\Debug\Extension.dll
-D:\vchat_2\vChatServer\vChatServer\bin\Debug\vChatServer.exe.config
-D:\vchat_2\vChatServer\vChatServer\obj\x86\Debug\vChatServer.exe
-D:\vchat_2\vChatServer\vChatServer\obj\x86\Debug\vChatServer.pdb
-D:\vchat_2\vChatServer\vChatServer\bin\Debug\vChatServer.exe
-D:\vchat_2\vChatServer\vChatServer\bin\Debug\vChatServer.pdb
-D:\vchat_2\vChatServer\vChatServer\bin\Debug\Core.Data.dll
-D:\vchat_2\vChatServer\vChatServer\bin\Debug\Core.Server.dll
-D:\vchat_2\vChatServer\vChatServer\bin\Debug\Extension.dll
-D:\vchat_2\vChatServer\vChatServer\bin\Debug\Core.Data.pdb
-D:\vchat_2\vChatServer\vChatServer\bin\Debug\Core.Server.pdb
-D:\vchat_2\vChatServer\vChatServer\bin\Debug\Extension.pdb
-D:\vchat_2\vChatServer\vChatServer\obj\x86\Debug\ResolveAssemblyReference.cache
-D:\vchat_2\vChatServer\vChatServer\obj\x86\Debug\vChatServer.Properties.Resources.resources
-D:\vchat_2\vChatServer\vChatServer\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
-D:\vchat_2\vChatServer\vChatServer\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
 D:\vChatProject\vChatServer\vChatServer\bin\Debug\vChatServer.exe.config
-D:\vChatProject\vChatServer\vChatServer\obj\x86\Debug\vChatServer.exe
-D:\vChatProject\vChatServer\vChatServer\obj\x86\Debug\vChatServer.pdb
+D:\vChatProject\vChatServer\vChatServer\obj\x86\Debug\vChatServer.Properties.Resources.resources
+D:\vChatProject\vChatServer\vChatServer\obj\x86\Debug\vChatServer.csproj.GenerateResource.Cache
 D:\vChatProject\vChatServer\vChatServer\bin\Debug\vChatServer.exe
 D:\vChatProject\vChatServer\vChatServer\bin\Debug\vChatServer.pdb
 D:\vChatProject\vChatServer\vChatServer\bin\Debug\Core.Data.dll
@@ -40,19 +10,5 @@ D:\vChatProject\vChatServer\vChatServer\bin\Debug\Core.Data.pdb
 D:\vChatProject\vChatServer\vChatServer\bin\Debug\Core.Server.pdb
 D:\vChatProject\vChatServer\vChatServer\bin\Debug\Extension.pdb
 D:\vChatProject\vChatServer\vChatServer\obj\x86\Debug\vChatServer.csprojResolveAssemblyReference.cache
-D:\vChatProject\vChatServer\vChatServer\obj\x86\Debug\vChatServer.Properties.Resources.resources
-D:\vChatProject\vChatServer\vChatServer\obj\x86\Debug\vChatServer.csproj.GenerateResource.Cache
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\bin\Debug\vChatServer.exe.config
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\obj\x86\Debug\vChatServer.exe
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\obj\x86\Debug\vChatServer.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\bin\Debug\vChatServer.exe
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\bin\Debug\vChatServer.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\bin\Debug\Core.Data.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\bin\Debug\Core.Server.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\bin\Debug\Extension.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\bin\Debug\Core.Data.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\bin\Debug\Core.Server.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\bin\Debug\Extension.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\obj\x86\Debug\vChatServer.csprojResolveAssemblyReference.cache
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\obj\x86\Debug\vChatServer.Properties.Resources.resources
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\obj\x86\Debug\vChatServer.csproj.GenerateResource.Cache
+D:\vChatProject\vChatServer\vChatServer\obj\x86\Debug\vChatServer.exe
+D:\vChatProject\vChatServer\vChatServer\obj\x86\Debug\vChatServer.pdb

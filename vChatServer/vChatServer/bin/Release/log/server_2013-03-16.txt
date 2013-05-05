@@ -1,6 +1,0 @@
-16/03/2013 08:08:21 - Server da khoi dong thanh cong.
-16/03/2013 08:08:38 - Index was outside the bounds of the array.
-16/03/2013 08:08:38 - (127.0.0.1:1239) da ngat ket noi.
-16/03/2013 07:22:07 - Index was outside the bounds of the array.
-16/03/2013 07:22:07 - (127.0.0.1:1189) da ngat ket noi.
-16/03/2013 07:24:31 - Index was outside the bounds of the array.

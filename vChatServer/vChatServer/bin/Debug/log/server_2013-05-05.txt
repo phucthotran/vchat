@@ -1,0 +1,7 @@
+05/05/2013 12:03:19 - Server da khoi dong thanh cong.
+05/05/2013 12:06:07 - symaci(127.0.0.1:59219) da ket noi den server.
+05/05/2013 12:06:26 - symaci(127.0.0.1:59219) da gui: CheckIP - symaci
+05/05/2013 12:07:12 - symaci(127.0.0.1:59219) da ngat ket noi.
+05/05/2013 12:07:27 - symaci(127.0.0.1:59289) da ket noi den server.
+05/05/2013 12:23:32 - symaci(127.0.0.1:59289) da gui: CheckIP - symaci
+05/05/2013 12:47:14 - symaci(127.0.0.1:59289) da ngat ket noi.
