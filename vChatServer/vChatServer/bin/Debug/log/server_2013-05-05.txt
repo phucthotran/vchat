@@ -1,17 +1,47 @@
-05/05/2013 03:52:45 - Server da khoi dong thanh cong.
-05/05/2013 03:15:24 - symaci(127.0.0.1:9406) da ket noi den server.
-05/05/2013 03:15:45 - symaci(127.0.0.1:9406) da ngat ket noi.
- gui: CheckIP - symaci
-05/05/2013 12:07:12 - symaci(127.0.0.1:59219) da ngat ket noi.
-05/05/2013 12:07:27 - symaci(127.0.0.1:59289) da ket noi den server.
-05/05/2013 12:23:32 - symaci(127.0.0.1:59289) da gui: CheckIP - symaci
-05/05/2013 12:47:14 - symaci(127.0.0.1:59289) da ngat ket noi.
-=======
-05/05/2013 03:36:20 - Server da khoi dong thanh cong.
-05/05/2013 03:45:30 - itexplore(127.0.0.1:19303) da ket noi den server.
-05/05/2013 03:45:33 - itexplore(127.0.0.1:19303) da ngat ket noi.
-05/05/2013 03:46:16 - itexplore(127.0.0.1:19312) da ket noi den server.
-05/05/2013 03:49:12 - itexplore(127.0.0.1:19312) da ngat ket noi.
+05/05/2013 11:22:32 - Server da khoi dong thanh cong.
+05/05/2013 11:27:48 - itexplore(127.0.0.1:29821) da ket noi den server.
+05/05/2013 11:28:49 - shinichikudo(127.0.0.1:29889) da ket noi den server.
+05/05/2013 11:28:49 - shinichikudo(127.0.0.1:29889) da gui: CheckOnline - itexplore
+05/05/2013 11:29:02 - shinichikudo(127.0.0.1:29889) da gui: CheckIP - itexplore
+05/05/2013 11:29:07 - shinichikudo(127.0.0.1:29889) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>gfg</Paragraph></FlowDocument>
+05/05/2013 11:29:21 - itexplore(127.0.0.1:29821) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>dasfsdf</Paragraph></FlowDocument>
+05/05/2013 11:29:24 - shinichikudo(127.0.0.1:29889) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sfasdfsdf</Paragraph></FlowDocument>
+05/05/2013 11:30:24 - shinichikudo(127.0.0.1:29889) da ngat ket noi.
+05/05/2013 11:30:32 - shinichikudo(127.0.0.1:30084) da ket noi den server.
+05/05/2013 11:30:32 - shinichikudo(127.0.0.1:30084) da gui: CheckOnline - itexplore
+05/05/2013 11:31:16 - shinichikudo(127.0.0.1:30084) da ngat ket noi.
+05/05/2013 11:31:25 - shinichikudo(127.0.0.1:30245) da ket noi den server.
+05/05/2013 11:31:25 - shinichikudo(127.0.0.1:30245) da gui: CheckOnline - itexplore
+05/05/2013 11:31:34 - shinichikudo(127.0.0.1:30245) da ngat ket noi.
+05/05/2013 11:31:35 - itexplore(127.0.0.1:29821) da ngat ket noi.
+05/05/2013 11:31:56 - itexplore(127.0.0.1:30374) da ket noi den server.
+05/05/2013 11:31:56 - itexplore(127.0.0.1:30374) da gui: CheckOnline - shinichikudo
+05/05/2013 11:32:30 - itexplore(127.0.0.1:30374) da ngat ket noi.
+05/05/2013 11:34:42 - itexplore(127.0.0.1:30512) da ket noi den server.
+05/05/2013 11:34:42 - itexplore(127.0.0.1:30512) da gui: CheckOnline - shinichikudo
+05/05/2013 11:34:54 - itexplore(127.0.0.1:30512) da ngat ket noi.
+05/05/2013 11:40:27 - itexplore(127.0.0.1:30692) da ket noi den server.
+05/05/2013 11:40:27 - itexplore(127.0.0.1:30692) da gui: CheckOnline - shinichikudo
+05/05/2013 11:40:35 - itexplore(127.0.0.1:30692) da ngat ket noi.
+05/05/2013 11:41:22 - itexplore(127.0.0.1:30712) da ket noi den server.
+05/05/2013 11:41:22 - itexplore(127.0.0.1:30712) da gui: CheckOnline - shinichikudo
+05/05/2013 11:41:30 - itexplore(127.0.0.1:30712) da ngat ket noi.
+05/05/2013 11:43:17 - itexplore(127.0.0.1:30736) da ket noi den server.
+05/05/2013 11:43:17 - itexplore(127.0.0.1:30736) da gui: CheckOnline - shinichikudo
+05/05/2013 11:43:46 - itexplore(127.0.0.1:30774) da ket noi den server.
+05/05/2013 11:43:46 - itexplore(127.0.0.1:30774) da gui: CheckOnline - shinichikudo
+05/05/2013 11:43:49 - itexplore(127.0.0.1:30774) da ngat ket noi.
+05/05/2013 11:43:57 - shinichikudo(127.0.0.1:30799) da ket noi den server.
+05/05/2013 11:43:57 - shinichikudo(127.0.0.1:30799) da gui: CheckOnline - itexplore
+05/05/2013 11:45:07 - itexplore(127.0.0.1:30736) da ngat ket noi.
+05/05/2013 11:46:18 - itexplore(127.0.0.1:31128) da ket noi den server.
+05/05/2013 11:46:18 - itexplore(127.0.0.1:31128) da gui: CheckOnline - shinichikudo
+05/05/2013 11:46:29 - itexplore(127.0.0.1:31128) da ngat ket noi.
+05/05/2013 11:46:55 - itexplore(127.0.0.1:31205) da ket noi den server.
+05/05/2013 11:46:55 - itexplore(127.0.0.1:31205) da gui: CheckOnline - shinichikudo
+05/05/2013 11:47:00 - itexplore(127.0.0.1:31205) da ngat ket noi.
+05/05/2013 11:48:49 - shinichikudo(127.0.0.1:30799) da ngat ket noi.
+13 03:49:12 - itexplore(127.0.0.1:19312) da ngat ket noi.
 2013 02:25:32 - itexplore(127.0.0.1:15494) da ket noi den server.
 05/05/2013 02:32:50 - itexplore(127.0.0.1:15494) da ngat ket noi.
 05/05/2013 02:36:33 - shinichikudo(127.0.0.1:15910) da ket noi den server.
@@ -50,6 +80,7 @@
 05/05/2013 03:22:27 - itexplore(127.0.0.1:18060) da ngat ket noi.
 05/05/2013 03:24:30 - itexplore(127.0.0.1:18560) da ket noi den server.
 05/05/2013 03:26:11 - itexplore(127.0.0.1:18560) da ngat ket noi.
+>>>>>>> ThoTran/master
 05/05/2013 03:26:55 - itexplore(127.0.0.1:18759) da ket noi den server.
 05/05/2013 03:27:30 - itexplore(127.0.0.1:18759) da ngat ket noi.
 05/05/2013 03:27:38 - shinichikudo(127.0.0.1:18851) da ket noi den server.

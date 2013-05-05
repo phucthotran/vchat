@@ -12,8 +12,8 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <DockPanel>
-            <StackPanel DockPanel.Dock="Top">                
-                <my1:Avatar x:Name="ChangeAvatarModule" />
+            <StackPanel DockPanel.Dock="Top">
+                <my1:Avatar x:Name="changeAvatarModule" />
                 <Canvas MinHeight="1" Background="#FFE5E5E5" Margin="0, 0, 0, 3" />
                 <Grid DockPanel.Dock="Top">
                     <Grid.ColumnDefinitions>
@@ -34,7 +34,7 @@
                         <Expander.Content>
                             <StackPanel Orientation="Horizontal">
                                 <my:ImageButton Name="btnAddFriend" Text="Thêm Bạn" Image="Image/addfriend.png" Click="btnAddFriend_Click"/>
-                                <my:ImageButton Name="btnEdit" Command="{Binding EditCommand}" Text="Chỉnh Sửa Bạn Bè" Image="Image/edit.png" Click="btnEdit_Click"/>
+                                <my:ImageButton Name="btnEdit" Command="{Binding GroupTree.EditCommand}" Text="Chỉnh Sửa Bạn Bè" Image="Image/edit.png" Click="btnEdit_Click"/>
                             </StackPanel>
                         </Expander.Content>
                     </Expander>
@@ -43,59 +43,54 @@
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="Image/request.png" Margin="0, 0, 3, 0"/>
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Yêu Cầu Kết Bạn</TextBlock>
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 0, 0" Foreground="Red" Text="{Binding Requests.Count}"/>
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 0, 0" Foreground="Red" Text="{Binding RequestVM.Requests.Count}"/>
                             </StackPanel>
                         </Expander.Header>
                         <Expander.Content>
                             <StackPanel>
-                                <ListBox ItemsSource="{Binding Requests}" SelectionMode="Extended">
-                                    <ListBox.ItemContainerStyle>
-                                        <Style TargetType="{x:Type ListBoxItem}">
-                                            <Setter Property="IsSelected" Value="{Binding IsSelected}"/>
-                                        </Style>
-                                    </ListBox.ItemContainerStyle>
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <Grid>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"/>
-                                                </Grid.ColumnDefinitions>
-                                                <CheckBox Content="{Binding FriendName}">
-                                                    <CheckBox.Style>
-                                                        <Style TargetType="{x:Type CheckBox}">
-                                                            <Setter Property="IsChecked" Value="{Binding IsSelected}"/>
-                                                            <Style.Triggers>
-                                                                <Trigger Property="IsMouseOver" Value="True">
-                                                                    <Setter Property="Foreground" Value="Blue"/>
-                                                                    <Setter Property="ToolTip" Value="Click để chat"/>
-                                                                </Trigger>
-                                                            </Style.Triggers>
-                                                        </Style>
-                                                    </CheckBox.Style>
-                                                </CheckBox>
-                                            </Grid>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                                <StackPanel Name="requestTaskZone" Margin="0, 5, 0, 5" Visibility="Collapsed">
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition/>
-                                            <RowDefinition/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="100"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-
+                                <ScrollViewer MinHeight="30" MaxHeight="250">
+                                    <ListBox ItemsSource="{Binding RequestVM.Requests}" SelectionMode="Extended">
+                                        <ListBox.ItemContainerStyle>
+                                            <Style TargetType="{x:Type ListBoxItem}">
+                                                <Setter Property="IsSelected" Value="{Binding IsSelected}"/>
+                                            </Style>
+                                        </ListBox.ItemContainerStyle>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <CheckBox Content="{Binding FriendName}">
+                                                        <CheckBox.Style>
+                                                            <Style TargetType="{x:Type CheckBox}">
+                                                                <Setter Property="IsChecked" Value="{Binding IsSelected}"/>
+                                                                <Style.Triggers>
+                                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                                        <Setter Property="Foreground" Value="Blue"/>
+                                                                        <Setter Property="ToolTip" Value="Click để chat"/>
+                                                                    </Trigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </CheckBox.Style>
+                                                    </CheckBox>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </ScrollViewer>
+                                <StackPanel Name="requestTaskZone" Margin="0, 5, 0, 5" Visibility="Collapsed">                                    
+                                    <StackPanel>
                                         <TextBlock Text="Chọn Thao Tác" VerticalAlignment="Center" Margin="5, 0, 0, 0" Grid.Row="0" Grid.Column="0"/>
                                         <ComboBox Name="cbRequestTask" MinWidth="100" Height="30" Margin="5" Grid.Row="0" Grid.Column="1">
-                                            <ComboBoxItem Content="Lờ Đi" Tag="Ignore" IsSelected="{Binding IsIgnored}"/>
-                                            <ComboBoxItem Content="Chấp Nhận" Tag="Accept" IsSelected="{Binding IsAccepted}"/>
+                                            <ComboBoxItem Content="Lờ Đi" Tag="Ignore" IsSelected="{Binding RequestVM.IsIgnored}"/>
+                                            <ComboBoxItem Content="Chấp Nhận" Tag="Accept" IsSelected="{Binding RequestVM.IsAccepted}"/>
                                         </ComboBox>
-                                        <TextBlock Text="Thêm Vào Nhóm" VerticalAlignment="Center" Margin="5, 0, 0, 0" Grid.Row="1" Grid.Column="0"/>
-                                        <ComboBox Name="cbRequestGroup" ItemsSource="{Binding}" IsEnabled="{Binding IsAccepted}" DisplayMemberPath="Name" SelectedValuePath="GroupID" SelectedIndex="0" MinWidth="100" Height="30" Margin="5" Grid.Row="1" Grid.Column="1"/>
-                                    </Grid>
+                                        <TextBlock Text="Thêm vào nhóm có sẵn" VerticalAlignment="Center" Margin="5, 0, 0, 0" Grid.Row="1" Grid.Column="0"/>
+                                        <ComboBox Name="cbRequestGroup" ItemsSource="{Binding GroupFriend.FriendGroups}" IsEnabled="{Binding RequestVM.Requests.IsAccepted}" DisplayMemberPath="Name" SelectedValuePath="GroupID" SelectedIndex="0" MinWidth="100" Height="30" Margin="5" Grid.Row="1" Grid.Column="1"/>
+                                        <TextBlock Margin="5, 0, 0, 0">Hoặc thêm vào nhóm mới (Bỏ trống nếu thêm vào nhóm có sẵn)</TextBlock>
+                                        <TextBox Name="tbGroupName" Text="{Binding RequestNewGroupName}" Margin="5" Padding="3"></TextBox>
+                                    </StackPanel>
                                     <StackPanel Orientation="Horizontal" Margin="5">
                                         <CheckBox Name="chkRequestTaskDone" Content="Xác Nhận" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5, 0, 0, 0" Checked="chkRequestTaskDone_Checked" Unchecked="chkRequestTaskDone_Unchecked" />
                                         <Button Name="btnRequestTaskDone" Content="Hoàn Thành" BorderThickness="1" FontSize="13" BorderBrush="#FFB1B1B1" IsEnabled="False" Padding="3" Margin="5" Click="btnRequestTaskDone_Click"/>
@@ -114,12 +109,12 @@
                 </Grid.RowDefinitions>
                 
                 <ScrollViewer MinHeight="400" MaxHeight="600" Grid.Row="0">
-                    <TreeView Name="TreeFriend" ItemsSource="{Binding Groups}" SelectedItemChanged="TreeFriend_SelectedItemChanged" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <TreeView Name="treeFriend" ItemsSource="{Binding GroupTree.Groups}" SelectedItemChanged="TreeFriend_SelectedItemChanged" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <TreeView.ItemContainerStyle>
                             <Style TargetType="{x:Type TreeViewItem}">
                                 <EventSetter Event="MouseDoubleClick" Handler="TreeFriend_MouseDoubleClick"/>
-                                <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
-                                <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                                <Setter Property="IsExpanded" Value="{Binding GroupTree.IsExpanded, Mode=TwoWay}" />
+                                <Setter Property="IsSelected" Value="{Binding GroupTree.IsSelected, Mode=TwoWay}" />
                                 <Setter Property="FontWeight" Value="Normal" />
                                 <Style.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
@@ -148,11 +143,18 @@
                             <DataTemplate DataType="{x:Type local:FriendViewModel}">
                                 <StackPanel Orientation="Horizontal" Margin="2, 2, 2, 2">
                                     <CheckBox IsChecked="{Binding IsChecked}" Visibility="{Binding ToogleCheckbox}"/>
-                                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFBEBEBE" CornerRadius="1" Padding="5" Margin="0, 0, 5, 0">
-                                        <Border Background="White" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                            <Image Source="{Binding ProfilePicture}" Height="48" Width="48" Stretch="Uniform" />
-                                        </Border>      
-                                    </Border>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+
+                                        <my:OnlineStatus IsOnline="{Binding IsOnline}" Margin="10, 15, 43, 43" Panel.ZIndex="9999" />
+                                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFBEBEBE" CornerRadius="1" Padding="5" Margin="0, 0, 5, 0">
+                                            <Border Background="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <Image Source="{Binding ProfilePicture}" Height="48" Width="48" Stretch="Uniform" />
+                                            </Border>      
+                                        </Border>
+                                    </Grid>
                                     <TextBlock Text="{Binding Path=FriendName}" Foreground="{Binding MatchColor}"/>
                                 </StackPanel>
                             </DataTemplate>
@@ -160,10 +162,10 @@
                     </TreeView>
                 </ScrollViewer>
                 <StackPanel Orientation="Horizontal" Margin="0, 5, 0, 5" Grid.Row="1">
-                    <my:ImageButton Name="btnSelectAll" Command="{Binding SelectCommand}" Text="Chọn Hết" Image="Image/select.png" Visibility="Collapsed"/>
-                    <my:ImageButton Name="btnDeselectAll" Command="{Binding DeselectCommand}" Text="Bỏ Chọn" Image="Image/select.png" Visibility="Collapsed"/>
+                    <my:ImageButton Name="btnSelectAll" Command="{Binding GroupTree.SelectCommand}" Text="Chọn Hết" Image="Image/select.png" Visibility="Collapsed"/>
+                    <my:ImageButton Name="btnDeselectAll" Command="{Binding GroupTree.DeselectCommand}" Text="Bỏ Chọn" Image="Image/select.png" Visibility="Collapsed"/>
                 </StackPanel>
-                <Border Name="completeTask" BorderBrush="#FFB4B4B4" BorderThickness="1" Grid.Row="2" Visibility="Collapsed" Margin="5">
+                <Border Name="editTaskZone" BorderBrush="#FFB4B4B4" BorderThickness="1" Grid.Row="2" Visibility="Collapsed" Margin="5">
                     <StackPanel>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -181,7 +183,9 @@
                                 <ComboBoxItem Content="Xóa Liên Lạc" Tag="RemoveContact"/>
                             </ComboBox>
                             <TextBlock Name="tblNewGroup" Text="Nhóm" VerticalAlignment="Center" Visibility="Collapsed" Margin="5, 0, 0, 0" Grid.Row="1" Grid.Column="0"/>
-                            <ComboBox Name="cbNewGroup" ItemsSource="{Binding}" DisplayMemberPath="Name" SelectedValuePath="GroupID" SelectedIndex="0" Height="30" Margin="5" Grid.Row="1" Grid.Column="1" Visibility="Collapsed"/>
+                            <ComboBox Name="cbNewGroup" ItemsSource="{Binding GroupFriend.FriendGroups}" DisplayMemberPath="Name" SelectedValuePath="GroupID" SelectedIndex="0" Height="30" Margin="5" Grid.Row="1" Grid.Column="1" Visibility="Collapsed"/>
+                            <TextBlock Name="tblAddNewGroup" Margin="5, 0, 0, 0" Visibility="Collapsed">Hoặc thêm vào nhóm mới (Bỏ trống nếu thêm vào nhóm có sẵn)</TextBlock>
+                            <TextBox Name="tbAddNewGroup" Text="{Binding MoveNewGroupName}" Margin="5" Padding="3" Visibility="Collapsed"></TextBox>
                         </Grid>
                         <StackPanel Orientation="Horizontal" Margin="0, 5, 0, 5">
                             <CheckBox Name="chkDone" Content="Xác Nhận" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5, 0, 0, 0" Checked="chkDone_Checked" Unchecked="chkDone_Unchecked" />

@@ -10,7 +10,7 @@ namespace vChat.Data
 {
     public static class DataAccessExtender
     {
-        private static vChatContext _db;
+        //private static vChatContext _db;
 
         public static vChatContext db
         {
@@ -143,6 +143,9 @@ namespace vChat.Data
         public static List<TEntity> DistinctList<TEntity>(this IQueryable<TEntity> query) where TEntity : class
         {
             List<TEntity> lstCompare = query.ToList();
+
+            if (lstCompare.Count <= 1)
+                return lstCompare;
 
             int maxCompare = lstCompare.Count;
             int beginPosIdx = 0;

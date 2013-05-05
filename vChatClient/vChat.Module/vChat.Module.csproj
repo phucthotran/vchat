@@ -142,6 +142,7 @@
     <Compile Include="RemoveGroup\RemoveGroup.xaml.cs">
       <DependentUpon>RemoveGroup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RemoveGroup\RemoveGroupController.cs" />
     <Compile Include="SignUp\SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>

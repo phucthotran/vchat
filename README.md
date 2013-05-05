@@ -4,6 +4,13 @@
 ## Update Log
 -------------
 
+#### Update 05.05 11:58 PM
+- Chỉnh lại **RemoveGroup** module tránh trường hợp "nhóm chuyển liên lạc tới" bị trùng với "nhóm bị xóa", hỗ trợ tạo nhóm mới khi chuyển liên lạc
+- Không hiển thị bạn khi mới thêm (chỉ hiện thị khi người dùng được gửi yêu cầu chấp nhận thì mới hiển thị
+- Chỉnh lại **FriendList** module: hỗ trợ thêm nhóm mỗi khi chấp nhận yêu cầu kết bạn hoặc di chuyển liên lạc
+- Thêm class **ImageByetConverter** (`vChat.Lib`): dùng cho đọc, ghi file ảnh, convert mảng byte sang **ImageSoure**
+- Thêm control **OnlineStatus** dùng để hiển thị trạng thái online/offline của bạn bè
+
 #### Update 05.05 4:30 PM
 - Chỉnh lại cách thức lấy IP của đối tượng client
 - Thêm chức năng kiểm tra online trên server. Cách dùng:

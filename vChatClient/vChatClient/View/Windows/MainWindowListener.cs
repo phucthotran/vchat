@@ -201,6 +201,8 @@ namespace vChat.View.Windows
                 string user = res.TargetUser;
                 bool isOnline = (bool)res.Params[0];
 
+                _friendListModule.SetFriendStatus(user, isOnline);
+
                 // set online status
                 // _friendListModule.SetStatus(user, isOnline);
 

@@ -148,7 +148,7 @@ namespace vChat.Module.SignUp
             {
                 try
                 {
-                    MethodInvokeResult signUpResult = this.Get<UserServiceClient>().Signup(data.User, data.Pass, data.FirstName, data.LastName, 1, "abac", DateTime.Parse(data.DateOfBirth));
+                    MethodInvokeResult signUpResult = this.Get<UserServiceClient>().Signup(data.User, data.Pass, data.FirstName, data.LastName, 1, "abac", DateTime.Parse("1992/12/12"));
                     if (signUpResult.Status == MethodInvokeResult.RESULT.SUCCESS)
                         res.ServiceMessage = "";
                     else

@@ -26,12 +26,28 @@ namespace vChat.Module.RemoveGroup
 
         private FriendList.FriendsList _IntegratedModule;
         private ObservableCollection<FriendGroup> _Groups;
+        private FriendGroup _GroupToRemove;
+        private int _UserID;
+        private String _NewGroupName;
         private bool _IsRemoveContact;
         private bool _IsMoveContact = true; //Default
 
         public ObservableCollection<FriendGroup> Groups
         {
             get { return _Groups; }
+        }
+
+        public String NewGroupName
+        {
+            get { return _NewGroupName; }
+            set
+            {
+                if (value != _NewGroupName)
+                {
+                    _NewGroupName = value;
+                    this.OnPropertyChanged("NewGroupName");
+                }
+            }
         }
 
         public bool IsRemoveContact
@@ -65,11 +81,21 @@ namespace vChat.Module.RemoveGroup
             InitializeComponent();
         }
 
-        public void SetupData(ObservableCollection<FriendGroup> Groups)
+        public void SetUser(int UserID)
+        {
+            _UserID = UserID;
+        }
+
+        public void SetGroups(ObservableCollection<FriendGroup> Groups)
         {
             _Groups = Groups;
 
             DataContext = this;
+        }
+
+        public void SetGroupToRemove(FriendGroup GroupToRemove)
+        {
+            _GroupToRemove = GroupToRemove;            
         }
 
         public void IntegratedWith(FriendList.FriendsList IntegratedModule)
@@ -87,10 +113,22 @@ namespace vChat.Module.RemoveGroup
         {
             FriendGroup GroupMoveTo = cbGroupMoveTo.SelectedItem as FriendGroup;
 
+            if (_IsRemoveContact && (GroupMoveTo != null && GroupMoveTo.Equals(_GroupToRemove)))
+            {
+                MessageBox.Show("Nhóm bị xóa trùng với nhóm chuyển liên lạc đến. Vui lòng chọn nhóm khác");
+                return;
+            }
+
+            int NewGroupID = 0;
+
+            if (NewGroupName != null)
+                if (!AddNewGroup(_UserID, NewGroupName, ref NewGroupID))
+                    MessageBox.Show("Thêm nhóm mới không thành công");
+
             if (_IsMoveContact)
-                _IntegratedModule.DoRemoveGroup(RemoveContact : false, GroupMoveTo : GroupMoveTo);
-            else if(_IsRemoveContact)
-                _IntegratedModule.DoRemoveGroup(RemoveContact : true);
+                _IntegratedModule.DoRemoveGroup(RemoveContact: false, GroupToRemove: _GroupToRemove, GroupMoveTo: NewGroupID != 0 ? GetGroup(NewGroupID) : GroupMoveTo);
+            else if (_IsRemoveContact)
+                _IntegratedModule.DoRemoveGroup(RemoveContact: true, GroupToRemove: _GroupToRemove);
         }
     }
 }

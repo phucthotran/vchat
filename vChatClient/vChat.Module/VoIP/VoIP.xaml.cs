@@ -26,6 +26,8 @@ namespace vChat.Module.VoIP
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        #region CLASS MEMBER
+
         private String remoteIpAddress;
         private String clientName;
 
@@ -56,6 +58,10 @@ namespace vChat.Module.VoIP
 
         private volatile bool callActive;
 
+        #endregion
+
+        #region PROPERTY
+
         public String RemoteIPAddress
         {
             get { return remoteIpAddress; }
@@ -69,12 +75,16 @@ namespace vChat.Module.VoIP
             }
         }
 
+        #endregion
+
         public VoIP()
         {
             InitializeComponent();
 
             DataContext = this;            
         }
+
+        #region MAIN METHOD
 
         public void Init()
         {
@@ -96,6 +106,8 @@ namespace vChat.Module.VoIP
 
             commandSocket.BeginReceiveFrom(localData, 0, localData.Length, SocketFlags.None, ref remoteCmdEndp, new AsyncCallback(CommandSocket_OnReceiving), null);
         }
+
+        #region COMMAND SOCKET
 
         private void CommandSocket_OnReceiving(IAsyncResult asyncResult)
         {
@@ -159,6 +171,10 @@ namespace vChat.Module.VoIP
             commandSocket.EndSendTo(asyncResult);
         }
 
+        #endregion
+
+        #region TRANSFER DATA
+
         /// <summary>
         /// Send a packet to an end point
         /// </summary>
@@ -170,6 +186,16 @@ namespace vChat.Module.VoIP
 
             commandSocket.BeginSendTo(packetByte, 0, packetByte.Length, SocketFlags.None, endPoint, new AsyncCallback(CommandSocket_OnSending), endPoint);
         }
+
+        private void VoIP_OnRecording(object sender, RecordEventArgs e)
+        {
+            byte[] tmpData = e.RecordedData;
+            callUdp.Send(tmpData, tmpData.Length, remoteCallIpEndp);
+        }
+
+        #endregion
+
+        #region MAIN WORK FOR CALLING
 
         /// <summary>
         /// Init for a call
@@ -209,13 +235,7 @@ namespace vChat.Module.VoIP
 
             tRecording.Start();
             tReceive.Start();
-        }
-
-        private void VoIP_OnRecording(object sender, RecordEventArgs e)
-        {
-            byte[] tmpData = e.RecordedData;
-            callUdp.Send(tmpData, tmpData.Length, remoteCallIpEndp);
-        }
+        }        
 
         /// <summary>
         /// Do call to a remote end point
@@ -257,13 +277,17 @@ namespace vChat.Module.VoIP
             pcmCodec.Dispose();
         }
 
+        #endregion
+
         protected virtual void OnPropertyChanged(String PropertyName)
         {
             if (PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
         }
 
-        #region CONTROL EVENT
+        #endregion
+
+        #region EVENT
 
         private void btnCall_Click(object sender, RoutedEventArgs e)
         {

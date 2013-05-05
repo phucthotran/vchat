@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using Core.Data;
 using System.Net;
 using Core.Client;
+using vChat.Lib;
 
 namespace vChat.Module.FriendList
 {
@@ -21,13 +22,14 @@ namespace vChat.Module.FriendList
 
         #region CLASS MEMBER
 
-        private readonly GroupViewModel _Parent;
-        private readonly Users _Friend;
+        private readonly GroupViewModel parent;
+        private readonly Users friend;
 
-        private bool _IsSelected;
-        private bool _IsChecked;
-        private Visibility _ToogleCheckbox = Visibility.Collapsed; //Default
-        private Brush _MatchColor = Brushes.Black; //Default (Not yet search)
+        private bool isSelected;
+        private bool isChecked;
+        private bool isOnline;
+        private Visibility toogleCheckbox = Visibility.Collapsed; //Default
+        private Brush matchColor = Brushes.Black; //Default (Not yet search)
 
         #endregion
 
@@ -35,45 +37,38 @@ namespace vChat.Module.FriendList
 
         public GroupViewModel Parent
         {
-            get { return _Parent; }
+            get { return parent; }
         }
 
         public Users Friend
         {
-            get { return _Friend; }
+            get { return friend; }
         }
 
         public String FriendName
         {
-            get { return (String.Format("{0} {1}", _Friend.FirstName, _Friend.LastName)); }
+            get { return (String.Format("{0} {1}", friend.FirstName, friend.LastName)); }
         }
 
         public ImageSource ProfilePicture
         {
             get
             {
-                if (_Friend.Picture == null)
-                    return null;
-                                
-                MemoryStream msImage = new MemoryStream(_Friend.Picture);
-                
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.StreamSource = msImage;
-                bitmap.EndInit();                                
-
-                return bitmap as ImageSource;
+                if (friend.Picture == null)
+                    return null;                                
+               
+                return ImageByteConverter.GetFromBytes(friend.Picture);                
             }
         }
 
         public bool IsSelected
         {
-            get { return _IsSelected; }
+            get { return isSelected; }
             set
             {
-                if (value != _IsSelected)
+                if (value != isSelected)
                 {
-                    _IsSelected = value;
+                    isSelected = value;
                     this.OnPropertyChanged("IsSelected");
                 }
             }
@@ -81,33 +76,46 @@ namespace vChat.Module.FriendList
 
         public bool IsChecked
         {
-            get { return _IsChecked; }
+            get { return isChecked; }
             set
             {
-                if (value != _IsChecked)
+                if (value != isChecked)
                 {
-                    _IsChecked = value;
+                    isChecked = value;
 
                     //If all child element was checked, Parent would be checked
-                    int TotalChild = _Parent.Children.Count;
-                    int TotalChecked = _Parent.Children.Where(p => p.IsChecked == value).Count();
+                    int TotalChild = parent.Children.Count;
+                    int TotalChecked = parent.Children.Where(p => p.IsChecked == value).Count();
 
                     if (TotalChecked == TotalChild)
-                        _Parent.IsChecked = value;
+                        parent.IsChecked = value;
 
                     this.OnPropertyChanged("IsChecked");
                 }
             }
         }
 
-        public Visibility ToogleCheckbox
+        public bool IsOnline
         {
-            get { return _ToogleCheckbox; }
+            get { return isOnline; }
             set
             {
-                if (value != _ToogleCheckbox)
+                if (isOnline != value)
                 {
-                    _ToogleCheckbox = value;
+                    isOnline = value;
+                    this.OnPropertyChanged("IsOnline");
+                }
+            }
+        }
+
+        public Visibility ToogleCheckbox
+        {
+            get { return toogleCheckbox; }
+            set
+            {
+                if (value != toogleCheckbox)
+                {
+                    toogleCheckbox = value;
                     this.OnPropertyChanged("ToogleCheckbox");
                 }
             }
@@ -115,12 +123,12 @@ namespace vChat.Module.FriendList
 
         public Brush MatchColor
         {
-            get { return _MatchColor; }
+            get { return matchColor; }
             set
             {
-                if (value != _MatchColor)
+                if (value != matchColor)
                 {
-                    _MatchColor = value;
+                    matchColor = value;
                     this.OnPropertyChanged("MatchColor");
                 }
             }
@@ -130,9 +138,11 @@ namespace vChat.Module.FriendList
 
         public FriendViewModel(Users Friend, GroupViewModel Parent)
         {
-            _Friend = Friend;
-            _Parent = Parent;            
-        }       
+            friend = Friend;
+            parent = Parent;
+        }
+
+        #region MAIN METHOD
 
         public bool NameContainsText(String Text)
         {
@@ -147,5 +157,7 @@ namespace vChat.Module.FriendList
             if (PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
         }
+
+        #endregion
     }
 }

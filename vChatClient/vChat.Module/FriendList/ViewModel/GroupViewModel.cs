@@ -16,13 +16,13 @@ namespace vChat.Module.FriendList
 
         #region CLASS MEMBER
 
-        private readonly ObservableCollection<FriendViewModel> _Children;
-        private readonly FriendGroup _Group;
+        private readonly ObservableCollection<FriendViewModel> children;
+        private readonly FriendGroup group;
 
-        private bool _IsExpanded;
-        private bool _IsSelected;
-        private bool _IsChecked;
-        private Visibility _ToogleCheckbox = Visibility.Collapsed; //Default
+        private bool isExpanded;
+        private bool isSelected;
+        private bool isChecked;
+        private Visibility toogleCheckbox = Visibility.Collapsed; //Default
 
         #endregion
 
@@ -30,27 +30,27 @@ namespace vChat.Module.FriendList
 
         public FriendGroup Group
         {
-            get { return _Group; }
+            get { return group; }
         }
 
         public String GroupName
         {
-            get { return _Group.Name; }
+            get { return group.Name; }
         }
 
         public ObservableCollection<FriendViewModel> Children
         {
-            get { return _Children; }
+            get { return children; }
         }
 
         public bool IsExpanded
         {
-            get { return _IsExpanded; }
+            get { return isExpanded; }
             set
             {
-                if (value != _IsExpanded)
+                if (value != isExpanded)
                 {
-                    _IsExpanded = value;
+                    isExpanded = value;
                     this.OnPropertyChanged("IsExpanded");
                 }
             }
@@ -58,12 +58,12 @@ namespace vChat.Module.FriendList
 
         public bool IsSelected
         {
-            get { return _IsSelected; }
+            get { return isSelected; }
             set
             {
-                if (value != _IsSelected)
+                if (value != isSelected)
                 {
-                    _IsSelected = value;
+                    isSelected = value;
                     this.OnPropertyChanged("IsSelected");
                 }
             }
@@ -71,15 +71,15 @@ namespace vChat.Module.FriendList
 
         public bool IsChecked
         {
-            get { return _IsChecked; }
+            get { return isChecked; }
             set
             {
-                if (value != _IsChecked)
+                if (value != isChecked)
                 {
-                    _IsChecked = value;
+                    isChecked = value;
 
                     //Set IsChecked property for all child
-                    foreach (FriendViewModel child in _Children)
+                    foreach (FriendViewModel child in children)
                         child.IsChecked = value;
 
                     this.OnPropertyChanged("IsChecked");
@@ -89,12 +89,12 @@ namespace vChat.Module.FriendList
 
         public Visibility ToogleCheckbox
         {
-            get { return _ToogleCheckbox; }
+            get { return toogleCheckbox; }
             set
             {
-                if (value != _ToogleCheckbox)
+                if (value != toogleCheckbox)
                 {
-                    _ToogleCheckbox = value;
+                    toogleCheckbox = value;
                     this.OnPropertyChanged("ToogleCheckbox");
                 }
             }
@@ -104,19 +104,23 @@ namespace vChat.Module.FriendList
 
         public GroupViewModel(FriendGroup Group)
         {
-            _Group = Group;
+            group = Group;
 
-            _Children = new ObservableCollection<FriendViewModel>(
-                    (from Friend in _Group.Friends
+            children = new ObservableCollection<FriendViewModel>(
+                    (from Friend in @group.Friends
                      select new FriendViewModel(Friend, this))
                      .ToList()
-                );      
+                ); 
         }
+
+        #region MAIN METHOD
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        #endregion
     }
 }

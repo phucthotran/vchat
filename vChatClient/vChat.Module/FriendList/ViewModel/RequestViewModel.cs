@@ -18,14 +18,14 @@ namespace vChat.Module.FriendList
 
         #region CLASS MEMBER
 
-        private readonly ICommand _AcceptCommand;
-        private readonly ICommand _IgnoreCommand;
+        private readonly ICommand acceptCommand;
+        private readonly ICommand ignoreCommand;
 
-        private readonly ObservableCollection<RequestViewModel> _Requests;
-        private readonly Users _Friend;
-        private bool _IsSelected;
-        private bool _IsIgnored = true; //Default
-        private bool _IsAccepted;
+        private readonly ObservableCollection<RequestViewModel> requests;
+        private readonly Users friend;
+        private bool isSelected;
+        private bool isIgnored = true; //Default
+        private bool isAccepted;
 
         #endregion
 
@@ -33,32 +33,32 @@ namespace vChat.Module.FriendList
 
         public ICommand AcceptCommand
         {
-            get { return _AcceptCommand; }
+            get { return acceptCommand; }
         }
 
         public ICommand IgnoreCommand
         {
-            get { return _IgnoreCommand; }
+            get { return ignoreCommand; }
         }
 
         public Users Friend
         {
-            get { return _Friend; }
+            get { return friend; }
         }
 
         public String FriendName
         {
-            get { return (String.Format("{0} {1}", _Friend.FirstName, _Friend.LastName)); }
+            get { return (String.Format("{0} {1}", friend.FirstName, friend.LastName)); }
         }
 
         public bool IsSelected
         {
-            get { return _IsSelected; }
+            get { return isSelected; }
             set
             {
-                if (value != _IsSelected)
+                if (value != isSelected)
                 {
-                    _IsSelected = value;
+                    isSelected = value;
                     this.OnPropertyChanged("IsSelected");
                 }
             }
@@ -66,12 +66,12 @@ namespace vChat.Module.FriendList
 
         public bool IsIgnored
         {
-            get { return _IsIgnored; }
+            get { return isIgnored; }
             set
             {
-                if (value != _IsIgnored)
+                if (value != isIgnored)
                 {
-                    _IsIgnored = value;
+                    isIgnored = value;
                     this.OnPropertyChanged("IsIgnored");
                 }
             }
@@ -79,12 +79,12 @@ namespace vChat.Module.FriendList
 
         public bool IsAccepted
         {
-            get { return _IsAccepted; }
+            get { return isAccepted; }
             set
             {
-                if (value != _IsAccepted)
+                if (value != isAccepted)
                 {
-                    _IsAccepted = value;
+                    isAccepted = value;
                     this.OnPropertyChanged("IsAccepted");
                 }
             }
@@ -92,26 +92,26 @@ namespace vChat.Module.FriendList
 
         public ObservableCollection<RequestViewModel> Requests
         {
-            get { return _Requests; }            
+            get { return requests; }            
         }
 
         #endregion
 
         private RequestViewModel(Users Friend)
         {
-            _Friend = Friend;
+            friend = Friend;
         }
 
         public RequestViewModel(List<Users> Friends)
         {
-            _Requests = new ObservableCollection<RequestViewModel>(
+            requests = new ObservableCollection<RequestViewModel>(
                     (from Friend in Friends
                     select new RequestViewModel(Friend))
                     .ToList()
                 );
             
-            _AcceptCommand = new AcceptTask(this);
-            _IgnoreCommand = new IgnoreTask(this);
+            acceptCommand = new AcceptTask(this);
+            ignoreCommand = new IgnoreTask(this);
         }
 
         #region MAIN METHOD
@@ -121,7 +121,7 @@ namespace vChat.Module.FriendList
             if (Friend == null)
                 return;
 
-            _Requests.Add(new RequestViewModel(Friend));
+            requests.Add(new RequestViewModel(Friend));
         }
 
         public void RemoveRequest(Users Friend)
@@ -129,10 +129,16 @@ namespace vChat.Module.FriendList
             if (Friend == null)
                 return;
 
-            RequestViewModel MatchRequest = _Requests.FirstOrDefault(r => r.Friend.Equals(Friend));
+            RequestViewModel MatchRequest = requests.FirstOrDefault(r => r.Friend.Equals(Friend));
 
             if (MatchRequest != null)
-                _Requests.Remove(MatchRequest);
+                requests.Remove(MatchRequest);
+        }
+
+        protected virtual void OnPropertyChanged(String PropertyName)
+        {
+            if (this.PropertyChanged != null)
+                this.PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
         }
 
         #endregion
@@ -141,7 +147,7 @@ namespace vChat.Module.FriendList
 
         private void AcceptFriend()
         {
-            List<RequestViewModel> SelectedRequest = _Requests.Where(r => r.IsSelected).ToList();
+            List<RequestViewModel> SelectedRequest = requests.Where(r => r.IsSelected).ToList();
 
             foreach (RequestViewModel request in SelectedRequest)
                 OnAcceptRequest(request.Friend);
@@ -149,18 +155,13 @@ namespace vChat.Module.FriendList
 
         private void IgnoreFriend()
         {
-            List<RequestViewModel> SelectedRequest = _Requests.Where(r => r.IsSelected).ToList();
+            List<RequestViewModel> SelectedRequest = requests.Where(r => r.IsSelected).ToList();
 
             foreach (RequestViewModel request in SelectedRequest)
                 OnIgnoreRequest(request.Friend);
         }
 
         #endregion
-
-        protected virtual void OnPropertyChanged(String PropertyName)
-        {
-            if (this.PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
-        }        
+                
     }
 }

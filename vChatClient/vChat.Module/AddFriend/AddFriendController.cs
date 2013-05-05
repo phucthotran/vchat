@@ -11,21 +11,6 @@ namespace vChat.Module.AddFriend
 {
     public partial class AddFriend
     {
-        private GroupFriendList FriendList(int UserID)
-        {
-            return this.Get<UserServiceClient>().FriendList(UserID);
-        }
-
-        private Users FindUser(String Username)
-        {
-            return this.Get<UserServiceClient>().FindName(Username);
-        }
-
-        private FriendGroup GetGroup(int GroupID)
-        {
-            return this.Get<UserServiceClient>().GroupInfo(GroupID);
-        }
-
         private bool AddNewGroup(int UserID, String Name, ref int NewGroupID)
         {
             MethodInvokeResult result = this.Get<UserServiceClient>().AddGroup(UserID, Name, ref NewGroupID);

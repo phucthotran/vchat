@@ -1,0 +1,23 @@
+06/05/2013 01:18:17 - Server da khoi dong thanh cong.
+06/05/2013 01:18:36 - symaci(127.0.0.1:15932) da ket noi den server.
+06/05/2013 01:18:51 - symaci(127.0.0.1:15932) da gui: CheckOnline - itexplore
+06/05/2013 01:20:04 - symaci(127.0.0.1:15932) da gui: CheckIP - itexplore
+06/05/2013 01:20:10 - symaci(127.0.0.1:15932) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sasfa</Paragraph></FlowDocument>
+06/05/2013 01:20:13 - symaci(127.0.0.1:15932) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>asfasfasfasf</Paragraph></FlowDocument>
+06/05/2013 01:20:56 - itexplore(127.0.0.1:16045) da ket noi den server.
+06/05/2013 01:21:44 - itexplore(127.0.0.1:16045) da gui: CheckOnline - symaci
+06/05/2013 01:21:44 - symaci(127.0.0.1:15932) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sfds</Paragraph></FlowDocument>
+06/05/2013 01:21:51 - symaci(127.0.0.1:15932) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdgsdg</Paragraph></FlowDocument>
+06/05/2013 01:21:51 - symaci(127.0.0.1:15932) da gui: CheckIP - itexplore
+06/05/2013 01:21:51 - itexplore(127.0.0.1:16045) da gui: CheckIP - symaci
+06/05/2013 01:21:51 - itexplore(127.0.0.1:16045) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdgsdgsdg</Paragraph></FlowDocument>
+06/05/2013 01:21:51 - itexplore(127.0.0.1:16045) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdgsdg</Paragraph></FlowDocument>
+06/05/2013 01:22:42 - itexplore(127.0.0.1:16045) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>asdasd</Paragraph></FlowDocument>
+06/05/2013 01:22:44 - symaci(127.0.0.1:15932) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>asdasd</Paragraph></FlowDocument>
+06/05/2013 01:22:45 - symaci(127.0.0.1:15932) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>asdsad</Paragraph></FlowDocument>
+06/05/2013 01:22:45 - symaci(127.0.0.1:15932) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>asdas</Paragraph></FlowDocument>
+06/05/2013 01:22:45 - symaci(127.0.0.1:15932) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>das</Paragraph></FlowDocument>
+06/05/2013 01:22:46 - symaci(127.0.0.1:15932) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>dasd</Paragraph></FlowDocument>
+06/05/2013 01:22:52 - itexplore(127.0.0.1:16045) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>asdasd</Paragraph></FlowDocument>
+06/05/2013 01:23:05 - itexplore(127.0.0.1:16045) da ngat ket noi.
+06/05/2013 01:23:08 - symaci(127.0.0.1:15932) da ngat ket noi.
