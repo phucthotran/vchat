@@ -4,6 +4,35 @@
 ## Update Log
 -------------
 
+#### Update 05.05 4:30 PM
+- Chỉnh lại cách thức lấy IP của đối tượng client
+- Thêm chức năng kiểm tra online trên server. Cách dùng:
+
+```c#
+// Trong phần lấy ra list các friend đã add, ta sẽ send command lên các friend ấy. Giả sử "_list" là danh sách friend:
+foreach (string name in _list)
+{
+	this.Get<Client>().SendCommand(CommandType.CheckOnline, "SERVER", name);
+}
+
+// sau đó kết quả sẽ trả về trong MainWindowListener.cs -> method CheckOnlineListener -> cách dùng res đã có comment trong đó
+// chỉ cần Send Command khi init friend list, những client đang online sẽ tự động cập nhật client vừa check online.
+```
+
+#### Update 05.05 4:00 AM
+- Fix lỗi thêm nhóm khi thêm bạn bè
+- Fix lỗi không xóa được nhóm
+- Chỉnh lại method **AddGroup** (`vChat.WCF`)
+- Fix lỗi **Yêu Cầu Kết Bạn** bị lặp
+- Fix lỗi không update được avatar
+- Fix lỗi khi đăng nhập vào tài khoản chưa có avatar
+- Fix lỗi **FriendList** không cập nhật bạn bè khi thêm bạn vào nhóm mới (nhóm chưa tồn tại)
+
+#### Update 05.05 2:10 AM
+- Fix lỗi Client.ID = 0;
+- Chỉnh lại config của **vChatWCF** (`vChatServices`): nhớ chỉnh lại port từ 80 sang 60111 nha (trên IIS)
+- Fix lỗi **NullReferenceException** trong module `Avatar`
+
 #### Update 04.05 4:30 PM
 - Thêm thư viện mới: **NAudio** (thư mục **DllsReference\NAudio** )
 - Thêm module `VoIP` dùng cho chat voice
@@ -37,7 +66,6 @@
 - Thêm module `Avatar` dùng cho việc thay đổi ảnh đại diện
 - Cơ cấu lại `UploadImage` module để làm việc với `Avatar` module
 - Chỉnh lại giao diện `FriendList`
->>>>>>> vchat/master
 
 #### Update 04.05 6:30 AM
 - Chỉnh sửa lại cách thức gửi và nhận tin nhắn

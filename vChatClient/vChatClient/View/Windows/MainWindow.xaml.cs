@@ -38,7 +38,7 @@ namespace vChat.View.Windows
         public Dictionary<string, string> SendFilePath;
 
         public MainWindow()
-        {
+        {            
             this.Width = 300;
             this.MinWidth = 300;
             this.Height = SystemParameters.WorkArea.Height;
@@ -59,6 +59,8 @@ namespace vChat.View.Windows
             client.CommandBinding(CommandType.SendFileRequest, RequestFileListener);
             client.CommandBinding(CommandType.SendFileProcess, ProcessFileListener);
             client.CommandBinding(CommandType.SendFileSuccess, SuccessFileListener);
+            client.CommandBinding(CommandType.CheckIP, CheckIPListener);
+            client.CommandBinding(CommandType.CheckOnline, CheckOnlineListener);
         }
 
         private void InitLoginModule()
@@ -93,6 +95,7 @@ namespace vChat.View.Windows
                 chatWindow.Show();
             }
             chatWindow.BringToFront();
+            this.Get<Client>().SendCommand(CommandType.CheckIP, "SERVER", e.Username);
         }
 
         private void Login_OnLoginSuccess(Users UserLogged)

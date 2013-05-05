@@ -27,7 +27,23 @@ namespace vChatServer
         {
             Client clientCheck = Program._SERVER.Clients.GetClient(user);
             if (clientCheck != null)
-                Program._SERVER.SendCommand(new Command(CommandType.CheckIP, client.Name, new CommandMetadata("SERVER", clientCheck.Socket.RemoteEndPoint)), client);
+                Program._SERVER.SendCommand(new Command(CommandType.CheckIP, client.Name, new CommandMetadata(user, clientCheck.Socket.RemoteEndPoint)), client);
+        }
+
+        [Invoke(CommandType.CheckOnline)]
+        public void GetOnlineStatus(Client client, string user)
+        {
+            Client clientCheck = Program._SERVER.Clients.GetClient(user);
+            bool isOnline = false;
+            if (clientCheck != null)
+            {
+                isOnline = clientCheck.IsConnected;
+                if (isOnline)
+                {
+                    Program._SERVER.SendCommand(new Command(CommandType.CheckOnline, user, new CommandMetadata(client.Name, true, true)), clientCheck);
+                }
+            }
+            Program._SERVER.SendCommand(new Command(CommandType.CheckOnline, client.Name, new CommandMetadata(user, isOnline, false)), client);
         }
     }
 }

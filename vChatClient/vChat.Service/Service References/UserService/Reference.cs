@@ -34,7 +34,7 @@ namespace vChat.Service.UserService {
         vChat.Model.MethodInvokeResult AddFriend(int UserID, string FriendName, int GroupID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/AddGroup", ReplyAction="http://tempuri.org/IUserService/AddGroupResponse")]
-        vChat.Model.MethodInvokeResult AddGroup(out int NewGroupID, int UserID, string Name);
+        vChat.Model.MethodInvokeResult AddGroup(int UserID, string Name, ref int NewGroupID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/RemoveGroup", ReplyAction="http://tempuri.org/IUserService/RemoveGroupResponse")]
         vChat.Model.MethodInvokeResult RemoveGroup(int GroupID, bool RemoveContact);
@@ -133,8 +133,8 @@ namespace vChat.Service.UserService {
             return base.Channel.AddFriend(UserID, FriendName, GroupID);
         }
         
-        public vChat.Model.MethodInvokeResult AddGroup(out int NewGroupID, int UserID, string Name) {
-            return base.Channel.AddGroup(out NewGroupID, UserID, Name);
+        public vChat.Model.MethodInvokeResult AddGroup(int UserID, string Name, ref int NewGroupID) {
+            return base.Channel.AddGroup(UserID, Name, ref NewGroupID);
         }
         
         public vChat.Model.MethodInvokeResult RemoveGroup(int GroupID, bool RemoveContact) {

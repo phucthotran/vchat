@@ -12,9 +12,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using vChat.Control;
-using vChat.Model.Entities;
 using vChat.Service.UserService;
 using System.ComponentModel;
+using vChat.Model.Entities;
 
 namespace vChat.Module.Login
 {

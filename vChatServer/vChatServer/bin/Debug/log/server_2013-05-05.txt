@@ -1,7 +1,68 @@
-05/05/2013 12:03:19 - Server da khoi dong thanh cong.
-05/05/2013 12:06:07 - symaci(127.0.0.1:59219) da ket noi den server.
-05/05/2013 12:06:26 - symaci(127.0.0.1:59219) da gui: CheckIP - symaci
+05/05/2013 03:52:45 - Server da khoi dong thanh cong.
+05/05/2013 03:15:24 - symaci(127.0.0.1:9406) da ket noi den server.
+05/05/2013 03:15:45 - symaci(127.0.0.1:9406) da ngat ket noi.
+ gui: CheckIP - symaci
 05/05/2013 12:07:12 - symaci(127.0.0.1:59219) da ngat ket noi.
 05/05/2013 12:07:27 - symaci(127.0.0.1:59289) da ket noi den server.
 05/05/2013 12:23:32 - symaci(127.0.0.1:59289) da gui: CheckIP - symaci
 05/05/2013 12:47:14 - symaci(127.0.0.1:59289) da ngat ket noi.
+=======
+05/05/2013 03:36:20 - Server da khoi dong thanh cong.
+05/05/2013 03:45:30 - itexplore(127.0.0.1:19303) da ket noi den server.
+05/05/2013 03:45:33 - itexplore(127.0.0.1:19303) da ngat ket noi.
+05/05/2013 03:46:16 - itexplore(127.0.0.1:19312) da ket noi den server.
+05/05/2013 03:49:12 - itexplore(127.0.0.1:19312) da ngat ket noi.
+2013 02:25:32 - itexplore(127.0.0.1:15494) da ket noi den server.
+05/05/2013 02:32:50 - itexplore(127.0.0.1:15494) da ngat ket noi.
+05/05/2013 02:36:33 - shinichikudo(127.0.0.1:15910) da ket noi den server.
+05/05/2013 02:37:51 - shinichikudo(127.0.0.1:15910) da ngat ket noi.
+05/05/2013 02:38:05 - shinichikudo(127.0.0.1:15986) da ket noi den server.
+05/05/2013 02:40:51 - shinichikudo(127.0.0.1:15986) da ngat ket noi.
+05/05/2013 02:42:24 - huyentrang(127.0.0.1:16155) da ket noi den server.
+05/05/2013 02:44:04 - huyentrang(127.0.0.1:16155) da ngat ket noi.
+05/05/2013 02:44:35 - huyentrang(127.0.0.1:16169) da ket noi den server.
+05/05/2013 02:45:01 - huyentrang(127.0.0.1:16169) da ngat ket noi.
+05/05/2013 02:45:09 - huyentrang(127.0.0.1:16177) da ket noi den server.
+05/05/2013 02:45:16 - huyentrang(127.0.0.1:16177) da ngat ket noi.
+05/05/2013 02:47:23 - huyentrang(127.0.0.1:16191) da ket noi den server.
+05/05/2013 02:48:44 - huyentrang(127.0.0.1:16191) da ngat ket noi.
+05/05/2013 02:53:05 - huyentrang(127.0.0.1:16329) da ket noi den server.
+05/05/2013 02:54:07 - huyentrang(127.0.0.1:16329) da ngat ket noi.
+05/05/2013 02:54:17 - itexplore(127.0.0.1:16390) da ket noi den server.
+05/05/2013 02:55:23 - itexplore(127.0.0.1:16390) da ngat ket noi.
+05/05/2013 02:55:34 - itexplore(127.0.0.1:16498) da ket noi den server.
+05/05/2013 02:56:12 - itexplore(127.0.0.1:16498) da ngat ket noi.
+05/05/2013 02:56:25 - itexplore(127.0.0.1:16617) da ket noi den server.
+05/05/2013 02:56:29 - itexplore(127.0.0.1:16617) da ngat ket noi.
+05/05/2013 02:56:52 - huyentrang(127.0.0.1:16703) da ket noi den server.
+05/05/2013 02:58:14 - huyentrang(127.0.0.1:16703) da ngat ket noi.
+05/05/2013 02:59:01 - itexplore(127.0.0.1:17024) da ket noi den server.
+05/05/2013 02:59:24 - itexplore(127.0.0.1:17024) da ngat ket noi.
+05/05/2013 03:00:19 - itexplore(127.0.0.1:17037) da ket noi den server.
+05/05/2013 03:00:27 - itexplore(127.0.0.1:17037) da ngat ket noi.
+05/05/2013 03:02:07 - itexplore(127.0.0.1:17061) da ket noi den server.
+05/05/2013 03:04:44 - itexplore(127.0.0.1:17061) da ngat ket noi.
+05/05/2013 03:05:02 - shinichikudo(127.0.0.1:17237) da ket noi den server.
+05/05/2013 03:08:08 - shinichikudo(127.0.0.1:17237) da ngat ket noi.
+05/05/2013 03:08:20 - shinichikudo(127.0.0.1:17743) da ket noi den server.
+05/05/2013 03:08:39 - shinichikudo(127.0.0.1:17743) da ngat ket noi.
+05/05/2013 03:14:03 - itexplore(127.0.0.1:18060) da ket noi den server.
+05/05/2013 03:22:27 - itexplore(127.0.0.1:18060) da ngat ket noi.
+05/05/2013 03:24:30 - itexplore(127.0.0.1:18560) da ket noi den server.
+05/05/2013 03:26:11 - itexplore(127.0.0.1:18560) da ngat ket noi.
+05/05/2013 03:26:55 - itexplore(127.0.0.1:18759) da ket noi den server.
+05/05/2013 03:27:30 - itexplore(127.0.0.1:18759) da ngat ket noi.
+05/05/2013 03:27:38 - shinichikudo(127.0.0.1:18851) da ket noi den server.
+05/05/2013 03:27:46 - shinichikudo(127.0.0.1:18851) da ngat ket noi.
+graph>nhấn F2 thử đi</Paragraph></FlowDocument>
+05/05/2013 01:55:27 - symaci(123.20.191.51:17484) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>thôi</Paragraph></FlowDocument>
+05/05/2013 01:55:31 - itexplore(127.0.0.1:14755) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>roi thay doi</Paragraph></FlowDocument>
+05/05/2013 01:55:32 - symaci(123.20.191.51:17484) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>giờ chat = cái này luôn đi</Paragraph></FlowDocument>
+05/05/2013 01:55:50 - symaci(123.20.191.51:17484) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>ủa</Paragraph></FlowDocument>
+05/05/2013 01:55:53 - itexplore(127.0.0.1:14755) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>khung chat cho vao scroll view di</Paragraph></FlowDocument>
+05/05/2013 01:55:57 - symaci(123.20.191.51:17484) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sao cái form chat</Paragraph></FlowDocument>
+05/05/2013 01:56:00 - symaci(123.20.191.51:17484) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>tui bị hư rồi ??</Paragraph></FlowDocument>
+05/05/2013 01:56:06 - symaci(123.20.191.51:17484) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>hồi tru7o1c tự resize</Paragraph></FlowDocument>
+05/05/2013 01:56:22 - itexplore(127.0.0.1:14755) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>cho vao scroll view roi dinh kich thuoc co dinh luon la okay</Paragraph></FlowDocument>
+05/05/2013 01:59:18 - symaci(123.20.191.51:17484) da ngat ket noi.
+>>>>>>> vchat/master

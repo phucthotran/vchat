@@ -122,9 +122,17 @@ namespace vChat.Module.FriendList
         {
             GroupViewModel SelectedGroup = TreeFriend.SelectedItem as GroupViewModel;
 
-            if (RemoveContact)
+            if (SelectedGroup.Children.Count > 0 && RemoveContact)
             {
                 RemoveGroup(SelectedGroup.Group.GroupID, RemoveContact);
+                _GroupTree.RemoveGroup(SelectedGroup.Group);
+                TreeFriend.UpdateLayout();
+
+                return;
+            }
+            else if (SelectedGroup.Children.Count == 0)
+            {
+                RemoveGroup(SelectedGroup.Group.GroupID, false);
                 _GroupTree.RemoveGroup(SelectedGroup.Group);
                 TreeFriend.UpdateLayout();
 

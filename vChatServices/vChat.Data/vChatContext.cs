@@ -8,13 +8,13 @@ namespace vChat.Data
     public class vChatContext : DbContext
     {
         //public vChatContext()
-        //    : base("vChatDB")
+        //    //: base("vChatDB")
         //{
         //    Configuration.ProxyCreationEnabled = false;
         //    Configuration.LazyLoadingEnabled = false;
         //    System.Data.Entity.Database.SetInitializer<vChatContext>(new CreateDatabaseIfNotExists<vChatContext>());
         //}
-        
+
         public vChatContext() : base(GetConnection(@"C:\Connect.txt"))
         {
             Configuration.ProxyCreationEnabled = false;

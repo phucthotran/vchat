@@ -1,6 +1,4 @@
 D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.exe.config
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat.exe
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat.pdb
 D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.exe
 D:\vChatProject\vChatClient\vChatClient\bin\Debug\vChat.pdb
 D:\vChatProject\vChatClient\vChatClient\bin\Debug\Core.Client.dll
@@ -39,3 +37,5 @@ D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat_MarkupCompile.cache
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat.g.resources
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat.Properties.Resources.resources
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChatClient.csproj.GenerateResource.Cache
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat.exe
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat.pdb

@@ -13,8 +13,8 @@ D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.UpdateF
 D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.UpdateMappingForUserAndFriendMap.resources
 D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.EditSomeTable.resources
 D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.EditFriendMap.resources
+D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.AddSomeFieldsInFriendMap.resources
+D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.EditUsersTable.resources
 D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.csproj.GenerateResource.Cache
 D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.dll
 D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.pdb
-D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.AddSomeFieldsInFriendMap.resources
-D:\vChatProject\vChatServices\vChat.Data\obj\Debug\vChat.Data.Migrations.EditUsersTable.resources

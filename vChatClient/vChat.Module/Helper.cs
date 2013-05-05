@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using vChat.Model;
 using System.Windows;
+using vChat.Service.UserService;
+using vChat.Model;
 
 namespace vChat.Module
 {

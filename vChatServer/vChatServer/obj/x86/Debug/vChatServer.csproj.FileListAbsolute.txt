@@ -1,6 +1,4 @@
 D:\vChatProject\vChatServer\vChatServer\bin\Debug\vChatServer.exe.config
-D:\vChatProject\vChatServer\vChatServer\obj\x86\Debug\vChatServer.Properties.Resources.resources
-D:\vChatProject\vChatServer\vChatServer\obj\x86\Debug\vChatServer.csproj.GenerateResource.Cache
 D:\vChatProject\vChatServer\vChatServer\bin\Debug\vChatServer.exe
 D:\vChatProject\vChatServer\vChatServer\bin\Debug\vChatServer.pdb
 D:\vChatProject\vChatServer\vChatServer\bin\Debug\Core.Data.dll
@@ -10,5 +8,7 @@ D:\vChatProject\vChatServer\vChatServer\bin\Debug\Core.Data.pdb
 D:\vChatProject\vChatServer\vChatServer\bin\Debug\Core.Server.pdb
 D:\vChatProject\vChatServer\vChatServer\bin\Debug\Extension.pdb
 D:\vChatProject\vChatServer\vChatServer\obj\x86\Debug\vChatServer.csprojResolveAssemblyReference.cache
+D:\vChatProject\vChatServer\vChatServer\obj\x86\Debug\vChatServer.Properties.Resources.resources
+D:\vChatProject\vChatServer\vChatServer\obj\x86\Debug\vChatServer.csproj.GenerateResource.Cache
 D:\vChatProject\vChatServer\vChatServer\obj\x86\Debug\vChatServer.exe
 D:\vChatProject\vChatServer\vChatServer\obj\x86\Debug\vChatServer.pdb

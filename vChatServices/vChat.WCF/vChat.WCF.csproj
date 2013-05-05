@@ -26,6 +26,13 @@
     <PublishDatabases>false</PublishDatabases>
     <PublishDatabaseSettings>
       <Objects>
+        <ObjectGroup Name="vChatDB-Deployment" Order="1" xmlns="">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=ITEXPLORE-PC\ITESQLSV%3bInitial Catalog=vChatDB%3bUser ID=sa%3bPassword=123456" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\vChatDB-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
       </Objects>
     </PublishDatabaseSettings>
   </PropertyGroup>
@@ -100,8 +107,8 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>False</AutoAssignPort>
-          <DevelopmentServerPort>6566</DevelopmentServerPort>
-          <DevelopmentServerVPath>/vChatServices</DevelopmentServerVPath>
+          <DevelopmentServerPort>60111</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/vChatServices</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>

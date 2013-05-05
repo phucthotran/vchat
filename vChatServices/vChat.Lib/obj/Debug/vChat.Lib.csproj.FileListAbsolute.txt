@@ -2,4 +2,3 @@ D:\vChatProject\vChatServices\vChat.Lib\bin\Debug\vChat.Lib.dll
 D:\vChatProject\vChatServices\vChat.Lib\bin\Debug\vChat.Lib.pdb
 D:\vChatProject\vChatServices\vChat.Lib\obj\Debug\vChat.Lib.dll
 D:\vChatProject\vChatServices\vChat.Lib\obj\Debug\vChat.Lib.pdb
-D:\vChatProject\vChatServices\vChat.Lib\obj\Debug\vChat.Lib.csprojResolveAssemblyReference.cache

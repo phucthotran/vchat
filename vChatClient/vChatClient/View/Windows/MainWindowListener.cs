@@ -162,5 +162,67 @@ namespace vChat.View.Windows
                 writer.Flush();
             }
         }
+
+        private void CheckIPListener(CommandResponse res)
+        {
+            if (Application.Current.Dispatcher.CheckAccess())
+            {
+                ChatWindow chatWindow = null;
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window.GetType() == typeof(ChatWindow) && ((ChatWindow)window).TargetUser == res.TargetUser)
+                    {
+                        chatWindow = window as ChatWindow;
+                        break;
+                    }
+                }
+                if (chatWindow != null)
+                {
+                    chatWindow.Focus();
+                    chatWindow.ClientEndPoint = res.Params[0] as EndPoint;
+                }
+            }
+            else
+            {
+                Application.Current.Dispatcher.Invoke(new Action(() => { CheckIPListener(res); }));
+            }
+        }
+
+        private void CheckOnlineListener(CommandResponse res)
+        {
+            if (_friendListModule.Dispatcher.CheckAccess())
+            {
+                /* 
+                 * _friendListModule phải cung cấp method để lấy ra control chứa tên người dùng
+                 * hoặc là method dùng để set online cho control đó                
+                 */
+                
+                // lấy ra tên người dùng và trạng thái
+                string user = res.TargetUser;
+                bool isOnline = (bool)res.Params[0];
+
+                // set online status
+                // _friendListModule.SetStatus(user, isOnline);
+
+                /*
+                 * ...
+                 */
+
+                // cái này để popup ra ngoài, để dưới cùng
+                if ((bool)res.Params[1])
+                {
+                    MessagePopup.Display(user + "đã online !!", delegate
+                    {
+                        ChatWindow chatWindow = new ChatWindow(user);
+                        chatWindow.Show();
+                        chatWindow.BringToFront();
+                    });
+                }
+            }
+            else
+            {
+                _friendListModule.Dispatcher.Invoke(new Action(() => { CheckOnlineListener(res); }));
+            }
+        }
     }
 }

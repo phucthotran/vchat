@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 04/05/2013 07:51:22 - Server da khoi dong thanh cong.
 04/05/2013 05:47:15 - symaci(127.0.0.1:55620) da ket noi den server.
 04/05/2013 05:47:50 - symaci(127.0.0.1:55620) da gui: CheckIP - symaci
@@ -43,6 +44,9 @@ ePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmln
 04/05/2013 02:26:27 - symaci(127.0.0.1:45998) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rgrg</Paragraph></FlowDocument>
 =======
 04/05/2013 04:18:13 - Server da khoi dong thanh cong.
+=======
+04/05/2013 10:18:41 - Server da khoi dong thanh cong.
+>>>>>>> vchat/master
 04/05/2013 03:04:31 - itexplore(127.0.0.1:11057) da ket noi den server.
 04/05/2013 03:05:02 - shinichikudo(127.0.0.1:11096) da ket noi den server.
 04/05/2013 03:05:04 - itexplore(127.0.0.1:11057) da gui: CheckIP - shinichikudo

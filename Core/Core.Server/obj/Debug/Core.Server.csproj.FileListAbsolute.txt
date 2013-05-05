@@ -4,5 +4,6 @@ D:\vChatProject\Core\Core.Server\bin\Debug\Core.Data.dll
 D:\vChatProject\Core\Core.Server\bin\Debug\Extension.dll
 D:\vChatProject\Core\Core.Server\bin\Debug\Core.Data.pdb
 D:\vChatProject\Core\Core.Server\bin\Debug\Extension.pdb
+D:\vChatProject\Core\Core.Server\obj\Debug\Core.Server.csprojResolveAssemblyReference.cache
 D:\vChatProject\Core\Core.Server\obj\Debug\Core.Server.dll
 D:\vChatProject\Core\Core.Server\obj\Debug\Core.Server.pdb

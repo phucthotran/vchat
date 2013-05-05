@@ -17,4 +17,3 @@ D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.Control.Properties.Res
 D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.Control.csproj.GenerateResource.Cache
 D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.Control.dll
 D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.Control.pdb
-D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.Control.csprojResolveAssemblyReference.cache

@@ -33,6 +33,19 @@ namespace vChat.View.Windows
         private SendFilePanel _SendFilePanel;
         private String _IpAddress;
 
+        private EndPoint _ClientEndPoint;
+        public EndPoint ClientEndPoint
+        {
+            get { return _ClientEndPoint; }
+            set
+            {
+                _ClientEndPoint = value;
+                _IpAddress = ((IPEndPoint)value).Address.ToString();
+                VoIPModule.RemoteIPAddress = _IpAddress;
+                VoIPModule.Init();
+            }
+        }
+
         public string TargetUser { get; private set; }
         public ChatWindow(string targetUser)
         {
@@ -72,21 +85,7 @@ namespace vChat.View.Windows
             {
                 _SendFilePanel.Append(TargetUser, true, fileSending);
                 _Client.SendCommand(CommandType.SendFileRequest, targetUser, fileSending);
-            });
-
-            //FOR CHAT VOICE            
-            this.Get<Client>().CommandBinding(CommandType.CheckIP, GetIPAddress);
-            this.Get<Client>().SendCommand(CommandType.CheckIP, "SERVER", targetUser);            
-        }
-
-        //FOR CHAT VOICE
-        private void GetIPAddress(CommandResponse commandResponse)
-        {
-            EndPoint endPoint = (EndPoint)commandResponse.Params[0];
-            _IpAddress = ((IPEndPoint)endPoint).Address.ToString();
-
-            VoIPModule.RemoteIPAddress = _IpAddress;
-            VoIPModule.Init();
+            });       
         }
 
         public void ReceiveMessage(Message message)
