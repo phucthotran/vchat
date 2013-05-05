@@ -23,6 +23,7 @@ using vChat.Module.Chat.ViewParts;
 using System.Collections;
 using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
+using System.Net;
 
 namespace vChat.Module.Chat
 {
@@ -56,7 +57,7 @@ namespace vChat.Module.Chat
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageInput.Document.Blocks.Count > 0)
+            if (MessageInput.Document.Blocks.Count > 0 && ((Paragraph)MessageInput.Document.Blocks.FirstBlock).Inlines.Count > 0)
             {
                 _messageSended.Add(XamlWriter.Save(MessageInput.Document));
                 _messageSendedIndex = 0;

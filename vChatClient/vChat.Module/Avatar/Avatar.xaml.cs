@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using System.IO;
 using System.ComponentModel;
+using vChat.Lib;
 
 namespace vChat.Module.Avatar
 {
@@ -24,51 +25,47 @@ namespace vChat.Module.Avatar
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private Upload.UploadImage _UploadAvatarModule;
-        private ImageSource _Image;
+        #region CLASS MEMBER
+
+        private Upload.UploadImage uploadAvatarModule;
+        private ImageSource image;
+
+        #endregion
+
+        #region PROPERTY
 
         public ImageSource Image
         {
-            get { return _Image; }
+            get { return image; }
             set
             {
-                if (value != _Image)
+                if (value != image)
                 {
-                    _Image = value;
+                    image = value;
                     this.OnPropertyChanged("Image");
                 }
             }
         }
 
+        #endregion
+
         public Avatar()
         {
-            _UploadAvatarModule = new Upload.UploadImage();
+            uploadAvatarModule = new Upload.UploadImage();
             InitializeComponent();
         }
 
-        public void ChangeAvatarFor(int UserID)
-        {                
-            this.Image = ConvertByteToImageSource(GetInfo(UserID).Picture);            
+        #region MAIN METHOD
 
-            _UploadAvatarModule = new Upload.UploadImage();
-            _UploadAvatarModule.UploadFor(UserID);
-            _UploadAvatarModule.IntegratedWith(this);
+        public void ChangeAvatarFor(int UserID)
+        {
+            uploadAvatarModule = new Upload.UploadImage();
+            uploadAvatarModule.UploadFor(UserID);
+            uploadAvatarModule.IntegratedWith(this);
+
+            this.Image = ImageByteConverter.GetFromBytes(GetInfo(UserID).Picture);
 
             DataContext = this;
-        }
-
-        private ImageSource ConvertByteToImageSource(byte[] data)
-        {
-            if (data == null)
-                return null;
-
-            MemoryStream msImage = new MemoryStream(data);
-            BitmapImage bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.StreamSource = msImage;
-            bitmap.EndInit();
-
-            return bitmap as ImageSource;
         }
 
         //Call by UploadImage module
@@ -77,10 +74,20 @@ namespace vChat.Module.Avatar
             this.Image = Image;
         }
 
+        protected virtual void OnPropertyChanged(String PropertyName)
+        {
+            if (PropertyChanged != null)
+                this.PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
+        }
+
+        #endregion
+
+        #region EVENT
+
         private void tbChangeAvatar_MouseDown(object sender, MouseButtonEventArgs e)
         {
             MetroWindow uploadWin = null;
-            Helper.CreateWindow(ref uploadWin, "Đăng Ảnh Đại Diện", _UploadAvatarModule).ShowDialog();
+            Helper.CreateWindow(ref uploadWin, "Đăng Ảnh Đại Diện", uploadAvatarModule).ShowDialog();
         }
 
         private void tbChangeAvatar_MouseEnter(object sender, MouseEventArgs e)
@@ -94,10 +101,7 @@ namespace vChat.Module.Avatar
             tbChangeAvatar.Foreground = Brushes.Black;
         }
 
-        protected virtual void OnPropertyChanged(String PropertyName)
-        {
-            if (PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
-        }
+        #endregion
+
     }
 }

@@ -23,31 +23,35 @@ namespace vChat.Module.AddFriend
     /// </summary>
     public partial class AddFriend : UserControl, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public delegate void AddingHandler(object sender, AddFriendArgs e);
         public event AddingHandler OnAddFriendSuccess;
         public event AddingHandler OnAddFriendError;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        #region CLASS MEMBER
 
-        private FriendList.FriendsList _IntegratedModule;
-        private int _UserID;
-        private ObservableCollection<FriendGroup> _Groups;
-        private String _FriendName;
-        private String _NewGroupName;
+        private int userId;
+        private ObservableCollection<FriendGroup> groups;
+        private String friendName;
+        private String newGroupName;
+
+        #endregion
+
+        #region PROPERTY
 
         public ObservableCollection<FriendGroup> Groups
         {
-            get { return _Groups; }
+            get { return groups; }
         }
 
         public String FriendName
         {
-            get { return _FriendName; }
+            get { return friendName; }
             set
             {
-                if (value != _FriendName)
+                if (value != friendName)
                 {
-                    _FriendName = value;
+                    friendName = value;
                     this.OnPropertyChanged("FriendName");
                 }
             }
@@ -55,30 +59,34 @@ namespace vChat.Module.AddFriend
 
         public String NewGroupName
         {
-            get { return _NewGroupName; }
+            get { return newGroupName; }
             set
             {
-                if (value != _NewGroupName)
+                if (value != newGroupName)
                 {
-                    _NewGroupName = value;
+                    newGroupName = value;
                     this.OnPropertyChanged("NewGroupName");
                 }
             }
         }
-        
+
+        #endregion
+
         public AddFriend()
         {
             InitializeComponent();
         }
 
+        #region MAIN METHOD
+
         public void SetUser(int UserID)
         {
-            _UserID = UserID;            
+            userId = UserID;            
         }
 
         public void SetGroups(ObservableCollection<FriendGroup> Groups)
         {
-            _Groups = Groups;
+            groups = Groups;
 
             DataContext = this;
         }
@@ -92,10 +100,15 @@ namespace vChat.Module.AddFriend
             cbGroup.SelectedIndex = pos;
         }
 
-        public void IntegratedWith(FriendList.FriendsList IntegratedModule)
+        protected virtual void OnPropertyChanged(String PropertyName)
         {
-            _IntegratedModule = IntegratedModule;
+            if (this.PropertyChanged != null)
+                this.PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
         }
+
+        #endregion
+
+        #region EVENT
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -107,23 +120,18 @@ namespace vChat.Module.AddFriend
             }
 
             FriendGroup SelectedGroup = (FriendGroup)cbGroup.SelectedItem;
-
             int NewGroupID = 0;
 
             if (NewGroupName != null)
-                if (!AddNewGroup(_UserID, NewGroupName, ref NewGroupID))
+                if (!AddNewGroup(userId, NewGroupName, ref NewGroupID))
                     OnAddFriendError(this, new AddFriendArgs(FriendName, NewGroupName));
 
-            if (AddNewFriend(_UserID, FriendName, NewGroupID != 0 ? NewGroupID : SelectedGroup.GroupID))              
+            if (AddNewFriend(userId, FriendName, NewGroupID != 0 ? NewGroupID : SelectedGroup.GroupID))
                 OnAddFriendSuccess(this, new AddFriendArgs(FriendName, NewGroupName != null ? NewGroupName : SelectedGroup.Name));            
             else
                 OnAddFriendError(this, new AddFriendArgs(FriendName, NewGroupName != null ? NewGroupName : SelectedGroup.Name));
         }
 
-        protected virtual void OnPropertyChanged(String PropertyName)
-        {
-            if (this.PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
-        }
+        #endregion
     }
 }

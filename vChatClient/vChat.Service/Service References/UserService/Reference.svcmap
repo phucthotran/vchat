@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d1b75002-746d-49d7-a553-c60a2478976b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="34261240-08b9-4780-b7f9-95c9ad155417" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -21,16 +21,16 @@
     <MetadataSource Address="http://localhost:6566/vChatServices/UserService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="UserService1.disco" MetadataType="Disco" ID="2b1d102a-0200-4426-874f-8880f35158ee" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?disco" />
-    <MetadataFile FileName="UserService8.xsd" MetadataType="Schema" ID="b8255834-cc95-4be3-8eb0-65be654ac72b" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd6" />
-    <MetadataFile FileName="UserService9.xsd" MetadataType="Schema" ID="3f0fd88a-df65-42a6-8ce9-e476231ca36f" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd1" />
-    <MetadataFile FileName="UserService10.xsd" MetadataType="Schema" ID="299241a6-9e9a-4a4f-85d6-06f137af24a4" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd4" />
-    <MetadataFile FileName="UserService11.xsd" MetadataType="Schema" ID="b53854b2-3eb6-4ddf-9458-5ac2e37b19f5" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd2" />
-    <MetadataFile FileName="UserService12.xsd" MetadataType="Schema" ID="ef3f67b1-2974-458a-a1d9-1025377c1bbd" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd3" />
-    <MetadataFile FileName="UserService13.xsd" MetadataType="Schema" ID="5df0d79a-a000-4c9d-89a2-3b400fa3ef75" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd0" />
-    <MetadataFile FileName="UserService14.xsd" MetadataType="Schema" ID="e9043da6-cb80-4709-9a8b-d7a7a26a3e6e" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd7" />
-    <MetadataFile FileName="UserService15.xsd" MetadataType="Schema" ID="4e673ce1-0f84-4eb9-a4ed-43395b04dc65" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd5" />
-    <MetadataFile FileName="UserService1.wsdl" MetadataType="Wsdl" ID="31070093-cf18-4009-ae70-a189d201a277" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?wsdl" />
+    <MetadataFile FileName="UserService.disco" MetadataType="Disco" ID="65955bcc-71c5-45b7-9031-8482eb5793af" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?disco" />
+    <MetadataFile FileName="UserService.xsd" MetadataType="Schema" ID="b0cc7b7c-fc9e-4264-9e7a-f42a7f0a59d1" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd6" />
+    <MetadataFile FileName="UserService1.xsd" MetadataType="Schema" ID="f6f7ef4c-416d-411e-8765-eccc7b35521c" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UserService2.xsd" MetadataType="Schema" ID="862d1b95-75ac-4496-95c0-dfcebd822f1d" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd4" />
+    <MetadataFile FileName="UserService3.xsd" MetadataType="Schema" ID="3f710b03-d361-400a-be55-a4e33b4532be" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UserService4.xsd" MetadataType="Schema" ID="d4855e8c-2c54-4f7b-b88e-e85930352d2d" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd3" />
+    <MetadataFile FileName="UserService5.xsd" MetadataType="Schema" ID="c6516285-5ad4-4841-83ac-05eae8d5e0d6" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UserService6.xsd" MetadataType="Schema" ID="abc45d55-8b79-4c43-a218-e0d8b8d4feb8" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd7" />
+    <MetadataFile FileName="UserService7.xsd" MetadataType="Schema" ID="d3c51199-48a1-43e1-a82d-480b1f4164dd" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd5" />
+    <MetadataFile FileName="UserService.wsdl" MetadataType="Wsdl" ID="7774763c-0482-47f0-a1a3-0913053fd55d" SourceId="1" SourceUrl="http://localhost:6566/vChatServices/UserService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

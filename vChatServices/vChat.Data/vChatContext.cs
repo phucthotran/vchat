@@ -8,7 +8,7 @@ namespace vChat.Data
     public class vChatContext : DbContext
     {
         public vChatContext()
-            //: base("vChatDB")
+        //: base("vChatDB")
         {
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = false;

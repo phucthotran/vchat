@@ -33,28 +33,30 @@ namespace vChat.Module.FriendList
 
         #region CLASS MEMBER
 
-        private AddFriend.AddFriend _AddFriendModule;
-        private MetroWindow _AddFriendWin;
-        private RemoveGroup.RemoveGroup _RemoveGroupModule;
-        private MetroWindow _RemoveGroupWin;
-        private DispatcherTimer _UpdateRequest;
-        private GroupTreeViewModel _GroupTree;
-        private RequestViewModel _RequestVM;
-        private GroupFriendList _GroupFriend;
-        private String _RequestNewGroupName;
-        private String _MoveNewGroupName;
-        private int _UserID;
+        private AddFriend.AddFriend addFriendModule;
+        private MetroWindow addFriendWin;
+        private RemoveGroup.RemoveGroup removeGroupModule;
+        private MetroWindow removeGroupWin;
+        private DispatcherTimer updateRequest;
+        private GroupTreeViewModel groupTree;
+        private RequestViewModel requestVM;
+        private GroupFriendList groupFriend;
+        private String requestNewGroupName;
+        private String moveNewGroupName;
+        private int userId;
 
         #endregion
 
+        #region PROPERTY
+
         public GroupTreeViewModel GroupTree
         {
-            get { return _GroupTree; }
+            get { return groupTree; }
             set
             {
-                if (value != _GroupTree)
+                if (value != groupTree)
                 {
-                    _GroupTree = value;
+                    groupTree = value;
                     this.OnPropertyChanged("GroupTree");
                 }
             }
@@ -62,12 +64,12 @@ namespace vChat.Module.FriendList
 
         public RequestViewModel RequestVM
         {
-            get { return _RequestVM; }
+            get { return requestVM; }
             set
             {
-                if (value != _RequestVM)
+                if (value != requestVM)
                 {
-                    _RequestVM = value;
+                    requestVM = value;
                     this.OnPropertyChanged("RequestVM");
                 }
             }
@@ -75,12 +77,12 @@ namespace vChat.Module.FriendList
 
         public GroupFriendList GroupFriend
         {
-            get { return _GroupFriend; }
+            get { return groupFriend; }
             set
             {
-                if (value != _GroupFriend)
+                if (value != groupFriend)
                 {
-                    _GroupFriend = value;
+                    groupFriend = value;
                     this.OnPropertyChanged("GroupFriend");
                 }
             }
@@ -88,12 +90,12 @@ namespace vChat.Module.FriendList
 
         public String RequestNewGroupName
         {
-            get { return _RequestNewGroupName; }
+            get { return requestNewGroupName; }
             set
             {
-                if (value != _RequestNewGroupName)
+                if (value != requestNewGroupName)
                 {
-                    _RequestNewGroupName = value;
+                    requestNewGroupName = value;
                     this.OnPropertyChanged("RequestNewGroupName");
                 }
             }
@@ -101,16 +103,18 @@ namespace vChat.Module.FriendList
 
         public String MoveNewGroupName
         {
-            get { return _MoveNewGroupName; }
+            get { return moveNewGroupName; }
             set
             {
-                if (value != _MoveNewGroupName)
+                if (value != moveNewGroupName)
                 {
-                    _MoveNewGroupName = value;
+                    moveNewGroupName = value;
                     this.OnPropertyChanged("MoveNewGroupName");
                 }
             }
         }
+
+        #endregion
 
         public FriendsList()
         {
@@ -121,52 +125,59 @@ namespace vChat.Module.FriendList
 
         public void Init(int UserID)
         {
-            _UserID = UserID;
+            userId = UserID;
 
-            _GroupFriend = FriendList(UserID);
-            List<Users> Requests = FriendRequests(UserID);
+            groupFriend = FriendList(userId);
+            List<Users> Requests = FriendRequests(userId);
 
-            ChangeAvatarModule.ChangeAvatarFor(UserID);
+            changeAvatarModule.ChangeAvatarFor(userId);
 
-            _AddFriendModule = new AddFriend.AddFriend();
-            _AddFriendModule.SetUser(UserID);
-            _AddFriendModule.SetGroups(_GroupFriend.FriendGroups);
-            _AddFriendModule.IntegratedWith(this);
-            _AddFriendModule.OnAddFriendSuccess += new AddFriend.AddFriend.AddingHandler(AddFriendModule_OnAddFriendSuccess);
-            _AddFriendModule.OnAddFriendError += new AddFriend.AddFriend.AddingHandler(AddFriendModule_OnAddFriendError);
+            addFriendModule = new AddFriend.AddFriend();
+            addFriendModule.SetUser(userId);
+            addFriendModule.SetGroups(GroupFriend.FriendGroups);
+            addFriendModule.OnAddFriendSuccess += new AddFriend.AddFriend.AddingHandler(AddFriendModule_OnAddFriendSuccess);
+            addFriendModule.OnAddFriendError += new AddFriend.AddFriend.AddingHandler(AddFriendModule_OnAddFriendError);
 
-            _RemoveGroupModule = new Module.RemoveGroup.RemoveGroup();
-            _RemoveGroupModule.SetUser(UserID);
-            _RemoveGroupModule.SetGroups(_GroupFriend.FriendGroups);
-            _RemoveGroupModule.IntegratedWith(this);
+            removeGroupModule = new Module.RemoveGroup.RemoveGroup();
+            removeGroupModule.SetUser(userId);
+            removeGroupModule.SetGroups(GroupFriend.FriendGroups);
+            removeGroupModule.IntegratedWith(this);
 
-            _GroupTree = new GroupTreeViewModel(_GroupFriend.FriendGroups);
-            _GroupTree.OnMoveContact += new GroupTreeViewModel.FriendHandler(GroupTree_OnMoveContact);
-            _GroupTree.OnRemoveContact += new GroupTreeViewModel.FriendHandler(GroupTree_OnRemoveContact);
+            groupTree = new GroupTreeViewModel(GroupFriend.FriendGroups);
+            groupTree.OnMoveContact += new GroupTreeViewModel.FriendHandler(GroupTree_OnMoveContact);
+            groupTree.OnRemoveContact += new GroupTreeViewModel.FriendHandler(GroupTree_OnRemoveContact);
 
-            _RequestVM = new RequestViewModel(Requests);
-            _RequestVM.OnAcceptRequest += new RequestViewModel.RequestHandler(RequestVM_OnAcceptRequest);
-            _RequestVM.OnIgnoreRequest += new RequestViewModel.RequestHandler(RequestVM_OnIgnoreRequest);
+            requestVM = new RequestViewModel(Requests);
+            requestVM.OnAcceptRequest += new RequestViewModel.RequestHandler(RequestVM_OnAcceptRequest);
+            requestVM.OnIgnoreRequest += new RequestViewModel.RequestHandler(RequestVM_OnIgnoreRequest);
+
+            //Request online/offline status of user
+            foreach (FriendGroup group in GroupFriend.FriendGroups)
+                foreach (Users friend in group.Friends)
+                    this.Get<Client>().SendCommand(Core.Data.CommandType.CheckOnline, "SERVER", friend.Username);
 
             base.DataContext = this;
-            //friendRequestZone.DataContext = _RequestVM;
-            //cbRequestGroup.ItemsSource = _GroupFriend.FriendGroups;
-            //cbNewGroup.ItemsSource = _GroupFriend.FriendGroups;
 
-            _UpdateRequest = new DispatcherTimer();
-            _UpdateRequest.Interval = TimeSpan.FromMilliseconds(1000);
-            _UpdateRequest.Tick += new EventHandler(UpdateRequest_Tick);
-            _UpdateRequest.Start();
-        }                
+            updateRequest = new DispatcherTimer();
+            updateRequest.Interval = TimeSpan.FromMilliseconds(1000);
+            updateRequest.Tick += new EventHandler(UpdateRequest_Tick);
+            updateRequest.Start();
+        }
 
+        public void SetFriendStatus(String Username, bool IsOnline)
+        {
+            GroupTree.SetFriendStatus(Username, IsOnline);
+        }
+
+        //Call by RemoveGroup module
         public void DoRemoveGroup(bool RemoveContact, FriendGroup GroupToRemove, FriendGroup GroupMoveTo = null)
         {
             if (GroupToRemove.Friends.Count > 0 && RemoveContact)
             {
                 RemoveGroup(GroupToRemove.GroupID, RemoveContact);
                 GroupTree.RemoveGroup(GroupToRemove);
-                TreeFriend.UpdateLayout();
-                _RemoveGroupWin.Close();
+                treeFriend.UpdateLayout();
+                removeGroupWin.Close();
 
                 return;
             }
@@ -174,22 +185,22 @@ namespace vChat.Module.FriendList
             {
                 RemoveGroup(GroupToRemove.GroupID, false);
                 GroupTree.RemoveGroup(GroupToRemove);
-                TreeFriend.UpdateLayout();
-                _RemoveGroupWin.Close();
+                treeFriend.UpdateLayout();
+                removeGroupWin.Close();
 
                 return;
             }
 
             foreach (Users child in GroupToRemove.Friends)
             {
-                MoveContact(_UserID, child.UserID, GroupMoveTo.GroupID);
+                MoveContact(userId, child.UserID, GroupMoveTo.GroupID);
                 GroupTree.MoveFriend(child, GroupToRemove, GroupMoveTo);
             }
 
             GroupTree.RemoveGroup(GroupToRemove);
 
-            TreeFriend.UpdateLayout();
-            _RemoveGroupWin.Close();
+            treeFriend.UpdateLayout();
+            removeGroupWin.Close();
         }
 
         protected virtual void OnPropertyChanged(String PropertyName)
@@ -202,13 +213,35 @@ namespace vChat.Module.FriendList
 
         #region EVENT PERFORM
 
+        #region ADD FRIEND ZONE
+
+        private void btnAddFriend_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.CreateWindow(ref addFriendWin, "Thêm Bạn", addFriendModule).ShowDialog();
+        }
+
+        private void AddFriendModule_OnAddFriendSuccess(object sender, AddFriendArgs e)
+        {
+            addFriendWin.Close();
+            MessageBox.Show(String.Format("Đã thêm '{0}' vào nhóm {1} thành công. Vui lòng đợi '{0}' hồi đáp yêu cầu kết bạn của bạn", e.FriendName, e.GroupName));
+        }
+
+        private void AddFriendModule_OnAddFriendError(object sender, AddFriendArgs e)
+        {
+            MessageBox.Show(String.Format("Yêu cầu kết bạn với '{0}' không thành công. Vui lòng thử lại sau", e.FriendName));
+        }
+
+        #endregion
+
+        #region REQUEST ZONE
+
         private void UpdateRequest_Tick(object sender, EventArgs e)
         {            
             int totalRequest = RequestVM.Requests.Count;
 
             requestTaskZone.Visibility = totalRequest == 0 ? Visibility.Collapsed : Visibility.Visible;
 
-            List<Users> Requests = FriendRequests(_UserID).Skip(totalRequest).ToList(); //Skip amount of "totalRequest" request got before
+            List<Users> Requests = FriendRequests(userId).Skip(totalRequest).ToList(); //Skip amount of "totalRequest" request got before
 
             if (Requests.Count == 0)
                 return;
@@ -219,115 +252,33 @@ namespace vChat.Module.FriendList
             friendRequestZone.UpdateLayout();
         }
 
-        private void AddFriendModule_OnAddFriendSuccess(object sender, AddFriendArgs e)
-        {
-            _AddFriendWin.Close();
-            MessageBox.Show(String.Format("Đã thêm '{0}' vào nhóm {1} thành công. Vui lòng đợi '{0}' hồi đáp yêu cầu kết bạn của bạn", e.FriendName, e.GroupName));
-        }
-
-        private void AddFriendModule_OnAddFriendError(object sender, AddFriendArgs e)
-        {
-            MessageBox.Show(String.Format("Yêu cầu kết bạn với '{0}' không thành công. Vui lòng thử lại sau", e.FriendName));
-        }
-        
-        private void GroupTree_OnMoveContact(Users Friend, FriendGroup OldGroup)
-        {
-            FriendGroup NewGroup = cbNewGroup.SelectedItem as FriendGroup;
-
-            int NewGroupID = 0;
-
-            if(NewGroup == null || _MoveNewGroupName != null)
-                if (_MoveNewGroupName != null)
-                    if (!AddNewGroup(_UserID, _MoveNewGroupName, ref NewGroupID))
-                        MessageBox.Show("Thêm nhóm mới không thành công");
-
-            MoveContact(_UserID, Friend.UserID, NewGroupID != 0 ? GetGroup(NewGroupID).GroupID : NewGroup.GroupID);
-
-            GroupTree.MoveFriend(Friend, OldGroup, NewGroupID != 0 ? GetGroup(NewGroupID) : NewGroup);
-
-            TreeFriend.UpdateLayout();
-        }
-
-        private void GroupTree_OnRemoveContact(Users Friend, FriendGroup OldGroup)
-        {
-            RemoveContact(_UserID, Friend.UserID);
-
-            GroupTree.RemoveFriend(Friend, OldGroup);
-
-            TreeFriend.UpdateLayout();
-        }
-
-        private void TreeFriend_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-        {
-            Object SelectedObj = (Object)TreeFriend.SelectedItem;
-
-            foreach (Object parentObj in TreeFriend.Items)
-            {
-                TreeViewItem Group = TreeFriend.ItemContainerGenerator.ContainerFromItem(parentObj) as TreeViewItem;
-                TreeViewItem MatchItem = TreeFriend.ItemContainerGenerator.ContainerFromItem(SelectedObj) as TreeViewItem;
-
-                if (MatchItem != null)
-                {
-                    MatchItem.ContextMenu = TreeFriend.Resources["GroupContext"] as ContextMenu;
-                    break;
-                }
-
-                TreeViewItem Friend = Group.ItemContainerGenerator.ContainerFromItem(SelectedObj) as TreeViewItem;
-                if(Friend != null)
-                    Friend.ContextMenu = TreeFriend.Resources["FriendContext"] as ContextMenu;
-            }          
-        }
-
         private void RequestVM_OnAcceptRequest(Users Friend)
         {
             FriendGroup AvailableGroup = cbRequestGroup.SelectedItem as FriendGroup;
 
             int NewGroupID = 0;
 
-            if (AvailableGroup == null || _RequestNewGroupName != null)
-                if (_RequestNewGroupName != null)
-                    if (!AddNewGroup(_UserID, _RequestNewGroupName, ref NewGroupID))
+            if (AvailableGroup == null || RequestNewGroupName != null)
+                if (RequestNewGroupName != null)
+                    if (!AddNewGroup(userId, RequestNewGroupName, ref NewGroupID))
                         MessageBox.Show("Thêm nhóm mới không thành công");
 
-            AcceptRequest(_UserID, Friend.UserID, NewGroupID != 0 ? GetGroup(NewGroupID).GroupID : AvailableGroup.GroupID);
+            AcceptRequest(userId, Friend.UserID, NewGroupID != 0 ? GetGroup(NewGroupID).GroupID : AvailableGroup.GroupID);
 
             GroupTree.AppendFriend(Friend, NewGroupID != 0 ? GetGroup(NewGroupID) : AvailableGroup);
 
             RequestVM.RemoveRequest(Friend);
 
             friendRequestZone.UpdateLayout();
-            TreeFriend.UpdateLayout();
+            treeFriend.UpdateLayout();
         }
 
         private void RequestVM_OnIgnoreRequest(Users Friend)
         {
-            IgnoreRequest(_UserID, Friend.UserID);
+            IgnoreRequest(userId, Friend.UserID);
             RequestVM.RemoveRequest(Friend);
 
             friendRequestZone.UpdateLayout();
-        }        
-
-        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-                _GroupTree.SearchCommand.Execute(null);
-        }
-  
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {            
-            btnSelectAll.Visibility = System.Windows.Visibility.Visible;
-            btnDeselectAll.Visibility = System.Windows.Visibility.Visible;
-            completeTask.Visibility = System.Windows.Visibility.Visible;
-        }
-
-        private void chkDone_Checked(object sender, RoutedEventArgs e)
-        {
-            btnDone.IsEnabled = true;
-        }
-
-        private void chkDone_Unchecked(object sender, RoutedEventArgs e)
-        {
-            btnDone.IsEnabled = false;
         }
 
         private void chkRequestTaskDone_Checked(object sender, RoutedEventArgs e)
@@ -350,19 +301,139 @@ namespace vChat.Module.FriendList
             switch (Tag)
             {
                 case "Accept":
-                    _RequestVM.AcceptCommand.Execute(null);
+                    requestVM.AcceptCommand.Execute(null);
                     break;
                 case "Ignore":
-                    _RequestVM.IgnoreCommand.Execute(null);
+                    requestVM.IgnoreCommand.Execute(null);
                     break;
             }
 
             chkRequestTaskDone.IsChecked = false;
         }
 
-        private void btnAddFriend_Click(object sender, RoutedEventArgs e)
+        #endregion
+
+        #region GROUP TREE ZONE
+
+        private void TreeFriend_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            Helper.CreateWindow(ref _AddFriendWin, "Thêm Bạn", _AddFriendModule).ShowDialog();
+            Object SelectedObj = (Object)treeFriend.SelectedItem;
+
+            foreach (Object parentObj in treeFriend.Items)
+            {
+                TreeViewItem Group = treeFriend.ItemContainerGenerator.ContainerFromItem(parentObj) as TreeViewItem;
+                TreeViewItem MatchItem = treeFriend.ItemContainerGenerator.ContainerFromItem(SelectedObj) as TreeViewItem;
+
+                if (MatchItem != null)
+                {
+                    MatchItem.ContextMenu = treeFriend.Resources["GroupContext"] as ContextMenu;
+                    break;
+                }
+
+                TreeViewItem Friend = Group.ItemContainerGenerator.ContainerFromItem(SelectedObj) as TreeViewItem;
+                if (Friend != null)
+                    Friend.ContextMenu = treeFriend.Resources["FriendContext"] as ContextMenu;
+            }
+        }
+
+        private void TreeFriend_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            TreeViewItem DBClickItem = e.Source as TreeViewItem;
+
+            if (DBClickItem == null)
+                return;
+
+            object Item = DBClickItem.Header;
+
+            if (Item is FriendViewModel)
+            {
+                FriendViewModel SelectedFriend = treeFriend.SelectedItem as FriendViewModel;
+                Users FriendArg = SelectedFriend.Friend;
+
+                OnFriendDoubleClick(this, new FriendArgs(
+                        FriendArg.UserID,
+                        FriendArg.Username,
+                        FriendArg.FirstName,
+                        FriendArg.LastName
+                    ));
+            }
+        }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                GroupTree.SearchCommand.Execute(null);
+        }
+
+        private void mnuAddFriend_Click(object sender, RoutedEventArgs e)
+        {
+            GroupViewModel SelectedGroup = treeFriend.SelectedItem as GroupViewModel;
+
+            addFriendModule.SetDefaultGroup(SelectedGroup.Group);
+
+            Helper.CreateWindow(ref addFriendWin, "Thêm Bạn", addFriendModule).ShowDialog();
+        }
+
+        private void mnuRemoveGroup_Click(object sender, RoutedEventArgs e)
+        {
+            GroupViewModel SelectedGroup = treeFriend.SelectedItem as GroupViewModel;
+
+            removeGroupModule.SetGroupToRemove(SelectedGroup.Group);
+
+            Helper.CreateWindow(ref removeGroupWin, "Xóa Nhóm", removeGroupModule).ShowDialog();
+        }
+
+        private void mnuFriendDetail_Click(object sender, RoutedEventArgs e)
+        {
+            FriendViewModel SelectedFriend = treeFriend.SelectedItem as FriendViewModel;
+        }
+
+        private void GroupTree_OnMoveContact(Users Friend, FriendGroup OldGroup)
+        {
+            FriendGroup NewGroup = cbNewGroup.SelectedItem as FriendGroup;
+
+            int NewGroupID = 0;
+
+            if (NewGroup == null || MoveNewGroupName != null)
+                if (MoveNewGroupName != null)
+                    if (!AddNewGroup(userId, MoveNewGroupName, ref NewGroupID))
+                        MessageBox.Show("Thêm nhóm mới không thành công");
+
+            MoveContact(userId, Friend.UserID, NewGroupID != 0 ? GetGroup(NewGroupID).GroupID : NewGroup.GroupID);
+
+            GroupTree.MoveFriend(Friend, OldGroup, NewGroupID != 0 ? GetGroup(NewGroupID) : NewGroup);
+
+            treeFriend.UpdateLayout();
+        }
+
+        private void GroupTree_OnRemoveContact(Users Friend, FriendGroup OldGroup)
+        {
+            RemoveContact(userId, Friend.UserID);
+
+            GroupTree.RemoveFriend(Friend, OldGroup);
+
+            treeFriend.UpdateLayout();
+        }
+
+        #endregion
+
+        #region EDIT TASK ZONE
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {            
+            btnSelectAll.Visibility = System.Windows.Visibility.Visible;
+            btnDeselectAll.Visibility = System.Windows.Visibility.Visible;
+            editTaskZone.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void chkDone_Checked(object sender, RoutedEventArgs e)
+        {
+            btnDone.IsEnabled = true;
+        }
+
+        private void chkDone_Unchecked(object sender, RoutedEventArgs e)
+        {
+            btnDone.IsEnabled = false;
         }
 
         private void cbTask_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -399,12 +470,12 @@ namespace vChat.Module.FriendList
 
             switch (Tag)
             {
-                case "MoveContact":                    
-                    _GroupTree.MoveCommand.Execute(null);
+                case "MoveContact":
+                    GroupTree.MoveCommand.Execute(null);
                     break;
 
                 case "RemoveContact":
-                    _GroupTree.RemoveCommand.Execute(null);
+                    GroupTree.RemoveCommand.Execute(null);
                     break;
             }
 
@@ -414,57 +485,13 @@ namespace vChat.Module.FriendList
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            _GroupTree.CancelEditCommand.Execute(null);
+            GroupTree.CancelEditCommand.Execute(null);
             btnSelectAll.Visibility = System.Windows.Visibility.Collapsed;
             btnDeselectAll.Visibility = System.Windows.Visibility.Collapsed;
-            completeTask.Visibility = System.Windows.Visibility.Collapsed;
+            editTaskZone.Visibility = System.Windows.Visibility.Collapsed;
         }
 
-        private void mnuAddFriend_Click(object sender, RoutedEventArgs e)
-        {
-            GroupViewModel SelectedGroup = TreeFriend.SelectedItem as GroupViewModel;
-
-            _AddFriendModule.SetDefaultGroup(SelectedGroup.Group);
-
-            Helper.CreateWindow(ref _AddFriendWin, "Thêm Bạn", _AddFriendModule).ShowDialog();
-        }
-
-        private void mnuRemoveGroup_Click(object sender, RoutedEventArgs e)
-        {
-            GroupViewModel SelectedGroup = TreeFriend.SelectedItem as GroupViewModel;
-                        
-            _RemoveGroupModule.SetGroupToRemove(SelectedGroup.Group);
-
-            Helper.CreateWindow(ref _RemoveGroupWin, "Xóa Nhóm", _RemoveGroupModule).ShowDialog();
-        }
-
-        private void mnuFriendDetail_Click(object sender, RoutedEventArgs e)
-        {
-            FriendViewModel SelectedFriend = TreeFriend.SelectedItem as FriendViewModel;
-        }
-
-        private void TreeFriend_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            TreeViewItem DBClickItem = e.Source as TreeViewItem;
-
-            if (DBClickItem == null)
-                return;
-
-            object Item = DBClickItem.Header;
-
-            if (Item is FriendViewModel)
-            {
-                FriendViewModel SelectedFriend = TreeFriend.SelectedItem as FriendViewModel;
-                Users FriendArg = SelectedFriend.Friend;
-
-                OnFriendDoubleClick(this, new FriendArgs(
-                        FriendArg.UserID,
-                        FriendArg.Username,
-                        FriendArg.FirstName,
-                        FriendArg.LastName
-                    ));
-            }
-        }
+        #endregion
 
         #endregion
 

@@ -1,4 +1,52 @@
+<<<<<<< HEAD
+04/05/2013 07:51:22 - Server da khoi dong thanh cong.
+04/05/2013 05:47:15 - symaci(127.0.0.1:55620) da ket noi den server.
+04/05/2013 05:47:50 - symaci(127.0.0.1:55620) da gui: CheckIP - symaci
+04/05/2013 05:48:56 - symaci(127.0.0.1:55620) da ngat ket noi.
+04/05/2013 05:49:28 - symaci(127.0.0.1:55725) da ket noi den server.
+04/05/2013 05:49:40 - symaci(127.0.0.1:55725) da ngat ket noi.
+04/05/2013 05:50:52 - (127.0.0.1:55735) da ngat ket noi.
+04/05/2013 05:53:40 - symaci(127.0.0.1:55755) da ket noi den server.
+04/05/2013 05:53:50 - symaci(127.0.0.1:55755) da ngat ket noi.
+04/05/2013 05:54:13 - itexplore(127.0.0.1:55762) da ket noi den server.
+04/05/2013 05:54:33 - itexplore(127.0.0.1:55762) da ngat ket noi.
+04/05/2013 06:00:35 - symaci(127.0.0.1:55797) da ket noi den server.
+04/05/2013 06:00:40 - symaci(127.0.0.1:55797) da ngat ket noi.
+04/05/2013 06:00:44 - itexplore(127.0.0.1:55810) da ket noi den server.
+04/05/2013 06:00:56 - itexplore(127.0.0.1:55810) da ngat ket noi.
+04/05/2013 06:01:16 - itexplore(127.0.0.1:55820) da ket noi den server.
+04/05/2013 06:01:33 - itexplore(127.0.0.1:55820) da ngat ket noi.
+04/05/2013 06:02:19 - itexplore(127.0.0.1:55830) da ket noi den server.
+04/05/2013 06:02:59 - itexplore(127.0.0.1:55830) da ngat ket noi.
+ragraph></FlowDocument>
+04/05/2013 01:46:56 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>4</Paragraph></FlowDocument>
+04/05/2013 01:46:57 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>5</Paragraph></FlowDocument>
+04/05/2013 01:46:58 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>6</Paragraph></FlowDocument>
+04/05/2013 01:46:59 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>46</Paragraph></FlowDocument>
+04/05/2013 01:47:00 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>4</Paragraph></FlowDocument>
+04/05/2013 01:47:00 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>5</Paragraph></FlowDocument>
+04/05/2013 01:47:00 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>45</Paragraph></FlowDocument>
+04/05/2013 01:47:01 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>45</Paragraph></FlowDocument>
+04/05/2013 01:47:02 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>45</Paragraph></FlowDocument>
+04/05/2013 01:47:03 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>45</Paragraph></FlowDocument>
+04/05/2013 01:47:05 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>45</Paragraph></FlowDocument>
+04/05/2013 01:47:06 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>45</Paragraph></FlowDocument>
+04/05/2013 01:47:07 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>34</Paragraph></FlowDocument>
+04/05/2013 01:47:08 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>23</Paragraph></FlowDocument>
+04/05/2013 01:47:08 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>23</Paragraph></FlowDocument>
+04/05/2013 01:47:09 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>32</Paragraph></FlowDocument>
+04/05/2013 01:47:09 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>5325</Paragraph></FlowDocument>
+04/05/2013 01:47:10 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>325</Paragraph></FlowDocument>
+04/05/2013 01:47:10 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>326</Paragraph></FlowDocument>
+04/05/2013 01:47:11 - symaci(127.0.0.1:53702) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>326</Paragraph></FlowDocument>
+04/05/2013 01:47:41 - symaci(127.0.0.1:53702) da ngat ket noi.
+ePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>d</Paragraph></FlowDocument>
+04/05/2013 02:26:27 - symaci(127.0.0.1:45998) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rgrg</Paragraph></FlowDocument>
+=======
+04/05/2013 04:18:13 - Server da khoi dong thanh cong.
+=======
 04/05/2013 10:18:41 - Server da khoi dong thanh cong.
+>>>>>>> vchat/master
 04/05/2013 03:04:31 - itexplore(127.0.0.1:11057) da ket noi den server.
 04/05/2013 03:05:02 - shinichikudo(127.0.0.1:11096) da ket noi den server.
 04/05/2013 03:05:04 - itexplore(127.0.0.1:11057) da gui: CheckIP - shinichikudo
@@ -65,6 +113,7 @@
 04/05/2013 04:04:39 - shinichikudo(127.0.0.1:14177) da ngat ket noi.
 04/05/2013 04:04:42 - itexplore(127.0.0.1:14155) da ngat ket noi.
 Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rgrg</Paragraph></FlowDocument>
+>>>>>>> vchat/master
 04/05/2013 02:26:32 - symaci(127.0.0.1:45998) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>srgsrgsr</Paragraph></FlowDocument>
 04/05/2013 02:26:33 - symaci(127.0.0.1:45998) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>srg</Paragraph></FlowDocument>
 04/05/2013 02:27:54 - symaci(127.0.0.1:45998) da ngat ket noi.

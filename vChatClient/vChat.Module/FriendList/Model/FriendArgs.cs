@@ -4,37 +4,37 @@ namespace vChat.Module.FriendList
 {
     public class FriendArgs
     {
-        private int _UserID;
-        private String _Username;
-        private String _FirstName;
-        private String _LastName;
+        private int userId;
+        private String username;
+        private String firstName;
+        private String lastName;
 
         public int UserID
         {
-            get { return _UserID; }
+            get { return userId; }
         }
 
         public String Username
         {
-            get { return _Username; }
+            get { return username; }
         }
 
         public String FirstName
         {
-            get { return _FirstName; }
+            get { return firstName; }
         }
 
         public String LastName
         {
-            get { return _LastName; }
+            get { return lastName; }
         }
 
         public FriendArgs(int UserID, String Username, String FirstName, String LastName)
         {
-            _UserID = UserID;
-            _Username = Username;
-            _FirstName = FirstName;
-            _LastName = LastName;            
+            userId = UserID;
+            username = Username;
+            firstName = FirstName;
+            lastName = LastName;
         }
     }
 }

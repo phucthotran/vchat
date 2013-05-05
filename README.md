@@ -4,6 +4,28 @@
 ## Update Log
 -------------
 
+#### Update 05.05 11:58 PM
+- Chỉnh lại **RemoveGroup** module tránh trường hợp "nhóm chuyển liên lạc tới" bị trùng với "nhóm bị xóa", hỗ trợ tạo nhóm mới khi chuyển liên lạc
+- Không hiển thị bạn khi mới thêm (chỉ hiện thị khi người dùng được gửi yêu cầu chấp nhận thì mới hiển thị
+- Chỉnh lại **FriendList** module: hỗ trợ thêm nhóm mỗi khi chấp nhận yêu cầu kết bạn hoặc di chuyển liên lạc
+- Thêm class **ImageByetConverter** (`vChat.Lib`): dùng cho đọc, ghi file ảnh, convert mảng byte sang **ImageSoure**
+- Thêm control **OnlineStatus** dùng để hiển thị trạng thái online/offline của bạn bè
+
+#### Update 05.05 4:30 PM
+- Chỉnh lại cách thức lấy IP của đối tượng client
+- Thêm chức năng kiểm tra online trên server. Cách dùng:
+
+```c#
+// Trong phần lấy ra list các friend đã add, ta sẽ send command lên các friend ấy. Giả sử "_list" là danh sách friend:
+foreach (string name in _list)
+{
+	this.Get<Client>().SendCommand(CommandType.CheckOnline, "SERVER", name);
+}
+
+// sau đó kết quả sẽ trả về trong MainWindowListener.cs -> method CheckOnlineListener -> cách dùng res đã có comment trong đó
+// chỉ cần Send Command khi init friend list, những client đang online sẽ tự động cập nhật client vừa check online.
+```
+
 #### Update 05.05 4:00 AM
 - Fix lỗi thêm nhóm khi thêm bạn bè
 - Fix lỗi không xóa được nhóm

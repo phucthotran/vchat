@@ -12,9 +12,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using vChat.Control;
-using vChat.Model.Entities;
 using vChat.Service.UserService;
 using System.ComponentModel;
+using vChat.Model.Entities;
 
 namespace vChat.Module.Login
 {
@@ -67,7 +67,7 @@ namespace vChat.Module.Login
             ProcessPanel.Visibility = System.Windows.Visibility.Collapsed;
             LoggingResponse res = e.Result as LoggingResponse;
             if (res.Success)
-            {                
+            {
                 this.Get<Core.Client.Client>().ID = res.Users.UserID;
                 this.Get<Core.Client.Client>().Name = res.Users.Username;
                 OnLoginSuccess(res.Users);

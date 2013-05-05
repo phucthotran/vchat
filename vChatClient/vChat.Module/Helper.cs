@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using vChat.Model;
 using MahApps.Metro.Controls;
-using System.Windows;
 
 namespace vChat.Module
 {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using vChat.Model;
-using vChat.Service.UserService;
 using vChat.Model.Entities;
 using System.Windows;
+using vChat.Service.UserService;
 
 namespace vChat.Module.FriendList
 {

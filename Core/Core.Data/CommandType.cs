@@ -19,6 +19,10 @@ namespace Core.Data
         ReceiveFileProcess,
         SendFileSuccess,
         ReceiveFileSuccess,
-        CheckIP
+        CheckIP,
+        CheckOnline,
+        FriendRequest,
+        FriendReject,
+        FriendAccept
     }
 }

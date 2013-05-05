@@ -4,23 +4,23 @@ namespace vChat.Module.FriendList
 {
     public class GroupArgs
     {
-        public int _GroupID;
-        public String _Name;
+        public int groupId;
+        public String name;
 
         public int GroupID
         {
-            get { return _GroupID; }
+            get { return groupId; }
         }
 
         public String Name
         {
-            get { return _Name; }
+            get { return name; }
         }
 
         public GroupArgs(int GroupID, String Name)
         {
-            _GroupID = GroupID;
-            _Name = Name;
+            groupId = GroupID;
+            name = Name;
         }
     }
 }

@@ -18,18 +18,18 @@ namespace vChat.Module.FriendList
 
         #region CLASS MEMBER
 
-        private readonly ObservableCollection<GroupViewModel> _Groups;       
-        private readonly ICommand _SearchCommand;
-        private String _SearchText = String.Empty;
-        private List<FriendViewModel> _MatchFriends;
-        private Brush _MatchColor = Brushes.Red;
+        private readonly ObservableCollection<GroupViewModel> groups;       
+        private readonly ICommand searchCommand;
+        private String searchText = String.Empty;
+        private List<FriendViewModel> matchFriends;
+        private Brush matchColor = Brushes.Red;
 
-        private readonly ICommand _EditCommand;
-        private readonly ICommand _CancelEditCommand;
-        private readonly ICommand _SelectCommand;
-        private readonly ICommand _DeselectCommand;
-        private readonly ICommand _MoveCommand;
-        private readonly ICommand _RemoveCommand;
+        private readonly ICommand editCommand;
+        private readonly ICommand cancelEditCommand;
+        private readonly ICommand selectCommand;
+        private readonly ICommand deselectCommand;
+        private readonly ICommand moveCommand;
+        private readonly ICommand removeCommand;
 
         #endregion
 
@@ -37,79 +37,79 @@ namespace vChat.Module.FriendList
 
         public ObservableCollection<GroupViewModel> Groups
         {
-            get { return _Groups; }
+            get { return groups; }
         }
 
         public ICommand SearchCommand
         {
-            get { return _SearchCommand; }
+            get { return searchCommand; }
         }
 
         public String SearchText
         {
-            get { return _SearchText; }
+            get { return searchText; }
             set
             {
-                if (value == _SearchText)
+                if (value == searchText)
                     return;
 
-                _SearchText = value;
+                searchText = value;
                 
                 //Reset Search Result
-                if(_MatchFriends != null)
-                    foreach (FriendViewModel Friend in _MatchFriends)
+                if(matchFriends != null)
+                    foreach (FriendViewModel Friend in matchFriends)
                         Friend.MatchColor = System.Windows.Media.Brushes.Black;
 
-                _MatchFriends = null;
+                matchFriends = null;
             }
         }
 
         public ICommand EditCommand
         {
-            get { return _EditCommand; }
+            get { return editCommand; }
         }
 
         public ICommand CancelEditCommand
         {
-            get { return _CancelEditCommand; }
+            get { return cancelEditCommand; }
         }
 
         public ICommand SelectCommand
         {
-            get { return _SelectCommand; }
+            get { return selectCommand; }
         }
 
         public ICommand DeselectCommand
         {
-            get { return _DeselectCommand; }
+            get { return deselectCommand; }
         }
 
         public ICommand MoveCommand
         {
-            get { return _MoveCommand; }
+            get { return moveCommand; }
         }
 
         public ICommand RemoveCommand
         {
-            get { return _RemoveCommand; }
+            get { return removeCommand; }
         }
 
         #endregion
 
         public GroupTreeViewModel(ObservableCollection<FriendGroup> Groups)
         {
-            _Groups = new ObservableCollection<GroupViewModel>();
+            groups = new ObservableCollection<GroupViewModel>();
 
             foreach (FriendGroup child in Groups)
-                _Groups.Add(new GroupViewModel(child));
+                groups.Add(new GroupViewModel(child));
 
-            _SearchCommand = new SearchTask(this);
-            _EditCommand = new EditTask(this);
-            _SelectCommand = new SelectTask(this);
-            _DeselectCommand = new DeselectTask(this);
-            _MoveCommand = new MoveTask(this);
-            _RemoveCommand = new RemoveTask(this);
-            _CancelEditCommand = new CancelEditTask(this);
+            searchCommand = new SearchTask(this);
+            editCommand = new EditTask(this);
+            selectCommand = new SelectTask(this);
+            deselectCommand = new DeselectTask(this);
+            moveCommand = new MoveTask(this);
+            removeCommand = new RemoveTask(this);
+            cancelEditCommand = new CancelEditTask(this);
         }
 
         #region MAIN METHOD
@@ -117,7 +117,7 @@ namespace vChat.Module.FriendList
         public void AppendGroup(FriendGroup Group)
         {
             if(Group != null)
-                _Groups.Add(new GroupViewModel(Group));
+                groups.Add(new GroupViewModel(Group));
         }
 
         public void RemoveGroup(FriendGroup Group)
@@ -125,10 +125,10 @@ namespace vChat.Module.FriendList
             if (Group == null)
                 return;
 
-            GroupViewModel MatchGroup = _Groups.FirstOrDefault(g => g.Group.Equals(Group));
+            GroupViewModel MatchGroup = groups.FirstOrDefault(g => g.Group.Equals(Group));
 
             if(MatchGroup != null)
-                _Groups.Remove(MatchGroup);
+                groups.Remove(MatchGroup);
         }
 
         public void AppendFriend(Users Friend, FriendGroup Group)
@@ -136,12 +136,12 @@ namespace vChat.Module.FriendList
             if (Friend == null || Group == null)
                 return;
 
-            GroupViewModel ParentGroup = _Groups.FirstOrDefault(g => g.Group.Equals(Group));
+            GroupViewModel ParentGroup = groups.FirstOrDefault(g => g.Group.Equals(Group));
 
             if (ParentGroup == null)
             {
                 AppendGroup(Group);
-                ParentGroup = _Groups.FirstOrDefault(g => g.Group.Equals(Group));
+                ParentGroup = groups.FirstOrDefault(g => g.Group.Equals(Group));
             }
             
             ParentGroup.Children.Add(new FriendViewModel(Friend, ParentGroup));
@@ -152,7 +152,7 @@ namespace vChat.Module.FriendList
             if (Friend == null || Group == null)
                 return;
 
-            GroupViewModel ParentGroup = _Groups.FirstOrDefault(g => g.Group.Equals(Group));
+            GroupViewModel ParentGroup = groups.FirstOrDefault(g => g.Group.Equals(Group));
             FriendViewModel MatchFriend = ParentGroup.Children.FirstOrDefault(f => f.Friend.Equals(Friend));
 
             if (ParentGroup != null && MatchFriend != null)
@@ -164,8 +164,8 @@ namespace vChat.Module.FriendList
             if (Friend == null || OldGroup == null || NewGroup == null)
                 return;
 
-            GroupViewModel NewParentGroup = _Groups.FirstOrDefault(g => g.Group.Equals(NewGroup));
-            GroupViewModel ParentGroup = _Groups.FirstOrDefault(g => g.Group.Equals(OldGroup));
+            GroupViewModel NewParentGroup = groups.FirstOrDefault(g => g.Group.Equals(NewGroup));
+            GroupViewModel ParentGroup = groups.FirstOrDefault(g => g.Group.Equals(OldGroup));
             FriendViewModel MatchFriend = ParentGroup.Children.FirstOrDefault(f => f.Friend.Equals(Friend));
 
             FriendViewModel MatchFriendStateFull = new FriendViewModel(Friend, NewParentGroup);
@@ -175,36 +175,48 @@ namespace vChat.Module.FriendList
             NewParentGroup.Children.Add(MatchFriendStateFull);
         }
 
+        public void SetFriendStatus(String Username, bool IsOnline)
+        {
+            foreach (GroupViewModel Parent in groups)
+            {
+                FriendViewModel MatchUser = Parent.Children.FirstOrDefault(f => f.Friend.Username.Equals(Username));
+
+                if (MatchUser != null)
+                {
+                    MatchUser.IsOnline = IsOnline;
+                    break;
+                }
+            }
+        }
+
         #endregion
 
         #region COMMAND PREFORM
 
         private void PerformSearch()
         {
-            if (String.IsNullOrWhiteSpace(_SearchText))
+            if (String.IsNullOrWhiteSpace(searchText))
                 return;
 
-            _MatchFriends = new List<FriendViewModel>();
+            matchFriends = new List<FriendViewModel>();
 
-            foreach (GroupViewModel Parent in _Groups)
+            foreach (GroupViewModel Parent in groups)
             {
-                _MatchFriends.AddRange(Parent.Children
-                                      .Where(friend => friend.NameContainsText(_SearchText))
-                                      //.Where(f => (f.Friend.FirstName + " " + f.Friend.LastName)
-                                      //.IndexOf(_SearchText, StringComparison.InvariantCultureIgnoreCase) > -1)
+                matchFriends.AddRange(Parent.Children
+                                      .Where(friend => friend.NameContainsText(searchText))
                                       .ToList());
             }
 
-            foreach (FriendViewModel Friend in _MatchFriends)
+            foreach (FriendViewModel Friend in matchFriends)
             {
                 Friend.Parent.IsExpanded = true;
-                Friend.MatchColor = _MatchColor;
+                Friend.MatchColor = matchColor;
             }
         }        
 
         private void PerformEdit()
         {
-            foreach(GroupViewModel Parent in _Groups)
+            foreach(GroupViewModel Parent in groups)
             {
                 Parent.ToogleCheckbox = Visibility.Visible;
                 foreach (FriendViewModel Child in Parent.Children)
@@ -214,7 +226,7 @@ namespace vChat.Module.FriendList
 
         private void PerformCancelEdit()
         {
-            foreach (GroupViewModel Parent in _Groups)
+            foreach (GroupViewModel Parent in groups)
             {
                 Parent.ToogleCheckbox = Visibility.Collapsed;
                 foreach (FriendViewModel Child in Parent.Children)
@@ -224,7 +236,7 @@ namespace vChat.Module.FriendList
 
         private void PerformSelect()
         {
-            foreach (GroupViewModel Parent in _Groups)
+            foreach (GroupViewModel Parent in groups)
             {
                 Parent.IsChecked = true;
                 foreach (FriendViewModel Child in Parent.Children)
@@ -234,7 +246,7 @@ namespace vChat.Module.FriendList
 
         private void PerformDeselect()
         {
-            foreach (GroupViewModel Parent in _Groups)
+            foreach (GroupViewModel Parent in groups)
             {
                 Parent.IsChecked = false;
                 foreach (FriendViewModel Child in Parent.Children)
@@ -246,7 +258,7 @@ namespace vChat.Module.FriendList
         {
             List<FriendViewModel> MatchFriends = new List<FriendViewModel>();
 
-            foreach (GroupViewModel Parent in _Groups)
+            foreach (GroupViewModel Parent in groups)
             {
                 MatchFriends.AddRange(Parent.Children
                                       .Where(friend => friend.IsChecked == true)
@@ -261,7 +273,7 @@ namespace vChat.Module.FriendList
         {
             List<FriendViewModel> MatchFriends = new List<FriendViewModel>();
 
-            foreach (GroupViewModel Parent in _Groups)
+            foreach (GroupViewModel Parent in groups)
             {
                 MatchFriends.AddRange(Parent.Children
                                       .Where(friend => friend.IsChecked == true)

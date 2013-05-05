@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using vChat.Model;
 using vChat.Service.UserService;
 using System.Windows;
+using vChat.Model;
 using vChat.Model.Entities;
 
 namespace vChat.Module.AddFriend

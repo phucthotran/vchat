@@ -50,7 +50,6 @@ namespace Core.Client
         {
             this.ServerIP = serverIP;
             this.Port = port;
-            this.Socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
 
         public void Connect()
@@ -62,6 +61,7 @@ namespace Core.Client
         {
             try
             {
+                this.Socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 this.Socket.Connect(new IPEndPoint(ServerIP, Port));
                 Socket.ReceiveBufferSize = 1024 * 1024 * 100;
                 Socket.SendBufferSize = 1024 * 1024 * 100;
@@ -82,7 +82,7 @@ namespace Core.Client
         {
             this.Socket.BeginDisconnect(false, ar =>
             {
-                this.Socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                this.Socket = null;
             }, null);
         }
 
@@ -104,12 +104,9 @@ namespace Core.Client
                     buffer = new byte[bufferSize];
                     Socket.Receive(buffer);
                 }
-           //     else
-          //      {
-                    Command cmd = buffer.ConvertTo<Command>();
-                    _Executer[cmd.Type].DynamicInvoke(new CommandResponse(cmd));
-                    buffer = new byte[4];
-          //      }
+                Command cmd = buffer.ConvertTo<Command>();
+                _Executer[cmd.Type].DynamicInvoke(new CommandResponse(cmd));
+                buffer = new byte[4];
                 Socket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, new AsyncCallback(receiveCommand), buffer);
             }
             catch (Exception e)
@@ -129,7 +126,7 @@ namespace Core.Client
             this.SendCommand(Type, new string[] { TargetUser }, Data);
         }
 
-        public void SendCommand(CommandType Type, string[] TargetUsers, params object[] Data)
+        public void SendCommand(CommandType Type, IEnumerable<string> TargetUsers, params object[] Data)
         {
             foreach (string user in TargetUsers)
             {

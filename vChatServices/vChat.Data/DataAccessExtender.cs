@@ -10,7 +10,7 @@ namespace vChat.Data
 {
     public static class DataAccessExtender
     {
-        private static vChatContext _db;
+        //private static vChatContext _db;
 
         public static vChatContext db
         {
