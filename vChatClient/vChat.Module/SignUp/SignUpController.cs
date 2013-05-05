@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Windows.Controls;
 using vChat.Service.UserService;
 using vChat.Model;
+using System.Text.RegularExpressions;
 
 namespace vChat.Module.SignUp
 {
@@ -45,9 +46,89 @@ namespace vChat.Module.SignUp
 
     public partial class SignUp : UserControl
     {
-        public bool IsUserExist(string user)
+        private string validateUser(string user)
         {
-            return (this.Get<UserServiceClient>().UserExist(user).Status == MethodInvokeResult.RESULT.SUCCESS);
+            if (String.IsNullOrWhiteSpace(user))
+            {
+                return "Ngay cả admin cũng không dám để trống tên đăng nhập nữa là :v";
+            }
+            else if (!Regex.IsMatch(user, "^[a-zA-Z]+([._]?[a-zA-Z0-9]+)*$"))
+            {
+                return "Tên tài khoản không hợp lệ. Chỉ được dùng các ký tự trong phạm vi \"a-z\", \"A-Z\", \"0-9\", \".\" và \"_\"";
+            }
+            else if (user.Length < 6 || user.Length > 45)
+            {
+                return "Độ dài tên tài khoản phải nhiều hơn 6 ký tự và thấp hơn 45 ký tự.";
+            }
+            else if (this.Get<UserServiceClient>().UserExist(user).Status == MethodInvokeResult.RESULT.SUCCESS)
+            {
+                return "Tài khoản này đã có người sử dụng. Vui lòng chọn tên đăng nhập khác.";
+            }
+            return "";
+        }
+
+        private string validatePass(string pass)
+        {
+            if (String.IsNullOrWhiteSpace(pass))
+            {
+                return "Mật khẩu không được bỏ trống.";
+            }
+            else if (pass.IndexOf(' ') > -1)
+            {
+                return "Mật khẩu không được chứa khoảng trắng.";
+            }
+            else if (pass.Length < 8 || pass.Length > 45)
+            {
+                return "Độ dài mật khẩu phải nhiều hơn 8 ký tự và thấp hơn 45 ký tự.";
+            }
+            return "";
+        }
+
+        private string validateAnswer(string answer)
+        {
+            if (String.IsNullOrWhiteSpace(answer))
+            {
+                return "Không trả lời câu hỏi là bất lịch sự!!";
+            }
+            else if (answer.Length < 2 || answer.Length > 50)
+            {
+                return "Câu trả lời phải ít nhất 2 ký tự và không được vượt quá 50 ký tự.";
+            }
+            return "";
+        }
+
+        private string validateFirstName(string fname)
+        {
+            if (String.IsNullOrWhiteSpace(fname))
+            {
+                return "Họ đệm không được bỏ trống.";
+            }
+            else if (!Regex.IsMatch(fname, "^[a-zA-Z]+([ ]?[a-zA-Z]+)*$"))
+            {
+                return "Chắc đây không phải là họ đệm trong giấy khai sinh?";
+            }
+            else if (fname.Length < 2 || fname.Length > 45)
+            {
+                return "Họ đệm phải có ít nhất 2 ký tự và không được nhiều hơn 45 ký tự.";
+            }
+            return "";
+        }
+
+        private string validateLastName(string lname)
+        {
+            if (String.IsNullOrWhiteSpace(lname))
+            {
+                return "Tên thật không được bỏ trống.";
+            }
+            else if (!Regex.IsMatch(lname, "^[a-zA-Z]+$"))
+            {
+                return "Chắc đây không phải là tên thật trong giấy khai sinh?";
+            }
+            else if (lname.Length < 2 || lname.Length > 45)
+            {
+                return "Tên thật phải có ít nhất 2 ký tự và không được nhiều hơn 45 ký tự.";
+            }
+            return "";
         }
 
         public SignUpResponse DoSignUp(SignUpMetadata data)
@@ -79,7 +160,7 @@ namespace vChat.Module.SignUp
                 }
                 catch (Exception)
                 {
-                    res.ServiceMessage = "Đã có lỗi xảy ra.";
+                    res.ServiceMessage = String.Format("Đã có lỗi xảy ra ({0})",typeof(Exception).ToString());
                 }
             }
             return res;

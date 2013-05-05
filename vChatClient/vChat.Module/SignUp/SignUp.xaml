@@ -4,10 +4,12 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
             xmlns:v="clr-namespace:vChat.Control;assembly=vChat.Control"
-            mc:Ignorable="d" 
-            Width="300" Height="280">
+            xmlns:tk="clr-namespace:System.Windows.Controls.Primitives;assembly=PresentationFramework"
+            mc:Ignorable="d">
     <Grid Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -25,14 +27,39 @@
         <Label Content="Họ" Height="28" HorizontalAlignment="Left" Margin="0,0,0,0" Name="label3" VerticalAlignment="Top" Grid.Row="2" />
         <Label Content="Tên" Height="28" HorizontalAlignment="Left" Margin="0,0,0,0" Name="label4" VerticalAlignment="Top" Grid.Row="3" />
         <Label Content="Ngày sinh" Height="28" HorizontalAlignment="Left" Margin="0,0,0,0" Name="label5" VerticalAlignment="Top" Grid.Row="4" />
+        <Label Content="Câu hỏi bí mật" Height="28" HorizontalAlignment="Left" Margin="0,0,0,0" Name="label6" VerticalAlignment="Top" Grid.Row="5" />
+        <Label Content="Câu trả lời" Height="28" HorizontalAlignment="Left" Margin="0,0,0,0" Name="label7" VerticalAlignment="Top" Grid.Row="6" />
         <TextBox Height="28" Name="tbUser" VerticalAlignment="Top" Grid.Column="1" LostFocus="tbUser_LostFocus" Margin="0,0,0,5" MinWidth="150" MaxWidth="250" />
         <v:FieldWarner x:Name="UserWarner" Warning="False" Busy="False" Grid.Column="1" Margin="0,33,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
-        <TextBox Height="28" Margin="0,0,0,5" Name="tbPass" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" MinWidth="150" MaxWidth="250" />
-     <!--   <Label Content="" Name="lbPassWarning" Visibility="Collapsed" -->
-        <TextBox Height="28" Margin="0,0,0,5" Name="tbFname" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" MinWidth="150" MaxWidth="250" />
-        <TextBox Height="28" Margin="0,0,0,5" Name="tbLname" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" MinWidth="150" MaxWidth="250" />
-        <TextBox Height="28" Margin="0,0,0,5" Name="tbDob" VerticalAlignment="Top" Grid.Column="1" Grid.Row="4" MinWidth="150" MaxWidth="250" />
-        <StackPanel Orientation="Vertical" Grid.Row="5" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center">
+        <PasswordBox Height="28" Margin="0,0,0,5" Name="tbPass" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" MinWidth="150" MaxWidth="250" LostFocus="tbPass_LostFocus" />
+        <v:FieldWarner x:Name="PassWarner" Warning="False" Busy="False" Grid.Column="1" Grid.Row="1" Margin="0,33,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
+        <TextBox Height="28" Margin="0,0,0,5" Name="tbFname" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" MinWidth="150" MaxWidth="250" LostFocus="tbFname_LostFocus" />
+        <v:FieldWarner x:Name="FNameWarner" Warning="False" Busy="False" Grid.Column="1" Grid.Row="2" Margin="0,33,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
+        <TextBox Height="28" Margin="0,0,0,5" Name="tbLname" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" MinWidth="150" MaxWidth="250" LostFocus="tbLname_LostFocus" />
+        <v:FieldWarner x:Name="LNameWarner" Warning="False" Busy="False" Grid.Column="1" Grid.Row="3" Margin="0,33,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
+        <DatePicker Grid.Column="1" Grid.Row="4" Name="tbDob" LostFocus="tbDob_LostFocus" Margin="0,0,0,5" Height="28">
+            <DatePicker.Style>
+                <Style>
+                    <Style.Triggers>
+                        <Trigger Property="DatePicker.IsMouseOver" Value="True">
+                            <Setter Property="DatePicker.BorderBrush" Value="Black"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DatePicker.Style>
+            <DatePicker.Resources>
+                <Style TargetType="{x:Type tk:DatePickerTextBox}">
+                    <Setter Property="Text" Value="chọn ngày ---------->"></Setter>
+                    <Setter Property="IsReadOnly" Value="True"></Setter>
+                    <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                    <Setter Property="BorderThickness" Value="0,0,0,0"></Setter>
+                </Style>
+            </DatePicker.Resources>
+        </DatePicker>
+        <ComboBox ItemsSource="" DisplayMemberPath="" SelectedValuePath="" SelectedValue="" Margin="0,0,0,5" Height="28" Name="cbQuestion" Grid.Column="1" Grid.Row="5" LostFocus="cbQuestion_LostFocus" />
+        <TextBox Height="28" Margin="0,0,0,5" Name="tbAnswer" VerticalAlignment="Top" Grid.Column="1" Grid.Row="6" MinWidth="150" MaxWidth="250" LostFocus="tbAnswer_LostFocus" />
+        <v:FieldWarner x:Name="AnswerWarner" Warning="False" Busy="False" Grid.Column="1" Grid.Row="6" Margin="0,33,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
+        <StackPanel Orientation="Vertical" Grid.Row="7" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Content="Đã có tài khoản?" Margin="10,0,0,0" Name="btLogin" Click="btLogin_Click" />
                 <Button Content="Đăng ký" Margin="10,0,0,0" Name="btSubmit" Click="btSubmit_Click" />

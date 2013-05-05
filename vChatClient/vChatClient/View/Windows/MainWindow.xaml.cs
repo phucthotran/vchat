@@ -41,6 +41,7 @@ namespace vChat.View.Windows
         {            
             this.Width = 300;
             this.MinWidth = 300;
+            this.MaxWidth = 500;
             this.Height = SystemParameters.WorkArea.Height;
             this.SendFile = this.Get<Dictionary<string, SortedList<int, byte[]>>>("SendFile");
             this.SendFilePath = this.Get<Dictionary<string, string>>("SendFilePath");
