@@ -72,7 +72,7 @@ namespace vChat.View.Windows
         private void InitFriendsListModule(int UserID)
         {
             _friendListModule = Grid.LoadModule<FriendsList>();
-            _friendListModule.SetupData(UserID);
+            _friendListModule.Init(UserID);
             _friendListModule.OnFriendDoubleClick += new FriendsList.MouseEventHandler(FriendList_OnFriendDoubleClick);
         }
 

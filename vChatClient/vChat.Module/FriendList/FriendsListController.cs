@@ -45,6 +45,23 @@ namespace vChat.Module.FriendList
             Helper.ShowMessage(result);
         }
 
+        private FriendGroup GetGroup(int GroupID)
+        {
+            return this.Get<UserServiceClient>().GroupInfo(GroupID);
+        }
+
+        private bool AddNewGroup(int UserID, String Name, ref int NewGroupID)
+        {
+            MethodInvokeResult result = this.Get<UserServiceClient>().AddGroup(UserID, Name, ref NewGroupID);
+
+            Helper.ShowMessage(result);
+
+            if (result.Status == MethodInvokeResult.RESULT.SUCCESS)
+                return true;
+            //else
+            return false;
+        }
+
         private void RemoveGroup(int GroupID, bool RemoveContact)
         {
             MethodInvokeResult result = this.Get<UserServiceClient>().RemoveGroup(GroupID, RemoveContact);

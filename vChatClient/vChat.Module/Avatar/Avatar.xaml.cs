@@ -71,16 +71,6 @@ namespace vChat.Module.Avatar
             return bitmap as ImageSource;
         }
 
-        private void CreateUploadWindow()
-        {
-            MetroWindow uploadWin = new MetroWindow();
-            uploadWin.InitTheme();
-            uploadWin.SizeToContent = System.Windows.SizeToContent.WidthAndHeight;
-            uploadWin.ResizeMode = ResizeMode.NoResize;
-            uploadWin.Content = _UploadAvatarModule;
-            uploadWin.Show();
-        }
-
         //Call by UploadImage module
         public void ChangeAvatarWork(ImageSource Image)
         {
@@ -89,7 +79,8 @@ namespace vChat.Module.Avatar
 
         private void tbChangeAvatar_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            CreateUploadWindow();
+            MetroWindow uploadWin = null;
+            Helper.CreateWindow(ref uploadWin, "Đăng Ảnh Đại Diện", _UploadAvatarModule).ShowDialog();
         }
 
         private void tbChangeAvatar_MouseEnter(object sender, MouseEventArgs e)

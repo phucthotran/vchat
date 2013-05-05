@@ -110,7 +110,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\UserService\UserService.disco" />
+    <None Include="Service References\UserService\UserService1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

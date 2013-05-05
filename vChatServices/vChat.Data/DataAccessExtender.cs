@@ -144,6 +144,9 @@ namespace vChat.Data
         {
             List<TEntity> lstCompare = query.ToList();
 
+            if (lstCompare.Count <= 1)
+                return lstCompare;
+
             int maxCompare = lstCompare.Count;
             int beginPosIdx = 0;
             int comparePosIdx = maxCompare - 1;

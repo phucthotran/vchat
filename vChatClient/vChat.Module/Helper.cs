@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using vChat.Model;
+using MahApps.Metro.Controls;
 using System.Windows;
 
 namespace vChat.Module
@@ -24,6 +25,20 @@ namespace vChat.Module
                     MessageBox.Show(String.Format("Please fix following errors: ", Errors));
                     break;
             }
+        }
+
+        public static Window CreateWindow(ref MetroWindow NewWindow, String Title, System.Windows.Controls.ContentControl Content)
+        {
+            NewWindow = new MetroWindow();
+            NewWindow.Title = Title;
+            NewWindow.SizeToContent = SizeToContent.WidthAndHeight;
+            NewWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            NewWindow.ResizeMode = ResizeMode.NoResize;
+            NewWindow.ShowInTaskbar = false;
+            NewWindow.Content = Content;
+            NewWindow.InitTheme();
+
+            return NewWindow;
         }
     }
 }

@@ -7,3 +7,4 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vCh
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Lib\bin\Debug\vChat.Lib.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Lib\obj\Debug\vChat.Lib.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Lib\obj\Debug\vChat.Lib.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServices\vChat.Lib\obj\Debug\vChat.Lib.csprojResolveAssemblyReference.cache

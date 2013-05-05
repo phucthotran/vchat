@@ -71,10 +71,14 @@ namespace vChat.Module.AddFriend
             InitializeComponent();
         }
 
-        public void SetupData(int UserID)
+        public void SetUser(int UserID)
         {
-            _UserID = UserID;
-            _Groups = FriendList(UserID).FriendGroups;
+            _UserID = UserID;            
+        }
+
+        public void SetGroups(ObservableCollection<FriendGroup> Groups)
+        {
+            _Groups = Groups;
 
             DataContext = this;
         }
@@ -110,14 +114,8 @@ namespace vChat.Module.AddFriend
                 if (!AddNewGroup(_UserID, NewGroupName, ref NewGroupID))
                     OnAddFriendError(this, new AddFriendArgs(FriendName, NewGroupName));
 
-            if (AddNewFriend(_UserID, FriendName, NewGroupID != 0 ? NewGroupID : SelectedGroup.GroupID))
-            {
-                _IntegratedModule.DoAddFriend(
-                    FindUser(FriendName), 
-                    NewGroupID != 0 ? GetGroup(NewGroupID) : SelectedGroup);
-
-                OnAddFriendSuccess(this, new AddFriendArgs(FriendName, NewGroupName != null ? NewGroupName : SelectedGroup.Name));
-            }
+            if (AddNewFriend(_UserID, FriendName, NewGroupID != 0 ? NewGroupID : SelectedGroup.GroupID))              
+                OnAddFriendSuccess(this, new AddFriendArgs(FriendName, NewGroupName != null ? NewGroupName : SelectedGroup.Name));            
             else
                 OnAddFriendError(this, new AddFriendArgs(FriendName, NewGroupName != null ? NewGroupName : SelectedGroup.Name));
         }
