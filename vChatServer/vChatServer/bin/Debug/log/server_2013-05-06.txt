@@ -1,0 +1,28 @@
+06/05/2013 01:04:22 - Server da khoi dong thanh cong.
+06/05/2013 01:04:34 - itexplore(127.0.0.1:33795) da ket noi den server.
+06/05/2013 01:04:35 - itexplore(127.0.0.1:33795) da gui: CheckOnline - shinichikudo
+06/05/2013 01:08:03 - itexplore(127.0.0.1:33795) da ngat ket noi.
+06/05/2013 01:14:36 - itexplore(127.0.0.1:33985) da ket noi den server.
+06/05/2013 01:14:36 - itexplore(127.0.0.1:33985) da gui: CheckOnline - shinichikudo
+06/05/2013 01:15:13 - itexplore(127.0.0.1:33985) da ngat ket noi.
+06/05/2013 01:21:28 - itexplore(127.0.0.1:34171) da ket noi den server.
+06/05/2013 01:21:28 - itexplore(127.0.0.1:34171) da gui: CheckOnline - shinichikudo
+06/05/2013 01:21:37 - itexplore(127.0.0.1:34171) da ngat ket noi.
+06/05/2013 01:23:10 - itexplore(127.0.0.1:34387) da ket noi den server.
+06/05/2013 01:23:10 - itexplore(127.0.0.1:34387) da gui: CheckOnline - shinichikudo
+06/05/2013 01:23:16 - itexplore(127.0.0.1:34387) da ngat ket noi.
+06/05/2013 01:24:05 - itexplore(127.0.0.1:34408) da ket noi den server.
+06/05/2013 01:24:05 - itexplore(127.0.0.1:34408) da gui: CheckOnline - shinichikudo
+06/05/2013 01:24:16 - itexplore(127.0.0.1:34408) da ngat ket noi.
+06/05/2013 01:25:02 - itexplore(127.0.0.1:34432) da ket noi den server.
+06/05/2013 01:25:02 - itexplore(127.0.0.1:34432) da gui: CheckOnline - shinichikudo
+06/05/2013 01:25:16 - itexplore(127.0.0.1:34432) da ngat ket noi.
+06/05/2013 01:26:01 - itexplore(127.0.0.1:34465) da ket noi den server.
+06/05/2013 01:26:01 - itexplore(127.0.0.1:34465) da gui: CheckOnline - shinichikudo
+06/05/2013 01:26:08 - itexplore(127.0.0.1:34465) da ngat ket noi.
+06/05/2013 01:26:34 - itexplore(127.0.0.1:34486) da ket noi den server.
+06/05/2013 01:26:34 - itexplore(127.0.0.1:34486) da gui: CheckOnline - shinichikudo
+06/05/2013 01:26:37 - itexplore(127.0.0.1:34486) da ngat ket noi.
+06/05/2013 01:26:53 - itexplore(127.0.0.1:34502) da ket noi den server.
+06/05/2013 01:26:53 - itexplore(127.0.0.1:34502) da gui: CheckOnline - shinichikudo
+06/05/2013 01:26:59 - itexplore(127.0.0.1:34502) da ngat ket noi.

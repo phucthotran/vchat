@@ -275,6 +275,15 @@ namespace vChat.WCF
         }
 
         /// <summary>
+        /// Get a list of secret question
+        /// </summary>
+        /// <returns></returns>
+        public List<Question> GetAllQuestion()
+        {
+            return unc.GetAllQuestion();
+        }
+
+        /// <summary>
         /// Get all user conversation
         /// </summary>
         /// <param name="UserID">User ID</param>

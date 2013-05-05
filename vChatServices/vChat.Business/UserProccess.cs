@@ -505,6 +505,18 @@ namespace vChat.Business
             return unc.Reactive(UserID);
         }
 
+        public List<Question> GetAllQuestion()
+        {
+            try
+            {
+                return unc.GetAllQuestion();
+            }
+            catch(Exception)
+            {
+                return null;
+            }
+        }
+
         public List<Conversation> GetConversations(int UserID)
         {
             try

@@ -70,6 +70,9 @@ namespace vChat.Model
         MethodInvokeResult Reactive(int UserID);
 
         [OperationContract]
+        List<Question> GetAllQuestion();
+
+        [OperationContract]
         List<Conversation> GetConversations(int UserID);
 
         [OperationContract]

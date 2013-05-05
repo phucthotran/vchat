@@ -12,6 +12,7 @@ namespace vChat.Data
         private Users UserTask;
         private Conversation ConversationTask;
         private FriendGroup GroupTask;
+        private Question QuestionTask;
         private MethodInvokeResult SUCCESS, FAIL, INPUT_ERROR, UNHANDLE_ERROR;
 
         public UserProccess()
@@ -19,6 +20,7 @@ namespace vChat.Data
             UserTask = new Users();
             ConversationTask = new Conversation();
             GroupTask = new FriendGroup();
+            QuestionTask = new Question();
         }
 
         public Users Info(int UserID)
@@ -224,6 +226,11 @@ namespace vChat.Data
             FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình kích hoạt lại tài khoản. Vui lòng thử lại sau" };
 
             return UserTask.Deactive(UserID, false) ? SUCCESS : FAIL;
+        }
+
+        public List<Question> GetAllQuestion()
+        {
+            return QuestionTask.GetAll();
         }
 
         public List<Conversation> GetConversations(int UserID)
