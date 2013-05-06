@@ -25,6 +25,7 @@ namespace Core.Data
         public string TargetUser { get; set; }
         public CommandMetadata(string targetUser, params object[] objs)
         {
+            this.TargetUser = targetUser;
             this.Datas = objs;
         }
         /*

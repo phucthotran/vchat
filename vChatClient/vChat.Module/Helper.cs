@@ -17,7 +17,7 @@ namespace vChat.Module
             else if (InvokeResult.Message != null)
                 MessageBox.Show(InvokeResult.Message);
             else if (InvokeResult.Errors != null)
-                MessageBox.Show(String.Join(",", InvokeResult.Errors.ToArray()));
+                MessageBox.Show(String.Join(",", InvokeResult.Errors.ToArray()));            
         }
 
         public static Window CreateWindow(ref MetroWindow NewWindow, String Title, System.Windows.Controls.ContentControl Content)

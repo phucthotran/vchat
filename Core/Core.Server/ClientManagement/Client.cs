@@ -60,7 +60,6 @@ namespace Core.Server.ClientManagement
                 else
                 {
                     Command cmd = buffer.ConvertTo<Command>();
-                    cmd.Metadata.TargetUser = this.Name;
                     this.OnReceived(this, cmd);
                     buffer = new byte[4];
                 }

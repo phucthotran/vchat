@@ -7,12 +7,14 @@
              xmlns:model="clr-namespace:vChat.Model.Entities;assembly=vChat.Model"
              FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
              mc:Ignorable="d" MinWidth="300" MinHeight="250">
+
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <DockPanel>
+        <DockPanel>            
             <StackPanel DockPanel.Dock="Top">
+                <!--<my:OnlineStatus Name="tOnline" IsOnline="{Binding IsOnlineAA}" Margin="10, 15, 43, 43" Panel.ZIndex="9999" />-->
                 <my1:Avatar x:Name="changeAvatarModule" />
                 <Canvas MinHeight="1" Background="#FFE5E5E5" Margin="0, 0, 0, 3" />
                 <Grid DockPanel.Dock="Top">
@@ -48,8 +50,8 @@
                         </Expander.Header>
                         <Expander.Content>
                             <StackPanel>
-                                <ScrollViewer MinHeight="30" MaxHeight="250">
-                                    <ListBox ItemsSource="{Binding RequestVM.Requests}" SelectionMode="Extended">
+                                <ScrollViewer Height="Auto" MaxHeight="250">
+                                    <ListBox Name="lbRequest" ItemsSource="{Binding RequestVM.Requests}" SelectionMode="Extended">
                                         <ListBox.ItemContainerStyle>
                                             <Style TargetType="{x:Type ListBoxItem}">
                                                 <Setter Property="IsSelected" Value="{Binding IsSelected}"/>
@@ -68,7 +70,6 @@
                                                                 <Style.Triggers>
                                                                     <Trigger Property="IsMouseOver" Value="True">
                                                                         <Setter Property="Foreground" Value="Blue"/>
-                                                                        <Setter Property="ToolTip" Value="Click để chat"/>
                                                                     </Trigger>
                                                                 </Style.Triggers>
                                                             </Style>
@@ -83,7 +84,7 @@
                                     <StackPanel>
                                         <TextBlock Text="Chọn Thao Tác" VerticalAlignment="Center" Margin="5, 0, 0, 0" Grid.Row="0" Grid.Column="0"/>
                                         <ComboBox Name="cbRequestTask" MinWidth="100" Height="30" Margin="5" Grid.Row="0" Grid.Column="1">
-                                            <ComboBoxItem Content="Lờ Đi" Tag="Ignore" IsSelected="{Binding RequestVM.IsIgnored}"/>
+                                            <ComboBoxItem Content="Từ Chối" Tag="Ignore" IsSelected="{Binding RequestVM.IsIgnored}"/>
                                             <ComboBoxItem Content="Chấp Nhận" Tag="Accept" IsSelected="{Binding RequestVM.IsAccepted}"/>
                                         </ComboBox>
                                         <TextBlock Text="Thêm vào nhóm có sẵn" VerticalAlignment="Center" Margin="5, 0, 0, 0" Grid.Row="1" Grid.Column="0"/>
@@ -99,6 +100,41 @@
                             </StackPanel>
                         </Expander.Content>
                     </Expander>
+                    <Expander Name="unresponseRequestZone">
+                        <Expander.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Image/response.png" Margin="0, 0, 3, 0"/>
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Yêu Cầu Kết Bạn Đang Đợi Phản Hồi</TextBlock>
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 0, 0" Foreground="Red" Text="{Binding UnresponseRequesVM.Requests.Count}"/>
+                            </StackPanel>
+                        </Expander.Header>
+                        <Expander.Content>
+                            <StackPanel>
+                                <ScrollViewer Height="Auto" MaxHeight="250">
+                                    <ItemsControl Name="lbUnresponseRequest" ItemsSource="{Binding UnresponseRequesVM.Requests}" MouseDoubleClick="lbUnresponseRequest_MouseDoubleClick">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" Margin="5">
+                                                    <Image Source="Image/unresponserequest.png" Height="16" Width="16" Margin="0, 0, 5, 0"/>
+                                                    <TextBlock Text="{Binding FriendName}">
+					                                    <TextBlock.Style>
+						                                    <Style TargetType="{x:Type TextBlock}">
+							                                    <Style.Triggers>
+								                                    <Trigger Property="IsMouseOver" Value="True">
+									                                    <Setter Property="Foreground" Value="Blue"/>
+								                                    </Trigger>
+							                                    </Style.Triggers>
+						                                    </Style>
+					                                    </TextBlock.Style>
+                                                    </TextBlock>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </StackPanel>
+                        </Expander.Content>
+                    </Expander>
                 </StackPanel>
             </StackPanel>
             <Grid DockPanel.Dock="Bottom">
@@ -107,60 +143,68 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                
-                <ScrollViewer MinHeight="400" MaxHeight="600" Grid.Row="0">
-                    <TreeView Name="treeFriend" ItemsSource="{Binding GroupTree.Groups}" SelectedItemChanged="TreeFriend_SelectedItemChanged" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        <TreeView.ItemContainerStyle>
-                            <Style TargetType="{x:Type TreeViewItem}">
-                                <EventSetter Event="MouseDoubleClick" Handler="TreeFriend_MouseDoubleClick"/>
-                                <Setter Property="IsExpanded" Value="{Binding GroupTree.IsExpanded, Mode=TwoWay}" />
-                                <Setter Property="IsSelected" Value="{Binding GroupTree.IsSelected, Mode=TwoWay}" />
-                                <Setter Property="FontWeight" Value="Normal" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="FontWeight" Value="Bold"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TreeView.ItemContainerStyle>
-                        <TreeView.Resources>
-                            <ContextMenu x:Key="GroupContext" StaysOpen="True">
-                                <MenuItem Name="mnuAddFriend" Header="Thêm Bạn" Click="mnuAddFriend_Click"/>
-                                <MenuItem Name="mnuRemoveGroup" Header="Xóa Nhóm" Click="mnuRemoveGroup_Click"/>
-                            </ContextMenu>
-                            <ContextMenu x:Key="FriendContext" StaysOpen="True">
-                                <MenuItem Name="mnuFriendDetail" Header="Xem Chi Tiết" Click="mnuFriendDetail_Click"/>
-                            </ContextMenu>
+                <Expander IsExpanded="True">
+                    <Expander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Image/friendlist.png" Margin="0, 0, 3, 0"/>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Danh Sách Bạn Bè</TextBlock>                            
+                        </StackPanel>
+                    </Expander.Header>
+                    <ScrollViewer MinHeight="400" MaxHeight="600" Grid.Row="0">
+                        <TreeView Name="treeFriend" ItemsSource="{Binding GroupTree.Groups}" SelectedItemChanged="TreeFriend_SelectedItemChanged" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TreeView.ItemContainerStyle>
+                                <Style TargetType="{x:Type TreeViewItem}">
+                                    <EventSetter Event="MouseDoubleClick" Handler="TreeFriend_MouseDoubleClick"/>
+                                    <Setter Property="IsExpanded" Value="{Binding GroupTree.IsExpanded, Mode=TwoWay}" />
+                                    <Setter Property="IsSelected" Value="{Binding GroupTree.IsSelected, Mode=TwoWay}" />
+                                    <Setter Property="FontWeight" Value="Normal" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="FontWeight" Value="Bold"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TreeView.ItemContainerStyle>
+                            <TreeView.Resources>
+                                <ContextMenu x:Key="GroupContext" StaysOpen="True">
+                                    <MenuItem Name="mnuAddFriend" Header="Thêm Bạn" Click="mnuAddFriend_Click"/>
+                                    <MenuItem Name="mnuRemoveGroup" Header="Xóa Nhóm" Click="mnuRemoveGroup_Click"/>
+                                </ContextMenu>
+                                <ContextMenu x:Key="FriendContext" StaysOpen="True">
+                                    <MenuItem Name="mnuFriendDetail" Header="Xem Chi Tiết" Click="mnuFriendDetail_Click"/>
+                                    <MenuItem Name="mnuFriendRemove" Header="Xóa Liên Lạc" Click="mnuFriendRemove_Click"/>
+                                </ContextMenu>
 
-                            <HierarchicalDataTemplate DataType="{x:Type local:GroupViewModel}" ItemsSource="{Binding Children}">
-                                <StackPanel Orientation="Horizontal" Margin="2, 2, 2, 2">
-                                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" Visibility="{Binding ToogleCheckbox}"></CheckBox>
-                                    <Image Source="Image/group.png" Margin="0, 0, 5, 0"/>
-                                    <TextBlock Text="{Binding GroupName}"/>
-                                </StackPanel>
-                            </HierarchicalDataTemplate>
+                                <HierarchicalDataTemplate DataType="{x:Type local:GroupViewModel}" ItemsSource="{Binding Children}">
+                                    <StackPanel Orientation="Horizontal" Margin="2, 2, 2, 2">
+                                        <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" Visibility="{Binding ToogleCheckbox}"></CheckBox>
+                                        <Image Source="Image/group.png" Margin="0, 0, 5, 0"/>
+                                        <TextBlock Text="{Binding GroupName}"/>
+                                    </StackPanel>
+                                </HierarchicalDataTemplate>
 
-                            <DataTemplate DataType="{x:Type local:FriendViewModel}">
-                                <StackPanel Orientation="Horizontal" Margin="2, 2, 2, 2">
-                                    <CheckBox IsChecked="{Binding IsChecked}" Visibility="{Binding ToogleCheckbox}"/>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition/>
-                                        </Grid.RowDefinitions>
+                                <DataTemplate DataType="{x:Type local:FriendViewModel}">
+                                    <StackPanel Orientation="Horizontal" Margin="2, 2, 2, 2">
+                                        <CheckBox IsChecked="{Binding IsChecked}" Visibility="{Binding ToogleCheckbox}" Margin="0, 10, 0, 0"/>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
 
-                                        <my:OnlineStatus IsOnline="{Binding IsOnline}" Margin="10, 15, 43, 43" Panel.ZIndex="9999" />
-                                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="#5133AB" CornerRadius="1" Margin="0, 0, 5, 0">
-                                            <Border Background="White" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                                <Image Source="{Binding ProfilePicture}" Height="48" Width="48" Stretch="Uniform" />
-                                            </Border>      
-                                        </Border>
-                                    </Grid>
-                                    <TextBlock Text="{Binding Path=FriendName}" Foreground="{Binding MatchColor}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </TreeView.Resources>
-                    </TreeView>
-                </ScrollViewer>
+                                            <my:OnlineStatus IsOnline="{Binding Path=IsOnline, Mode=TwoWay}" Margin="10, 15, 43, 43" Panel.ZIndex="9999" />
+                                            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="#5133AB" CornerRadius="1" Margin="0, 0, 5, 0">
+                                                <Border Background="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                    <Image Source="{Binding ProfilePicture}" Height="48" Width="48" Stretch="Uniform" />
+                                                </Border>
+                                            </Border>
+                                        </Grid>
+                                        <TextBlock Text="{Binding Path=FriendName}" Foreground="{Binding MatchColor}" Margin="0, 10, 0, 0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </TreeView.Resources>
+                        </TreeView>
+                    </ScrollViewer>
+                </Expander>
                 <StackPanel Orientation="Horizontal" Margin="0, 5, 0, 5" Grid.Row="1">
                     <my:ImageButton Name="btnSelectAll" Command="{Binding GroupTree.SelectCommand}" Text="Chọn Hết" Image="Image/select.png" Visibility="Collapsed"/>
                     <my:ImageButton Name="btnDeselectAll" Command="{Binding GroupTree.DeselectCommand}" Text="Bỏ Chọn" Image="Image/select.png" Visibility="Collapsed"/>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ServiceModel;
 using vChat.Model;
 using vChat.Model.Entities;
+using System.Collections.ObjectModel;
 
 namespace vChat.WCF
 {
@@ -73,6 +74,12 @@ namespace vChat.WCF
         public List<Users> FriendRequests(int UserID)
         {
             return unc.FriendRequests(UserID);
+        }
+
+        [OperationBehavior]
+        public List<Users> UnresponseFriendRequests(int UserID)
+        {
+            return unc.UnresponseFriendRequests(UserID);
         }
 
         /// <summary>
@@ -230,6 +237,7 @@ namespace vChat.WCF
         /// <param name="FriendID">UserID of contact need to be moved</param>
         /// <param name="NewGroupID">GroupID of group move to</param>
         /// <returns>Status.SUCCESS, Status.FAIL</returns>
+        [OperationBehavior]
         public MethodInvokeResult MoveContact(int UserID, int FriendID, int NewGroupID)
         {
             return unc.MoveContact(UserID, FriendID, NewGroupID);
@@ -238,12 +246,25 @@ namespace vChat.WCF
         /// <summary>
         /// Remove contact from user's friendlist
         /// </summary>
-        /// <param name="UserID">UserIf of user owned contact</param>
+        /// <param name="UserID">UserID of user owned contact</param>
         /// <param name="FriendID">UserID of contact need to be removed</param>
         /// <returns>Status.SUCCESS, Status.FAIL</returns>
+        [OperationBehavior]
         public MethodInvokeResult RemoveContact(int UserID, int FriendID)
         {
             return unc.RemoveContact(UserID, FriendID);
+        }
+
+        /// <summary>
+        /// Check whether user already make friend with a user or not
+        /// </summary>
+        /// <param name="UserID">UserID of user owned contact</param>
+        /// <param name="FriendID">UserID of contact need to be checked</param>
+        /// <returns></returns>
+        [OperationBehavior]
+        public MethodInvokeResult AlreadyMakeFriend(int UserID, int FriendID)
+        {
+            return unc.AlreadyMakeFriend(UserID, FriendID);
         }
 
         /// <summary>
@@ -278,9 +299,23 @@ namespace vChat.WCF
         /// Get a list of secret question
         /// </summary>
         /// <returns></returns>
+        [OperationBehavior]
         public List<Question> GetAllQuestion()
         {
             return unc.GetAllQuestion();
+        }
+
+        /// <summary>
+        /// Save conversation for user
+        /// </summary>
+        /// <param name="UserID">UserID of user need to be saved</param>
+        /// <param name="FriendID">UserID of friend</param>
+        /// <param name="Content">Conversation content need to be saved</param>
+        /// <returns></returns>
+        [OperationBehavior]
+        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content)
+        {
+            return unc.SaveConversation(UserID, FriendID, Content);
         }
 
         /// <summary>
@@ -298,6 +333,31 @@ namespace vChat.WCF
         }
 
         /// <summary>
+        /// Get all user conversation by range (from 'BeginIndex' to 'EndIndex')
+        /// </summary>
+        /// <param name="UserID">UserID of user</param>
+        /// <param name="BeginIndex">Begin from index</param>
+        /// <param name="EndIndex">End at index</param>
+        /// <returns></returns>
+        [OperationBehavior]
+        public List<Conversation> GetConversations(int UserID, int BeginIndex, int EndIndex)
+        {
+            return unc.GetConversations(UserID, BeginIndex, EndIndex);
+        }
+
+        [OperationBehavior]
+        public List<Conversation> GetConversationBetween(int UserID, int FriendID)
+        {
+            return unc.GetConversationBetween(UserID, FriendID);
+        }
+
+        [OperationBehavior]
+        public List<Conversation> GetConversationBetween(int UserID, int FriendID, int BeginIndex, int EndIndex)
+        {
+            return unc.GetConversationBetween(UserID, FriendID, BeginIndex, EndIndex);
+        }        
+
+        /// <summary>
         /// Get newest conversation
         /// </summary>
         /// <param name="UserID">User ID</param>
@@ -309,6 +369,12 @@ namespace vChat.WCF
         public List<Conversation> GetNewestConversations(int UserID)
         {
             return unc.GetNewestConversations(UserID);
+        }
+
+        [OperationBehavior]
+        public List<Conversation> GetNewestConversations(int UserID, int BeginIndex, int EndIndex)
+        {
+            return unc.GetNewestConversations(UserID, BeginIndex, EndIndex);
         }
     }
 }

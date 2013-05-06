@@ -38,8 +38,10 @@ namespace vChat.Module.FriendList
         private RemoveGroup.RemoveGroup removeGroupModule;
         private MetroWindow removeGroupWin;
         private DispatcherTimer updateRequest;
+        private DispatcherTimer updateUnresponseRequest;
         private GroupTreeViewModel groupTree;
         private RequestViewModel requestVM;
+        private RequestViewModel unrespRequestVM;
         private GroupFriendList groupFriend;
         private String requestNewGroupName;
         private String moveNewGroupName;
@@ -71,6 +73,19 @@ namespace vChat.Module.FriendList
                 {
                     requestVM = value;
                     this.OnPropertyChanged("RequestVM");
+                }
+            }
+        }
+
+        public RequestViewModel UnresponseRequesVM
+        {
+            get { return unrespRequestVM; }
+            set
+            {
+                if (value != unrespRequestVM)
+                {
+                    unrespRequestVM = value;
+                    this.OnPropertyChanged("UnresponseRequesVM");
                 }
             }
         }
@@ -129,6 +144,7 @@ namespace vChat.Module.FriendList
 
             groupFriend = FriendList(userId);
             List<Users> Requests = FriendRequests(userId);
+            List<Users> UnresponseRequests = UnresponseFriendRequests(userId);
 
             changeAvatarModule.ChangeAvatarFor(userId);
 
@@ -151,19 +167,27 @@ namespace vChat.Module.FriendList
             requestVM.OnAcceptRequest += new RequestViewModel.RequestHandler(RequestVM_OnAcceptRequest);
             requestVM.OnIgnoreRequest += new RequestViewModel.RequestHandler(RequestVM_OnIgnoreRequest);
 
+            unrespRequestVM = new RequestViewModel(UnresponseRequests);            
+
             //Request online/offline status of user
             foreach (FriendGroup group in GroupFriend.FriendGroups)
                 foreach (Users friend in group.Friends)
                     this.Get<Client>().SendCommand(Core.Data.CommandType.CheckOnline, "SERVER", friend.Username);
 
-            base.DataContext = this;
+            this.DataContext = this;
 
             updateRequest = new DispatcherTimer();
             updateRequest.Interval = TimeSpan.FromMilliseconds(1000);
             updateRequest.Tick += new EventHandler(UpdateRequest_Tick);
             updateRequest.Start();
+
+            updateUnresponseRequest = new DispatcherTimer();
+            updateUnresponseRequest.Interval = TimeSpan.FromMilliseconds(1000);
+            updateUnresponseRequest.Tick += new EventHandler(UpdateUnresponseRequest_Tick);
+            updateUnresponseRequest.Start();
         }
 
+        //Call by WindowListener
         public void SetFriendStatus(String Username, bool IsOnline)
         {
             GroupTree.SetFriendStatus(Username, IsOnline);
@@ -250,6 +274,41 @@ namespace vChat.Module.FriendList
                 RequestVM.AppendRequest(Friend);
 
             friendRequestZone.UpdateLayout();
+        }
+
+        private void UpdateUnresponseRequest_Tick(object sender, EventArgs e)
+        {
+            int totalRequest = UnresponseRequesVM.Requests.Count;
+
+            List<Users> Requests = UnresponseFriendRequests(userId).Skip(totalRequest).ToList(); //Skip amount of "totalRequest" request got before
+
+            if (Requests.Count == 0)
+                return;
+
+            foreach (Users Friend in Requests)
+                UnresponseRequesVM.AppendRequest(Friend);
+
+            unresponseRequestZone.UpdateLayout();
+        }
+
+        private void lbUnresponseRequest_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is ItemsControl)
+            {
+                ItemsControl clickedItem = (ItemsControl)sender;
+
+                if (clickedItem.Items.CurrentItem != null && clickedItem.Items.CurrentItem is RequestViewModel)
+                {
+                    Users FriendArg = ((RequestViewModel)clickedItem.Items.CurrentItem).Friend;
+
+                    OnFriendDoubleClick(this, new FriendArgs(
+                        FriendArg.UserID,
+                        FriendArg.Username,
+                        FriendArg.FirstName,
+                        FriendArg.LastName
+                    ));
+                }
+            }
         }
 
         private void RequestVM_OnAcceptRequest(Users Friend)
@@ -388,6 +447,14 @@ namespace vChat.Module.FriendList
             FriendViewModel SelectedFriend = treeFriend.SelectedItem as FriendViewModel;
         }
 
+        private void mnuFriendRemove_Click(object sender, RoutedEventArgs e)
+        {
+            FriendViewModel SelectedFriend = treeFriend.SelectedItem as FriendViewModel;
+            SelectedFriend.IsChecked = true; //treat SelectedFriend's property as checked for remove
+
+            GroupTree.RemoveCommand.Execute(null);
+        }
+
         private void GroupTree_OnMoveContact(Users Friend, FriendGroup OldGroup)
         {
             FriendGroup NewGroup = cbNewGroup.SelectedItem as FriendGroup;
@@ -488,13 +555,11 @@ namespace vChat.Module.FriendList
             GroupTree.CancelEditCommand.Execute(null);
             btnSelectAll.Visibility = System.Windows.Visibility.Collapsed;
             btnDeselectAll.Visibility = System.Windows.Visibility.Collapsed;
-            editTaskZone.Visibility = System.Windows.Visibility.Collapsed;
+            editTaskZone.Visibility = System.Windows.Visibility.Collapsed;            
         }
 
-        #endregion
+        #endregion              
 
         #endregion
-
-        
     }    
 }

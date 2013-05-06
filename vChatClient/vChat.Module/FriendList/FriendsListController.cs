@@ -21,6 +21,11 @@ namespace vChat.Module.FriendList
             return this.Get<UserServiceClient>().FriendRequests(UserID).ToList();
         }
 
+        private List<Users> UnresponseFriendRequests(int UserID)
+        {
+            return this.Get<UserServiceClient>().UnresponseFriendRequests(UserID).ToList();
+        }
+
         private void AcceptRequest(int UserID, int FriendID, int GroupID)
         {
             MethodInvokeResult result = this.Get<UserServiceClient>().AcceptFriendRequest(UserID, FriendID, GroupID);

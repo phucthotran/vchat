@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ServiceModel;
 using vChat.Lib.Serialize;
 using vChat.Model.Entities;
+using System.Collections.ObjectModel;
 
 namespace vChat.Model
 {
@@ -23,6 +24,9 @@ namespace vChat.Model
 
         [OperationContract]
         List<Users> FriendRequests(int UserID);
+
+        [OperationContract]
+        List<Users> UnresponseFriendRequests(int UserID);
 
         [OperationContract]
         MethodInvokeResult AddFriend(int UserID, String FriendName, int GroupID);
@@ -64,6 +68,9 @@ namespace vChat.Model
         MethodInvokeResult RemoveContact(int UserID, int FriendID);
 
         [OperationContract]
+        MethodInvokeResult AlreadyMakeFriend(int UserID, int FriendID);
+
+        [OperationContract]
         MethodInvokeResult Deactive(int UserID);
 
         [OperationContract]
@@ -73,9 +80,24 @@ namespace vChat.Model
         List<Question> GetAllQuestion();
 
         [OperationContract]
+        MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content);
+
+        [OperationContract(Name = "GetConversations")]
         List<Conversation> GetConversations(int UserID);
 
-        [OperationContract]
+        [OperationContract(Name = "GetConversationsByRange")]
+        List<Conversation> GetConversations(int UserID, int BeginIndex, int EndIndex);
+
+        [OperationContract(Name = "GetConversationBetween")]
+        List<Conversation> GetConversationBetween(int UserID, int FriendID);
+
+        [OperationContract(Name = "GetConversationBetweenByRange")]
+        List<Conversation> GetConversationBetween(int UserID, int FriendID, int BeginIndex, int EndIndex);
+
+        [OperationContract(Name = "GetNewestConversations")]
         List<Conversation> GetNewestConversations(int UserID);
+
+        [OperationContract(Name = "GetNewestConversationsByRange")]
+        List<Conversation> GetNewestConversations(int UserID, int BeginIndex, int EndIndex);
     }
 }

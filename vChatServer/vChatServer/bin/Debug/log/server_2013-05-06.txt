@@ -1,28 +1,342 @@
-06/05/2013 01:04:22 - Server da khoi dong thanh cong.
-06/05/2013 01:04:34 - itexplore(127.0.0.1:33795) da ket noi den server.
-06/05/2013 01:04:35 - itexplore(127.0.0.1:33795) da gui: CheckOnline - shinichikudo
-06/05/2013 01:08:03 - itexplore(127.0.0.1:33795) da ngat ket noi.
-06/05/2013 01:14:36 - itexplore(127.0.0.1:33985) da ket noi den server.
-06/05/2013 01:14:36 - itexplore(127.0.0.1:33985) da gui: CheckOnline - shinichikudo
-06/05/2013 01:15:13 - itexplore(127.0.0.1:33985) da ngat ket noi.
-06/05/2013 01:21:28 - itexplore(127.0.0.1:34171) da ket noi den server.
-06/05/2013 01:21:28 - itexplore(127.0.0.1:34171) da gui: CheckOnline - shinichikudo
-06/05/2013 01:21:37 - itexplore(127.0.0.1:34171) da ngat ket noi.
-06/05/2013 01:23:10 - itexplore(127.0.0.1:34387) da ket noi den server.
-06/05/2013 01:23:10 - itexplore(127.0.0.1:34387) da gui: CheckOnline - shinichikudo
-06/05/2013 01:23:16 - itexplore(127.0.0.1:34387) da ngat ket noi.
-06/05/2013 01:24:05 - itexplore(127.0.0.1:34408) da ket noi den server.
-06/05/2013 01:24:05 - itexplore(127.0.0.1:34408) da gui: CheckOnline - shinichikudo
-06/05/2013 01:24:16 - itexplore(127.0.0.1:34408) da ngat ket noi.
-06/05/2013 01:25:02 - itexplore(127.0.0.1:34432) da ket noi den server.
-06/05/2013 01:25:02 - itexplore(127.0.0.1:34432) da gui: CheckOnline - shinichikudo
-06/05/2013 01:25:16 - itexplore(127.0.0.1:34432) da ngat ket noi.
-06/05/2013 01:26:01 - itexplore(127.0.0.1:34465) da ket noi den server.
-06/05/2013 01:26:01 - itexplore(127.0.0.1:34465) da gui: CheckOnline - shinichikudo
-06/05/2013 01:26:08 - itexplore(127.0.0.1:34465) da ngat ket noi.
-06/05/2013 01:26:34 - itexplore(127.0.0.1:34486) da ket noi den server.
-06/05/2013 01:26:34 - itexplore(127.0.0.1:34486) da gui: CheckOnline - shinichikudo
-06/05/2013 01:26:37 - itexplore(127.0.0.1:34486) da ngat ket noi.
-06/05/2013 01:26:53 - itexplore(127.0.0.1:34502) da ket noi den server.
-06/05/2013 01:26:53 - itexplore(127.0.0.1:34502) da gui: CheckOnline - shinichikudo
-06/05/2013 01:26:59 - itexplore(127.0.0.1:34502) da ngat ket noi.
+06/05/2013 04:19:14 - Server da khoi dong thanh cong.
+06/05/2013 04:37:45 - shinichikudo(127.0.0.1:49821) da ket noi den server.
+06/05/2013 04:37:47 - shinichikudo(127.0.0.1:49821) da gui: CheckOnline - itexplore
+06/05/2013 04:43:11 - shinichikudo(127.0.0.1:49821) da ngat ket noi.
+06/05/2013 05:33:27 - itexplore(127.0.0.1:51156) da ket noi den server.
+06/05/2013 05:33:27 - itexplore(127.0.0.1:51156) da gui: CheckOnline - shinichikudo
+06/05/2013 05:34:04 - itexplore(127.0.0.1:51156) da ngat ket noi.
+06/05/2013 05:34:42 - itexplore(127.0.0.1:51184) da ket noi den server.
+06/05/2013 05:34:43 - itexplore(127.0.0.1:51184) da gui: CheckOnline - shinichikudo
+06/05/2013 05:35:22 - itexplore(127.0.0.1:51184) da ngat ket noi.
+06/05/2013 05:36:07 - itexplore(127.0.0.1:51217) da ket noi den server.
+06/05/2013 05:36:07 - itexplore(127.0.0.1:51217) da gui: CheckOnline - shinichikudo
+06/05/2013 05:36:41 - itexplore(127.0.0.1:51217) da ngat ket noi.
+06/05/2013 05:37:21 - itexplore(127.0.0.1:51309) da ket noi den server.
+06/05/2013 05:37:21 - itexplore(127.0.0.1:51309) da gui: CheckOnline - shinichikudo
+06/05/2013 05:37:24 - itexplore(127.0.0.1:51309) da ngat ket noi.
+06/05/2013 05:37:56 - itexplore(127.0.0.1:51337) da ket noi den server.
+06/05/2013 05:37:56 - itexplore(127.0.0.1:51337) da gui: CheckOnline - shinichikudo
+06/05/2013 05:38:04 - itexplore(127.0.0.1:51337) da ngat ket noi.
+06/05/2013 05:41:33 - itexplore(127.0.0.1:51404) da ket noi den server.
+06/05/2013 05:41:33 - itexplore(127.0.0.1:51404) da gui: CheckOnline - shinichikudo
+06/05/2013 05:41:49 - itexplore(127.0.0.1:51404) da ngat ket noi.
+06/05/2013 05:42:43 - itexplore(127.0.0.1:51439) da ket noi den server.
+06/05/2013 05:43:33 - itexplore(127.0.0.1:51439) da ngat ket noi.
+06/05/2013 05:45:56 - itexplore(127.0.0.1:51509) da ket noi den server.
+06/05/2013 05:45:56 - itexplore(127.0.0.1:51509) da gui: CheckOnline - shinichikudo
+06/05/2013 05:47:10 - itexplore(127.0.0.1:51509) da ngat ket noi.
+06/05/2013 05:48:56 - itexplore(127.0.0.1:51716) da ket noi den server.
+06/05/2013 05:48:56 - itexplore(127.0.0.1:51716) da gui: CheckOnline - shinichikudo
+06/05/2013 05:49:19 - itexplore(127.0.0.1:51716) da ngat ket noi.
+06/05/2013 05:50:05 - itexplore(127.0.0.1:51839) da ket noi den server.
+06/05/2013 05:50:06 - itexplore(127.0.0.1:51839) da gui: CheckOnline - shinichikudo
+06/05/2013 05:50:13 - itexplore(127.0.0.1:51839) da ngat ket noi.
+06/05/2013 05:54:14 - itexplore(127.0.0.1:51987) da ket noi den server.
+06/05/2013 05:54:14 - itexplore(127.0.0.1:51987) da gui: CheckOnline - shinichikudo
+06/05/2013 05:54:46 - itexplore(127.0.0.1:51987) da ngat ket noi.
+06/05/2013 06:00:09 - itexplore(127.0.0.1:52105) da ket noi den server.
+06/05/2013 06:00:10 - itexplore(127.0.0.1:52105) da gui: CheckOnline - shinichikudo
+06/05/2013 06:00:14 - itexplore(127.0.0.1:52105) da ngat ket noi.
+06/05/2013 06:09:03 - itexplore(127.0.0.1:52152) da ket noi den server.
+06/05/2013 06:09:03 - itexplore(127.0.0.1:52152) da gui: CheckOnline - shinichikudo
+06/05/2013 06:09:24 - itexplore(127.0.0.1:52152) da ngat ket noi.
+06/05/2013 06:10:14 - itexplore(127.0.0.1:52198) da ket noi den server.
+06/05/2013 06:10:14 - itexplore(127.0.0.1:52198) da gui: CheckOnline - shinichikudo
+06/05/2013 06:10:55 - itexplore(127.0.0.1:52198) da ngat ket noi.
+06/05/2013 06:11:24 - itexplore(127.0.0.1:52289) da ket noi den server.
+06/05/2013 06:11:25 - itexplore(127.0.0.1:52289) da gui: CheckOnline - shinichikudo
+06/05/2013 06:11:39 - itexplore(127.0.0.1:52289) da ngat ket noi.
+06/05/2013 06:12:37 - itexplore(127.0.0.1:52326) da ket noi den server.
+06/05/2013 06:12:37 - itexplore(127.0.0.1:52326) da gui: CheckOnline - shinichikudo
+06/05/2013 06:12:59 - itexplore(127.0.0.1:52326) da ngat ket noi.
+06/05/2013 06:14:00 - itexplore(127.0.0.1:52380) da ket noi den server.
+06/05/2013 06:14:00 - itexplore(127.0.0.1:52380) da gui: CheckOnline - shinichikudo
+06/05/2013 06:14:37 - itexplore(127.0.0.1:52380) da ngat ket noi.
+06/05/2013 06:21:13 - itexplore(127.0.0.1:52524) da ket noi den server.
+06/05/2013 06:21:13 - itexplore(127.0.0.1:52524) da gui: CheckOnline - shinichikudo
+06/05/2013 06:21:24 - itexplore(127.0.0.1:52524) da ngat ket noi.
+06/05/2013 06:22:06 - itexplore(127.0.0.1:52560) da ket noi den server.
+06/05/2013 06:22:06 - itexplore(127.0.0.1:52560) da gui: CheckOnline - shinichikudo
+06/05/2013 06:23:51 - itexplore(127.0.0.1:52560) da ngat ket noi.
+06/05/2013 06:24:02 - itexplore(127.0.0.1:52794) da ket noi den server.
+06/05/2013 06:26:33 - itexplore(127.0.0.1:52794) da ngat ket noi.
+06/05/2013 06:27:14 - itexplore(127.0.0.1:53261) da ket noi den server.
+06/05/2013 06:29:32 - shinichikudo(127.0.0.1:53575) da ket noi den server.
+06/05/2013 06:32:32 - shinichikudo(127.0.0.1:53575) da ngat ket noi.
+06/05/2013 06:32:33 - itexplore(127.0.0.1:53261) da ngat ket noi.
+06/05/2013 06:35:44 - itexplore(127.0.0.1:54329) da ket noi den server.
+06/05/2013 06:36:09 - itexplore(127.0.0.1:54387) da ket noi den server.
+06/05/2013 06:36:11 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 06:36:11 - itexplore(127.0.0.1:54387) da ngat ket noi.
+06/05/2013 06:36:18 - shinichikudo(127.0.0.1:54426) da ket noi den server.
+06/05/2013 06:47:01 - shinichikudo(127.0.0.1:54426) da ngat ket noi.
+06/05/2013 06:47:06 - itexplore(127.0.0.1:54329) da ngat ket noi.
+06/05/2013 06:47:16 - itexplore(127.0.0.1:58119) da ket noi den server.
+06/05/2013 06:47:46 - itexplore(127.0.0.1:58119) da ngat ket noi.
+06/05/2013 06:49:43 - itexplore(127.0.0.1:58188) da ket noi den server.
+06/05/2013 06:51:28 - itexplore(127.0.0.1:58188) da ngat ket noi.
+06/05/2013 06:54:09 - itexplore(127.0.0.1:58293) da ket noi den server.
+06/05/2013 06:54:21 - shinichikudo(127.0.0.1:58320) da ket noi den server.
+06/05/2013 06:55:30 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 06:55:30 - itexplore(127.0.0.1:58293) da ngat ket noi.
+06/05/2013 06:55:36 - itexplore(127.0.0.1:58680) da ket noi den server.
+06/05/2013 06:55:36 - itexplore(127.0.0.1:58680) da gui: CheckOnline - shinichikudo
+06/05/2013 08:04:22 - itexplore(127.0.0.1:58680) da ngat ket noi.
+06/05/2013 08:04:24 - shinichikudo(127.0.0.1:58320) da ngat ket noi.
+06/05/2013 08:15:41 - itexplore(127.0.0.1:19372) da ket noi den server.
+06/05/2013 08:15:41 - itexplore(127.0.0.1:19372) da gui: CheckOnline - shinichikudo
+06/05/2013 08:15:46 - itexplore(127.0.0.1:19372) da ngat ket noi.
+06/05/2013 08:17:01 - itexplore(127.0.0.1:19403) da ket noi den server.
+06/05/2013 08:17:01 - itexplore(127.0.0.1:19403) da gui: CheckOnline - shinichikudo
+06/05/2013 09:08:05 - itexplore(127.0.0.1:19403) da ngat ket noi.
+06/05/2013 09:26:03 - itexplore(127.0.0.1:26668) da ket noi den server.
+06/05/2013 09:26:03 - itexplore(127.0.0.1:26668) da gui: CheckOnline - shinichikudo
+06/05/2013 09:26:14 - itexplore(127.0.0.1:26668) da ngat ket noi.
+06/05/2013 09:55:25 - itexplore(127.0.0.1:27446) da ket noi den server.
+06/05/2013 09:55:25 - itexplore(127.0.0.1:27446) da gui: CheckOnline - shinichikudo
+06/05/2013 09:56:46 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 09:56:46 - itexplore(127.0.0.1:27446) da ngat ket noi.
+06/05/2013 10:07:06 - itexplore(127.0.0.1:27797) da ket noi den server.
+06/05/2013 10:07:06 - itexplore(127.0.0.1:27797) da gui: CheckOnline - shinichikudo
+06/05/2013 10:07:09 - itexplore(127.0.0.1:27797) da ngat ket noi.
+06/05/2013 10:08:53 - itexplore(127.0.0.1:27839) da ket noi den server.
+06/05/2013 10:08:53 - itexplore(127.0.0.1:27839) da gui: CheckOnline - shinichikudo
+06/05/2013 10:08:59 - itexplore(127.0.0.1:27839) da ngat ket noi.
+06/05/2013 10:09:43 - itexplore(127.0.0.1:27873) da ket noi den server.
+06/05/2013 10:10:01 - itexplore(127.0.0.1:27873) da ngat ket noi.
+06/05/2013 10:10:37 - itexplore(127.0.0.1:27890) da ket noi den server.
+06/05/2013 10:10:37 - itexplore(127.0.0.1:27890) da gui: CheckOnline - shinichikudo
+06/05/2013 10:10:43 - itexplore(127.0.0.1:27890) da ngat ket noi.
+06/05/2013 10:12:01 - itexplore(127.0.0.1:27933) da ket noi den server.
+06/05/2013 10:12:01 - itexplore(127.0.0.1:27933) da gui: CheckOnline - shinichikudo
+06/05/2013 10:12:38 - itexplore(127.0.0.1:27933) da ngat ket noi.
+06/05/2013 10:13:06 - itexplore(127.0.0.1:28021) da ket noi den server.
+06/05/2013 10:13:06 - itexplore(127.0.0.1:28021) da gui: CheckOnline - shinichikudo
+06/05/2013 10:13:28 - itexplore(127.0.0.1:28021) da ngat ket noi.
+06/05/2013 10:14:15 - itexplore(127.0.0.1:28083) da ket noi den server.
+06/05/2013 10:14:15 - itexplore(127.0.0.1:28083) da gui: CheckOnline - shinichikudo
+06/05/2013 10:14:31 - itexplore(127.0.0.1:28083) da ngat ket noi.
+06/05/2013 10:15:25 - itexplore(127.0.0.1:28122) da ket noi den server.
+06/05/2013 10:15:25 - itexplore(127.0.0.1:28122) da gui: CheckOnline - shinichikudo
+06/05/2013 10:15:56 - itexplore(127.0.0.1:28122) da ngat ket noi.
+06/05/2013 10:24:26 - itexplore(127.0.0.1:28455) da ket noi den server.
+06/05/2013 10:24:26 - itexplore(127.0.0.1:28455) da gui: CheckOnline - shinichikudo
+06/05/2013 10:25:53 - itexplore(127.0.0.1:28455) da ngat ket noi.
+06/05/2013 10:28:15 - itexplore(127.0.0.1:28574) da ket noi den server.
+06/05/2013 10:28:15 - itexplore(127.0.0.1:28574) da gui: CheckOnline - shinichikudo
+06/05/2013 10:28:34 - itexplore(127.0.0.1:28574) da ngat ket noi.
+06/05/2013 10:33:56 - itexplore(127.0.0.1:28627) da ket noi den server.
+06/05/2013 10:33:56 - itexplore(127.0.0.1:28627) da gui: CheckOnline - shinichikudo
+06/05/2013 10:34:18 - huyentrang(127.0.0.1:28688) da ket noi den server.
+06/05/2013 10:35:36 - itexplore(127.0.0.1:28627) da ngat ket noi.
+06/05/2013 10:36:12 - huyentrang(127.0.0.1:28688) da ngat ket noi.
+06/05/2013 10:36:41 - itexplore(127.0.0.1:28982) da ket noi den server.
+06/05/2013 10:36:41 - itexplore(127.0.0.1:28982) da gui: CheckOnline - shinichikudo
+06/05/2013 10:36:46 - itexplore(127.0.0.1:28982) da gui: CheckIP - huyentrang
+06/05/2013 10:37:15 - itexplore(127.0.0.1:28982) da ngat ket noi.
+06/05/2013 10:38:30 - itexplore(127.0.0.1:29087) da ket noi den server.
+06/05/2013 10:38:30 - itexplore(127.0.0.1:29087) da gui: CheckOnline - shinichikudo
+06/05/2013 10:38:33 - itexplore(127.0.0.1:29087) da gui: CheckIP - huyentrang
+06/05/2013 10:38:55 - huyentrang(127.0.0.1:29145) da ket noi den server.
+06/05/2013 10:39:01 - itexplore(127.0.0.1:29087) da gui: CheckIP - huyentrang
+06/05/2013 10:39:39 - itexplore(127.0.0.1:29087) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>alo</Paragraph></FlowDocument>
+06/05/2013 10:39:46 - huyentrang(127.0.0.1:29145) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>ai z</Paragraph></FlowDocument>
+06/05/2013 10:40:03 - itexplore(127.0.0.1:29087) da ngat ket noi.
+06/05/2013 10:40:04 - huyentrang(127.0.0.1:29145) da ngat ket noi.
+t noi den server.
+06/05/2013 03:23:02 - itexplore(127.0.0.1:38234) da gui: CheckOnline - shinichikudo
+06/05/2013 03:23:18 - itexplore(127.0.0.1:38234) da ngat ket noi.
+06/05/2013 03:23:50 - itexplore(127.0.0.1:38265) da ket noi den server.
+06/05/2013 03:23:50 - itexplore(127.0.0.1:38265) da gui: CheckOnline - shinichikudo
+06/05/2013 03:24:02 - itexplore(127.0.0.1:38265) da ngat ket noi.
+06/05/2013 03:24:30 - itexplore(127.0.0.1:38280) da ket noi den server.
+06/05/2013 03:24:30 - itexplore(127.0.0.1:38280) da gui: CheckOnline - shinichikudo
+06/05/2013 03:24:36 - itexplore(127.0.0.1:38280) da ngat ket noi.
+06/05/2013 03:25:15 - itexplore(127.0.0.1:38297) da ket noi den server.
+06/05/2013 03:25:15 - itexplore(127.0.0.1:38297) da gui: CheckOnline - shinichikudo
+06/05/2013 03:25:31 - itexplore(127.0.0.1:38297) da ngat ket noi.
+06/05/2013 03:25:52 - itexplore(127.0.0.1:38313) da ket noi den server.
+06/05/2013 03:25:53 - itexplore(127.0.0.1:38313) da gui: CheckOnline - shinichikudo
+06/05/2013 03:27:00 - itexplore(127.0.0.1:38313) da ngat ket noi.
+06/05/2013 03:27:39 - itexplore(127.0.0.1:38377) da ket noi den server.
+06/05/2013 03:27:39 - itexplore(127.0.0.1:38377) da gui: CheckOnline - shinichikudo
+06/05/2013 03:27:47 - itexplore(127.0.0.1:38377) da ngat ket noi.
+06/05/2013 03:28:40 - itexplore(127.0.0.1:38395) da ket noi den server.
+06/05/2013 03:28:40 - itexplore(127.0.0.1:38395) da gui: CheckOnline - shinichikudo
+06/05/2013 03:28:47 - itexplore(127.0.0.1:38395) da ngat ket noi.
+06/05/2013 03:29:04 - itexplore(127.0.0.1:38413) da ket noi den server.
+06/05/2013 03:29:04 - itexplore(127.0.0.1:38413) da gui: CheckOnline - shinichikudo
+06/05/2013 03:30:02 - itexplore(127.0.0.1:38413) da ngat ket noi.
+06/05/2013 03:31:11 - itexplore(127.0.0.1:38477) da ket noi den server.
+06/05/2013 03:31:12 - itexplore(127.0.0.1:38477) da gui: CheckOnline - shinichikudo
+06/05/2013 03:31:27 - itexplore(127.0.0.1:38477) da ngat ket noi.
+06/05/2013 03:32:24 - itexplore(127.0.0.1:38507) da ket noi den server.
+06/05/2013 03:32:24 - itexplore(127.0.0.1:38507) da gui: CheckOnline - shinichikudo
+06/05/2013 03:32:33 - itexplore(127.0.0.1:38507) da ngat ket noi.
+06/05/2013 03:33:14 - itexplore(127.0.0.1:38523) da ket noi den server.
+06/05/2013 03:33:14 - itexplore(127.0.0.1:38523) da gui: CheckOnline - shinichikudo
+06/05/2013 03:33:21 - itexplore(127.0.0.1:38523) da ngat ket noi.
+06/05/2013 03:36:57 - itexplore(127.0.0.1:38589) da ket noi den server.
+06/05/2013 03:36:57 - itexplore(127.0.0.1:38589) da gui: CheckOnline - shinichikudo
+06/05/2013 03:37:04 - itexplore(127.0.0.1:38589) da ngat ket noi.
+06/05/2013 03:37:27 - itexplore(127.0.0.1:38600) da ket noi den server.
+06/05/2013 03:37:28 - itexplore(127.0.0.1:38600) da gui: CheckOnline - shinichikudo
+06/05/2013 03:37:37 - itexplore(127.0.0.1:38600) da ngat ket noi.
+06/05/2013 03:42:37 - itexplore(127.0.0.1:38778) da ket noi den server.
+06/05/2013 03:42:37 - itexplore(127.0.0.1:38778) da gui: CheckOnline - shinichikudo
+06/05/2013 03:42:44 - itexplore(127.0.0.1:38778) da ngat ket noi.
+06/05/2013 03:47:51 - itexplore(127.0.0.1:38855) da ket noi den server.
+06/05/2013 03:47:51 - itexplore(127.0.0.1:38855) da gui: CheckOnline - shinichikudo
+06/05/2013 03:47:57 - itexplore(127.0.0.1:38855) da ngat ket noi.
+06/05/2013 03:50:38 - itexplore(127.0.0.1:38954) da ket noi den server.
+06/05/2013 03:50:39 - itexplore(127.0.0.1:38954) da gui: CheckOnline - shinichikudo
+06/05/2013 03:50:42 - itexplore(127.0.0.1:38954) da ngat ket noi.
+06/05/2013 04:00:59 - itexplore(127.0.0.1:39458) da ket noi den server.
+06/05/2013 04:01:00 - itexplore(127.0.0.1:39458) da gui: CheckOnline - shinichikudo
+06/05/2013 04:01:03 - itexplore(127.0.0.1:39458) da ngat ket noi.
+06/05/2013 04:01:19 - itexplore(127.0.0.1:39470) da ket noi den server.
+06/05/2013 04:01:19 - itexplore(127.0.0.1:39470) da gui: CheckOnline - shinichikudo
+06/05/2013 04:01:22 - itexplore(127.0.0.1:39470) da ngat ket noi.
+06/05/2013 04:03:45 - itexplore(127.0.0.1:39495) da ket noi den server.
+06/05/2013 04:03:45 - itexplore(127.0.0.1:39495) da gui: CheckOnline - shinichikudo
+06/05/2013 04:04:03 - shinichikudo(127.0.0.1:39525) da ket noi den server.
+06/05/2013 04:04:03 - shinichikudo(127.0.0.1:39525) da gui: CheckOnline - itexplore
+06/05/2013 04:04:14 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 04:04:14 - shinichikudo(127.0.0.1:39525) da ngat ket noi.
+06/05/2013 04:04:29 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 04:04:29 - itexplore(127.0.0.1:39495) da ngat ket noi.
+06/05/2013 04:04:39 - itexplore(127.0.0.1:39606) da ket noi den server.
+06/05/2013 04:04:39 - itexplore(127.0.0.1:39606) da gui: CheckOnline - shinichikudo
+06/05/2013 04:04:49 - itexplore(127.0.0.1:39638) da ket noi den server.
+06/05/2013 04:04:49 - itexplore(127.0.0.1:39638) da gui: CheckOnline - shinichikudo
+06/05/2013 04:05:03 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 04:05:03 - itexplore(127.0.0.1:39606) da ngat ket noi.
+06/05/2013 04:05:04 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 04:05:04 - itexplore(127.0.0.1:39638) da ngat ket noi.
+06/05/2013 04:05:13 - itexplore(127.0.0.1:39743) da ket noi den server.
+06/05/2013 04:05:13 - itexplore(127.0.0.1:39743) da gui: CheckOnline - shinichikudo
+06/05/2013 04:05:29 - shinichikudo(127.0.0.1:39821) da ket noi den server.
+06/05/2013 04:05:29 - shinichikudo(127.0.0.1:39821) da gui: CheckOnline - itexplore
+06/05/2013 04:05:34 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 04:05:34 - shinichikudo(127.0.0.1:39821) da ngat ket noi.
+06/05/2013 04:05:35 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 04:05:35 - itexplore(127.0.0.1:39743) da ngat ket noi.
+06/05/2013 04:05:41 - itexplore(127.0.0.1:39899) da ket noi den server.
+06/05/2013 04:05:41 - itexplore(127.0.0.1:39899) da gui: CheckOnline - shinichikudo
+06/05/2013 04:05:52 - shinichikudo(127.0.0.1:39979) da ket noi den server.
+06/05/2013 04:05:52 - shinichikudo(127.0.0.1:39979) da gui: CheckOnline - itexplore
+06/05/2013 04:05:57 - shinichikudo(127.0.0.1:39979) da ngat ket noi.
+06/05/2013 04:05:59 - itexplore(127.0.0.1:39899) da ngat ket noi.
+06/05/2013 04:06:23 - itexplore(127.0.0.1:40025) da ket noi den server.
+06/05/2013 04:06:23 - itexplore(127.0.0.1:40025) da gui: CheckOnline - shinichikudo
+06/05/2013 04:06:44 - itexplore(127.0.0.1:40060) da ket noi den server.
+06/05/2013 04:06:44 - itexplore(127.0.0.1:40060) da gui: CheckOnline - shinichikudo
+06/05/2013 04:07:02 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 04:07:02 - itexplore(127.0.0.1:40025) da ngat ket noi.
+06/05/2013 04:07:04 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 04:07:04 - itexplore(127.0.0.1:40060) da ngat ket noi.
+06/05/2013 04:07:15 - itexplore(127.0.0.1:40121) da ket noi den server.
+06/05/2013 04:07:15 - itexplore(127.0.0.1:40121) da gui: CheckOnline - shinichikudo
+06/05/2013 04:07:24 - shinichikudo(127.0.0.1:40156) da ket noi den server.
+06/05/2013 04:07:24 - shinichikudo(127.0.0.1:40156) da gui: CheckOnline - itexplore
+06/05/2013 04:07:53 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 04:07:53 - shinichikudo(127.0.0.1:40156) da ngat ket noi.
+06/05/2013 04:07:55 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 04:07:55 - itexplore(127.0.0.1:40121) da ngat ket noi.
+06/05/2013 04:10:55 - itexplore(127.0.0.1:40307) da ket noi den server.
+06/05/2013 04:10:55 - itexplore(127.0.0.1:40307) da gui: CheckOnline - shinichikudo
+06/05/2013 04:11:20 - itexplore(127.0.0.1:40350) da ket noi den server.
+06/05/2013 04:11:20 - itexplore(127.0.0.1:40350) da gui: CheckOnline - shinichikudo
+06/05/2013 04:11:22 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 04:11:22 - itexplore(127.0.0.1:40350) da ngat ket noi.
+06/05/2013 04:11:33 - shinichikudo(127.0.0.1:40376) da ket noi den server.
+06/05/2013 04:11:33 - shinichikudo(127.0.0.1:40376) da gui: CheckOnline - itexplore
+06/05/2013 04:11:57 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 04:11:57 - shinichikudo(127.0.0.1:40376) da ngat ket noi.
+06/05/2013 04:11:58 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 04:11:58 - itexplore(127.0.0.1:40307) da ngat ket noi.
+06/05/2013 04:12:06 - itexplore(127.0.0.1:40486) da ket noi den server.
+06/05/2013 04:12:06 - itexplore(127.0.0.1:40486) da gui: CheckOnline - shinichikudo
+06/05/2013 04:12:16 - shinichikudo(127.0.0.1:40528) da ket noi den server.
+06/05/2013 04:12:16 - shinichikudo(127.0.0.1:40528) da gui: CheckOnline - itexplore
+06/05/2013 04:12:25 - shinichikudo(127.0.0.1:40528) da ngat ket noi.
+06/05/2013 04:12:26 - itexplore(127.0.0.1:40486) da ngat ket noi.
+06/05/2013 04:14:25 - itexplore(127.0.0.1:40594) da ket noi den server.
+06/05/2013 04:14:25 - itexplore(127.0.0.1:40594) da gui: CheckOnline - shinichikudo
+06/05/2013 04:14:43 - shinichikudo(127.0.0.1:40621) da ket noi den server.
+06/05/2013 04:14:43 - shinichikudo(127.0.0.1:40621) da gui: CheckOnline - itexplore
+06/05/2013 04:14:47 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 04:14:47 - shinichikudo(127.0.0.1:40621) da ngat ket noi.
+06/05/2013 04:15:27 - itexplore(127.0.0.1:40594) da gui: CheckIP - shinichikudo
+06/05/2013 04:15:43 - itexplore(127.0.0.1:40594) da ngat ket noi.
+06/05/2013 04:22:14 - itexplore(127.0.0.1:40817) da ket noi den server.
+06/05/2013 04:22:14 - itexplore(127.0.0.1:40817) da gui: CheckOnline - shinichikudo
+06/05/2013 04:22:30 - shinichikudo(127.0.0.1:40842) da ket noi den server.
+06/05/2013 04:22:30 - shinichikudo(127.0.0.1:40842) da gui: CheckOnline - itexplore
+06/05/2013 04:22:49 - itexplore(127.0.0.1:40817) da gui: CheckOnline - shinichikudo
+06/05/2013 04:22:49 - itexplore(127.0.0.1:40817) da ngat ket noi.
+06/05/2013 04:23:10 - shinichikudo(127.0.0.1:40842) da gui: CheckIP - itexplore
+06/05/2013 04:23:28 - shinichikudo(127.0.0.1:40842) da gui: CheckOnline - itexplore
+06/05/2013 04:23:28 - shinichikudo(127.0.0.1:40842) da ngat ket noi.
+06/05/2013 04:23:52 - itexplore(127.0.0.1:40927) da ket noi den server.
+06/05/2013 04:23:52 - itexplore(127.0.0.1:40927) da gui: CheckOnline - shinichikudo
+06/05/2013 04:24:13 - shinichikudo(127.0.0.1:40952) da ket noi den server.
+06/05/2013 04:24:13 - shinichikudo(127.0.0.1:40952) da gui: CheckOnline - itexplore
+06/05/2013 04:24:44 - shinichikudo(127.0.0.1:40952) da gui: CheckOnline - itexplore
+06/05/2013 04:24:44 - shinichikudo(127.0.0.1:40952) da ngat ket noi.
+06/05/2013 04:25:46 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+06/05/2013 04:25:46 - itexplore(127.0.0.1:40927) da ngat ket noi.

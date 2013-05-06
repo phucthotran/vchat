@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using vChat.Model;
 using vChat.Model.Entities;
+using System.Collections.ObjectModel;
 
 namespace vChat.Data
 {
@@ -267,6 +268,14 @@ namespace vChat.Data
                 .FirstOrDefault(u => u.Username.Equals(Username)) != null;
         }
 
+        public static bool AlreadyMakeFriend(this Users um, Users User, Users Friend)
+        {
+            return db.FriendMap
+                    .Include(fm => fm.User)
+                    .Include(fm => fm.Friend)
+                    .FirstOrDefault(fm => fm.User.Equals(User) && fm.Friend.Equals(Friend)) != null;
+        }
+
         public static bool RemoveGroup(this Users mm, FriendGroup Group, bool RemoveContact)
         {
             bool done = false;
@@ -321,6 +330,19 @@ namespace vChat.Data
                                 );
 
             return FriendMap.Remove();
+        }
+
+        public static List<Users> UnresponseRequests(this Users um, int UserID)
+        {
+            return db.FriendMap
+                .Include(m => m.User)
+                .Include(m => m.Friend)
+                .Where(
+                       m => m.User.UserID == UserID
+                           && m.IsAccepted == false && m.IsIgnored == false
+                       )
+                .Select(m => m.Friend)
+                .DistinctList();
         }
 
         public static List<Users> Requests(this Users um, int UserID)
@@ -435,6 +457,7 @@ namespace vChat.Data
             return db.Conversation
                 .Include(c => c.SentBy)
                 .Include(c => c.SendTo)
+                .OrderBy(c => c.Time)
                 .ToList();
         }
 
@@ -443,7 +466,42 @@ namespace vChat.Data
             return db.Conversation
                 .Include(c => c.SentBy)
                 .Include(c => c.SendTo)
-                .Where(c => c.SentBy.UserID == UserID || c.SendTo.UserID == UserID)                
+                .Where(c => (c.SentBy.UserID == UserID || c.SendTo.UserID == UserID))
+                .OrderBy(c => c.Time)
+                .DistinctList();
+        }
+
+        public static List<Conversation> GetByUser(this Conversation conv, int UserID, int BeginIndex, int EndIndex)
+        {
+            return db.Conversation
+                .Include(c => c.SentBy)
+                .Include(c => c.SendTo)
+                .Where(c => (c.SentBy.UserID == UserID || c.SendTo.UserID == UserID))
+                .Skip(BeginIndex - 1)
+                .Take(EndIndex - (BeginIndex - 1))
+                .OrderBy(c => c.Time)
+                .DistinctList();
+        }
+
+        public static List<Conversation> GetConversationBetween(this Conversation conv, int UserID, int FriendID)
+        {
+            return db.Conversation
+                .Include(c => c.SentBy)
+                .Include(c => c.SendTo)
+                .Where(c => (c.SentBy.UserID == FriendID && c.SendTo.UserID == UserID))
+                .OrderBy(c => c.Time)
+                .DistinctList();
+        }
+
+        public static List<Conversation> GetConversationBetween(this Conversation conv, int UserID, int FriendID, int BeginIndex, int EndIndex)
+        {
+            return db.Conversation
+                .Include(c => c.SentBy)
+                .Include(c => c.SendTo)
+                .Where(c => (c.SentBy.UserID == FriendID && c.SendTo.UserID == UserID))
+                .Skip(BeginIndex - 1)
+                .Take(EndIndex - (BeginIndex - 1))
+                .OrderBy(c => c.Time)
                 .DistinctList();
         }
 
@@ -453,6 +511,19 @@ namespace vChat.Data
                 .Include(c => c.SentBy)
                 .Include(c => c.SendTo)
                 .Where(c => c.SendTo.UserID == UserID && c.IsRead == false)
+                .OrderBy(c => c.Time)
+                .DistinctList();
+        }
+
+        public static List<Conversation> GetNewestByUser(this Conversation conv, int UserID, int BeginIndex, int EndIndex)
+        {
+            return db.Conversation
+                .Include(c => c.SentBy)
+                .Include(c => c.SendTo)
+                .Where(c => c.SendTo.UserID == UserID && c.IsRead == false)
+                .Skip(BeginIndex - 1)
+                .Take(EndIndex - (BeginIndex - 1))
+                .OrderBy(c => c.Time)
                 .DistinctList();
         }
 

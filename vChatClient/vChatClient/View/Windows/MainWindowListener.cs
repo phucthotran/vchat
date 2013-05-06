@@ -213,7 +213,7 @@ namespace vChat.View.Windows
                 // cái này để popup ra ngoài, để dưới cùng
                 if ((bool)res.Params[1])
                 {
-                    MessagePopup.Display(user + "đã online !!", delegate
+                    MessagePopup.Display(user + " đã online !!", delegate
                     {
                         ChatWindow chatWindow = new ChatWindow(user);
                         chatWindow.Show();

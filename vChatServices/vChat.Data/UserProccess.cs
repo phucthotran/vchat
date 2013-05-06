@@ -4,6 +4,7 @@ using vChat.Model;
 using vChat.Model.Entities;
 using vChat.Lib.Serialize;
 using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace vChat.Data
 {
@@ -46,6 +47,11 @@ namespace vChat.Data
         public List<Users> FriendRequests(int UserID)
         {
             return UserTask.Requests(UserID);
+        }
+
+        public List<Users> UnresponseFriendRequests(int UserID)
+        {
+            return UserTask.UnresponseRequests(UserID);
         }
 
         public MethodInvokeResult AddFriend(int UserID, String FriendName, int GroupID)
@@ -212,6 +218,17 @@ namespace vChat.Data
             return UserTask.RemoveContact(user, friend) ? SUCCESS : FAIL;
         }
 
+        public MethodInvokeResult AlreadyMakeFriend(int UserID, int FriendID)
+        {
+            SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Kiểm tra tình trạng bạn bè thành công" };
+            FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình kiểm tra tình trạng bạn bè. Vui lòng thử lại sau" };
+
+            Users user = UserTask.Get(UserID) as Users;
+            Users friend = UserTask.Get(FriendID) as Users;
+
+            return UserTask.AlreadyMakeFriend(user, friend) ? SUCCESS : FAIL;
+        }
+
         public MethodInvokeResult Deactive(int UserID)
         {
             SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Vô hiệu hóa tài khoản thành công" };
@@ -233,14 +250,51 @@ namespace vChat.Data
             return QuestionTask.GetAll();
         }
 
+        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content)
+        {
+            SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Lưu đoạn hội thoại thành công" };
+            FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình lưu đoạn hội thoại. Vui lòng thử lại sau" };
+
+            Users sendBy = UserTask.Get(UserID);
+            Users sendTo = UserTask.Get(FriendID);
+
+            Conversation newConversation = new Conversation();
+            newConversation.Message = Content;
+            newConversation.SentBy = sendBy;
+            newConversation.SendTo = sendTo;
+            newConversation.Time = DateTime.Now;
+
+            return newConversation.New() ? SUCCESS : FAIL;
+        }
+
         public List<Conversation> GetConversations(int UserID)
         {
             return ConversationTask.GetByUser(UserID);
         }
 
+        public List<Conversation> GetConversations(int UserID, int BeginIndex, int EndIndex)
+        {
+            return ConversationTask.GetByUser(UserID, BeginIndex, EndIndex);
+        }
+
+        public List<Conversation> GetConversationBetween(int UserID, int FriendID)
+        {
+            return ConversationTask.GetConversationBetween(UserID, FriendID);
+        }
+
+        public List<Conversation> GetConversationBetween(int UserID, int FriendID, int BeginIndex, int EndIndex)
+        {
+            return ConversationTask.GetConversationBetween(UserID, FriendID, BeginIndex, EndIndex);
+        }
+
         public List<Conversation> GetNewestConversations(int UserID)
         {
             return ConversationTask.GetNewestByUser(UserID);
+        }
+
+        public List<Conversation> GetNewestConversations(int UserID, int BeginIndex, int EndIndex)
+        {
+            return ConversationTask.GetNewestByUser(UserID, BeginIndex, EndIndex);
         }
     }
 }

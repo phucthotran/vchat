@@ -20,7 +20,8 @@
       <xsd:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd4" namespace="http://vchat/GroupFriendList" />
       <xsd:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/vChat.Model" />
       <xsd:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd7" namespace="http://vchat/entities/Conversation" />
+      <xsd:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd7" namespace="http://vchat/entities/Question" />
+      <xsd:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd8" namespace="http://vchat/entities/Conversation" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUserService_Info_InputMessage">
@@ -52,6 +53,12 @@
   </wsdl:message>
   <wsdl:message name="IUserService_FriendRequests_OutputMessage">
     <wsdl:part name="parameters" element="tns:FriendRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UnresponseFriendRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnresponseFriendRequests" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UnresponseFriendRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnresponseFriendRequestsResponse" />
   </wsdl:message>
   <wsdl:message name="IUserService_AddFriend_InputMessage">
     <wsdl:part name="parameters" element="tns:AddFriend" />
@@ -131,6 +138,12 @@
   <wsdl:message name="IUserService_RemoveContact_OutputMessage">
     <wsdl:part name="parameters" element="tns:RemoveContactResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_AlreadyMakeFriend_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlreadyMakeFriend" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AlreadyMakeFriend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlreadyMakeFriendResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_Deactive_InputMessage">
     <wsdl:part name="parameters" element="tns:Deactive" />
   </wsdl:message>
@@ -143,17 +156,53 @@
   <wsdl:message name="IUserService_Reactive_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReactiveResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_GetAllQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_SaveConversation_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveConversation" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_SaveConversation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveConversationResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_GetConversations_InputMessage">
     <wsdl:part name="parameters" element="tns:GetConversations" />
   </wsdl:message>
   <wsdl:message name="IUserService_GetConversations_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetConversationsResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_GetConversationsByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConversationsByRange" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetConversationsByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConversationsByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetConversationBetween_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConversationBetween" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetConversationBetween_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConversationBetweenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetConversationBetweenByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConversationBetweenByRange" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetConversationBetweenByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConversationBetweenByRangeResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_GetNewestConversations_InputMessage">
     <wsdl:part name="parameters" element="tns:GetNewestConversations" />
   </wsdl:message>
   <wsdl:message name="IUserService_GetNewestConversations_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetNewestConversationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetNewestConversationsByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewestConversationsByRange" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetNewestConversationsByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewestConversationsByRangeResponse" />
   </wsdl:message>
   <wsdl:portType name="IUserService">
     <wsdl:operation name="Info">
@@ -175,6 +224,10 @@
     <wsdl:operation name="FriendRequests">
       <wsdl:input wsam:Action="http://tempuri.org/IUserService/FriendRequests" message="tns:IUserService_FriendRequests_InputMessage" />
       <wsdl:output wsam:Action="http://tempuri.org/IUserService/FriendRequestsResponse" message="tns:IUserService_FriendRequests_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnresponseFriendRequests">
+      <wsdl:input wsam:Action="http://tempuri.org/IUserService/UnresponseFriendRequests" message="tns:IUserService_UnresponseFriendRequests_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IUserService/UnresponseFriendRequestsResponse" message="tns:IUserService_UnresponseFriendRequests_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddFriend">
       <wsdl:input wsam:Action="http://tempuri.org/IUserService/AddFriend" message="tns:IUserService_AddFriend_InputMessage" />
@@ -228,6 +281,10 @@
       <wsdl:input wsam:Action="http://tempuri.org/IUserService/RemoveContact" message="tns:IUserService_RemoveContact_InputMessage" />
       <wsdl:output wsam:Action="http://tempuri.org/IUserService/RemoveContactResponse" message="tns:IUserService_RemoveContact_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AlreadyMakeFriend">
+      <wsdl:input wsam:Action="http://tempuri.org/IUserService/AlreadyMakeFriend" message="tns:IUserService_AlreadyMakeFriend_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IUserService/AlreadyMakeFriendResponse" message="tns:IUserService_AlreadyMakeFriend_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Deactive">
       <wsdl:input wsam:Action="http://tempuri.org/IUserService/Deactive" message="tns:IUserService_Deactive_InputMessage" />
       <wsdl:output wsam:Action="http://tempuri.org/IUserService/DeactiveResponse" message="tns:IUserService_Deactive_OutputMessage" />
@@ -236,13 +293,37 @@
       <wsdl:input wsam:Action="http://tempuri.org/IUserService/Reactive" message="tns:IUserService_Reactive_InputMessage" />
       <wsdl:output wsam:Action="http://tempuri.org/IUserService/ReactiveResponse" message="tns:IUserService_Reactive_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAllQuestion">
+      <wsdl:input wsam:Action="http://tempuri.org/IUserService/GetAllQuestion" message="tns:IUserService_GetAllQuestion_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IUserService/GetAllQuestionResponse" message="tns:IUserService_GetAllQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveConversation">
+      <wsdl:input wsam:Action="http://tempuri.org/IUserService/SaveConversation" message="tns:IUserService_SaveConversation_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IUserService/SaveConversationResponse" message="tns:IUserService_SaveConversation_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetConversations">
       <wsdl:input wsam:Action="http://tempuri.org/IUserService/GetConversations" message="tns:IUserService_GetConversations_InputMessage" />
       <wsdl:output wsam:Action="http://tempuri.org/IUserService/GetConversationsResponse" message="tns:IUserService_GetConversations_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetConversationsByRange">
+      <wsdl:input wsam:Action="http://tempuri.org/IUserService/GetConversationsByRange" message="tns:IUserService_GetConversationsByRange_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IUserService/GetConversationsByRangeResponse" message="tns:IUserService_GetConversationsByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConversationBetween">
+      <wsdl:input wsam:Action="http://tempuri.org/IUserService/GetConversationBetween" message="tns:IUserService_GetConversationBetween_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IUserService/GetConversationBetweenResponse" message="tns:IUserService_GetConversationBetween_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConversationBetweenByRange">
+      <wsdl:input wsam:Action="http://tempuri.org/IUserService/GetConversationBetweenByRange" message="tns:IUserService_GetConversationBetweenByRange_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IUserService/GetConversationBetweenByRangeResponse" message="tns:IUserService_GetConversationBetweenByRange_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetNewestConversations">
       <wsdl:input wsam:Action="http://tempuri.org/IUserService/GetNewestConversations" message="tns:IUserService_GetNewestConversations_InputMessage" />
       <wsdl:output wsam:Action="http://tempuri.org/IUserService/GetNewestConversationsResponse" message="tns:IUserService_GetNewestConversations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewestConversationsByRange">
+      <wsdl:input wsam:Action="http://tempuri.org/IUserService/GetNewestConversationsByRange" message="tns:IUserService_GetNewestConversationsByRange_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IUserService/GetNewestConversationsByRangeResponse" message="tns:IUserService_GetNewestConversationsByRange_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IUserService" type="tns:IUserService">
@@ -286,6 +367,15 @@
     </wsdl:operation>
     <wsdl:operation name="FriendRequests">
       <soap12:operation soapAction="http://tempuri.org/IUserService/FriendRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnresponseFriendRequests">
+      <soap12:operation soapAction="http://tempuri.org/IUserService/UnresponseFriendRequests" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -410,6 +500,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AlreadyMakeFriend">
+      <soap12:operation soapAction="http://tempuri.org/IUserService/AlreadyMakeFriend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Deactive">
       <soap12:operation soapAction="http://tempuri.org/IUserService/Deactive" style="document" />
       <wsdl:input>
@@ -428,6 +527,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAllQuestion">
+      <soap12:operation soapAction="http://tempuri.org/IUserService/GetAllQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveConversation">
+      <soap12:operation soapAction="http://tempuri.org/IUserService/SaveConversation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetConversations">
       <soap12:operation soapAction="http://tempuri.org/IUserService/GetConversations" style="document" />
       <wsdl:input>
@@ -437,8 +554,44 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetConversationsByRange">
+      <soap12:operation soapAction="http://tempuri.org/IUserService/GetConversationsByRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConversationBetween">
+      <soap12:operation soapAction="http://tempuri.org/IUserService/GetConversationBetween" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConversationBetweenByRange">
+      <soap12:operation soapAction="http://tempuri.org/IUserService/GetConversationBetweenByRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetNewestConversations">
       <soap12:operation soapAction="http://tempuri.org/IUserService/GetNewestConversations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewestConversationsByRange">
+      <soap12:operation soapAction="http://tempuri.org/IUserService/GetNewestConversationsByRange" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
