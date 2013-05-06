@@ -125,11 +125,12 @@ namespace vChat.Module.Chat
 
         private Task keyDownTask;
 
-        private void keyDownTasker(object key)
+        private void keyDownTasker(object eventObj)
         {
             if (MessageInput.Document.CheckAccess())
             {
-                switch ((Key)key)
+                KeyEventArgs e = eventObj as KeyEventArgs;
+                switch (e.Key)
                 {
                     case Key.Up:
                         MessageInput.Document.Blocks.Clear();
@@ -137,6 +138,7 @@ namespace vChat.Module.Chat
                         {
                             _messageSendedIndex++;
                             MessageInput.Document.Blocks.AddRange(LoadXaml(_messageSended[_messageSended.Count - _messageSendedIndex].ToString()).Blocks.ToList());
+                            MessageInput.Selection.Select(MessageInput.Document.ContentEnd, MessageInput.Document.ContentEnd);
                         }
                         break;
                     case Key.Down:
@@ -145,14 +147,16 @@ namespace vChat.Module.Chat
                         {
                             _messageSendedIndex--;
                             MessageInput.Document.Blocks.AddRange(LoadXaml(_messageSended[_messageSended.Count - _messageSendedIndex].ToString()).Blocks.ToList());
+                            MessageInput.Selection.Select(MessageInput.Document.ContentEnd, MessageInput.Document.ContentEnd);
                         }
                         break;
                 }
-                MessageInput.Selection.Select(MessageInput.Document.ContentEnd, MessageInput.Document.ContentEnd);
+                if ((e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) || e.KeyboardDevice.IsKeyDown(Key.RightCtrl)) && e.Key == Key.A)
+                    MessageInput.SelectAll();
             }
             else
             {
-                MessageInput.Document.Dispatcher.Invoke(new Action(() => { keyDownTasker(key); }));
+                MessageInput.Document.Dispatcher.Invoke(new Action(() => { keyDownTasker(eventObj); }));
             }
         }
 
@@ -160,11 +164,11 @@ namespace vChat.Module.Chat
         {
             if (keyDownTask == null || keyDownTask.IsCompleted)
             {
-                keyDownTask = Task.Factory.StartNew(keyDownTasker, e.Key);
+                keyDownTask = Task.Factory.StartNew(keyDownTasker, e);
             }
             else
             {
-                keyDownTask = keyDownTask.ContinueWith(t => { keyDownTasker(e.Key); });
+                keyDownTask = keyDownTask.ContinueWith(t => { keyDownTasker(e); });
             }
         }
     }

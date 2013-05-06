@@ -65,27 +65,23 @@ namespace vChat.Module.SignUp
             });
             _SubmitWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(delegate(object sender, RunWorkerCompletedEventArgs e)
             {
-                if (((SignUpResponse)e.Result).Success)
-                {
+                if (e.Result.ToString().Equals(""))
                     OnSignUpSuccess();
-                }
                 else
                 {
                     OnSignUpFailed();
-                    SubmitWarning.Text = ((SignUpResponse)e.Result).ServiceMessage;
-                    if (String.IsNullOrWhiteSpace(SubmitWarning.Text))
-                    {
-                        SubmitWarning.Text = "asdsad asd sd asdsadisadn asiud nas dnasu dasnud san usan uan sad usna";
-                    }
+                    SubmitWarning.Text = e.Result.ToString();
                     SubmitWarning.Visibility = System.Windows.Visibility.Visible;
                 }
                 SubmitProgress.State = Elysium.Controls.ProgressState.Normal;
                 SubmitProgress.Visibility = System.Windows.Visibility.Collapsed;
+                btSubmit.IsEnabled = true;
             });
         }
 
         private void btSubmit_Click(object sender, RoutedEventArgs e)
         {
+            btSubmit.IsEnabled = false;
             SubmitProgress.State = Elysium.Controls.ProgressState.Indeterminate;
             SubmitProgress.Visibility = System.Windows.Visibility.Visible;
             SubmitWarning.Visibility = System.Windows.Visibility.Collapsed;
@@ -100,96 +96,181 @@ namespace vChat.Module.SignUp
         private Task _userTask;
         private void tbUser_LostFocus(object sender, RoutedEventArgs e)
         {
-            UserWarner.Busy = true;
-            if (_userTask == null || _userTask.IsCompleted)
-                _userTask = Task.Factory.StartNew(obj =>
+            if (tbUser.Dispatcher.CheckAccess())
+            {
+                string user = tbUser.Text;
+                if (UserWarner.Dispatcher.CheckAccess())
                 {
-                    string user = obj.ToString();
-                    string warningText = "";
-                    try
+                    UserWarner.Busy = true;
+                    Action<object> work = obj =>
                     {
-                        warningText = validateUser(user);
-                    }
-                    catch (System.ServiceModel.EndpointNotFoundException)
-                    {
-                        warningText = "Không thể kết nối đến server.";
-                    }
-                    finally
-                    {
-                        Action<object> action = res =>
+                        Action<object> callback = cb =>
                         {
-                            UserWarner.Text = res.ToString();
+                            UserWarner.Text = cb.ToString();
                             if (UserWarner.Text == "")
                                 tbUser.BorderBrush = _valid;
                             else
                                 tbUser.BorderBrush = _invalid;
                         };
-                        _userTask.ContinueWith(t =>
+                        string warningText = "";
+                        try
                         {
-                            if (UserWarner.Dispatcher.CheckAccess())
-                                action(warningText);
-                            else
-                                UserWarner.Dispatcher.Invoke(new Action(() => action(warningText)));
-                        });
-                    }
-                }, tbUser.Text);
+                            warningText = validateUser(obj.ToString());
+                        }
+                        catch (System.ServiceModel.EndpointNotFoundException)
+                        {
+                            warningText = "Không thể kết nối đến server.";
+                        }
+                        finally
+                        {
+                            _userTask.ContinueWith(t =>
+                            {
+                                if (UserWarner.Dispatcher.CheckAccess())
+                                    callback(warningText);
+                                else
+                                    UserWarner.Dispatcher.Invoke(new Action(() => callback(warningText)));
+                            });
+                        }
+                    };
+
+                    if (_userTask == null || _userTask.IsCompleted)
+                        _userTask = Task.Factory.StartNew(obj =>
+                        {
+                            work(obj);
+                        }, user);
+                    else
+                        _userTask.ContinueWith(t => { work(user); });
+                }
+                else
+                {
+                    UserWarner.Dispatcher.Invoke(new Action(() => tbUser_LostFocus(sender, e)));
+                }
+            }
+            else
+            {
+                tbUser.Dispatcher.Invoke(new Action(() => tbUser_LostFocus(sender, e)));
+            }
         }
 
         private Task _passTask;
         private void tbPass_LostFocus(object sender, RoutedEventArgs e)
         {
-      /*      PassWarner.Busy = true;
-            Action<object> action = res =>
+            if (PassWarner.Dispatcher.CheckAccess())
             {
-                UserWarner.Text = res.ToString();
-                if (UserWarner.Text == "")
-                    tbUser.BorderBrush = _valid;
-                else
-                    tbUser.BorderBrush = _invalid;
-            };
-            Action<Task> callback = task =>
-            {
-                if (UserWarner.Dispatcher.CheckAccess())
-                    action(tbPass.Passwod);
-                else
-                    UserWarner.Dispatcher.Invoke(new Action(() => action(tbP)));
-            };
-            if (_passTask == null || _passTask.IsCompleted)
-                _passTask = Task.Factory.StartNew(obj =>
+                PassWarner.Busy = true;
+                Action<object> work = obj =>
                 {
-                    string warningText = validatePass(tbPass.Password);
+                    Action<object> callback = cb =>
+                    {
+                        PassWarner.Text = cb.ToString();
+                        if (PassWarner.Text == "")
+                            tbPass.BorderBrush = _valid;
+                        else
+                            tbPass.BorderBrush = _invalid;
+                    };
+                    string warningText = validatePass(obj.ToString());
                     _passTask.ContinueWith(t =>
                     {
-                        if (UserWarner.Dispatcher.CheckAccess())
-                            action(warningText);
+                        if (PassWarner.Dispatcher.CheckAccess())
+                            callback(warningText);
                         else
-                            UserWarner.Dispatcher.Invoke(new Action(() => action(warningText)));
+                            PassWarner.Dispatcher.Invoke(new Action(() => callback(warningText)));
                     });
-                }, tbPass.Password);
-            _passTask.ContinueWith(t =>
-            {
+                };
 
-            }); */
+                if (_passTask == null || _passTask.IsCompleted)
+                    _passTask = Task.Factory.StartNew(obj =>
+                    {
+                        work(obj);
+                    }, tbPass.Password);
+                else
+                    _passTask.ContinueWith(t => { work(tbPass.Password); });
+            }
+            else
+            {
+                PassWarner.Dispatcher.Invoke(new Action(() => tbPass_LostFocus(sender, e)));
+            }
         }
 
+        private Task _fNameTask;
         private void tbFname_LostFocus(object sender, RoutedEventArgs e)
         {
-            FNameWarner.Busy = true;
-            FNameWarner.Text = validateFirstName(tbFname.Text);
-            if (FNameWarner.Text != "")
-                tbFname.BorderBrush = _invalid;
+            if (FNameWarner.Dispatcher.CheckAccess())
+            {
+                FNameWarner.Busy = true;
+                Action<object> work = obj =>
+                {
+                    Action<object> callback = cb =>
+                    {
+                        FNameWarner.Text = cb.ToString();
+                        if (FNameWarner.Text != "")
+                            tbFname.BorderBrush = _invalid;
+                        else
+                            tbFname.BorderBrush = _valid;
+                    };
+                    string warningText = validateFirstName(obj.ToString());
+                    _fNameTask.ContinueWith(t =>
+                    {
+                        if (FNameWarner.Dispatcher.CheckAccess())
+                            callback(warningText);
+                        else
+                            FNameWarner.Dispatcher.Invoke(new Action(() => callback(warningText)));
+                    });
+                };
+
+                if (_fNameTask == null || _fNameTask.IsCompleted)
+                    _fNameTask = Task.Factory.StartNew(obj =>
+                    {
+                        work(obj);
+                    }, tbFname.Text);
+                else
+                    _fNameTask.ContinueWith(t => { work(tbFname.Text); });
+            }
             else
-                tbFname.BorderBrush = _valid;
+            {
+                FNameWarner.Dispatcher.Invoke(new Action(() => tbFname_LostFocus(sender, e)));
+            }
         }
 
+        private Task _lNameTask;
         private void tbLname_LostFocus(object sender, RoutedEventArgs e)
         {
-            LNameWarner.Busy = true;
-            LNameWarner.Text = validateLastName(tbLname.Text);
-            if (LNameWarner.Text != "")
-                tbLname.BorderBrush = _invalid;
+            if (LNameWarner.Dispatcher.CheckAccess())
+            {
+                LNameWarner.Busy = true;
+
+                Action<object> work = obj =>
+                {
+                    Action<object> callback = cb =>
+                    {
+                        LNameWarner.Text = cb.ToString();
+                        if (LNameWarner.Text != "")
+                            tbLname.BorderBrush = _invalid;
+                        else
+                            tbLname.BorderBrush = _valid;
+                    };
+                    string warningText = validateLastName(obj.ToString());
+                    _lNameTask.ContinueWith(t =>
+                    {
+                        if (LNameWarner.Dispatcher.CheckAccess())
+                            callback(warningText);
+                        else
+                            LNameWarner.Dispatcher.Invoke(new Action(() => callback(warningText)));
+                    });
+                };
+
+                if (_lNameTask == null || _lNameTask.IsCompleted)
+                    _lNameTask = Task.Factory.StartNew(obj =>
+                    {
+                        work(obj);
+                    }, tbLname.Text);
+                else
+                    _lNameTask.ContinueWith(t => { work(tbLname.Text); });
+            }
             else
-                tbLname.BorderBrush = _valid;
+            {
+                LNameWarner.Dispatcher.Invoke(new Action(() => tbLname_LostFocus(sender, e)));
+            }
         }
 
         private void tbDob_LostFocus(object sender, RoutedEventArgs e)
@@ -202,14 +283,45 @@ namespace vChat.Module.SignUp
             cbQuestion.BorderBrush = _valid;
         }
 
+        private Task _answerTask;
         private void tbAnswer_LostFocus(object sender, RoutedEventArgs e)
         {
-            AnswerWarner.Busy = true;
-            AnswerWarner.Text = validateAnswer(tbAnswer.Text);
-            if (AnswerWarner.Text != "")
-                tbAnswer.BorderBrush = _invalid;
+            if (AnswerWarner.Dispatcher.CheckAccess())
+            {
+                AnswerWarner.Busy = true;
+
+                Action<object> work = obj =>
+                {
+                    Action<object> callback = cb =>
+                    {
+                        AnswerWarner.Text = cb.ToString();
+                        if (AnswerWarner.Text != "")
+                            tbAnswer.BorderBrush = _invalid;
+                        else
+                            tbAnswer.BorderBrush = _valid;
+                    };
+                    string warningText = validateAnswer(obj.ToString());
+                    _answerTask.ContinueWith(t =>
+                    {
+                        if (AnswerWarner.Dispatcher.CheckAccess())
+                            callback(warningText);
+                        else
+                            AnswerWarner.Dispatcher.Invoke(new Action(() => callback(warningText)));
+                    });
+                };
+
+                if (_answerTask == null || _answerTask.IsCompleted)
+                    _answerTask = Task.Factory.StartNew(obj =>
+                    {
+                        work(obj);
+                    }, tbAnswer.Text);
+                else
+                    _answerTask.ContinueWith(t => { work(tbAnswer.Text); });
+            }
             else
-                tbAnswer.BorderBrush = _valid;
+            {
+                AnswerWarner.Dispatcher.Invoke(new Action(() => tbAnswer_LostFocus(sender, e)));
+            }
         }
     }
 }

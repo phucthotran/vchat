@@ -65,7 +65,7 @@
                 <Button Content="Đăng ký" Margin="10,0,0,0" Name="btSubmit" Click="btSubmit_Click" />
                 <el:ProgressRing Name="SubmitProgress" Visibility="Collapsed" State="Indeterminate" Width="30" Height="30" Margin="5,0,0,0"/>
             </StackPanel>
-            <TextBlock Name="SubmitWarning" TextWrapping="WrapWithOverflow" Visibility="Collapsed" Margin="0,0,0,0"/>
+            <TextBlock Name="SubmitWarning" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" Visibility="Collapsed" Margin="0,0,0,0"/>
         </StackPanel>
     </Grid>
 </UserControl>
