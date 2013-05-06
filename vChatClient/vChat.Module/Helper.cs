@@ -12,19 +12,12 @@ namespace vChat.Module
     {
         public static void ShowMessage(MethodInvokeResult InvokeResult)
         {
-            switch (InvokeResult.Status)
-            {
-                case MethodInvokeResult.RESULT.SUCCESS:
-                case MethodInvokeResult.RESULT.FAIL:
-                case MethodInvokeResult.RESULT.UNHANDLE_ERROR:
-                    MessageBox.Show(InvokeResult.Message);
-                    break;
-
-                case MethodInvokeResult.RESULT.INPUT_ERROR:
-                    String Errors = String.Join(",", InvokeResult.Errors.ToArray());
-                    MessageBox.Show(String.Format("Please fix following errors: ", Errors));
-                    break;
-            }
+            if (InvokeResult.Message != null && InvokeResult.Errors != null)
+                MessageBox.Show(InvokeResult.Message + "\n" + String.Join(",", InvokeResult.Errors.ToArray()));
+            else if (InvokeResult.Message != null)
+                MessageBox.Show(InvokeResult.Message);
+            else if (InvokeResult.Errors != null)
+                MessageBox.Show(String.Join(",", InvokeResult.Errors.ToArray()));            
         }
 
         public static Window CreateWindow(ref MetroWindow NewWindow, String Title, System.Windows.Controls.ContentControl Content)

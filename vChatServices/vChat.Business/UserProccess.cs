@@ -6,6 +6,7 @@ using vChat.Data;
 using vChat.Lib;
 using vChat.Lib.Serialize;
 using vChat.Business.Validations;
+using System.Collections.ObjectModel;
 
 namespace vChat.Business
 {
@@ -132,6 +133,28 @@ namespace vChat.Business
             {
                 return null;
             }            
+        }
+
+        public List<Users> UnresponseFriendRequests(int UserID)
+        {
+            try
+            {
+                ValidationController.Prepare();
+
+                UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
+
+                ValidationController.Validate(); //throw ValidateException
+
+                return unc.UnresponseFriendRequests(UserID);
+            }
+            catch (ValidateException)
+            {
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public MethodInvokeResult AddFriend(int UserID, String FriendName, int GroupID)
@@ -495,6 +518,29 @@ namespace vChat.Business
             }            
         }
 
+        public MethodInvokeResult AlreadyMakeFriend(int UserID, int FriendID)
+        {
+            try
+            {
+                ValidationController.Prepare();
+
+                UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
+                FriendID.RequiredArgumentWithStruct("FriendID").BeginFrom(1);
+
+                ValidationController.Validate(); //throw ValidateException
+
+                return unc.AlreadyMakeFriend(UserID, FriendID);
+            }
+            catch (ValidateException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
+            }
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            }
+        }
+
         public MethodInvokeResult Deactive(int UserID)
         {
             return unc.Deactive(UserID);
@@ -503,6 +549,46 @@ namespace vChat.Business
         public MethodInvokeResult Reactive(int UserID)
         {
             return unc.Reactive(UserID);
+        }
+
+        public List<Question> GetAllQuestion()
+        {
+            try
+            {
+                return unc.GetAllQuestion();
+            }
+            catch(Exception)
+            {
+                return null;
+            }
+        }
+
+        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content)
+        {
+            try
+            {
+                ValidationController.Prepare();
+
+                UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
+                FriendID.RequiredArgumentWithStruct("FriendID").BeginFrom(1);
+                Content.RequiredArgument("Content").NotNull();  //throw ArgumentNullException
+
+                ValidationController.Validate(); //throw ValidateException
+
+                return unc.SaveConversation(UserID, FriendID, Content);
+            }
+            catch (ValidateException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
+            }
+            catch (ArgumentNullException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = ex.Message, Exception = new ExceptionInfo(ex) };
+            }
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            }
         }
 
         public List<Conversation> GetConversations(int UserID)
@@ -527,6 +613,78 @@ namespace vChat.Business
             }            
         }
 
+        public List<Conversation> GetConversations(int UserID, int BeginIndex, int EndIndex)
+        {
+            try
+            {
+                ValidationController.Prepare();
+
+                UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
+                BeginIndex.RequiredArgumentWithStruct("BeginIndex").BeginFrom(1);
+                BeginIndex.RequiredArgumentWithStruct("EndIndex").BeginFrom(1);
+
+                ValidationController.Validate(); //throw ValidateException
+
+                return unc.GetConversations(UserID, BeginIndex, EndIndex);
+            }
+            catch (ValidateException)
+            {
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }            
+        }
+
+        public List<Conversation> GetConversationBetween(int UserID, int FriendID)
+        {
+            try
+            {
+                ValidationController.Prepare();
+
+                UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
+                FriendID.RequiredArgumentWithStruct("FriendID").BeginFrom(1); 
+
+                ValidationController.Validate(); //throw ValidateException
+
+                return unc.GetConversationBetween(UserID, FriendID);
+            }
+            catch (ValidateException)
+            {
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }             
+        }
+
+        public List<Conversation> GetConversationBetween(int UserID, int FriendID, int BeginIndex, int EndIndex)
+        {
+            try
+            {
+                ValidationController.Prepare();
+
+                UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
+                FriendID.RequiredArgumentWithStruct("FriendID").BeginFrom(1);
+                BeginIndex.RequiredArgumentWithStruct("BeginIndex").BeginFrom(1);
+                BeginIndex.RequiredArgumentWithStruct("EndIndex").BeginFrom(1);
+
+                ValidationController.Validate(); //throw ValidateException
+
+                return unc.GetConversationBetween(UserID, FriendID, BeginIndex, EndIndex);
+            }
+            catch (ValidateException)
+            {
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public List<Conversation> GetNewestConversations(int UserID)
         {
             try
@@ -538,6 +696,30 @@ namespace vChat.Business
                 ValidationController.Validate(); //throw ValidateException
 
                 return unc.GetNewestConversations(UserID);
+            }
+            catch (ValidateException)
+            {
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }            
+        }
+
+        public List<Conversation> GetNewestConversations(int UserID, int BeginIndex, int EndIndex)
+        {
+            try
+            {
+                ValidationController.Prepare();
+
+                UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
+                BeginIndex.RequiredArgumentWithStruct("BeginIndex").BeginFrom(1);
+                BeginIndex.RequiredArgumentWithStruct("EndIndex").BeginFrom(1);
+
+                ValidationController.Validate(); //throw ValidateException
+
+                return unc.GetNewestConversations(UserID, BeginIndex, EndIndex);
             }
             catch (ValidateException)
             {

@@ -60,6 +60,8 @@ namespace Core.Server.ClientManagement
                 else
                 {
                     Command cmd = buffer.ConvertTo<Command>();
+                    if (cmd == null)
+                        throw new Exception();
                     this.OnReceived(this, cmd);
                     buffer = new byte[4];
                 }

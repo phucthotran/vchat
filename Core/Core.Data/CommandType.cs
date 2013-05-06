@@ -11,6 +11,7 @@ namespace Core.Data
     {
         LogIn,
         LogOut,
+        LogOutSuccess,
         Chat,
         SendFileAccept,
         SendFileReject,

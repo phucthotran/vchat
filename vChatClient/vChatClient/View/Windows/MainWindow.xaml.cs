@@ -23,6 +23,7 @@ using Core.Data;
 using System.ComponentModel;
 using System.Windows.Controls.Primitives;
 using System.Net;
+using vChat.Service.UserService;
 
 namespace vChat.View.Windows
 {
@@ -62,6 +63,8 @@ namespace vChat.View.Windows
             client.CommandBinding(CommandType.SendFileSuccess, SuccessFileListener);
             client.CommandBinding(CommandType.CheckIP, CheckIPListener);
             client.CommandBinding(CommandType.CheckOnline, CheckOnlineListener);
+            client.CommandBinding(CommandType.LogOut, LogOutListener);
+            client.CommandBinding(CommandType.LogOutSuccess, LogOutSuccessListener);
         }
 
         private void InitLoginModule()
@@ -127,18 +130,7 @@ namespace vChat.View.Windows
 
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
-            this.Get<Client>().Disconnect();
-            foreach (Window window in App.Current.Windows)
-            {
-                if (window.GetType() != typeof(MainWindow))
-                {
-                    window.CloseHandler(false);
-                }
-            }
-            vChat.Module.Login.Cookie.Instance.Unset("user", "pass", "expire");
-            vChat.Module.Login.Cookie.Instance.Save();
-            InitLoginModule();
-            LogOut.Visibility = System.Windows.Visibility.Collapsed;
+            disconnectProcess(true);
         }
 
         private void MetroWindow_Activated(object sender, EventArgs e)
@@ -157,7 +149,22 @@ namespace vChat.View.Windows
         private void MetroWindow_Closing(object sender, CancelEventArgs e)
         {
             e.Cancel = true;
-            this.CloseHandler(true, e);
+            this.CloseHandler(true, e, (this.Get<Client>().ID != -1) ? delegate
+            {
+                disconnectProcess(false);
+            } : (Action)null);
+        }
+
+        private void disconnectProcess(bool isLogout)
+        {
+            Client client = this.Get<Client>();
+            if (client.ID != -1)
+            {
+                foreach (FriendGroup group in this.Get<UserServiceClient>().FriendList(client.ID).FriendGroups)
+                    foreach (Users friend in group.Friends)
+                        client.SendCommand(CommandType.LogOut, friend.Username);
+                client.SendCommand(CommandType.LogOutSuccess, client.Name, isLogout);
+            }
         }
     }
 }

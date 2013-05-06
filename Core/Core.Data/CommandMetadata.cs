@@ -50,12 +50,19 @@ namespace Core.Data
                 */
         public override string ToString()
         {
-            string result = "";
-            for (int i = 0; i < this.Count; i++)
+            if (Datas != null && Datas.Length > 0)
             {
-                result += this.Datas[i].ToString() + " :: ";
+                string result = "";
+                for (int i = 0; i < this.Count; i++)
+                {
+                    result += this.Datas[i].ToString() + " :: ";
+                }
+                return result.Substring(0, result.Length - 4);
             }
-            return result.Substring(0, result.Length - 4);
+            else
+            {
+                return "Null Data";
+            }
         }
     }
 }

@@ -8,6 +8,8 @@ using System.Windows.Documents;
 using System.Net;
 using System.IO;
 using vChat.Module.Chat.Parts;
+using Core.Client;
+using System.ComponentModel;
 
 namespace vChat.View.Windows
 {
@@ -192,28 +194,14 @@ namespace vChat.View.Windows
         {
             if (_friendListModule.Dispatcher.CheckAccess())
             {
-                /* 
-                 * _friendListModule phải cung cấp method để lấy ra control chứa tên người dùng
-                 * hoặc là method dùng để set online cho control đó                
-                 */
-                
-                // lấy ra tên người dùng và trạng thái
                 string user = res.TargetUser;
                 bool isOnline = (bool)res.Params[0];
 
                 _friendListModule.SetFriendStatus(user, isOnline);
 
-                // set online status
-                // _friendListModule.SetStatus(user, isOnline);
-
-                /*
-                 * ...
-                 */
-
-                // cái này để popup ra ngoài, để dưới cùng
                 if ((bool)res.Params[1])
                 {
-                    MessagePopup.Display(user + "đã online !!", delegate
+                    MessagePopup.Display(user + " đã online !!", delegate
                     {
                         ChatWindow chatWindow = new ChatWindow(user);
                         chatWindow.Show();
@@ -224,6 +212,58 @@ namespace vChat.View.Windows
             else
             {
                 _friendListModule.Dispatcher.Invoke(new Action(() => { CheckOnlineListener(res); }));
+            }
+        }
+
+        private void LogOutListener(CommandResponse res)
+        {
+            if (_friendListModule.Dispatcher.CheckAccess())
+            {
+                string user = res.TargetUser;
+
+                _friendListModule.SetFriendStatus(user, false);
+                MessagePopup.Display(user + " đã offline !!", delegate
+                {
+                    ChatWindow chatWindow = new ChatWindow(user);
+                    chatWindow.Show();
+                    chatWindow.BringToFront();
+                });
+            }
+            else
+            {
+                _friendListModule.Dispatcher.Invoke(new Action(() => { LogOutListener(res); }));
+            }
+        }
+
+        private void LogOutSuccessListener(CommandResponse res)
+        {
+            if (Application.Current.Dispatcher.CheckAccess())
+            {
+                this.Get<Client>().Disconnect();
+                if ((bool)res.Params[0])
+                {
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        if (window.GetType() != typeof(MainWindow))
+                        {
+                            window.CloseHandler(false);
+                        }
+                    }
+                    vChat.Module.Login.Cookie.Instance.Unset("user", "pass", "expire");
+                    vChat.Module.Login.Cookie.Instance.Save();
+                    InitLoginModule();
+                    LogOut.Visibility = System.Windows.Visibility.Collapsed;
+                }
+                else
+                {
+                    MainWindow current = ((MainWindow)Application.Current.MainWindow);
+                    current.Closing -= current.MetroWindow_Closing;
+                    current.Close();
+                }
+            }
+            else
+            {
+                Application.Current.Dispatcher.Invoke(new Action(() => LogOutSuccessListener(res)));
             }
         }
     }

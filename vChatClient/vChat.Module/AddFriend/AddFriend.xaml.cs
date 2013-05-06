@@ -81,7 +81,7 @@ namespace vChat.Module.AddFriend
 
         public void SetUser(int UserID)
         {
-            userId = UserID;            
+            userId = UserID;
         }
 
         public void SetGroups(ObservableCollection<FriendGroup> Groups)
@@ -112,6 +112,21 @@ namespace vChat.Module.AddFriend
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            if (GetUser(userId).Username.Equals(FriendName)) //Prevent from add yourself to friend list
+            {
+                MessageBox.Show("Bạn không thể tự thêm chính mình vào danh sách bạn bè");
+                return;
+            }           
+
+            Users user = GetUser(userId);
+            Users friend = FindUser(FriendName);
+
+            if (AlreadyAdded(user.UserID, friend.UserID)) //Friend is already added in your friend list
+            {
+                MessageBox.Show(String.Format("'{0}' đã được thêm vào danh sách bạn bè của bạn trước đó", FriendName));
+                return;
+            }
+
             if (cbGroup.SelectedItem == null && NewGroupName == null)
             {
                 MessageBox.Show("Hãy nhập tên nhóm bạn cần thêm bạn bè vào");

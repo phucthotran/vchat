@@ -139,15 +139,22 @@ namespace System
 
         public static void CloseHandler(this Window w, bool isHandle)
         {
-            w.CloseHandler(isHandle, "Bạn có muốn tắt ứng dụng không?");
+            w.CloseHandler(isHandle, "Bạn có muốn tắt ứng dụng không?", (Action)null);
         }
 
-        public static void CloseHandler(this Window w, bool isHandle, string question)
+        public static void CloseHandler(this Window w, bool isHandle, Action yesCallback)
+        {
+            w.CloseHandler(isHandle, "Bạn có muốn tắt ứng dụng không?", yesCallback);
+        }
+
+        public static void CloseHandler(this Window w, bool isHandle, string question, Action yesCallback)
         {
             if (isHandle)
             {
                 if (MessageBox.Show(question, "vChat - Chat kiểu Việt", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
+                    if (yesCallback != null)
+                        yesCallback();
                     w.Close();
                 }
             }
@@ -159,16 +166,26 @@ namespace System
 
         public static void CloseHandler(this Window w, bool isHandle, CancelEventArgs e)
         {
-            w.CloseHandler(isHandle, "Bạn có muốn tắt ứng dụng không?", e);
+            w.CloseHandler(isHandle, "Bạn có muốn tắt ứng dụng không?", e, null);
         }
 
-        public static void CloseHandler(this Window w, bool isHandle, string question, CancelEventArgs e)
+        public static void CloseHandler(this Window w, bool isHandle, CancelEventArgs e, Action yesCallback)
+        {
+            w.CloseHandler(isHandle, "Bạn có muốn tắt ứng dụng không?", e, yesCallback);
+        }
+
+        public static void CloseHandler(this Window w, bool isHandle, string question, CancelEventArgs e, Action yesCallback)
         {
             if (isHandle)
             {
                 if (MessageBox.Show(question, "vChat - Chat kiểu Việt", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
-                    e.Cancel = false;
+                    if (yesCallback != null)
+                    {
+                        yesCallback();
+                    }
+                    else
+                        e.Cancel = false;
                 }
             }
             else

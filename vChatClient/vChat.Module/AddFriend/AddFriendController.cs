@@ -11,6 +11,26 @@ namespace vChat.Module.AddFriend
 {
     public partial class AddFriend
     {
+        private Users GetUser(int UserID)
+        {
+            return this.Get<UserServiceClient>().Info(UserID);
+        }
+
+        private Users FindUser(String Username)
+        {
+            return this.Get<UserServiceClient>().FindName(Username);
+        }
+
+        private bool AlreadyAdded(int UserID, int FriendID)
+        {            
+            MethodInvokeResult result = this.Get<UserServiceClient>().AlreadyMakeFriend(UserID, FriendID);
+
+            if (result.Status == MethodInvokeResult.RESULT.SUCCESS)
+                return true;
+
+            return false;
+        }
+
         private bool AddNewGroup(int UserID, String Name, ref int NewGroupID)
         {
             MethodInvokeResult result = this.Get<UserServiceClient>().AddGroup(UserID, Name, ref NewGroupID);

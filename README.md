@@ -4,6 +4,158 @@
 ## Update Log
 -------------
 
+#### Update 06.05 10:52 PM
+
+- Cho phép user chat với user trong danh sách **Yêu Cầu Kết Bạn Đang Đợi Phản Hồi**
+- Chỉnh lại method **Helper.ShowMessage**
+- Thêm danh sách **Yêu Cầu Kết Bạn Đang Đợi Phản Hồi** (*)
+- Chặn không cho tự add friend chính mình và user đã có trong danh sách bạn bè
+- Hiển thị trang thái online của bạn bè trên **FriendList** module
+- Thêm một số method mới vào `vChat.Data`: **GetConversationBetween** (2 method),  **GetByUser** (thêm 1 override method), **GetNewestByUser** (thêm 1 override method), **UnresponseRequests**
+
+- Thêm method
+
+```c#
+Helper.CreateWindow(ref MetroWindow, String Title, System.Windows.Controls.ContentControl Content)
+```
+
+Dùng để khởi tạo `MetroWindow`
+
+**Sử Dụng**
+
+Lưu ý là đối tượng `m` ở đây không cần khởi tạo (chỉ cần gán `null` thôi cũng được)
+
+```c#
+MetroWindow m = null;
+AddFriend addFriendModule = new AddFriend();
+
+Helper.CreateWindow(ref m, "Add New Friend", adđFriendModule).Show();
+```
+
+- Thêm và chỉnh sửa một số method trên service (`vChat.WCF`):
+
+**NEW**
+
+```c#
+MethodInvokeResult AlreadyMakeFriend(int UserID, int FriendID)
+```
+
+Kiểm tra tình trạng kết bạn giữa 2 user
+
+**NEW**
+
+```c#
+List<Users> UnresponseFriendRequests(int UserID)
+```
+
+Lấy ra các yêu cầu kết bạn của user hiện tại mà chưa nhận được phản hồi từ phái người được gửi yêu cầu kết bạn
+
+**NEW**
+
+```c#
+List<Question> GetAllQuestion()
+```
+
+Lấy ra danh sách tất cả câu hỏi bí mật
+
+**NEW**
+
+```c#
+MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content) 
+```
+
+Lưu đoạn hội thoại giữa user hiện tại (UserID) và user chat (FriendID)
+
+**Sử Dụng**
+
+```c#
+SaveConversation(1, 2, "test message");
+```
+
+**EDIT**
+
+```c#
+List<Conversation> GetConversations(int UserID)
+```
+
+Lấy danh sách tất cả các đoạn hội thoại của user gửi đi hoặc nhận về
+
+**NEW**
+
+```c#
+List<Conversation> GetConversations(int UserID, int BeginIndex, int EndIndex)
+```
+
+Như **GetConversations(int UserID)**, nhưng lấy theo dải (range)
+
+**Sử Dụng**
+
+Lấy ra 5 dòng dữ liệu từ dòng thứ 6 - 10
+
+```c#
+GetConversations(1, 6, 10)
+```
+
+**NEW**
+
+```c#
+List<Conversation> GetConversationBetween(int UserID, int FriendID)
+```
+
+Lấy danh sách tất cả các đoạn hội thoại giữa 2 user
+
+**Sử Dụng**
+
+Lấy danh sách đoạn hội thoại giữa itexlore (Chủ nick, UserID = 1) và symaci (UserID = 2)
+
+```c#
+GetConversationBetween(1, 2)
+```
+
+**NEW**
+
+```c#
+List<Conversation> GetConversationBetween(int UserID, int FriendID, int BeginIndex, int EndIndex)
+```
+
+Tương tự **GetConversationBetween(int UserID, int FriendID)**, nhưng lấy theo dải (range)
+
+**Sử Dụng**
+
+Lấy 5 đoạn hội thoại giữa itexlore (Chủ nick, UserID = 1) và symaci (UserID = 2) từ dòng 6 - 10
+
+```c#
+GetConversationBetween(1, 2, 6, 10)
+```
+
+```c#
+List<Conversation> GetNewestConversations(int UserID)
+```
+
+Lấy ra danh sách các đoạn hội thoại chưa đọc (nhận biết thông qua field IsRead trong bảng Conversation dưới CSDL)
+
+**Sử Dụng**
+
+```c#
+GetNewestConversations(1)
+```
+
+**NEW**
+
+```c#
+List<Conversation> GetNewestConversations(int UserID, int BeginIndex, int EndIndex)
+```
+
+Tương tự như **GetNewestConversations(int UserID), nhưng lấy ra theo dải (range)
+
+**Sử Dụng**
+
+Lấy ra 5 đoạn hội thoại chưa đọc của itexplore (Chủ nick, UserID = 1) tử dòng thứ 6 - 10
+
+```c#
+GetNewestConversations(1, 6, 10)
+```
+
 #### Update 05.05 11:58 PM
 - Chỉnh lại **RemoveGroup** module tránh trường hợp "nhóm chuyển liên lạc tới" bị trùng với "nhóm bị xóa", hỗ trợ tạo nhóm mới khi chuyển liên lạc
 - Không hiển thị bạn khi mới thêm (chỉ hiện thị khi người dùng được gửi yêu cầu chấp nhận thì mới hiển thị

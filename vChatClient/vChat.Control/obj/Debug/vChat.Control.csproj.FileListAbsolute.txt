@@ -5,8 +5,10 @@ D:\vChatProject\vChatClient\vChat.Control\bin\Debug\Elysium.Notifications.dll
 D:\vChatProject\vChatClient\vChat.Control\bin\Debug\Microsoft.Expression.Drawing.dll
 D:\vChatProject\vChatClient\vChat.Control\bin\Debug\Microsoft.Windows.Shell.dll
 D:\vChatProject\vChatClient\vChat.Control\obj\Debug\FieldWarner.baml
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\OnlineStatus.baml
 D:\vChatProject\vChatClient\vChat.Control\obj\Debug\FieldWarner.g.cs
 D:\vChatProject\vChatClient\vChat.Control\obj\Debug\ImageButton.g.cs
+D:\vChatProject\vChatClient\vChat.Control\obj\Debug\OnlineStatus.g.cs
 D:\vChatProject\vChatClient\vChat.Control\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.Control_MarkupCompile.cache
 D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.Control_MarkupCompile.lref
@@ -17,26 +19,3 @@ D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.Control.Properties.Res
 D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.Control.csproj.GenerateResource.Cache
 D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.Control.dll
 D:\vChatProject\vChatClient\vChat.Control\obj\Debug\vChat.Control.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\bin\Debug\vChat.Control.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\bin\Debug\vChat.Control.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\bin\Debug\Elysium.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\bin\Debug\Elysium.Notifications.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\bin\Debug\Microsoft.Expression.Drawing.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\bin\Debug\Microsoft.Windows.Shell.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\FieldWarner.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\FieldWarner.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\ImageButton.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat.Control_MarkupCompile.cache
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat.Control_MarkupCompile.lref
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\ImageButton.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\Themes\Generic.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat.Control.g.resources
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat.Control.Properties.Resources.resources
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat.Control.csproj.GenerateResource.Cache
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat.Control.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\vChat.Control.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\OnlineStatus.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Control\obj\Debug\OnlineStatus.g.cs
-D:\vChatProject\vChatClient\vChat.Control\obj\Debug\OnlineStatus.baml
-D:\vChatProject\vChatClient\vChat.Control\obj\Debug\OnlineStatus.g.cs

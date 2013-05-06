@@ -30,6 +30,9 @@ namespace vChat.Service.UserService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/FriendRequests", ReplyAction="http://tempuri.org/IUserService/FriendRequestsResponse")]
         vChat.Model.Entities.Users[] FriendRequests(int UserID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UnresponseFriendRequests", ReplyAction="http://tempuri.org/IUserService/UnresponseFriendRequestsResponse")]
+        vChat.Model.Entities.Users[] UnresponseFriendRequests(int UserID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/AddFriend", ReplyAction="http://tempuri.org/IUserService/AddFriendResponse")]
         vChat.Model.MethodInvokeResult AddFriend(int UserID, string FriendName, int GroupID);
         
@@ -69,17 +72,38 @@ namespace vChat.Service.UserService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/RemoveContact", ReplyAction="http://tempuri.org/IUserService/RemoveContactResponse")]
         vChat.Model.MethodInvokeResult RemoveContact(int UserID, int FriendID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/AlreadyMakeFriend", ReplyAction="http://tempuri.org/IUserService/AlreadyMakeFriendResponse")]
+        vChat.Model.MethodInvokeResult AlreadyMakeFriend(int UserID, int FriendID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/Deactive", ReplyAction="http://tempuri.org/IUserService/DeactiveResponse")]
         vChat.Model.MethodInvokeResult Deactive(int UserID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/Reactive", ReplyAction="http://tempuri.org/IUserService/ReactiveResponse")]
         vChat.Model.MethodInvokeResult Reactive(int UserID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAllQuestion", ReplyAction="http://tempuri.org/IUserService/GetAllQuestionResponse")]
+        vChat.Model.Entities.Question[] GetAllQuestion();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/SaveConversation", ReplyAction="http://tempuri.org/IUserService/SaveConversationResponse")]
+        vChat.Model.MethodInvokeResult SaveConversation(int UserID, int FriendID, string Content);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetConversations", ReplyAction="http://tempuri.org/IUserService/GetConversationsResponse")]
         vChat.Model.Entities.Conversation[] GetConversations(int UserID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetConversationsByRange", ReplyAction="http://tempuri.org/IUserService/GetConversationsByRangeResponse")]
+        vChat.Model.Entities.Conversation[] GetConversationsByRange(int UserID, int BeginIndex, int EndIndex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetConversationBetween", ReplyAction="http://tempuri.org/IUserService/GetConversationBetweenResponse")]
+        vChat.Model.Entities.Conversation[] GetConversationBetween(int UserID, int FriendID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetConversationBetweenByRange", ReplyAction="http://tempuri.org/IUserService/GetConversationBetweenByRangeResponse")]
+        vChat.Model.Entities.Conversation[] GetConversationBetweenByRange(int UserID, int FriendID, int BeginIndex, int EndIndex);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetNewestConversations", ReplyAction="http://tempuri.org/IUserService/GetNewestConversationsResponse")]
         vChat.Model.Entities.Conversation[] GetNewestConversations(int UserID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetNewestConversationsByRange", ReplyAction="http://tempuri.org/IUserService/GetNewestConversationsByRangeResponse")]
+        vChat.Model.Entities.Conversation[] GetNewestConversationsByRange(int UserID, int BeginIndex, int EndIndex);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -127,6 +151,10 @@ namespace vChat.Service.UserService {
         
         public vChat.Model.Entities.Users[] FriendRequests(int UserID) {
             return base.Channel.FriendRequests(UserID);
+        }
+        
+        public vChat.Model.Entities.Users[] UnresponseFriendRequests(int UserID) {
+            return base.Channel.UnresponseFriendRequests(UserID);
         }
         
         public vChat.Model.MethodInvokeResult AddFriend(int UserID, string FriendName, int GroupID) {
@@ -181,6 +209,10 @@ namespace vChat.Service.UserService {
             return base.Channel.RemoveContact(UserID, FriendID);
         }
         
+        public vChat.Model.MethodInvokeResult AlreadyMakeFriend(int UserID, int FriendID) {
+            return base.Channel.AlreadyMakeFriend(UserID, FriendID);
+        }
+        
         public vChat.Model.MethodInvokeResult Deactive(int UserID) {
             return base.Channel.Deactive(UserID);
         }
@@ -189,12 +221,36 @@ namespace vChat.Service.UserService {
             return base.Channel.Reactive(UserID);
         }
         
+        public vChat.Model.Entities.Question[] GetAllQuestion() {
+            return base.Channel.GetAllQuestion();
+        }
+        
+        public vChat.Model.MethodInvokeResult SaveConversation(int UserID, int FriendID, string Content) {
+            return base.Channel.SaveConversation(UserID, FriendID, Content);
+        }
+        
         public vChat.Model.Entities.Conversation[] GetConversations(int UserID) {
             return base.Channel.GetConversations(UserID);
         }
         
+        public vChat.Model.Entities.Conversation[] GetConversationsByRange(int UserID, int BeginIndex, int EndIndex) {
+            return base.Channel.GetConversationsByRange(UserID, BeginIndex, EndIndex);
+        }
+        
+        public vChat.Model.Entities.Conversation[] GetConversationBetween(int UserID, int FriendID) {
+            return base.Channel.GetConversationBetween(UserID, FriendID);
+        }
+        
+        public vChat.Model.Entities.Conversation[] GetConversationBetweenByRange(int UserID, int FriendID, int BeginIndex, int EndIndex) {
+            return base.Channel.GetConversationBetweenByRange(UserID, FriendID, BeginIndex, EndIndex);
+        }
+        
         public vChat.Model.Entities.Conversation[] GetNewestConversations(int UserID) {
             return base.Channel.GetNewestConversations(UserID);
+        }
+        
+        public vChat.Model.Entities.Conversation[] GetNewestConversationsByRange(int UserID, int BeginIndex, int EndIndex) {
+            return base.Channel.GetNewestConversationsByRange(UserID, BeginIndex, EndIndex);
         }
     }
 }

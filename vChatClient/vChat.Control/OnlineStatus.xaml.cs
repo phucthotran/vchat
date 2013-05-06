@@ -19,7 +19,7 @@ namespace vChat.Control
     /// </summary>
     public partial class OnlineStatus : UserControl
     {
-        public static readonly DependencyProperty IsOnlineProperty = DependencyProperty.Register("IsOnline", typeof(Boolean), typeof(OnlineStatus), new UIPropertyMetadata(false));
+        public static readonly DependencyProperty IsOnlineProperty = DependencyProperty.Register("IsOnline", typeof(bool), typeof(OnlineStatus), new UIPropertyMetadata(new PropertyChangedCallback(OnOnlineStatusChanged)));
 
         private static Brush ONLINE_COLOR = Brushes.Green;
         private static Brush OFFLINE_COLOR = Brushes.Black;
@@ -27,24 +27,28 @@ namespace vChat.Control
         public bool IsOnline
         {
             get { return (bool)GetValue(IsOnlineProperty); }
-            set
-            {
-                if (value != (bool)GetValue(IsOnlineProperty))
-                {
-                    SetValue(IsOnlineProperty, value);
-                    SetOnlineStatus();
-                }
-            }
-        }        
+            set { SetValue(IsOnlineProperty, value); }
+        }
 
         public OnlineStatus()
         {
             InitializeComponent();
         }
 
-        private void SetOnlineStatus()
+        private void SetOnlineStatus(bool IsOnline)
         {
             epseOnlineStatus.Fill = IsOnline ? ONLINE_COLOR : OFFLINE_COLOR;
+        }
+
+        private static void OnOnlineStatusChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        {
+            var uc = obj as OnlineStatus;
+
+            if (uc != null && e.NewValue != e.OldValue)
+            {
+                bool newValue = (bool)e.NewValue;
+                uc.SetOnlineStatus(newValue);
+            }
         }
     }
 }

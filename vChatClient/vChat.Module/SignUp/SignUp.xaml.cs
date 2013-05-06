@@ -287,6 +287,7 @@ namespace vChat.Module.SignUp
         private Task _answerTask;
         private void tbAnswer_LostFocus(object sender, RoutedEventArgs e)
         {
+
             if (AnswerWarner.Dispatcher.CheckAccess())
             {
                 AnswerWarner.Busy = true;
@@ -301,7 +302,7 @@ namespace vChat.Module.SignUp
                         else
                             tbAnswer.BorderBrush = _valid;
                     };
-                    string warningText = validateAnswer(obj.ToString());
+                    string warningText = validateLastName(obj.ToString());
                     _answerTask.ContinueWith(t =>
                     {
                         if (AnswerWarner.Dispatcher.CheckAccess())
@@ -321,7 +322,7 @@ namespace vChat.Module.SignUp
             }
             else
             {
-                AnswerWarner.Dispatcher.Invoke(new Action(() => tbAnswer_LostFocus(sender, e)));
+                LNameWarner.Dispatcher.Invoke(new Action(() => tbAnswer_LostFocus(sender, e)));
             }
         }
     }

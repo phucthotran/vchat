@@ -267,7 +267,18 @@
     <Resource Include="Chat\Images\paragraphleftjustify.png" />
     <Resource Include="Chat\Images\paragraphrightjustify.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="FriendList\Image\response.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FriendList\Image\chat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FriendList\Image\friendlist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FriendList\Image\unresponserequest.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -114,7 +114,7 @@ namespace Core.Server
                 {
                     target.SendCommand(cmd);
                 }
-            }
+            }      
         }
 
         private void listeningConnection()

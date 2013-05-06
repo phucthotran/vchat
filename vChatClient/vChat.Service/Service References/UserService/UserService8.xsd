@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD:vChatClient/vChat.Service/Service References/UserService/UserService8.xsd
   <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd2" namespace="http://vchat/entities/Users" />
   <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd3" namespace="http://vchat/entities/FriendGroup" />
   <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd4" namespace="http://vchat/GroupFriendList" />
   <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/vChat.Model" />
   <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd7" namespace="http://vchat/entities/Conversation" />
+=======
+  <xs:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd2" namespace="http://vchat/entities/Users" />
+  <xs:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd3" namespace="http://vchat/entities/FriendGroup" />
+  <xs:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd4" namespace="http://vchat/GroupFriendList" />
+  <xs:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/vChat.Model" />
+  <xs:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd7" namespace="http://vchat/entities/Question" />
+  <xs:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd8" namespace="http://vchat/entities/Conversation" />
+>>>>>>> vchat/master:vChatClient/vChat.Service/Service References/UserService/UserService5.xsd
   <xs:element name="Info">
     <xs:complexType>
       <xs:sequence>
@@ -75,6 +84,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UnresponseFriendRequests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnresponseFriendRequestsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://vchat/entities/Users" minOccurs="0" name="UnresponseFriendRequestsResult" nillable="true" type="q6:ArrayOfUsers" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AddFriend">
     <xs:complexType>
       <xs:sequence>
@@ -87,7 +110,7 @@
   <xs:element name="AddFriendResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="AddFriendResult" nillable="true" type="q6:MethodInvokeResult" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="AddFriendResult" nillable="true" type="q7:MethodInvokeResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -103,7 +126,7 @@
   <xs:element name="AddGroupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="AddGroupResult" nillable="true" type="q7:MethodInvokeResult" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="AddGroupResult" nillable="true" type="q8:MethodInvokeResult" />
         <xs:element minOccurs="0" name="NewGroupID" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -119,7 +142,7 @@
   <xs:element name="RemoveGroupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="RemoveGroupResult" nillable="true" type="q8:MethodInvokeResult" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="RemoveGroupResult" nillable="true" type="q9:MethodInvokeResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -134,7 +157,7 @@
   <xs:element name="LoginResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="LoginResult" nillable="true" type="q9:MethodInvokeResult" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="LoginResult" nillable="true" type="q10:MethodInvokeResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -149,7 +172,7 @@
   <xs:element name="LoginHashResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="LoginHashResult" nillable="true" type="q10:MethodInvokeResult" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="LoginHashResult" nillable="true" type="q11:MethodInvokeResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -169,7 +192,7 @@
   <xs:element name="SignupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="SignupResult" nillable="true" type="q11:MethodInvokeResult" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="SignupResult" nillable="true" type="q12:MethodInvokeResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -183,7 +206,7 @@
   <xs:element name="UserExistResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="UserExistResult" nillable="true" type="q12:MethodInvokeResult" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="UserExistResult" nillable="true" type="q13:MethodInvokeResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -198,7 +221,7 @@
   <xs:element name="ChangeProfilePictureResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="ChangeProfilePictureResult" nillable="true" type="q13:MethodInvokeResult" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="ChangeProfilePictureResult" nillable="true" type="q14:MethodInvokeResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -214,7 +237,7 @@
   <xs:element name="ChangePasswordResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="ChangePasswordResult" nillable="true" type="q14:MethodInvokeResult" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="ChangePasswordResult" nillable="true" type="q15:MethodInvokeResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -230,7 +253,7 @@
   <xs:element name="AcceptFriendRequestResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="AcceptFriendRequestResult" nillable="true" type="q15:MethodInvokeResult" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="AcceptFriendRequestResult" nillable="true" type="q16:MethodInvokeResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -245,7 +268,7 @@
   <xs:element name="IgnoreFriendRequestResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="IgnoreFriendRequestResult" nillable="true" type="q16:MethodInvokeResult" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="IgnoreFriendRequestResult" nillable="true" type="q17:MethodInvokeResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -261,7 +284,7 @@
   <xs:element name="MoveContactResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="MoveContactResult" nillable="true" type="q17:MethodInvokeResult" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="MoveContactResult" nillable="true" type="q18:MethodInvokeResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -276,7 +299,22 @@
   <xs:element name="RemoveContactResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="RemoveContactResult" nillable="true" type="q18:MethodInvokeResult" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="RemoveContactResult" nillable="true" type="q19:MethodInvokeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlreadyMakeFriend">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+        <xs:element minOccurs="0" name="FriendID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlreadyMakeFriendResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="AlreadyMakeFriendResult" nillable="true" type="q20:MethodInvokeResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -290,7 +328,7 @@
   <xs:element name="DeactiveResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="DeactiveResult" nillable="true" type="q19:MethodInvokeResult" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="DeactiveResult" nillable="true" type="q21:MethodInvokeResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -304,7 +342,35 @@
   <xs:element name="ReactiveResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="ReactiveResult" nillable="true" type="q20:MethodInvokeResult" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="ReactiveResult" nillable="true" type="q22:MethodInvokeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllQuestion">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllQuestionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://vchat/entities/Question" minOccurs="0" name="GetAllQuestionResult" nillable="true" type="q23:ArrayOfQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveConversation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+        <xs:element minOccurs="0" name="FriendID" type="xs:int" />
+        <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveConversationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="SaveConversationResult" nillable="true" type="q24:MethodInvokeResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -318,7 +384,55 @@
   <xs:element name="GetConversationsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://vchat/entities/Conversation" minOccurs="0" name="GetConversationsResult" nillable="true" type="q21:ArrayOfConversation" />
+        <xs:element xmlns:q25="http://vchat/entities/Conversation" minOccurs="0" name="GetConversationsResult" nillable="true" type="q25:ArrayOfConversation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConversationsByRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+        <xs:element minOccurs="0" name="BeginIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="EndIndex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConversationsByRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://vchat/entities/Conversation" minOccurs="0" name="GetConversationsByRangeResult" nillable="true" type="q26:ArrayOfConversation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConversationBetween">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+        <xs:element minOccurs="0" name="FriendID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConversationBetweenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://vchat/entities/Conversation" minOccurs="0" name="GetConversationBetweenResult" nillable="true" type="q27:ArrayOfConversation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConversationBetweenByRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+        <xs:element minOccurs="0" name="FriendID" type="xs:int" />
+        <xs:element minOccurs="0" name="BeginIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="EndIndex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConversationBetweenByRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://vchat/entities/Conversation" minOccurs="0" name="GetConversationBetweenByRangeResult" nillable="true" type="q28:ArrayOfConversation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -332,7 +446,23 @@
   <xs:element name="GetNewestConversationsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://vchat/entities/Conversation" minOccurs="0" name="GetNewestConversationsResult" nillable="true" type="q22:ArrayOfConversation" />
+        <xs:element xmlns:q29="http://vchat/entities/Conversation" minOccurs="0" name="GetNewestConversationsResult" nillable="true" type="q29:ArrayOfConversation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewestConversationsByRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+        <xs:element minOccurs="0" name="BeginIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="EndIndex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewestConversationsByRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://vchat/entities/Conversation" minOccurs="0" name="GetNewestConversationsByRangeResult" nillable="true" type="q30:ArrayOfConversation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
