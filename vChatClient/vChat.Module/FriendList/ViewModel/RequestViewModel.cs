@@ -135,6 +135,11 @@ namespace vChat.Module.FriendList
                 requests.Remove(MatchRequest);
         }
 
+        public void ClearRequest()
+        {
+            requests.Clear();
+        }
+
         protected virtual void OnPropertyChanged(String PropertyName)
         {
             if (this.PropertyChanged != null)

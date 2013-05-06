@@ -54,11 +54,17 @@ namespace vChat.Service.UserService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UserExist", ReplyAction="http://tempuri.org/IUserService/UserExistResponse")]
         vChat.Model.MethodInvokeResult UserExist(string Username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/ChangeProfilePicture", ReplyAction="http://tempuri.org/IUserService/ChangeProfilePictureResponse")]
-        vChat.Model.MethodInvokeResult ChangeProfilePicture(int UserID, byte[] ImageBytes);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/ChangeAvatar", ReplyAction="http://tempuri.org/IUserService/ChangeAvatarResponse")]
+        vChat.Model.MethodInvokeResult ChangeAvatar(int UserID, byte[] ImageBytes);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/AnswerIsMatch", ReplyAction="http://tempuri.org/IUserService/AnswerIsMatchResponse")]
+        vChat.Model.MethodInvokeResult AnswerIsMatch(int UserID, int QuestionID, string Answer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/ChangePassword", ReplyAction="http://tempuri.org/IUserService/ChangePasswordResponse")]
         vChat.Model.MethodInvokeResult ChangePassword(int UserID, string OldPassword, string NewPassword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/ChangeUserInfo", ReplyAction="http://tempuri.org/IUserService/ChangeUserInfoResponse")]
+        vChat.Model.MethodInvokeResult ChangeUserInfo(int UserID, string FirstName, string LastName, int QuestionID, string Answer, System.DateTime Birthdate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/AcceptFriendRequest", ReplyAction="http://tempuri.org/IUserService/AcceptFriendRequestResponse")]
         vChat.Model.MethodInvokeResult AcceptFriendRequest(int UserID, int FriendID, int GroupID);
@@ -185,12 +191,20 @@ namespace vChat.Service.UserService {
             return base.Channel.UserExist(Username);
         }
         
-        public vChat.Model.MethodInvokeResult ChangeProfilePicture(int UserID, byte[] ImageBytes) {
-            return base.Channel.ChangeProfilePicture(UserID, ImageBytes);
+        public vChat.Model.MethodInvokeResult ChangeAvatar(int UserID, byte[] ImageBytes) {
+            return base.Channel.ChangeAvatar(UserID, ImageBytes);
+        }
+        
+        public vChat.Model.MethodInvokeResult AnswerIsMatch(int UserID, int QuestionID, string Answer) {
+            return base.Channel.AnswerIsMatch(UserID, QuestionID, Answer);
         }
         
         public vChat.Model.MethodInvokeResult ChangePassword(int UserID, string OldPassword, string NewPassword) {
             return base.Channel.ChangePassword(UserID, OldPassword, NewPassword);
+        }
+        
+        public vChat.Model.MethodInvokeResult ChangeUserInfo(int UserID, string FirstName, string LastName, int QuestionID, string Answer, System.DateTime Birthdate) {
+            return base.Channel.ChangeUserInfo(UserID, FirstName, LastName, QuestionID, Answer, Birthdate);
         }
         
         public vChat.Model.MethodInvokeResult AcceptFriendRequest(int UserID, int FriendID, int GroupID) {

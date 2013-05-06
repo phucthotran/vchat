@@ -61,7 +61,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="Properties\DataSources\vChat.Model.Entities.Conversation.datasource" />
     <None Include="Properties\DataSources\vChat.Model.Entities.FriendGroup.datasource" />
     <None Include="Properties\DataSources\vChat.Model.Entities.Question.datasource" />

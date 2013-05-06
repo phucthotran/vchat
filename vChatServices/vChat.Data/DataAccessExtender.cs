@@ -13,6 +13,25 @@ namespace vChat.Data
     {
         //private static vChatContext _db;
 
+        static DataAccessExtender()
+        {
+            db.Database.CreateIfNotExists();
+
+            if (db.Question.Count() == 0)
+            {
+                AddQuestionSample();
+            }
+        }
+
+        private static void AddQuestionSample()
+        {
+            new Question { Content = "Nơi bạn sinh ra" }.New();
+            new Question { Content = "Trường tiểu học của bạn" }.New();
+            new Question { Content = "Trường trung học (cấp 2 hoặc 3) của bạn" }.New();
+            new Question { Content = "Trường đại học của bạn" }.New();
+            new Question { Content = "Tên người yêu" }.New();
+        }
+
         public static vChatContext db
         {
             get 
@@ -428,7 +447,20 @@ namespace vChat.Data
                 GroupFriendList.FriendGroups.Add(Group);
 
             return GroupFriendList;
-        }        
+        }
+
+        public static int AnswerIsMatch(this Users um, int UserID, int QuestionID, String Answer)
+        {
+            const int ANSWER_MATCH = 1, ANSWER_NOT_MATCH = 0, QUESTION_NOT_MATCH = -1;
+
+            Users userInfo = db.Users.Include(u => u.Question).FirstOrDefault(u => u.UserID == UserID);
+            Question question = db.Question.FirstOrDefault(q => q.QuestionID == QuestionID);
+
+            if (!userInfo.Question.Equals(question))
+                return QUESTION_NOT_MATCH;
+
+            return userInfo.Answer.ToLower().Equals(Answer.ToLower()) ? ANSWER_MATCH : ANSWER_NOT_MATCH;
+        }
 
         #endregion
 

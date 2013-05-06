@@ -183,9 +183,15 @@ namespace vChat.WCF
         /// <param name="ImageBytes">Bytes of image</param>
         /// <returns></returns>
         [OperationBehavior]
-        public MethodInvokeResult ChangeProfilePicture(int UserID, byte[] ImageBytes)
+        public MethodInvokeResult ChangeAvatar(int UserID, byte[] ImageBytes)
         {
-            return unc.ChangeProfilePicture(UserID, ImageBytes);
+            return unc.ChangeAvatar(UserID, ImageBytes);
+        }
+
+        [OperationBehavior]
+        public MethodInvokeResult AnswerIsMatch(int UserID, int QuestionID, String Answer)
+        {
+            return unc.AnswerIsMatch(UserID, QuestionID, Answer);
         }
 
         /// <summary>
@@ -202,6 +208,12 @@ namespace vChat.WCF
         public MethodInvokeResult ChangePassword(int UserID, string OldPassword, string NewPassword)
         {
             return unc.ChangePassword(UserID, OldPassword, NewPassword);
+        }
+
+        [OperationBehavior]
+        public MethodInvokeResult ChangeUserInfo(int UserID, String FirstName, String LastName, int QuestionID, String Answer, DateTime Birthdate)
+        {
+            return unc.ChangeUserInfo(UserID, FirstName, LastName, QuestionID, Answer, Birthdate);
         }
 
         /// <summary>
@@ -313,9 +325,15 @@ namespace vChat.WCF
         /// <param name="Content">Conversation content need to be saved</param>
         /// <returns></returns>
         [OperationBehavior]
-        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content)
+        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content, ref int ConversationID)
         {
-            return unc.SaveConversation(UserID, FriendID, Content);
+            return unc.SaveConversation(UserID, FriendID, Content, ref ConversationID);
+        }
+
+        [OperationBehavior]
+        public MethodInvokeResult MarkAsReadConversation(int ConversationID)
+        {
+            return unc.MarkAsReadConversation(ConversationID);
         }
 
         /// <summary>

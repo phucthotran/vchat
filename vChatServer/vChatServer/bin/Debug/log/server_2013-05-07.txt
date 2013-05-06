@@ -1,0 +1,47 @@
+07/05/2013 01:12:47 - Server da khoi dong thanh cong.
+07/05/2013 01:13:06 - itexplore(127.0.0.1:56976) da ket noi den server.
+07/05/2013 01:13:07 - itexplore(127.0.0.1:56976) da gui: CheckOnline - shinichikudo
+07/05/2013 01:13:45 - huyentrang(127.0.0.1:57067) da ket noi den server.
+07/05/2013 01:14:23 - huyentrang(127.0.0.1:57067) da ngat ket noi.
+07/05/2013 01:14:25 - itexplore(127.0.0.1:56976) da ngat ket noi.
+07/05/2013 01:16:22 - huyentrang(127.0.0.1:57251) da ket noi den server.
+07/05/2013 01:17:52 - huyentrang(127.0.0.1:57251) da ngat ket noi.
+07/05/2013 01:27:13 - huyentrang(127.0.0.1:57610) da ket noi den server.
+07/05/2013 01:27:27 - itexplore(127.0.0.1:57649) da ket noi den server.
+07/05/2013 01:27:27 - itexplore(127.0.0.1:57649) da gui: CheckOnline - shinichikudo
+07/05/2013 01:28:18 - itexplore(127.0.0.1:57649) da gui: CheckIP - huyentrang
+07/05/2013 01:31:58 -    at Core.Server.Server.<>c__DisplayClass26.<invokeCommand>b__24(MethodInfo m) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 88
+   at System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Core.Server.Server.invokeCommand(Client client, Command cmd) in C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Core.Server\Server.cs:line 87
+07/05/2013 01:31:58 - huyentrang(127.0.0.1:57610) da ngat ket noi.
+07/05/2013 01:38:18 - itexplore(127.0.0.1:57649) da ngat ket noi.
+07/05/2013 01:40:32 - itexplore(127.0.0.1:59681) da ket noi den server.
+07/05/2013 01:40:32 - itexplore(127.0.0.1:59681) da gui: CheckOnline - shinichikudo
+07/05/2013 01:40:32 - itexplore(127.0.0.1:59681) da gui: CheckOnline - huyentrang
+07/05/2013 01:40:39 - itexplore(127.0.0.1:59681) da ngat ket noi.
+07/05/2013 01:41:20 - itexplore(127.0.0.1:59713) da ket noi den server.
+07/05/2013 01:41:20 - itexplore(127.0.0.1:59713) da gui: CheckOnline - shinichikudo
+07/05/2013 01:41:20 - itexplore(127.0.0.1:59713) da gui: CheckOnline - huyentrang
+07/05/2013 01:41:46 - tuananh(127.0.0.1:59774) da ket noi den server.
+07/05/2013 01:45:20 - itexplore(127.0.0.1:59713) da ngat ket noi.
+07/05/2013 01:45:23 - tuananh(127.0.0.1:59774) da ngat ket noi.
+07/05/2013 01:50:43 - itexplore(127.0.0.1:60428) da ket noi den server.
+07/05/2013 01:50:43 - itexplore(127.0.0.1:60428) da gui: CheckOnline - shinichikudo
+07/05/2013 01:50:43 - itexplore(127.0.0.1:60428) da gui: CheckOnline - huyentrang
+07/05/2013 02:02:52 - itexplore(127.0.0.1:60428) da ngat ket noi.
+07/05/2013 02:35:51 - itexplore(127.0.0.1:61340) da ket noi den server.
+07/05/2013 02:35:52 - itexplore(127.0.0.1:61340) da gui: CheckOnline - shinichikudo
+07/05/2013 02:35:52 - itexplore(127.0.0.1:61340) da gui: CheckOnline - huyentrang
+07/05/2013 02:37:09 - itexplore(127.0.0.1:61340) da ngat ket noi.
+07/05/2013 02:37:36 - itexplore(127.0.0.1:61368) da ket noi den server.
+07/05/2013 02:37:36 - itexplore(127.0.0.1:61368) da gui: CheckOnline - shinichikudo
+07/05/2013 02:37:36 - itexplore(127.0.0.1:61368) da gui: CheckOnline - huyentrang
+07/05/2013 02:39:01 - tuananh(127.0.0.1:61456) da ket noi den server.
+07/05/2013 02:41:50 - tuananh(127.0.0.1:61456) da ngat ket noi.
+07/05/2013 02:41:52 - itexplore(127.0.0.1:61368) da ngat ket noi.
+07/05/2013 03:15:47 - itexplore(127.0.0.1:62560) da ket noi den server.
+07/05/2013 03:15:48 - itexplore(127.0.0.1:62560) da gui: CheckOnline - shinichikudo
+07/05/2013 03:15:48 - itexplore(127.0.0.1:62560) da gui: CheckOnline - tuananh
+07/05/2013 03:15:48 - itexplore(127.0.0.1:62560) da gui: CheckOnline - huyentrang
+07/05/2013 03:16:06 - itexplore(127.0.0.1:62560) da ngat ket noi.

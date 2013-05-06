@@ -16,5 +16,5 @@ DEBUG;TRACE
 28-91860891
 AddFriend\AddFriend.xaml;Avatar\Avatar.xaml;Chat.SendFilePanel\FileProcess.xaml;Chat.SendFilePanel\SendFilePanel.xaml;Chat\Chat.xaml;Chat\ViewParts\ChatToolBar.xaml;FriendList\FriendsList.xaml;Login\Login.xaml;RemoveGroup\RemoveGroup.xaml;SignUp\SignUp.xaml;Upload\UploadImage.xaml;VoIP\VoIP.xaml;
 
-False
+True
 

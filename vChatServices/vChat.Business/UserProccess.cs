@@ -364,7 +364,7 @@ namespace vChat.Business
             }            
         }
 
-        public MethodInvokeResult ChangeProfilePicture(int UserID, byte[] ImageBytes)
+        public MethodInvokeResult ChangeAvatar(int UserID, byte[] ImageBytes)
         {
             try
             {
@@ -376,7 +376,7 @@ namespace vChat.Business
 
                 ValidationController.Validate(); //throw ValidateException
 
-                return unc.ChangeProfilePicture(UserID, ImageBytes);
+                return unc.ChangeAvatar(UserID, ImageBytes);
             }
             catch (ValidateException ex)
             {
@@ -390,6 +390,36 @@ namespace vChat.Business
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
             }            
+        }
+
+        public MethodInvokeResult AnswerIsMatch(int UserID, int QuestionID, String Answer)
+        {
+            try
+            {
+                ValidationController.Prepare();
+
+                UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
+                QuestionID.RequiredArgumentWithStruct("QuestionID").BeginFrom(1);
+                Answer.RequiredArgument("ImageBytes")
+                    .NotNull() //throw ArgumentNullException
+                    .Between(2, 50);
+
+                ValidationController.Validate(); //throw ValidateException
+
+                return unc.AnswerIsMatch(UserID, QuestionID, Answer);
+            }
+            catch (ValidateException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
+            }
+            catch (ArgumentNullException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = ex.Message, Exception = new ExceptionInfo(ex) };
+            }
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            } 
         }
 
         public MethodInvokeResult ChangePassword(int UserID, string OldPassword, string NewPassword)
@@ -422,6 +452,36 @@ namespace vChat.Business
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
             }            
+        }
+
+        public MethodInvokeResult ChangeUserInfo(int UserID, String FirstName, String LastName, int QuestionID, String Answer, DateTime Birthdate)
+        {
+            try
+            {
+                ValidationController.Prepare();
+
+                FirstName.RequiredArgument("FirstName").NotNull().Between(2, 45);
+                LastName.RequiredArgument("LastName").NotNull().Between(2, 45);                
+                Answer.RequiredArgument("Answer").NotNull().Between(2, 50);
+                QuestionID.RequiredArgumentWithStruct("QuestionID").BeginFrom(1);
+                Birthdate.RequiredArgumentWithStruct("Birthdate").NotNull();
+
+                ValidationController.Validate(); //throw ValidateException
+
+                return unc.ChangeUserInfo(UserID, FirstName, LastName, QuestionID, Answer, Birthdate);
+            }
+            catch (ValidateException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
+            }
+            catch (ArgumentNullException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = ex.Message, Exception = new ExceptionInfo(ex) };
+            }
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            }
         }
 
         public MethodInvokeResult AcceptFriendRequest(int UserID, int FriendID, int GroupID)
@@ -563,7 +623,7 @@ namespace vChat.Business
             }
         }
 
-        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content)
+        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content, ref int ConversationID)
         {
             try
             {
@@ -575,7 +635,7 @@ namespace vChat.Business
 
                 ValidationController.Validate(); //throw ValidateException
 
-                return unc.SaveConversation(UserID, FriendID, Content);
+                return unc.SaveConversation(UserID, FriendID, Content, ref ConversationID);
             }
             catch (ValidateException ex)
             {
@@ -584,6 +644,28 @@ namespace vChat.Business
             catch (ArgumentNullException ex)
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = ex.Message, Exception = new ExceptionInfo(ex) };
+            }
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            }
+        }
+
+        public MethodInvokeResult MarkAsReadConversation(int ConversationID)
+        {
+            try
+            {
+                ValidationController.Prepare();
+
+                ConversationID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
+
+                ValidationController.Validate(); //throw ValidateException
+
+                return unc.MarkAsReadConversation(ConversationID);
+            }
+            catch (ValidateException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
             }
             catch (Exception ex)
             {
