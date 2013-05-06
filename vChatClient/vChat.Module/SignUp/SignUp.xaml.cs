@@ -16,6 +16,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using vChat.Service.UserService;
 
 namespace vChat.Module.SignUp
 {
@@ -53,7 +54,7 @@ namespace vChat.Module.SignUp
             tbDob.DisplayDateEnd = DateTime.Today;
             CultureInfo ci = CultureInfo.CreateSpecificCulture(CultureInfo.CurrentCulture.Name); 
             ci.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
-            Thread.CurrentThread.CurrentCulture = ci; 
+            Thread.CurrentThread.CurrentCulture = ci;
         }
 
         private void InitSubmitWorker()
