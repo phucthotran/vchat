@@ -55,6 +55,11 @@ namespace vChat.Module.SignUp
             CultureInfo ci = CultureInfo.CreateSpecificCulture(CultureInfo.CurrentCulture.Name); 
             ci.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
             Thread.CurrentThread.CurrentCulture = ci;
+            cbQuestion.ItemsSource = this.Get<UserServiceClient>().GetAllQuestion();
+            cbQuestion.DisplayMemberPath="Content";
+            cbQuestion.SelectedValuePath="QuestionID";
+            cbQuestion.SelectedValue = "1";
+            this.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Right;
         }
 
         private void InitSubmitWorker()
@@ -86,7 +91,7 @@ namespace vChat.Module.SignUp
             SubmitProgress.State = Elysium.Controls.ProgressState.Indeterminate;
             SubmitProgress.Visibility = System.Windows.Visibility.Visible;
             SubmitWarning.Visibility = System.Windows.Visibility.Collapsed;
-            _SubmitWorker.RunWorkerAsync(new SignUpMetadata(tbUser.Text, tbPass.Password, tbFname.Text, tbLname.Text, tbDob.Text));
+            _SubmitWorker.RunWorkerAsync(new SignUpMetadata(tbUser.Text, tbPass.Password, tbFname.Text, tbLname.Text, cbQuestion.SelectedIndex, tbAnswer.Text, tbDob.Text));
         }
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
@@ -322,7 +327,7 @@ namespace vChat.Module.SignUp
             }
             else
             {
-                LNameWarner.Dispatcher.Invoke(new Action(() => tbAnswer_LostFocus(sender, e)));
+                AnswerWarner.Dispatcher.Invoke(new Action(() => tbAnswer_LostFocus(sender, e)));
             }
         }
     }

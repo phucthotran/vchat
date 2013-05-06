@@ -166,5 +166,10 @@ namespace vChat.View.Windows
                 client.SendCommand(CommandType.LogOutSuccess, client.Name, isLogout);
             }
         }
+
+        private void Setting_Click(object sender, RoutedEventArgs e)
+        {
+            new UserSetting().ShowDialog();
+        }
     }
 }

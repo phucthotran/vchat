@@ -109,6 +109,14 @@
       <DependentUpon>ChatToolBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Chat\ViewParts\IconHelper.cs" />
+    <Compile Include="EditInfo\EditInfo.xaml.cs">
+      <DependentUpon>EditInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditInfo\EditInfoController.cs" />
+    <Compile Include="EditPassword\EditPassword.xaml.cs">
+      <DependentUpon>EditPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditPassword\EditPasswordController.cs" />
     <Compile Include="FriendList\BaseCommand.cs" />
     <Compile Include="FriendList\Command.cs" />
     <Compile Include="FriendList\Model\FriendArgs.cs" />
@@ -203,6 +211,14 @@
     <Page Include="Chat\ViewParts\ChatToolBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditInfo\EditInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditPassword\EditPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FriendList\FriendsList.xaml">
       <SubType>Designer</SubType>

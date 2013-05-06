@@ -16,14 +16,18 @@ namespace vChat.Module.SignUp
         public string Pass { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string DateOfBirth { get; set; }
-        public SignUpMetadata(string user, string pass, string firstName, string lastName, string dateOfBirth)
+        public int Question { get; set; }
+        public string Answer { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public SignUpMetadata(string user, string pass, string firstName, string lastName, int question, string answer, string dateOfBirth)
         {
             this.User = user;
             this.Pass = pass;
             this.FirstName = firstName;
             this.LastName = lastName;
-            this.DateOfBirth = dateOfBirth;
+            this.Question = question;
+            this.Answer = answer;
+            this.DateOfBirth = DateTime.ParseExact(dateOfBirth, "dd/MM/yyyy", null);
         }
     }
 
@@ -126,7 +130,7 @@ namespace vChat.Module.SignUp
             string result = "";
             try
             {
-                MethodInvokeResult signUpResult = this.Get<UserServiceClient>().Signup(data.User, data.Pass, data.FirstName, data.LastName, 1, "abac", DateTime.Parse("1992/12/12"));
+                MethodInvokeResult signUpResult = this.Get<UserServiceClient>().Signup(data.User, data.Pass, data.FirstName, data.LastName, data.Question, data.Answer, data.DateOfBirth);
                 if (signUpResult.Status == MethodInvokeResult.RESULT.SUCCESS)
                     result = "";
                 else

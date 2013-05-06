@@ -1,14 +1,15 @@
-07/05/2013 01:49:32 - Server da khoi dong thanh cong.
-07/05/2013 01:49:43 - symaci(127.0.0.1:11235) da ket noi den server.
-07/05/2013 01:49:43 - symaci(127.0.0.1:11235) da gui: CheckOnline - itexplore
-07/05/2013 01:49:52 - symaci(127.0.0.1:11235) da gui: LogOut - Null Data
-07/05/2013 01:49:52 - symaci(127.0.0.1:11235) da gui: LogOutSuccess - True
-07/05/2013 01:49:56 - symaci(127.0.0.1:11235) da ngat ket noi.
-07/05/2013 01:50:29 - itexplore(127.0.0.1:11646) da ket noi den server.
-07/05/2013 01:50:29 - itexplore(127.0.0.1:11646) da gui: CheckOnline - symaci
-07/05/2013 01:50:31 - symaci(127.0.0.1:11673) da ket noi den server.
-07/05/2013 01:50:31 - symaci(127.0.0.1:11673) da gui: CheckOnline - itexplore
-07/05/2013 01:50:32 - symaci(127.0.0.1:11673) da gui: LogOut - Null Data
+07/05/2013 02:50:25 - Server da khoi dong thanh cong.
+07/05/2013 03:00:13 - symaci(127.0.0.1:14576) da ket noi den server.
+07/05/2013 03:00:14 - symaci(127.0.0.1:14576) da gui: CheckOnline - itexplore
+07/05/2013 03:02:55 - symaci(127.0.0.1:14576) da gui: LogOut - Null Data
+07/05/2013 03:02:55 - symaci(127.0.0.1:14576) da gui: LogOutSuccess - False
+07/05/2013 03:02:55 - symaci(127.0.0.1:14576) da ngat ket noi.
+07/05/2013 03:04:52 - symaci(127.0.0.1:14892) da ket noi den server.
+07/05/2013 03:04:52 - symaci(127.0.0.1:14892) da gui: CheckOnline - itexplore
+07/05/2013 03:05:00 - symaci(127.0.0.1:14892) da gui: LogOut - Null Data
+07/05/2013 03:05:00 - symaci(127.0.0.1:14892) da gui: LogOutSuccess - False
+07/05/2013 03:05:00 - symaci(127.0.0.1:14892) da ngat ket noi.
+ull Data
 07/05/2013 01:50:32 - symaci(127.0.0.1:11673) da gui: LogOutSuccess - True
 07/05/2013 01:50:35 - symaci(127.0.0.1:11673) da ngat ket noi.
 07/05/2013 01:50:45 - symaci(127.0.0.1:11839) da ket noi den server.

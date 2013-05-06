@@ -114,3 +114,5 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.g.resources
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.Properties.Resources.resources
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.csproj.GenerateResource.Cache
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditPassword\EditPassword.baml
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditPassword\EditPassword.g.cs

@@ -8,6 +8,6 @@
              xmlns:el="clr-namespace:Elysium.Controls;assembly=Elysium">
     <Grid>
         <el:ProgressBar Name="ProgressBar" Visibility="Collapsed" Orientation="Horizontal" State="Busy" Background="Transparent" VerticalAlignment="Top" />
-        <TextBlock TextWrapping="WrapWithOverflow" Name="WarningText" Foreground="Red" Visibility="Collapsed" VerticalAlignment="Top" />
+        <TextBlock FontSize="{Binding TextSize}" TextWrapping="WrapWithOverflow" Name="WarningText" Foreground="Red" Visibility="Collapsed" VerticalAlignment="Top" />
     </Grid>
 </UserControl>
