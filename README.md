@@ -4,6 +4,52 @@
 ## Update Log
 -------------
 
+#### Update 07.05 3:50 AM
+
+- Cho phép chat với những user có yêu cầu kết bạn với mình trong danh sách **Yêu Cầu Kết Bạn**
+- Tạo câu hỏi bí mật mẫu (nếu chưa có bản ghi nào trong bảng **Question** )
+- Thêm/Chỉnh sửa một số method cho service (`vChat.WCF`):
+
+**NEW**
+
+```c#
+MethodInvokeResult MarkAsReadConversation(int ConversationID)
+```
+
+Mark một đoạn hội thoại với trạng thái đã đọc (IsRead)
+
+**NEW**
+
+```c#
+MethodInvokeResult AnswerIsMatch(int UserID, int QuestionID, String Answer)
+```
+
+Kiểm tra câu hỏi bí mật và câu trả lời khớp nhau không
+
+**Sử Dụng**
+
+Kiểm xem user itexplore (userID = 1) có câu hỏi bí mật (QuestionID = 3) với câu trả lời tương ứng (Answer) có khớp hay không
+
+```c#
+AnswerIsMatch(1, 3, "abcxyz")
+```
+
+**NEW**
+
+Dùng cho update thông tin cá nhân
+
+```c#
+MethodInvokeResult ChangeUserInfo(int UserID, String FirstName, String LastName, int QuestionID, String Answer, DateTime Birthdate)
+```
+
+**EDIT**
+
+Thêm tham số mới **ConversationID**
+
+```c#
+MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content, ref int ConversationID)
+```
+
 #### Update 06.05 10:52 PM
 
 - Cho phép user chat với user trong danh sách **Yêu Cầu Kết Bạn Đang Đợi Phản Hồi**

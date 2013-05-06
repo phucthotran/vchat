@@ -13,6 +13,16 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
+<<<<<<< HEAD:vChatClient/vChat.Service/Service References/UserService/UserService1.wsdl
+      <xsd:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd2" namespace="http://vchat/entities/Users" />
+      <xsd:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd3" namespace="http://vchat/entities/FriendGroup" />
+      <xsd:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd4" namespace="http://vchat/GroupFriendList" />
+      <xsd:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/vChat.Model" />
+      <xsd:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd7" namespace="http://vchat/entities/Conversation" />
+=======
       <xsd:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd2" namespace="http://vchat/entities/Users" />
@@ -22,6 +32,7 @@
       <xsd:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd7" namespace="http://vchat/entities/Question" />
       <xsd:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd8" namespace="http://vchat/entities/Conversation" />
+>>>>>>> vchat/master:vChatClient/vChat.Service/Service References/UserService/UserService.wsdl
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUserService_Info_InputMessage">
@@ -640,9 +651,9 @@
   </wsdl:binding>
   <wsdl:service name="UserService">
     <wsdl:port name="WSHttpBinding_IUserService" binding="tns:WSHttpBinding_IUserService">
-      <soap12:address location="http://localhost:6566/vChatServices/UserService.svc" />
+      <soap12:address location="http://localhost:60111/UserService.svc" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:6566/vChatServices/UserService.svc</wsa10:Address>
+        <wsa10:Address>http://localhost:60111/UserService.svc</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Dns>localhost</Dns>
         </Identity>

@@ -27,30 +27,14 @@ namespace vChat.Module.SignUp
         }
     }
 
-    public class SignUpResponse
-    {
-        public string UserMessage { get; set; }
-        public string PassMessage { get; set; }
-        public string FirstNameMessage { get; set; }
-        public string LastNameMessage { get; set; }
-        public string DateOfBirthMessage { get; set; }
-        public string ServiceMessage { get; set; }
-        public bool Success
-        {
-            get
-            {
-                return ((this.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic).Where(f => f.FieldType == typeof(string) && !String.IsNullOrWhiteSpace((string)f.GetValue(this)))).Count() == 0);
-            }
-        }
-    }
-
     public partial class SignUp : UserControl
     {
+        #region Validate Box
         private string validateUser(string user)
         {
             if (String.IsNullOrWhiteSpace(user))
             {
-                return "Ngay cả admin cũng không dám để trống tên đăng nhập nữa là :v";
+                return "Người vô danh không bao giờ ngồi chat.";
             }
             else if (!Regex.IsMatch(user, "^[a-zA-Z]+([._]?[a-zA-Z0-9]+)*$"))
             {
@@ -88,7 +72,7 @@ namespace vChat.Module.SignUp
         {
             if (String.IsNullOrWhiteSpace(answer))
             {
-                return "Không trả lời câu hỏi là bất lịch sự!!";
+                return "Hỏi mà không trả lời là bất lịch sự!!";
             }
             else if (answer.Length < 2 || answer.Length > 50)
             {
@@ -130,40 +114,33 @@ namespace vChat.Module.SignUp
             }
             return "";
         }
+        #endregion
 
-        public SignUpResponse DoSignUp(SignUpMetadata data)
+        public string DoSignUp(SignUpMetadata data)
         {
-            SignUpResponse res = new SignUpResponse();
-            if (String.IsNullOrWhiteSpace(data.User))
-                res.UserMessage = "Tên tài khoản không được để trống.";
-            if (String.IsNullOrWhiteSpace(data.Pass))
-                res.PassMessage = "Mật khẩu không được để trống.";
-            if (String.IsNullOrWhiteSpace(data.FirstName))
-                res.FirstNameMessage = "Họ không được để trống.";
-            if (String.IsNullOrWhiteSpace(data.LastName))
-                res.LastNameMessage = "Tên không được để trống.";
-            if (String.IsNullOrWhiteSpace(data.DateOfBirth))
-                res.DateOfBirthMessage = "Ngày sinh không được để trống.";
-            if (res.Success)
+            tbUser_LostFocus(null, null);
+            tbPass_LostFocus(null, null);
+            tbFname_LostFocus(null, null);
+            tbLname_LostFocus(null, null);
+            tbAnswer_LostFocus(null, null);
+            string result = "";
+            try
             {
-                try
-                {
-                    MethodInvokeResult signUpResult = this.Get<UserServiceClient>().Signup(data.User, data.Pass, data.FirstName, data.LastName, 1, "abac", DateTime.Parse("1992/12/12"));
-                    if (signUpResult.Status == MethodInvokeResult.RESULT.SUCCESS)
-                        res.ServiceMessage = "";
-                    else
-                        res.ServiceMessage = signUpResult.Message;
-                }
-                catch (System.ServiceModel.EndpointNotFoundException)
-                {
-                    res.ServiceMessage = "Không thể kết nối đến server.";
-                }
-                catch (Exception)
-                {
-                    res.ServiceMessage = String.Format("Đã có lỗi xảy ra ({0})",typeof(Exception).ToString());
-                }
+                MethodInvokeResult signUpResult = this.Get<UserServiceClient>().Signup(data.User, data.Pass, data.FirstName, data.LastName, 1, "abac", DateTime.Parse("1992/12/12"));
+                if (signUpResult.Status == MethodInvokeResult.RESULT.SUCCESS)
+                    result = "";
+                else
+                    result = "Vui lòng kiểm tra lại thông tin đăng ký.";
             }
-            return res;
+            catch (System.ServiceModel.EndpointNotFoundException)
+            {
+                result = "Không thể kết nối đến server.";
+            }
+            catch (Exception e)
+            {
+                result = String.Format("Đã có lỗi xảy ra ({0})", e.GetType().ToString());
+            }
+            return result;
         }
     }
 }

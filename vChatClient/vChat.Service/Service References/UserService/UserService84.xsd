@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://vchat/GroupFriendList" elementFormDefault="qualified" targetNamespace="http://vchat/GroupFriendList" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd3" namespace="http://vchat/entities/FriendGroup" />
-  <xs:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd3" namespace="http://vchat/entities/FriendGroup" />
+  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="GroupFriendList">
     <xs:sequence>
       <xs:element xmlns:q1="http://vchat/entities/FriendGroup" minOccurs="0" name="FriendGroups" nillable="true" type="q1:ArrayOfFriendGroup" />

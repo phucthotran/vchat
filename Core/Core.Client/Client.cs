@@ -48,6 +48,8 @@ namespace Core.Client
 
         private void InitClient(IPAddress serverIP, int port)
         {
+            this.ID = -1;
+            this.Name = "";
             this.ServerIP = serverIP;
             this.Port = port;
         }

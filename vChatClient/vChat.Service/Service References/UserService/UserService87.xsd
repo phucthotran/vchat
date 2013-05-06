@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD:vChatClient/vChat.Service/Service References/UserService/UserService87.xsd
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://vchat/entities/Conversation" elementFormDefault="qualified" targetNamespace="http://vchat/entities/Conversation" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd2" namespace="http://vchat/entities/Users" />
+  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfConversation">
+=======
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://vchat/entities/Question" elementFormDefault="qualified" targetNamespace="http://vchat/entities/Question" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="ArrayOfQuestion">
+>>>>>>> vchat/master:vChatClient/vChat.Service/Service References/UserService/UserService6.xsd
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Question" nillable="true" type="tns:Question" />
     </xs:sequence>
