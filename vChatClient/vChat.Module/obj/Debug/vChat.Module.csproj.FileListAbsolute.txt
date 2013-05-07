@@ -118,3 +118,5 @@ D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditPassword\EditPassword.bam
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditPassword\EditPassword.g.cs
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditInfo\EditInfo.baml
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditInfo\EditInfo.g.cs
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\RecoveryPassword\RecoveryPassword.baml
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\RecoveryPassword\RecoveryPassword.g.cs

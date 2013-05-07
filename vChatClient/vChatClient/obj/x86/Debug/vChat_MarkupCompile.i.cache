@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\vChatProject\vChatClient\vChatClient\App.xaml
-4-256393827
+5384898062
 
-9-169691049
+10-723391989
 26433786085
-Themes\Generic.xaml;View\Windows\ChatWindow.xaml;View\Windows\MainWindow.xaml;View\Windows\UserSetting.xaml;
+Themes\Generic.xaml;View\Windows\ChatWindow.xaml;View\Windows\MainWindow.xaml;View\Windows\RecoveryPasswordWindow.xaml;View\Windows\UserSetting.xaml;
 
 False
 

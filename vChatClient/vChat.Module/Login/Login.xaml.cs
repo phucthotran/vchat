@@ -32,6 +32,9 @@ namespace vChat.Module.Login
         public delegate void SignUpClickHandler();
         public event SignUpClickHandler OnSignUpClicked = delegate { };
 
+        public delegate void RecoveryPasswordHandler();
+        public event RecoveryPasswordHandler OnRecovery = delegate { };
+
         private BackgroundWorker _LoggingWorker = new BackgroundWorker();
 
         public Login()
@@ -60,6 +63,11 @@ namespace vChat.Module.Login
                 UserLogging.Text = cookie["user"].ToString();
                 _LoggingWorker.RunWorkerAsync(new LoginMetadata(true, cookie["user"].ToString(), cookie["pass"].ToString(), true));
             }
+        }
+
+        public void SetUser(string user)
+        {
+            tbUser.Text = user;
         }
 
         void LoggingWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -142,6 +150,11 @@ namespace vChat.Module.Login
         private void btSignUp_Click(object sender, RoutedEventArgs e)
         {
             OnSignUpClicked();
+        }
+
+        private void btRecoveryPassword_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            OnRecovery();
         }
     }
 

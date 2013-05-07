@@ -96,6 +96,9 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\MainWindowListener.cs" />
+    <Compile Include="View\Windows\RecoveryPasswordWindow.xaml.cs">
+      <DependentUpon>RecoveryPasswordWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Windows\UserSetting.xaml.cs">
       <DependentUpon>UserSetting.xaml</DependentUpon>
     </Compile>
@@ -155,6 +158,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Windows\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\RecoveryPasswordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

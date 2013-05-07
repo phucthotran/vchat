@@ -73,14 +73,22 @@ namespace vChat.View.Windows
             Setting.Visibility = System.Windows.Visibility.Collapsed;
             _loginModule = Grid.LoadModule<Login>(new Login.LoginSuccessHandler(Login_OnLoginSuccess));
             _loginModule.OnLoginFailed += new Login.LoginFailedHandler(Login_OnLoginFailed);
-            _loginModule.OnSignUpClicked += new Login.SignUpClickHandler(Login_OnSignUpClicked);            
+            _loginModule.OnSignUpClicked += new Login.SignUpClickHandler(Login_OnSignUpClicked);
+            _loginModule.OnRecovery += new Login.RecoveryPasswordHandler(_loginModule_OnRecovery);
         }
+
+
 
         private void InitFriendsListModule(int UserID)
         {
             _friendListModule = Grid.LoadModule<FriendsList>();
             _friendListModule.Init(UserID);
             _friendListModule.OnFriendDoubleClick += new FriendsList.MouseEventHandler(FriendList_OnFriendDoubleClick);
+        }
+
+        public void SetDefaultUser(string user)
+        {
+            _loginModule.SetUser(user);
         }
 
         private void FriendList_OnFriendDoubleClick(object sender, FriendArgs e)
@@ -101,6 +109,11 @@ namespace vChat.View.Windows
             }
             chatWindow.BringToFront();
             this.Get<Client>().SendCommand(CommandType.CheckIP, "SERVER", e.Username);
+        }
+
+        void _loginModule_OnRecovery()
+        {
+            new RecoveryPasswordWindow().ShowDialog();
         }
 
         private void Login_OnLoginSuccess(Users UserLogged)
