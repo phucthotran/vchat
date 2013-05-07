@@ -80,3 +80,7 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChat.g.resources
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChat.Properties.Resources.resources
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChatClient.csproj.GenerateResource.Cache
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\UserSetting.baml
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\UserSetting.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\UserSetting.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\UserSetting.g.cs

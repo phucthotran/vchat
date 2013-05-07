@@ -88,11 +88,11 @@ namespace vChat.Module.Login
             try
             {
                 if (packed.isHashed)
-                {
+                {                    
                     result = (this.Get<UserServiceClient>().LoginHash(packed.User, packed.Pass).Status == Model.MethodInvokeResult.RESULT.SUCCESS);
                 }
                 else
-                {
+                {                    
                     result = (this.Get<UserServiceClient>().Login(packed.User, packed.Pass).Status == Model.MethodInvokeResult.RESULT.SUCCESS);
                     if (result)
                     {

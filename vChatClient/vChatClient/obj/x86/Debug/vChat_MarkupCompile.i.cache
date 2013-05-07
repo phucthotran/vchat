@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\App.xaml
-31060685705
+4-256393827
 
-8-1073762780
+95136964
 27-1609850671
-Themes\Generic.xaml;View\Windows\ChatWindow.xaml;View\Windows\MainWindow.xaml;
+Themes\Generic.xaml;View\Windows\ChatWindow.xaml;View\Windows\MainWindow.xaml;View\Windows\UserSetting.xaml;
 
 False
 

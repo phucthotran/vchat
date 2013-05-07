@@ -1,0 +1,18 @@
+﻿<ma:MetroWindow x:Class="vChat.View.Windows.UserSetting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ma="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        MinHeight="450" MinWidth="400" MaxHeight="500" MaxWidth="450">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Đổi mật khẩu" FontSize="16">
+                <ma:MetroContentControl Name="ChangePasswordContent">
+                </ma:MetroContentControl>
+            </TabItem>
+            <TabItem Header="Sửa thông tin" FontSize="16">
+                <ma:MetroContentControl Name="ChangeInfoContent">
+                </ma:MetroContentControl>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</ma:MetroWindow>

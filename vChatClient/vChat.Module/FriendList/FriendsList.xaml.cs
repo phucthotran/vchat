@@ -144,8 +144,6 @@ namespace vChat.Module.FriendList
         {
             userId = UserID;
 
-            this.Get<vChat.Service.UserService.UserServiceClient>().Signup("tuananh", "12345678", "Tuan Anh", "Tran", 1, "afdfdsdf", DateTime.Parse("03/26/1988"));
-
             groupFriend = FriendList(userId);
             List<Users> Requests = FriendRequests(userId);
             List<Users> UnresponseRequests = UnresponseFriendRequests(userId);

@@ -4,7 +4,7 @@
 ## Update Log
 -------------
 
-#### Update 07.05 2:00 PM
+#### Update 07.05 3:05 PM
 - Thêm module **ContactViewer** dùng để hiển thị chi tiết bạn bè
 - Thêm system tray cho ứng dụng
 

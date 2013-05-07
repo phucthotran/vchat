@@ -391,6 +391,7 @@
         <xs:element minOccurs="0" name="UserID" type="xs:int" />
         <xs:element minOccurs="0" name="FriendID" type="xs:int" />
         <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
         <xs:element minOccurs="0" name="ConversationID" type="xs:int" />
       </xs:sequence>
     </xs:complexType>

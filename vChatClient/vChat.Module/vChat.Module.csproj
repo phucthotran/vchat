@@ -112,6 +112,14 @@
     <Compile Include="ContactViewer\ContactViewer.xaml.cs">
       <DependentUpon>ContactViewer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditInfo\EditInfo.xaml.cs">
+      <DependentUpon>EditInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditInfo\EditInfoController.cs" />
+    <Compile Include="EditPassword\EditPassword.xaml.cs">
+      <DependentUpon>EditPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditPassword\EditPasswordController.cs" />
     <Compile Include="FriendList\BaseCommand.cs" />
     <Compile Include="FriendList\Command.cs" />
     <Compile Include="FriendList\Model\FriendArgs.cs" />
@@ -208,6 +216,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ContactViewer\ContactViewer.xaml">
+		<SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+	</Page>
+    <Page Include="EditInfo\EditInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditPassword\EditPassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

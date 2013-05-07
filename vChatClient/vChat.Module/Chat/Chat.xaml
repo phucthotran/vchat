@@ -21,7 +21,7 @@
                 </RichTextBox.Resources>
             </RichTextBox>
         </DockPanel>
-        <MediaElement Visibility="Collapsed" LoadedBehavior="Manual"  Name="SoundMessageIncome" Source="Sounds/msg_in.mp3" MediaEnded="SoundMessageIncome_MediaEnded"></MediaElement>
+        
         <RichTextBox Name="MessageView" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="False" DockPanel.Dock="Top" MinWidth="400" PreviewKeyDown="MessageView_PreviewKeyDown">
             <RichTextBox.Resources>
                 <Style TargetType="{x:Type Paragraph}">

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-13759396102
+15275369452
 
-43357814593
+47-953437678
 28-91860891
-AddFriend\AddFriend.xaml;Avatar\Avatar.xaml;Chat.SendFilePanel\FileProcess.xaml;Chat.SendFilePanel\SendFilePanel.xaml;Chat\Chat.xaml;Chat\ViewParts\ChatToolBar.xaml;ContactViewer\ContactViewer.xaml;FriendList\FriendsList.xaml;Login\Login.xaml;RemoveGroup\RemoveGroup.xaml;SignUp\SignUp.xaml;Upload\UploadImage.xaml;VoIP\VoIP.xaml;
+AddFriend\AddFriend.xaml;Avatar\Avatar.xaml;Chat.SendFilePanel\FileProcess.xaml;Chat.SendFilePanel\SendFilePanel.xaml;Chat\Chat.xaml;Chat\ViewParts\ChatToolBar.xaml;ContactViewer\ContactViewer.xaml;EditInfo\EditInfo.xaml;EditPassword\EditPassword.xaml;FriendList\FriendsList.xaml;Login\Login.xaml;RemoveGroup\RemoveGroup.xaml;SignUp\SignUp.xaml;Upload\UploadImage.xaml;VoIP\VoIP.xaml;
 
 True
 

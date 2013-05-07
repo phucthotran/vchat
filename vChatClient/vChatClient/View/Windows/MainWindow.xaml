@@ -7,7 +7,20 @@
         Title="" WindowStartupLocation="CenterScreen" Activated="MetroWindow_Activated" PreviewKeyDown="MetroWindow_PreviewKeyDown" Closing="MetroWindow_Closing">
     <ma:MetroWindow.WindowCommands>
         <ma:WindowCommands>
-            <Button Name="LogOut" Content="Đăng xuất" Click="LogOut_Click" />
+            <Button Name="LogOut" Cursor="Hand" Content="Đăng xuất" Click="LogOut_Click" />
+            <Button Name="Setting" Cursor="Hand" Click="Setting_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20">
+                        <Rectangle.Resources>
+                            <SolidColorBrush x:Key="BlackBrush" Color="White" />
+                        </Rectangle.Resources>
+                        <Rectangle.Fill>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_settings}" />
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock Text="Thiết lập" Foreground="White" Margin="5,2,0,0" />
+                </StackPanel>
+            </Button>
         </ma:WindowCommands>
     </ma:MetroWindow.WindowCommands>
     

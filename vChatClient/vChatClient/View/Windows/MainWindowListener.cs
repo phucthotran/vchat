@@ -10,6 +10,7 @@ using System.IO;
 using vChat.Module.Chat.Parts;
 using Core.Client;
 using System.ComponentModel;
+using vChat.Service.UserService;
 
 namespace vChat.View.Windows
 {
@@ -30,7 +31,7 @@ namespace vChat.View.Windows
                         break;
                     }
                 }
-                Message message = Message.LoadXamlContent(res.TargetUser, false, res.Params[0].ToString());       
+                Message message = Message.LoadXamlContent(res.TargetUser, false, res.Params[1].ToString());       
                 message.IsDisplayUser = true;
                 FlowDocument messageDoc = new FlowDocument();
                 messageDoc.Blocks.AddRange(message);
@@ -49,7 +50,8 @@ namespace vChat.View.Windows
                     chatWindow.ReceiveMessage(message);
                     chatWindow.Show();
                 }
-                MessagePopup.Display(text, delegate
+                this.Get<UserServiceClient>().MarkAsReadConversation(Convert.ToInt32(res.Params[0]));
+                MessagePopup.Display(text, "msg_in", delegate
                 {
                     chatWindow.BringToFront();
                 }); 
@@ -201,7 +203,7 @@ namespace vChat.View.Windows
 
                 if ((bool)res.Params[1])
                 {
-                    MessagePopup.Display(user + " đã online !!", delegate
+                    MessagePopup.Display(user + " đã online !!", "online", delegate
                     {
                         ChatWindow chatWindow = new ChatWindow(user);
                         chatWindow.Show();
@@ -222,7 +224,7 @@ namespace vChat.View.Windows
                 string user = res.TargetUser;
 
                 _friendListModule.SetFriendStatus(user, false);
-                MessagePopup.Display(user + " đã offline !!", delegate
+                MessagePopup.Display(user + " đã offline !!", "offline", delegate
                 {
                     ChatWindow chatWindow = new ChatWindow(user);
                     chatWindow.Show();

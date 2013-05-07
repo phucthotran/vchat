@@ -262,7 +262,7 @@ namespace vChat.Data
 
         public static Users GetByName(this Users um, String Username)
         {
-            return db.Users.FirstOrDefault(u => u.Username.Equals(Username));
+            return db.Users.Include(u => u.Question).FirstOrDefault(u => u.Username.Equals(Username));
         }
 
         public static List<Users> GetAll(this Users um)
@@ -571,7 +571,7 @@ namespace vChat.Data
 
         public static List<Question> GetAll(this Question q)
         {
-            return db.Question.ToList();
+            return db.Question.DistinctList();
         }
 
         #endregion

@@ -26,7 +26,7 @@ namespace vChat.Data
 
         public Users Info(int UserID)
         {
-            return UserTask.Get(UserID) as Users;
+            return UserTask.Get(UserID);
         }
 
         public FriendGroup GroupInfo(int GroupID)

@@ -116,3 +116,11 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.csproj.GenerateResource.Cache
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\ContactViewer\ContactViewer.baml
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\ContactViewer\ContactViewer.g.cs
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditPassword\EditPassword.baml
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditPassword\EditPassword.g.cs
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditInfo\EditInfo.baml
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditInfo\EditInfo.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\EditInfo\EditInfo.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\EditPassword\EditPassword.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\EditInfo\EditInfo.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\EditPassword\EditPassword.g.cs

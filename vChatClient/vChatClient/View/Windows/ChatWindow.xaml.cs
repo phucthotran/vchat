@@ -77,9 +77,9 @@ namespace vChat.View.Windows
             {
                 _Client.SendCommand(CommandType.SendFileReject, targetUser, id);
             });
-            _ChatModule.OnSendMessage += new Chat.SendMessageHandler(message =>
+            _ChatModule.OnSendMessage += new Chat.SendMessageHandler((chatID, message) =>
             {
-                _Client.SendCommand(CommandType.Chat, targetUser, message);
+                _Client.SendCommand(CommandType.Chat, targetUser, chatID, message);
             });
             _ChatModule.OnSendFile += new Chat.SendFileHandler(fileSending =>
             {

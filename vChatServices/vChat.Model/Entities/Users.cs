@@ -41,7 +41,7 @@ namespace vChat.Model.Entities
         [IgnoreDataMember]
         public Byte[] RowVersion { get; set; }
 
-        [IgnoreDataMember]
+        [DataMember]
         public virtual Question Question { get; set; }
 
         [IgnoreDataMember]

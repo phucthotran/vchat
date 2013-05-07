@@ -49,14 +49,14 @@
             </DatePicker.Style>
             <DatePicker.Resources>
                 <Style TargetType="{x:Type tk:DatePickerTextBox}">
-                    <Setter Property="Text" Value="chọn ngày ---------->"></Setter>
+                    <Setter Property="Text" Value="chọn ngày ->"></Setter>
                     <Setter Property="IsReadOnly" Value="True"></Setter>
                     <Setter Property="BorderBrush" Value="Transparent"></Setter>
                     <Setter Property="BorderThickness" Value="0,0,0,0"></Setter>
                 </Style>
             </DatePicker.Resources>
         </DatePicker>
-        <ComboBox ItemsSource="" DisplayMemberPath="" SelectedValuePath="" SelectedValue="" Margin="0,0,0,5" Height="28" Name="cbQuestion" Grid.Column="1" Grid.Row="5" LostFocus="cbQuestion_LostFocus" />
+        <ComboBox Margin="0,0,0,5" Height="28" Name="cbQuestion" Grid.Column="1" Grid.Row="5" LostFocus="cbQuestion_LostFocus" />
         <TextBox Height="28" Margin="0,0,0,5" Name="tbAnswer" VerticalAlignment="Top" Grid.Column="1" Grid.Row="6" MinWidth="150" MaxWidth="250" LostFocus="tbAnswer_LostFocus" />
         <v:FieldWarner x:Name="AnswerWarner" Warning="False" Busy="False" Grid.Column="1" Grid.Row="6" Margin="0,33,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
         <StackPanel Orientation="Vertical" Grid.Row="7" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center">
