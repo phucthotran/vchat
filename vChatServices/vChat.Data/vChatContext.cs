@@ -33,7 +33,7 @@ namespace vChat.Data
 
                 return Connection;
             }
-        }    
+        }
 
         public DbSet<Users> Users { get; set; }
         public DbSet<Question> Question { get; set; }

@@ -70,6 +70,7 @@ namespace vChat.View.Windows
         private void InitLoginModule()
         {
             LogOut.Visibility = System.Windows.Visibility.Collapsed;
+            Setting.Visibility = System.Windows.Visibility.Collapsed;
             _loginModule = Grid.LoadModule<Login>(new Login.LoginSuccessHandler(Login_OnLoginSuccess));
             _loginModule.OnLoginFailed += new Login.LoginFailedHandler(Login_OnLoginFailed);
             _loginModule.OnSignUpClicked += new Login.SignUpClickHandler(Login_OnSignUpClicked);            
@@ -107,6 +108,7 @@ namespace vChat.View.Windows
             if (!this.IsFocused)
                 this.FlashWindow();
             LogOut.Visibility = System.Windows.Visibility.Visible;
+            Setting.Visibility = System.Windows.Visibility.Visible;
             InitFriendsListModule(UserLogged.UserID);
         }
 
@@ -169,7 +171,14 @@ namespace vChat.View.Windows
 
         private void Setting_Click(object sender, RoutedEventArgs e)
         {
-            new UserSetting().ShowDialog();
+            try
+            {
+                new UserSetting().ShowDialog();
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi khởi tạo module EditInfo");
+            }
         }
     }
 }

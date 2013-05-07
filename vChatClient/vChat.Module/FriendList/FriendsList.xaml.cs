@@ -178,12 +178,13 @@ namespace vChat.Module.FriendList
 
             updateRequest = new DispatcherTimer();
             updateRequest.Interval = TimeSpan.FromMilliseconds(1000);
-            updateRequest.Tick += new EventHandler(UpdateRequest_Tick);
-            updateRequest.Start();
+            updateRequest.Tick += new EventHandler(UpdateRequest_Tick);            
 
             updateUnresponseRequest = new DispatcherTimer();
             updateUnresponseRequest.Interval = TimeSpan.FromMilliseconds(1000);
             updateUnresponseRequest.Tick += new EventHandler(UpdateUnresponseRequest_Tick);
+
+            updateRequest.Start();
             updateUnresponseRequest.Start();
         }
 
@@ -280,9 +281,35 @@ namespace vChat.Module.FriendList
         {
             int totalRequest = UnresponseRequesVM.Requests.Count;
 
-            List<Users> Requests = UnresponseFriendRequests(userId).Skip(totalRequest).ToList(); //Skip amount of "totalRequest" request got before
+            List<Users> Requests = UnresponseFriendRequests(userId);
 
-            if (Requests.Count == 0)
+            if (Requests.Count >= totalRequest)
+                Requests = Requests.Skip(totalRequest).ToList(); //Skip amount of "totalRequest" request got before
+            else if(Requests.Count < totalRequest)
+            {
+                if (Requests.Count == 0)
+                    UnresponseRequesVM.ClearRequest();
+
+                List<int> posToDelete = new List<int>();
+
+                foreach (Users Friend in Requests) //Get position of request that already accepted by user
+                {
+                    for (int i = 0; i < totalRequest; i++)
+                    {
+                        if (!UnresponseRequesVM.Requests[i].Friend.Equals(Friend))
+                            if (!posToDelete.Contains(i))
+                                posToDelete.Add(i);
+                    }
+                }
+
+                for (int i = 0; i < posToDelete.Count; i++) //Remove request that be accepted by user
+                {
+                    Users MatchUser = UnresponseRequesVM.Requests[i].Friend;
+                    UnresponseRequesVM.RemoveRequest(MatchUser);
+                }
+            }
+
+            if (Requests.Count == 0)                
                 return;
 
             foreach (Users Friend in Requests)
@@ -311,6 +338,26 @@ namespace vChat.Module.FriendList
             }
         }
 
+        private void lbRequest_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is ItemsControl)
+            {
+                ItemsControl clickedItem = (ItemsControl)sender;
+
+                if (clickedItem.Items.CurrentItem != null && clickedItem.Items.CurrentItem is RequestViewModel)
+                {
+                    Users FriendArg = ((RequestViewModel)clickedItem.Items.CurrentItem).Friend;
+
+                    OnFriendDoubleClick(this, new FriendArgs(
+                        FriendArg.UserID,
+                        FriendArg.Username,
+                        FriendArg.FirstName,
+                        FriendArg.LastName
+                    ));
+                }
+            }
+        }
+
         private void RequestVM_OnAcceptRequest(Users Friend)
         {
             FriendGroup AvailableGroup = cbRequestGroup.SelectedItem as FriendGroup;
@@ -318,9 +365,19 @@ namespace vChat.Module.FriendList
             int NewGroupID = 0;
 
             if (AvailableGroup == null || RequestNewGroupName != null)
+            {
                 if (RequestNewGroupName != null)
+                {
                     if (!AddNewGroup(userId, RequestNewGroupName, ref NewGroupID))
                         MessageBox.Show("Thêm nhóm mới không thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Không tồn tại nhóm có sẵn cũng như thông tin nhóm mới không hợp lệ nên không thể 'chấp nhận' yêu cầu kết bạn");
+                    return;
+                }
+            }
+                    
 
             AcceptRequest(userId, Friend.UserID, NewGroupID != 0 ? GetGroup(NewGroupID).GroupID : AvailableGroup.GroupID);
 
@@ -558,7 +615,7 @@ namespace vChat.Module.FriendList
             editTaskZone.Visibility = System.Windows.Visibility.Collapsed;            
         }
 
-        #endregion              
+        #endregion                      
 
         #endregion
     }    

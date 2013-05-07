@@ -26,8 +26,12 @@ namespace vChat.Module.SignUp
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Question = question;
-            this.Answer = answer;
-            this.DateOfBirth = DateTime.ParseExact(dateOfBirth, "dd/MM/yyyy", null);
+            this.Answer = answer; 
+            try
+            {
+                this.DateOfBirth = DateTime.ParseExact(dateOfBirth, "dd/MM/yyyy", null);
+            }
+            catch { }
         }
     }
 

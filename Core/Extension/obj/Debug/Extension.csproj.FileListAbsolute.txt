@@ -2,3 +2,7 @@ D:\vChatProject\Core\Extension\bin\Debug\Extension.dll
 D:\vChatProject\Core\Extension\bin\Debug\Extension.pdb
 D:\vChatProject\Core\Extension\obj\Debug\Extension.dll
 D:\vChatProject\Core\Extension\obj\Debug\Extension.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Extension\bin\Debug\Extension.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Extension\bin\Debug\Extension.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Extension\obj\Debug\Extension.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\Core\Extension\obj\Debug\Extension.pdb

@@ -11,7 +11,7 @@ namespace vChat.Module.Upload
     {
         public bool ChangeProfilePicture(int UserID, byte[] ImageBytes)
         {
-            MethodInvokeResult result = this.Get<UserServiceClient>().ChangeProfilePicture(UserID, ImageBytes);
+            MethodInvokeResult result = this.Get<UserServiceClient>().ChangeAvatar(UserID, ImageBytes);
 
             Helper.ShowMessage(result);
 

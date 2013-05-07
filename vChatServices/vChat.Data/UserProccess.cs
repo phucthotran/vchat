@@ -141,7 +141,7 @@ namespace vChat.Data
             return UserTask.IsExist(Username) ? SUCCESS : FAIL;
         }
 
-        public MethodInvokeResult ChangeProfilePicture(int UserID, byte[] ImageBytes)
+        public MethodInvokeResult ChangeAvatar(int UserID, byte[] ImageBytes)
         {
             SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Cập nhập ảnh đại diện thành công" };
             FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình cập nhập ảnh đại diện. Vui lòng thử lại sau" };
@@ -152,6 +152,23 @@ namespace vChat.Data
             return userInfo.Update() ? SUCCESS : FAIL;
         }
 
+        public MethodInvokeResult AnswerIsMatch(int UserID, int QuestionID, String Answer)
+        {
+            SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Câu hỏi và câu trả lời bí mật hợp lệ" };
+            //FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình kiểm tra câu trả lời bí mật. Vui lòng thử lại sau" };
+            INPUT_ERROR = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = "Sai câu hỏi hoặc câu trả lời bí mật. Vui lòng kiểm tra lại thông tin" };
+
+            const int ANSWER_NOT_MATCH = 0, QUESTION_NOT_MATCH = -1;
+
+            int result = UserTask.AnswerIsMatch(UserID, QuestionID, Answer);
+
+            if (result == ANSWER_NOT_MATCH || result == QUESTION_NOT_MATCH)
+                return INPUT_ERROR;
+
+            //else (result == ANSWER_MATCH)            
+            return SUCCESS;
+        }
+        
         public MethodInvokeResult ChangePassword(int UserID, string OldPassword, string NewPassword)
         {
             SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Đổi mật khẩu thành công" };
@@ -168,6 +185,21 @@ namespace vChat.Data
                 return INPUT_ERROR;
 
             userInfo.Password = NewPassword;            
+
+            return userInfo.Update() ? SUCCESS : FAIL;
+        }
+
+        public MethodInvokeResult ChangeUserInfo(int UserID, String FirstName, String LastName, int QuestionID, String Answer, DateTime Birthdate)
+        {
+            SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Thay đổi thông tin cá nhân thành công" };
+            FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình thay đổi thông tin cá nhân. Vui lòng thử lại sau" };
+
+            Users userInfo = UserTask.Get(UserID);
+            userInfo.FirstName = FirstName;
+            userInfo.LastName = LastName;
+            userInfo.Question = QuestionTask.Get(QuestionID);
+            userInfo.Answer = Answer;
+            userInfo.Birthdate = Birthdate;
 
             return userInfo.Update() ? SUCCESS : FAIL;
         }
@@ -250,7 +282,7 @@ namespace vChat.Data
             return QuestionTask.GetAll();
         }
 
-        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content)
+        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content, ref int ConversationID)
         {
             SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Lưu đoạn hội thoại thành công" };
             FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình lưu đoạn hội thoại. Vui lòng thử lại sau" };
@@ -264,7 +296,21 @@ namespace vChat.Data
             newConversation.SendTo = sendTo;
             newConversation.Time = DateTime.Now;
 
-            return newConversation.New() ? SUCCESS : FAIL;
+            bool r = newConversation.New();
+
+            ConversationID = newConversation.ConversationID;
+
+            return r ? SUCCESS : FAIL;
+        }
+
+        public MethodInvokeResult MarkAsReadConversation(int ConversationID)
+        {
+            SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Đánh dấu đoạn hội thoại thành công" };
+
+            Conversation conversation = ConversationTask.Get(ConversationID);
+            conversation.IsRead = true;
+
+            return SUCCESS;
         }
 
         public List<Conversation> GetConversations(int UserID)

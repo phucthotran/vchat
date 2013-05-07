@@ -50,10 +50,16 @@ namespace vChat.Model
         MethodInvokeResult UserExist(String Username);
 
         [OperationContract]
-        MethodInvokeResult ChangeProfilePicture(int UserID, byte[] ImageBytes);
+        MethodInvokeResult ChangeAvatar(int UserID, byte[] ImageBytes);
+
+        [OperationContract]
+        MethodInvokeResult AnswerIsMatch(int UserID, int QuestionID, String Answer);
 
         [OperationContract]
         MethodInvokeResult ChangePassword(int UserID, String OldPassword, String NewPassword);
+
+        [OperationContract]
+        MethodInvokeResult ChangeUserInfo(int UserID, String FirstName, String LastName, int QuestionID, String Answer, DateTime Birthdate);
 
         [OperationContract]
         MethodInvokeResult AcceptFriendRequest(int UserID, int FriendID, int GroupID);
@@ -80,7 +86,10 @@ namespace vChat.Model
         List<Question> GetAllQuestion();
 
         [OperationContract]
-        MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content);
+        MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content, ref int ConversationID);
+
+        [OperationContract]
+        MethodInvokeResult MarkAsReadConversation(int ConversationID);
 
         [OperationContract(Name = "GetConversations")]
         List<Conversation> GetConversations(int UserID);

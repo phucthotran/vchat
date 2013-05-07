@@ -113,17 +113,29 @@
   <wsdl:message name="IUserService_UserExist_OutputMessage">
     <wsdl:part name="parameters" element="tns:UserExistResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserService_ChangeProfilePicture_InputMessage">
-    <wsdl:part name="parameters" element="tns:ChangeProfilePicture" />
+  <wsdl:message name="IUserService_ChangeAvatar_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeAvatar" />
   </wsdl:message>
-  <wsdl:message name="IUserService_ChangeProfilePicture_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ChangeProfilePictureResponse" />
+  <wsdl:message name="IUserService_ChangeAvatar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeAvatarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AnswerIsMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:AnswerIsMatch" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AnswerIsMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AnswerIsMatchResponse" />
   </wsdl:message>
   <wsdl:message name="IUserService_ChangePassword_InputMessage">
     <wsdl:part name="parameters" element="tns:ChangePassword" />
   </wsdl:message>
   <wsdl:message name="IUserService_ChangePassword_OutputMessage">
     <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ChangeUserInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ChangeUserInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUserInfoResponse" />
   </wsdl:message>
   <wsdl:message name="IUserService_AcceptFriendRequest_InputMessage">
     <wsdl:part name="parameters" element="tns:AcceptFriendRequest" />
@@ -268,13 +280,21 @@
       <wsdl:input wsam:Action="http://tempuri.org/IUserService/UserExist" message="tns:IUserService_UserExist_InputMessage" />
       <wsdl:output wsam:Action="http://tempuri.org/IUserService/UserExistResponse" message="tns:IUserService_UserExist_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ChangeProfilePicture">
-      <wsdl:input wsam:Action="http://tempuri.org/IUserService/ChangeProfilePicture" message="tns:IUserService_ChangeProfilePicture_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IUserService/ChangeProfilePictureResponse" message="tns:IUserService_ChangeProfilePicture_OutputMessage" />
+    <wsdl:operation name="ChangeAvatar">
+      <wsdl:input wsam:Action="http://tempuri.org/IUserService/ChangeAvatar" message="tns:IUserService_ChangeAvatar_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IUserService/ChangeAvatarResponse" message="tns:IUserService_ChangeAvatar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AnswerIsMatch">
+      <wsdl:input wsam:Action="http://tempuri.org/IUserService/AnswerIsMatch" message="tns:IUserService_AnswerIsMatch_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IUserService/AnswerIsMatchResponse" message="tns:IUserService_AnswerIsMatch_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ChangePassword">
       <wsdl:input wsam:Action="http://tempuri.org/IUserService/ChangePassword" message="tns:IUserService_ChangePassword_InputMessage" />
       <wsdl:output wsam:Action="http://tempuri.org/IUserService/ChangePasswordResponse" message="tns:IUserService_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserInfo">
+      <wsdl:input wsam:Action="http://tempuri.org/IUserService/ChangeUserInfo" message="tns:IUserService_ChangeUserInfo_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IUserService/ChangeUserInfoResponse" message="tns:IUserService_ChangeUserInfo_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AcceptFriendRequest">
       <wsdl:input wsam:Action="http://tempuri.org/IUserService/AcceptFriendRequest" message="tns:IUserService_AcceptFriendRequest_InputMessage" />
@@ -457,8 +477,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ChangeProfilePicture">
-      <soap12:operation soapAction="http://tempuri.org/IUserService/ChangeProfilePicture" style="document" />
+    <wsdl:operation name="ChangeAvatar">
+      <soap12:operation soapAction="http://tempuri.org/IUserService/ChangeAvatar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnswerIsMatch">
+      <soap12:operation soapAction="http://tempuri.org/IUserService/AnswerIsMatch" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -468,6 +497,15 @@
     </wsdl:operation>
     <wsdl:operation name="ChangePassword">
       <soap12:operation soapAction="http://tempuri.org/IUserService/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserInfo">
+      <soap12:operation soapAction="http://tempuri.org/IUserService/ChangeUserInfo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

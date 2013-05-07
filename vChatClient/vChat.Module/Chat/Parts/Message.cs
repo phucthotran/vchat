@@ -27,7 +27,7 @@ namespace vChat.Module.Chat.Parts
         private double _FontSizeMessage = 12;
         private FontWeight _FontWeightMessage = FontWeights.Regular;
 
-        private bool _IsDisplayUser = false;
+        private bool _IsDisplayUser;
         public bool IsDisplayUser {
             get { return _IsDisplayUser; }
             set
@@ -44,6 +44,11 @@ namespace vChat.Module.Chat.Parts
                         userRun.Foreground = _ForegroundUser;
                         userPara.Inlines.AddRange(new Inline[] { userRun, _AfterUsernameTimeRun, new Run(" :") });
                         this.Insert(0, userPara);
+                    }
+                    else
+                    {
+                        if (this.Count > 1)
+                            this.Remove(this.First());
                     }
                 }
             }
@@ -127,6 +132,11 @@ namespace vChat.Module.Chat.Parts
 
         public void Init(string User, bool IsSelf, FlowDocument docContent)
         {
+            Init(User, IsSelf, DateTime.Now, docContent);
+        }
+
+        public void Init(string User, bool IsSelf, DateTime timeCreated, FlowDocument docContent)
+        {
             this.IsSelf = IsSelf;
             this.User = User;
             this.ReceivedTime = DateTime.Now;
@@ -153,10 +163,15 @@ namespace vChat.Module.Chat.Parts
 
         public static Message LoadXamlContent(string User, bool IsSelf, string xamls)
         {
+            return LoadXamlContent(User, IsSelf, DateTime.Now, xamls);
+        }
+
+        public static Message LoadXamlContent(string User, bool IsSelf, DateTime timeCreated, string xamls)
+        {
             Message thiz = new Message();
             StringReader stringReader = new StringReader(xamls);
             XmlReader xmlReader = XmlReader.Create(stringReader);
-            thiz.Init(User, IsSelf, (FlowDocument)XamlReader.Load(xmlReader));
+            thiz.Init(User, IsSelf, timeCreated, (FlowDocument)XamlReader.Load(xmlReader));
             return thiz;
         }
     }

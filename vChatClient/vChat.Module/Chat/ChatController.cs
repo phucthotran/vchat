@@ -16,7 +16,6 @@ namespace vChat.Module.Chat
 {
     public partial class Chat : UserControl
     {
-        MessagePopup popup = new MessagePopup();
         public void ReceiveMessage(Message message)
         {
             if (_recentIsSelf == true || _recentIsSelf == null)
@@ -29,7 +28,6 @@ namespace vChat.Module.Chat
                 message.IsDisplayUser = false;
             }
             message.ReceivedTimeType = (ReceivedTimeType)_timeType;
-            SoundMessageIncome.Play();
             _messagesAppended.Add(message);
             MessageView.Document.Blocks.AddRange(message);
             MessageView.ScrollToEnd();

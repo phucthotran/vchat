@@ -65,7 +65,7 @@ namespace vChat.Module.EditPassword
             string result = "";
             try
             {
-                MethodInvokeResult signUpResult = this.Get<UserServiceClient>().ChangePassword(this.Get<Client>().ID, tbPassOld.Password, tbPassNew.Password);
+                MethodInvokeResult signUpResult = this.Get<UserServiceClient>().ChangePassword(this.Get<Client>().ID, data.PassOld, data.PassNew);
                 if (signUpResult.Status == MethodInvokeResult.RESULT.SUCCESS)
                     result = "";
                 else

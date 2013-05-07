@@ -59,7 +59,6 @@ namespace vChat.Module.SignUp
             cbQuestion.DisplayMemberPath="Content";
             cbQuestion.SelectedValuePath="QuestionID";
             cbQuestion.SelectedValue = "1";
-            this.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Right;
         }
 
         private void InitSubmitWorker()

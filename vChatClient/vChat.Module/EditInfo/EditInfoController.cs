@@ -12,14 +12,22 @@ namespace vChat.Module.EditInfo
 {
     public class EditInfoMetadata
     {
-        public string PassOld { get; set; }
-        public string PassNew { get; set; }
-        public string PassNewAgain { get; set; }
-        public EditInfoMetadata(string PassOld, string PassNew, string PassNewAgain)
+        public string FName { get; set; }
+        public string LName { get; set; }
+        public int QuestionID { get; set; }
+        public string Answer { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public EditInfoMetadata(string FName, string LName, int QuestionID, string Answer, string DateOfBirth)
         {
-            this.PassOld = PassOld;
-            this.PassNew = PassNew;
-            this.PassNewAgain = PassNewAgain;
+            this.FName = FName;
+            this.LName = LName;
+            this.QuestionID = QuestionID;
+            this.Answer = Answer;
+            try
+            {
+                this.DateOfBirth = DateTime.ParseExact(DateOfBirth, "dd/MM/yyyy", null);
+            }
+            catch { }
         }
     }
 
@@ -74,15 +82,17 @@ namespace vChat.Module.EditInfo
         }
         #endregion
 
-   /*     public string DoEditInfo(EditInfoMetadata data)
+        public string DoEditInfo(EditInfoMetadata data)
         {
-            tbPassOld_LostFocus(null, null);
-            tbPassNew_LostFocus(null, null);
-            tbPassNewAgain_LostFocus(null, null);
+            tbFname_LostFocus(null, null);
+            tbLname_LostFocus(null, null);
+            tbDob_LostFocus(null, null);
+            tbAnswer_LostFocus(null, null);
+            cbQuestion_LostFocus(null, null);
             string result = "";
             try
             {
-                MethodInvokeResult signUpResult = this.Get<UserServiceClient>().ChangePassword(this.Get<Client>().ID, tbPassOld.Password, tbPassNew.Password);
+                MethodInvokeResult signUpResult = this.Get<UserServiceClient>().ChangeUserInfo(this.Get<Client>().ID, data.FName, data.LName, data.QuestionID, data.Answer, data.DateOfBirth);
                 if (signUpResult.Status == MethodInvokeResult.RESULT.SUCCESS)
                     result = "";
                 else
@@ -97,6 +107,6 @@ namespace vChat.Module.EditInfo
                 result = String.Format("Đã có lỗi xảy ra ({0})", e.GetType().ToString());
             }
             return result;
-        } */
+        }
     }
 }

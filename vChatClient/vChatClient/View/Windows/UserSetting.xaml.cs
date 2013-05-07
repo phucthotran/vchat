@@ -13,6 +13,8 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using vChat.Module.EditPassword;
 using Core.Client;
+using vChat.Module.EditInfo;
+using System.ServiceModel;
 
 namespace vChat.View.Windows
 {
@@ -23,9 +25,18 @@ namespace vChat.View.Windows
     {
         public UserSetting()
         {
-            InitializeComponent();
-            this.InitTheme();
-            ChangePasswordContent.Content = new EditPassword();
+            try
+            {
+                InitializeComponent();
+                this.InitTheme();
+                ChangePasswordContent.Content = new EditPassword();
+                ChangeInfoContent.Content = new EditInfo();
+            }
+            catch (EndpointNotFoundException)
+            {
+                MessageBox.Show("Không thể kết nối đến server.");
+                this.Close();
+            }
         }
     }
 }
