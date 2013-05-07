@@ -430,15 +430,17 @@ namespace vChat.Business
 
                 UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
 
-                OldPassword.RequiredArgument("OldPassword")
-                    .NotNull() //throw ArgumentNullException
-                    .Between(8, 45);
+                //OldPassword.RequiredArgument("OldPassword")
+                //    .NotNull() //throw ArgumentNullException
+                //    .Between(8, 45);
 
                 NewPassword.RequiredArgument("NewPassword").NotNull().Between(8, 45);
 
                 ValidationController.Validate(); //throw ValidateException
-
-                return unc.ChangePassword(UserID, MD5Encrypt.Hash(OldPassword), MD5Encrypt.Hash(NewPassword));
+                string old = null;
+                if (OldPassword != null)
+                    old = MD5Encrypt.Hash(OldPassword);
+                return unc.ChangePassword(UserID, old, MD5Encrypt.Hash(NewPassword));
             }
             catch (ValidateException ex)
             {
@@ -623,7 +625,7 @@ namespace vChat.Business
             }
         }
 
-        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content, ref int ConversationID)
+        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content, DateTime Time, ref int ConversationID)
         {
             try
             {
@@ -632,10 +634,11 @@ namespace vChat.Business
                 UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
                 FriendID.RequiredArgumentWithStruct("FriendID").BeginFrom(1);
                 Content.RequiredArgument("Content").NotNull();  //throw ArgumentNullException
+                Time.RequiredArgumentWithStruct("Time").NotNull();
 
                 ValidationController.Validate(); //throw ValidateException
 
-                return unc.SaveConversation(UserID, FriendID, Content, ref ConversationID);
+                return unc.SaveConversation(UserID, FriendID, Content, Time, ref ConversationID);
             }
             catch (ValidateException ex)
             {

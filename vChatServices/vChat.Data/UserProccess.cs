@@ -26,7 +26,7 @@ namespace vChat.Data
 
         public Users Info(int UserID)
         {
-            return UserTask.Get(UserID) as Users;
+            return UserTask.Get(UserID);
         }
 
         public FriendGroup GroupInfo(int GroupID)
@@ -177,15 +177,16 @@ namespace vChat.Data
 
             Users userInfo = UserTask.Get(UserID) as Users;
 
-            String oldPwdFromDB = userInfo.Password;
+            if (OldPassword != null)
+            {
+                String oldPwdFromDB = userInfo.Password;
 
-            bool matchPwd = OldPassword.Equals(oldPwdFromDB);
+                bool matchPwd = OldPassword.Equals(oldPwdFromDB);
 
-            if (!matchPwd)
-                return INPUT_ERROR;
-
-            userInfo.Password = NewPassword;            
-
+                if (!matchPwd)
+                    return INPUT_ERROR;
+            }
+                userInfo.Password = NewPassword;
             return userInfo.Update() ? SUCCESS : FAIL;
         }
 
@@ -282,7 +283,7 @@ namespace vChat.Data
             return QuestionTask.GetAll();
         }
 
-        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content, ref int ConversationID)
+        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content, DateTime Time, ref int ConversationID)
         {
             SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Lưu đoạn hội thoại thành công" };
             FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình lưu đoạn hội thoại. Vui lòng thử lại sau" };
@@ -294,7 +295,7 @@ namespace vChat.Data
             newConversation.Message = Content;
             newConversation.SentBy = sendBy;
             newConversation.SendTo = sendTo;
-            newConversation.Time = DateTime.Now;
+            newConversation.Time = Time;
 
             bool r = newConversation.New();
 
@@ -306,11 +307,12 @@ namespace vChat.Data
         public MethodInvokeResult MarkAsReadConversation(int ConversationID)
         {
             SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Đánh dấu đoạn hội thoại thành công" };
+            FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình đánh dấu đoạn hội thoại thành công" };
 
             Conversation conversation = ConversationTask.Get(ConversationID);
             conversation.IsRead = true;
 
-            return SUCCESS;
+            return conversation.Update() ? SUCCESS : FAIL;
         }
 
         public List<Conversation> GetConversations(int UserID)

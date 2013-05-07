@@ -61,7 +61,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\vChat.Model.Entities.Conversation.datasource" />
     <None Include="Properties\DataSources\vChat.Model.Entities.FriendGroup.datasource" />
     <None Include="Properties\DataSources\vChat.Model.Entities.Question.datasource" />
@@ -72,11 +74,7 @@
     <None Include="Service References\UserService\UserService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserService\UserService1.wsdl" />
     <None Include="Service References\UserService\UserService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService10.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\UserService\UserService2.xsd">
@@ -88,42 +86,24 @@
     <None Include="Service References\UserService\UserService4.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\UserService\UserService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\UserService\UserService6.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\UserService\UserService7.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserService\UserService81.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService82.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService83.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService84.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService85.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService86.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService87.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\UserService\UserService8.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService9.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\UserService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserService\UserService.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\UserService\configuration91.svcinfo" />
@@ -136,12 +116,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UserService\UserService1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UserService\UserService.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

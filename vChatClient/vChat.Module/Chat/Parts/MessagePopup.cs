@@ -49,9 +49,13 @@ namespace vChat.Module.Chat.Parts
 
         private void DisplayAsync(object data)
         {
-            mainOutputStream = CreateInputStream(String.Format("Sounds/{0}.mp3", ((object[])data)[1].ToString()));
-            waveOutDevice.Init(mainOutputStream);
-            waveOutDevice.Play();
+            try
+            {
+                mainOutputStream = CreateInputStream(String.Format("Sounds/{0}.mp3", ((object[])data)[1].ToString()));
+                waveOutDevice.Init(mainOutputStream);
+                waveOutDevice.Play();
+            }
+            catch { }
             Popup popup = new Popup();
             popup.Tag = Guid.NewGuid().ToString();
             TextBlock textblock = new TextBlock();
@@ -71,10 +75,15 @@ namespace vChat.Module.Chat.Parts
                 textblock.TextDecorations = TextDecorations.Baseline;
                 textblock.Foreground = Brushes.Black;
             });
+            textblock.Tag = null;
             textblock.MouseDown += new System.Windows.Input.MouseButtonEventHandler(delegate
             {
-                if (((object[])data)[2] != null)
-                    ((Action)((object[])data)[2]).Invoke();
+                if (textblock.Tag == null)
+                {
+                    if (((object[])data)[2] != null)
+                        ((Action)((object[])data)[2]).Invoke();
+                    textblock.Tag = "...";
+                }
             });
             textblock.Width = 200;
             textblock.Height = 30;

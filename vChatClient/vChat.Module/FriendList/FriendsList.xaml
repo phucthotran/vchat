@@ -22,8 +22,8 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="90"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Name="txtSearch" Padding="3" Height="30" Grid.Column="0" VerticalContentAlignment="Center" KeyDown="txtSearch_KeyDown" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                    <Button Name="btnSearch" Height="36" Padding="3" BorderThickness="1" FontSize="13" BorderBrush="#FFB1B1B1" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding SearchCommand}">Tìm Kiếm</Button>
+                    <TextBox Name="txtSearch" Padding="3" Height="30" Grid.Column="0" VerticalContentAlignment="Center" KeyDown="txtSearch_KeyDown" Text="{Binding GroupTree.SearchText, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <Button Name="btnSearch" Height="36" Padding="3" BorderThickness="1" FontSize="13" BorderBrush="#FFB1B1B1" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding GroupTree.SearchCommand}">Tìm Kiếm</Button>
                 </Grid>
                 <StackPanel>                    
                     <Expander>
@@ -150,8 +150,8 @@
                             <TreeView.ItemContainerStyle>
                                 <Style TargetType="{x:Type TreeViewItem}">
                                     <EventSetter Event="MouseDoubleClick" Handler="TreeFriend_MouseDoubleClick"/>
-                                    <Setter Property="IsExpanded" Value="{Binding GroupTree.IsExpanded, Mode=TwoWay}" />
-                                    <Setter Property="IsSelected" Value="{Binding GroupTree.IsSelected, Mode=TwoWay}" />
+                                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
                                     <Setter Property="FontWeight" Value="Normal" />
                                     <Style.Triggers>
                                         <Trigger Property="IsSelected" Value="True">

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd2" namespace="http://vchat/entities/Users" />
-  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd3" namespace="http://vchat/entities/FriendGroup" />
-  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd4" namespace="http://vchat/GroupFriendList" />
-  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/vChat.Model" />
-  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd7" namespace="http://vchat/entities/Question" />
+  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd4" namespace="http://vchat/entities/FriendGroup" />
+  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd5" namespace="http://vchat/GroupFriendList" />
+  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/vChat.Model" />
+  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd3" namespace="http://vchat/entities/Question" />
   <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd8" namespace="http://vchat/entities/Conversation" />
   <xs:element name="Info">
     <xs:complexType>
@@ -391,6 +391,7 @@
         <xs:element minOccurs="0" name="UserID" type="xs:int" />
         <xs:element minOccurs="0" name="FriendID" type="xs:int" />
         <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
         <xs:element minOccurs="0" name="ConversationID" type="xs:int" />
       </xs:sequence>
     </xs:complexType>

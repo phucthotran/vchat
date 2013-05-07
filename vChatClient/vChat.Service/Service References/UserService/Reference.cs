@@ -91,7 +91,7 @@ namespace vChat.Service.UserService {
         vChat.Model.Entities.Question[] GetAllQuestion();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/SaveConversation", ReplyAction="http://tempuri.org/IUserService/SaveConversationResponse")]
-        vChat.Model.MethodInvokeResult SaveConversation(int UserID, int FriendID, string Content, ref int ConversationID);
+        vChat.Model.MethodInvokeResult SaveConversation(int UserID, int FriendID, string Content, System.DateTime Time, ref int ConversationID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/MarkAsReadConversation", ReplyAction="http://tempuri.org/IUserService/MarkAsReadConversationResponse")]
         vChat.Model.MethodInvokeResult MarkAsReadConversation(int ConversationID);
@@ -242,8 +242,8 @@ namespace vChat.Service.UserService {
             return base.Channel.GetAllQuestion();
         }
         
-        public vChat.Model.MethodInvokeResult SaveConversation(int UserID, int FriendID, string Content, ref int ConversationID) {
-            return base.Channel.SaveConversation(UserID, FriendID, Content, ref ConversationID);
+        public vChat.Model.MethodInvokeResult SaveConversation(int UserID, int FriendID, string Content, System.DateTime Time, ref int ConversationID) {
+            return base.Channel.SaveConversation(UserID, FriendID, Content, Time, ref ConversationID);
         }
         
         public vChat.Model.MethodInvokeResult MarkAsReadConversation(int ConversationID) {

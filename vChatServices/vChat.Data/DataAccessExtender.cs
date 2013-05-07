@@ -252,7 +252,7 @@ namespace vChat.Data
         public static Users Get(this Users um, int UserID)
         {
             return db.Users
-                //.Include(u => u.Question)
+                .Include(u => u.Question)
                 //.Include(u => u.SentMessage)
                 //.Include(u => u.ReceivedMessage)
                 //.Include(u => u.FriendsFake)
@@ -262,7 +262,7 @@ namespace vChat.Data
 
         public static Users GetByName(this Users um, String Username)
         {
-            return db.Users.FirstOrDefault(u => u.Username.Equals(Username));
+            return db.Users.Include(u => u.Question).FirstOrDefault(u => u.Username.Equals(Username));
         }
 
         public static List<Users> GetAll(this Users um)
@@ -520,21 +520,23 @@ namespace vChat.Data
             return db.Conversation
                 .Include(c => c.SentBy)
                 .Include(c => c.SendTo)
-                .Where(c => (c.SentBy.UserID == FriendID && c.SendTo.UserID == UserID))
+                .Where(c => (c.SentBy.UserID == UserID && c.SendTo.UserID == FriendID))
                 .OrderBy(c => c.Time)
                 .DistinctList();
         }
 
         public static List<Conversation> GetConversationBetween(this Conversation conv, int UserID, int FriendID, int BeginIndex, int EndIndex)
         {
-            return db.Conversation
+            List<Conversation>  a=
+             db.Conversation
                 .Include(c => c.SentBy)
                 .Include(c => c.SendTo)
-                .Where(c => (c.SentBy.UserID == FriendID && c.SendTo.UserID == UserID))
+                .Where(c => (c.SentBy.UserID == UserID && c.SendTo.UserID == FriendID))
+                .OrderBy(c => c.Time)
                 .Skip(BeginIndex - 1)
                 .Take(EndIndex - (BeginIndex - 1))
-                .OrderBy(c => c.Time)
                 .DistinctList();
+            return a;
         }
 
         public static List<Conversation> GetNewestByUser(this Conversation conv, int UserID)
@@ -553,9 +555,9 @@ namespace vChat.Data
                 .Include(c => c.SentBy)
                 .Include(c => c.SendTo)
                 .Where(c => c.SendTo.UserID == UserID && c.IsRead == false)
+                .OrderBy(c => c.Time)
                 .Skip(BeginIndex - 1)
                 .Take(EndIndex - (BeginIndex - 1))
-                .OrderBy(c => c.Time)
                 .DistinctList();
         }
 
@@ -571,7 +573,7 @@ namespace vChat.Data
 
         public static List<Question> GetAll(this Question q)
         {
-            return db.Question.ToList();
+            return db.Question.DistinctList();
         }
 
         #endregion

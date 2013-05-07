@@ -37,6 +37,8 @@ namespace vChat.Module.FriendList
         private MetroWindow addFriendWin;
         private RemoveGroup.RemoveGroup removeGroupModule;
         private MetroWindow removeGroupWin;
+        private ContactViewer.ContactViewer contactViewerModule;
+        private MetroWindow contactViewerWin;
         private DispatcherTimer updateRequest;
         private DispatcherTimer updateUnresponseRequest;
         private GroupTreeViewModel groupTree;
@@ -159,6 +161,8 @@ namespace vChat.Module.FriendList
             removeGroupModule.SetGroups(GroupFriend.FriendGroups);
             removeGroupModule.IntegratedWith(this);
 
+            contactViewerModule = new ContactViewer.ContactViewer();
+
             groupTree = new GroupTreeViewModel(GroupFriend.FriendGroups);
             groupTree.OnMoveContact += new GroupTreeViewModel.FriendHandler(GroupTree_OnMoveContact);
             groupTree.OnRemoveContact += new GroupTreeViewModel.FriendHandler(GroupTree_OnRemoveContact);
@@ -266,7 +270,34 @@ namespace vChat.Module.FriendList
 
             requestTaskZone.Visibility = totalRequest == 0 ? Visibility.Collapsed : Visibility.Visible;
 
-            List<Users> Requests = FriendRequests(userId).Skip(totalRequest).ToList(); //Skip amount of "totalRequest" request got before
+            //List<Users> Requests = FriendRequests(userId).Skip(totalRequest).ToList(); //Skip amount of "totalRequest" request got before
+            List<Users> Requests = FriendRequests(userId);
+
+            if (Requests.Count >= totalRequest)
+                Requests = Requests.Skip(totalRequest).ToList(); //Skip amount of "totalRequest" request got before
+            else if (Requests.Count < totalRequest)
+            {
+                if (Requests.Count == 0)
+                    RequestVM.ClearRequest();
+
+                List<int> posToDelete = new List<int>();
+
+                foreach (Users Friend in Requests) //Get position of request that already accepted by user
+                {
+                    for (int i = 0; i < totalRequest; i++)
+                    {
+                        if (!RequestVM.Requests[i].Friend.Equals(Friend))
+                            if (!posToDelete.Contains(i))
+                                posToDelete.Add(i);
+                    }
+                }
+
+                for (int i = 0; i < posToDelete.Count; i++) //Remove request that be accepted by user
+                {
+                    Users MatchUser = RequestVM.Requests[i].Friend;
+                    RequestVM.RemoveRequest(MatchUser);
+                }
+            }
 
             if (Requests.Count == 0)
                 return;
@@ -502,6 +533,9 @@ namespace vChat.Module.FriendList
         private void mnuFriendDetail_Click(object sender, RoutedEventArgs e)
         {
             FriendViewModel SelectedFriend = treeFriend.SelectedItem as FriendViewModel;
+            contactViewerModule.ViewFor(SelectedFriend.Friend);
+
+            Helper.CreateWindow(ref contactViewerWin, "Thông Tin Của " + SelectedFriend.FriendName, contactViewerModule).ShowDialog();
         }
 
         private void mnuFriendRemove_Click(object sender, RoutedEventArgs e)

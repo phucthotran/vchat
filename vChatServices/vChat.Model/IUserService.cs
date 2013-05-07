@@ -86,7 +86,7 @@ namespace vChat.Model
         List<Question> GetAllQuestion();
 
         [OperationContract]
-        MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content, ref int ConversationID);
+        MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content, DateTime Time, ref int ConversationID);
 
         [OperationContract]
         MethodInvokeResult MarkAsReadConversation(int ConversationID);

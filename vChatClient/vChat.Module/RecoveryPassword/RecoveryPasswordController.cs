@@ -37,7 +37,7 @@ namespace vChat.Module.RecoveryPassword
 
         private string validateAnswer(string username, int questionID, string answer)
         {
-            if (validateUser(username) != null)
+            if (validateUser(username) != "")
             {
                 tbUser_LostFocus(null, null);
                 return "Tài khoản này không tồn tại.";

@@ -29,9 +29,13 @@ D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChatClient.csprojResolveA
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\Themes\Generic.baml
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\ChatWindow.baml
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\MainWindow.baml
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\RecoveryPasswordWindow.baml
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\UserSetting.baml
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\App.baml
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\ChatWindow.g.cs
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\MainWindow.g.cs
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\RecoveryPasswordWindow.g.cs
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\UserSetting.g.cs
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\App.g.cs
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat_MarkupCompile.cache
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat.g.resources
@@ -39,48 +43,3 @@ D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat.Properties.Resources
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChatClient.csproj.GenerateResource.Cache
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat.exe
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.exe.config
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChat.exe
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChat.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.exe
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Core.Client.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Core.Data.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Elysium.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Elysium.Notifications.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Extension.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\MahApps.Metro.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Microsoft.Windows.Shell.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Control.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Model.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Module.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Service.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\NAudio.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Lib.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Microsoft.Expression.Drawing.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Control.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Module.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Service.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Core.Client.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Core.Data.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\Extension.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Model.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\NAudio.xml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\bin\Debug\vChat.Lib.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChatClient.csprojResolveAssemblyReference.cache
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\Themes\Generic.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\ChatWindow.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\MainWindow.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\App.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\ChatWindow.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\MainWindow.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\App.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChat_MarkupCompile.cache
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChat.g.resources
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChat.Properties.Resources.resources
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChatClient.csproj.GenerateResource.Cache
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\UserSetting.baml
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\UserSetting.g.cs
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\RecoveryPasswordWindow.baml
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\RecoveryPasswordWindow.g.cs

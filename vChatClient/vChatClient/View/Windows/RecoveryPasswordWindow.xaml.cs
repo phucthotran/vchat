@@ -31,6 +31,7 @@ namespace vChat.View.Windows
                     if (window.GetType() == typeof(MainWindow))
                     {
                         ((MainWindow)window).SetDefaultUser(user);
+                        this.Close();
                         break;
                     }
                 }

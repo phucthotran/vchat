@@ -41,8 +41,8 @@ namespace vChat.View.Windows
             {
                 _ClientEndPoint = value;
                 _IpAddress = ((IPEndPoint)value).Address.ToString();
-                VoIPModule.RemoteIPAddress = _IpAddress;
-                VoIPModule.Init();
+           //     VoIPModule.RemoteIPAddress = _IpAddress;
+           //     VoIPModule.Init();
             }
         }
 
@@ -85,7 +85,11 @@ namespace vChat.View.Windows
             {
                 _SendFilePanel.Append(TargetUser, true, fileSending);
                 _Client.SendCommand(CommandType.SendFileRequest, targetUser, fileSending);
-            });       
+            });
+            if (_ClientEndPoint == null)
+            {
+                _Client.SendCommand(CommandType.CheckIP, "SERVER", targetUser); 
+            }
         }
 
         public void ReceiveMessage(Message message)

@@ -306,7 +306,7 @@ namespace vChat.Module.SignUp
                         else
                             tbAnswer.BorderBrush = _valid;
                     };
-                    string warningText = validateLastName(obj.ToString());
+                    string warningText = validateAnswer(obj.ToString());
                     _answerTask.ContinueWith(t =>
                     {
                         if (AnswerWarner.Dispatcher.CheckAccess())

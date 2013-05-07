@@ -46,7 +46,7 @@ namespace vChat.Module.EditInfo
             cbQuestion.ItemsSource = this.Get<UserServiceClient>().GetAllQuestion();
             cbQuestion.DisplayMemberPath = "Content";
             cbQuestion.SelectedValuePath = "QuestionID";
-            cbQuestion.SelectedValue = "1";
+            cbQuestion.SelectedIndex = 0;
             tbUser.Text = this.Get<Client>().Name;
             btRefresh_Click(null, null);
         }
@@ -73,7 +73,7 @@ namespace vChat.Module.EditInfo
             btSubmit.IsEnabled = false;
             SubmitProgress.State = Elysium.Controls.ProgressState.Indeterminate;
             SubmitProgress.Visibility = System.Windows.Visibility.Visible;
-            _SubmitWorker.RunWorkerAsync(new EditInfoMetadata(tbFname.Text, tbLname.Text, cbQuestion.SelectedIndex, tbAnswer.Text, tbDob.Text));
+            _SubmitWorker.RunWorkerAsync(new EditInfoMetadata(tbFname.Text, tbLname.Text, Convert.ToInt32(cbQuestion.SelectedValue), tbAnswer.Text, tbDob.Text));
         }
 
         private void btRefresh_Click(object sender, RoutedEventArgs e)
@@ -83,7 +83,8 @@ namespace vChat.Module.EditInfo
             tbLname.Text = user.LastName;
             tbAnswer.Text = user.Answer;
             tbDob.Text = user.Birthdate.ToString("dd/MM/yyyy");
-      //      cbQuestion.SelectedValue = user.Question.QuestionID;
+
+            cbQuestion.SelectedValue = user.Question.QuestionID;
         }
 
         private Task _fNameTask;
@@ -169,12 +170,18 @@ namespace vChat.Module.EditInfo
 
         private void tbDob_LostFocus(object sender, RoutedEventArgs e)
         {
-            tbDob.BorderBrush = _valid;
+            if (tbDob.Dispatcher.CheckAccess())
+                tbDob.BorderBrush = _valid;
+            else
+                tbDob.Dispatcher.Invoke(new Action(() => tbDob_LostFocus(sender, e)));
         }
 
         private void cbQuestion_LostFocus(object sender, RoutedEventArgs e)
         {
-            cbQuestion.BorderBrush = _valid;
+            if (cbQuestion.Dispatcher.CheckAccess())
+                cbQuestion.BorderBrush = _valid;
+            else
+                cbQuestion.Dispatcher.Invoke(new Action(() => cbQuestion_LostFocus(sender, e)));
         }
 
         private Task _answerTask;

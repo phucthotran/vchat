@@ -66,7 +66,6 @@ namespace vChat.Module.Chat
             this.MinHeight = 250;
             this.MinWidth = 400;
             InitializeComponent();
-            MessageView.Document.Blocks.Remove(MessageView.Document.Blocks.FirstBlock);
 
             Paragraph para = new Paragraph();
             Run run = new Run("Nhấn vào để xem những tin nhắn gần đây (F3).");
@@ -119,7 +118,7 @@ namespace vChat.Module.Chat
 
                 string content = XamlWriter.Save(MessageInput.Document);
                 int chatID = 0;
-                this.Get<UserServiceClient>().SaveConversation(this.Get<Client>().ID, _TargetID, content, ref chatID);
+                this.Get<UserServiceClient>().SaveConversation(this.Get<Client>().ID, _TargetID, content, DateTime.Now, ref chatID);
                 OnSendMessage(chatID, content);
                 Message message = new Message();
                 message.Init(this.Get<Client>().Name, true, MessageInput.Document);

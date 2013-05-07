@@ -325,9 +325,9 @@ namespace vChat.WCF
         /// <param name="Content">Conversation content need to be saved</param>
         /// <returns></returns>
         [OperationBehavior]
-        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content, ref int ConversationID)
+        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content, DateTime Time, ref int ConversationID)
         {
-            return unc.SaveConversation(UserID, FriendID, Content, ref ConversationID);
+            return unc.SaveConversation(UserID, FriendID, Content, Time, ref ConversationID);
         }
 
         [OperationBehavior]

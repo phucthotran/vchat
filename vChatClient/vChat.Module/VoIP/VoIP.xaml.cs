@@ -90,7 +90,7 @@ namespace vChat.Module.VoIP
         {
             clientName = this.Get<Client>().Name;
 
-            localCmdIpEndp = new IPEndPoint(IPAddress.Any, COMMAND_PORT);
+            localCmdIpEndp = new IPEndPoint(IPAddress.Parse("25.66.105.81"), COMMAND_PORT);
             localCmdEndp = (EndPoint)localCmdIpEndp;
             commandSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             commandSocket.Bind(localCmdEndp);
