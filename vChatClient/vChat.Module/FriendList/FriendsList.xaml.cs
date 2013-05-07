@@ -37,6 +37,8 @@ namespace vChat.Module.FriendList
         private MetroWindow addFriendWin;
         private RemoveGroup.RemoveGroup removeGroupModule;
         private MetroWindow removeGroupWin;
+        private ContactViewer.ContactViewer contactViewerModule;
+        private MetroWindow contactViewerWin;
         private DispatcherTimer updateRequest;
         private DispatcherTimer updateUnresponseRequest;
         private GroupTreeViewModel groupTree;
@@ -160,6 +162,8 @@ namespace vChat.Module.FriendList
             removeGroupModule.SetUser(userId);
             removeGroupModule.SetGroups(GroupFriend.FriendGroups);
             removeGroupModule.IntegratedWith(this);
+
+            contactViewerModule = new ContactViewer.ContactViewer();
 
             groupTree = new GroupTreeViewModel(GroupFriend.FriendGroups);
             groupTree.OnMoveContact += new GroupTreeViewModel.FriendHandler(GroupTree_OnMoveContact);
@@ -504,6 +508,9 @@ namespace vChat.Module.FriendList
         private void mnuFriendDetail_Click(object sender, RoutedEventArgs e)
         {
             FriendViewModel SelectedFriend = treeFriend.SelectedItem as FriendViewModel;
+            contactViewerModule.ViewFor(SelectedFriend.Friend);
+
+            Helper.CreateWindow(ref contactViewerWin, "Thông Tin Của " + SelectedFriend.FriendName, contactViewerModule).ShowDialog();
         }
 
         private void mnuFriendRemove_Click(object sender, RoutedEventArgs e)

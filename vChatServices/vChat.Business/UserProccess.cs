@@ -623,7 +623,7 @@ namespace vChat.Business
             }
         }
 
-        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content, ref int ConversationID)
+        public MethodInvokeResult SaveConversation(int UserID, int FriendID, String Content, DateTime Time, ref int ConversationID)
         {
             try
             {
@@ -632,10 +632,11 @@ namespace vChat.Business
                 UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
                 FriendID.RequiredArgumentWithStruct("FriendID").BeginFrom(1);
                 Content.RequiredArgument("Content").NotNull();  //throw ArgumentNullException
+                Time.RequiredArgumentWithStruct("Time").NotNull();
 
                 ValidationController.Validate(); //throw ValidateException
 
-                return unc.SaveConversation(UserID, FriendID, Content, ref ConversationID);
+                return unc.SaveConversation(UserID, FriendID, Content, Time, ref ConversationID);
             }
             catch (ValidateException ex)
             {

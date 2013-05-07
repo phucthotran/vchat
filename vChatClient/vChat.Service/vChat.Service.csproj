@@ -61,6 +61,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Properties\DataSources\vChat.Model.Entities.Conversation.datasource" />
     <None Include="Properties\DataSources\vChat.Model.Entities.FriendGroup.datasource" />
     <None Include="Properties\DataSources\vChat.Model.Entities.Question.datasource" />
@@ -68,31 +69,31 @@
     <None Include="Properties\DataSources\vChat.Model.GroupFriendList.datasource" />
     <None Include="Properties\DataSources\vChat.Model.MethodInvokeResult.datasource" />
     <None Include="Service References\UserService\UserService1.wsdl" />
-    <None Include="Service References\UserService\UserService8.xsd">
+    <None Include="Service References\UserService\UserService9.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserService\UserService81.xsd">
+    <None Include="Service References\UserService\UserService91.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserService\UserService82.xsd">
+    <None Include="Service References\UserService\UserService92.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserService\UserService83.xsd">
+    <None Include="Service References\UserService\UserService93.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserService\UserService84.xsd">
+    <None Include="Service References\UserService\UserService94.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserService\UserService85.xsd">
+    <None Include="Service References\UserService\UserService95.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserService\UserService86.xsd">
+    <None Include="Service References\UserService\UserService96.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserService\UserService87.xsd">
+    <None Include="Service References\UserService\UserService97.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserService\UserService8.xsd">
+    <None Include="Service References\UserService\UserService98.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

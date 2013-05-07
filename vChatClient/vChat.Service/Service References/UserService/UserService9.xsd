@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd2" namespace="http://vchat/entities/Users" />
-  <xs:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd3" namespace="http://vchat/entities/FriendGroup" />
-  <xs:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd4" namespace="http://vchat/GroupFriendList" />
-  <xs:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/vChat.Model" />
-  <xs:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd7" namespace="http://vchat/entities/Question" />
-  <xs:import schemaLocation="http://localhost:6566/vChatServices/UserService.svc?xsd=xsd8" namespace="http://vchat/entities/Conversation" />
+  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd2" namespace="http://vchat/entities/Users" />
+  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd3" namespace="http://vchat/entities/FriendGroup" />
+  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd4" namespace="http://vchat/GroupFriendList" />
+  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/vChat.Model" />
+  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd7" namespace="http://vchat/entities/Question" />
+  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd8" namespace="http://vchat/entities/Conversation" />
   <xs:element name="Info">
     <xs:complexType>
       <xs:sequence>
@@ -391,6 +391,7 @@
         <xs:element minOccurs="0" name="UserID" type="xs:int" />
         <xs:element minOccurs="0" name="FriendID" type="xs:int" />
         <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConversationID" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -398,6 +399,21 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="SaveConversationResult" nillable="true" type="q26:MethodInvokeResult" />
+        <xs:element minOccurs="0" name="ConversationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MarkAsReadConversation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConversationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MarkAsReadConversationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/vChat.Model" minOccurs="0" name="MarkAsReadConversationResult" nillable="true" type="q27:MethodInvokeResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -411,7 +427,7 @@
   <xs:element name="GetConversationsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://vchat/entities/Conversation" minOccurs="0" name="GetConversationsResult" nillable="true" type="q27:ArrayOfConversation" />
+        <xs:element xmlns:q28="http://vchat/entities/Conversation" minOccurs="0" name="GetConversationsResult" nillable="true" type="q28:ArrayOfConversation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -427,7 +443,7 @@
   <xs:element name="GetConversationsByRangeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://vchat/entities/Conversation" minOccurs="0" name="GetConversationsByRangeResult" nillable="true" type="q28:ArrayOfConversation" />
+        <xs:element xmlns:q29="http://vchat/entities/Conversation" minOccurs="0" name="GetConversationsByRangeResult" nillable="true" type="q29:ArrayOfConversation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -442,7 +458,7 @@
   <xs:element name="GetConversationBetweenResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://vchat/entities/Conversation" minOccurs="0" name="GetConversationBetweenResult" nillable="true" type="q29:ArrayOfConversation" />
+        <xs:element xmlns:q30="http://vchat/entities/Conversation" minOccurs="0" name="GetConversationBetweenResult" nillable="true" type="q30:ArrayOfConversation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -459,7 +475,7 @@
   <xs:element name="GetConversationBetweenByRangeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://vchat/entities/Conversation" minOccurs="0" name="GetConversationBetweenByRangeResult" nillable="true" type="q30:ArrayOfConversation" />
+        <xs:element xmlns:q31="http://vchat/entities/Conversation" minOccurs="0" name="GetConversationBetweenByRangeResult" nillable="true" type="q31:ArrayOfConversation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -473,7 +489,7 @@
   <xs:element name="GetNewestConversationsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://vchat/entities/Conversation" minOccurs="0" name="GetNewestConversationsResult" nillable="true" type="q31:ArrayOfConversation" />
+        <xs:element xmlns:q32="http://vchat/entities/Conversation" minOccurs="0" name="GetNewestConversationsResult" nillable="true" type="q32:ArrayOfConversation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -489,7 +505,7 @@
   <xs:element name="GetNewestConversationsByRangeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://vchat/entities/Conversation" minOccurs="0" name="GetNewestConversationsByRangeResult" nillable="true" type="q32:ArrayOfConversation" />
+        <xs:element xmlns:q33="http://vchat/entities/Conversation" minOccurs="0" name="GetNewestConversationsByRangeResult" nillable="true" type="q33:ArrayOfConversation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

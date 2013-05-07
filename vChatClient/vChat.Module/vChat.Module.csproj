@@ -109,6 +109,9 @@
       <DependentUpon>ChatToolBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Chat\ViewParts\IconHelper.cs" />
+    <Compile Include="ContactViewer\ContactViewer.xaml.cs">
+      <DependentUpon>ContactViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FriendList\BaseCommand.cs" />
     <Compile Include="FriendList\Command.cs" />
     <Compile Include="FriendList\Model\FriendArgs.cs" />
@@ -203,6 +206,10 @@
     <Page Include="Chat\ViewParts\ChatToolBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ContactViewer\ContactViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FriendList\FriendsList.xaml">
       <SubType>Designer</SubType>

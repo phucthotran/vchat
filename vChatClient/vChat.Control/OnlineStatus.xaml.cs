@@ -22,7 +22,7 @@ namespace vChat.Control
         public static readonly DependencyProperty IsOnlineProperty = DependencyProperty.Register("IsOnline", typeof(bool), typeof(OnlineStatus), new UIPropertyMetadata(new PropertyChangedCallback(OnOnlineStatusChanged)));
 
         private static Brush ONLINE_COLOR = Brushes.Green;
-        private static Brush OFFLINE_COLOR = Brushes.Black;
+        private static Brush OFFLINE_COLOR = Brushes.Transparent;
 
         public bool IsOnline
         {

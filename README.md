@@ -4,6 +4,10 @@
 ## Update Log
 -------------
 
+#### Update 07.05 2:00 PM
+- Thêm module **ContactViewer** dùng để hiển thị chi tiết bạn bè
+- Thêm system tray cho ứng dụng
+
 #### Update 07.05 3:50 AM
 
 - Cho phép chat với những user có yêu cầu kết bạn với mình trong danh sách **Yêu Cầu Kết Bạn**

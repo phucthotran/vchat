@@ -252,7 +252,7 @@ namespace vChat.Data
         public static Users Get(this Users um, int UserID)
         {
             return db.Users
-                //.Include(u => u.Question)
+                .Include(u => u.Question)
                 //.Include(u => u.SentMessage)
                 //.Include(u => u.ReceivedMessage)
                 //.Include(u => u.FriendsFake)

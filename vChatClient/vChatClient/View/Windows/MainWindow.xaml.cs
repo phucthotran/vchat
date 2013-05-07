@@ -35,11 +35,32 @@ namespace vChat.View.Windows
         private Login _loginModule;
         private SignUp _signUpModule;
         private FriendsList _friendListModule;
+        private System.Windows.Forms.NotifyIcon systemTrayIcon;
+        private System.Windows.Forms.ContextMenuStrip systemTrayMenu;
         public Dictionary<string, SortedList<int, byte[]>> SendFile;
         public Dictionary<string, string> SendFilePath;
 
         public MainWindow()
-        {            
+        {
+            systemTrayMenu = new System.Windows.Forms.ContextMenuStrip();
+            systemTrayMenu.Items.Add("Hiện Cửa Số Chinh", null, new EventHandler((sender, e) => {
+                this.WindowState = System.Windows.WindowState.Normal;
+            }));
+            systemTrayMenu.Items.Add("Thoát Ứng Dụng", null, new EventHandler((sender, e) =>
+            {
+                this.Close();
+            }));
+
+            systemTrayIcon = new System.Windows.Forms.NotifyIcon();
+            systemTrayIcon.Icon = new System.Drawing.Icon("icon.ico");
+            systemTrayIcon.ContextMenuStrip = systemTrayMenu;
+            systemTrayIcon.Visible = true;
+            systemTrayIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            systemTrayIcon.BalloonTipTitle = "vChat - Chat Phong Cách Việt";
+            systemTrayIcon.BalloonTipText = "Ứng dụng sẽ luôn hoạt động để nhận những tin nhắn mới nhất từ bạn bè của bạn ^^";
+            systemTrayIcon.ShowBalloonTip(2500);
+            systemTrayIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(systemTrayIcon_MouseDoubleClick);
+
             this.Width = 300;
             this.MinWidth = 300;
             this.MaxWidth = 500;
@@ -50,6 +71,11 @@ namespace vChat.View.Windows
             InitializeComponent();
             InitLoginModule();
             InitClientListener();
+        }
+
+        private void systemTrayIcon_MouseDoubleClick(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            this.WindowState = WindowState.Normal;
         }
 
         private void InitClientListener()
@@ -72,7 +98,7 @@ namespace vChat.View.Windows
             LogOut.Visibility = System.Windows.Visibility.Collapsed;
             _loginModule = Grid.LoadModule<Login>(new Login.LoginSuccessHandler(Login_OnLoginSuccess));
             _loginModule.OnLoginFailed += new Login.LoginFailedHandler(Login_OnLoginFailed);
-            _loginModule.OnSignUpClicked += new Login.SignUpClickHandler(Login_OnSignUpClicked);            
+            _loginModule.OnSignUpClicked += new Login.SignUpClickHandler(Login_OnSignUpClicked);
         }
 
         private void InitFriendsListModule(int UserID)
@@ -146,6 +172,21 @@ namespace vChat.View.Windows
             }
         }
 
+        protected override void OnStateChanged(EventArgs e)
+        {
+            base.OnStateChanged(e);
+
+            if (this.WindowState == System.Windows.WindowState.Minimized)
+            {
+                this.ShowInTaskbar = false;                
+                systemTrayIcon.ShowBalloonTip(2500);                
+            }
+            else if (this.WindowState == System.Windows.WindowState.Normal)
+            {
+                this.ShowInTaskbar = true;
+            }
+        }
+
         private void MetroWindow_Closing(object sender, CancelEventArgs e)
         {
             e.Cancel = true;
@@ -153,6 +194,8 @@ namespace vChat.View.Windows
             {
                 disconnectProcess(false);
             } : (Action)null);
+
+            systemTrayIcon.Visible = false;
         }
 
         private void disconnectProcess(bool isLogout)
