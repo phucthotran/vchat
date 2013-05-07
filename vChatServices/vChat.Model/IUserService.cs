@@ -59,6 +59,9 @@ namespace vChat.Model
         MethodInvokeResult ChangePassword(int UserID, String OldPassword, String NewPassword);
 
         [OperationContract]
+        MethodInvokeResult AccountRecovery(int UserID, String NewPassword);
+
+        [OperationContract]
         MethodInvokeResult ChangeUserInfo(int UserID, String FirstName, String LastName, int QuestionID, String Answer, DateTime Birthdate);
 
         [OperationContract]

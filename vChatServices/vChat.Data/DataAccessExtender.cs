@@ -509,9 +509,9 @@ namespace vChat.Data
                 .Include(c => c.SentBy)
                 .Include(c => c.SendTo)
                 .Where(c => (c.SentBy.UserID == UserID || c.SendTo.UserID == UserID))
-                .Skip(BeginIndex - 1)
-                .Take(EndIndex - (BeginIndex - 1))
                 .OrderBy(c => c.Time)
+                .Skip(BeginIndex - 1)
+                .Take(EndIndex - (BeginIndex - 1))                
                 .DistinctList();
         }
 
@@ -531,9 +531,9 @@ namespace vChat.Data
                 .Include(c => c.SentBy)
                 .Include(c => c.SendTo)
                 .Where(c => (c.SentBy.UserID == FriendID && c.SendTo.UserID == UserID))
-                .Skip(BeginIndex - 1)
-                .Take(EndIndex - (BeginIndex - 1))
                 .OrderBy(c => c.Time)
+                .Skip(BeginIndex - 1)
+                .Take(EndIndex - (BeginIndex - 1))                
                 .DistinctList();
         }
 
@@ -554,8 +554,8 @@ namespace vChat.Data
                 .Include(c => c.SendTo)
                 .Where(c => c.SendTo.UserID == UserID && c.IsRead == false)
                 .Skip(BeginIndex - 1)
-                .Take(EndIndex - (BeginIndex - 1))
                 .OrderBy(c => c.Time)
+                .Take(EndIndex - (BeginIndex - 1))                
                 .DistinctList();
         }
 

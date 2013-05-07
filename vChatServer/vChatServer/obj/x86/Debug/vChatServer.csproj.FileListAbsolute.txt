@@ -23,6 +23,5 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChat
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\bin\Debug\Core.Data.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\bin\Debug\Core.Server.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\bin\Debug\Extension.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\obj\x86\Debug\vChatServer.csprojResolveAssemblyReference.cache
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\obj\x86\Debug\vChatServer.Properties.Resources.resources
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatServer\vChatServer\obj\x86\Debug\vChatServer.csproj.GenerateResource.Cache

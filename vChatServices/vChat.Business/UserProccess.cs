@@ -430,17 +430,15 @@ namespace vChat.Business
 
                 UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
 
-                //OldPassword.RequiredArgument("OldPassword")
-                //    .NotNull() //throw ArgumentNullException
-                //    .Between(8, 45);
+                OldPassword.RequiredArgument("OldPassword")
+                    .NotNull() //throw ArgumentNullException
+                    .Between(8, 45);
 
                 NewPassword.RequiredArgument("NewPassword").NotNull().Between(8, 45);
 
                 ValidationController.Validate(); //throw ValidateException
-                string old = null;
-                if (OldPassword != null)
-                    old = MD5Encrypt.Hash(OldPassword);
-                return unc.ChangePassword(UserID, old, MD5Encrypt.Hash(NewPassword));
+
+                return unc.ChangePassword(UserID, OldPassword, MD5Encrypt.Hash(NewPassword));
             }
             catch (ValidateException ex)
             {
@@ -454,6 +452,36 @@ namespace vChat.Business
             {
                 return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
             }            
+        }
+
+        public MethodInvokeResult AccountRecovery(int UserID, String NewPassword)
+        {
+            try
+            {
+                ValidationController.Prepare();
+
+                UserID.RequiredArgumentWithStruct("UserID").BeginFrom(1);
+
+                NewPassword.RequiredArgument("NewPassword")
+                    .NotNull() //throw ArgumentNullException
+                    .Between(8, 45);
+
+                ValidationController.Validate(); //throw ValidateException
+
+                return unc.AccountRecovery(UserID, MD5Encrypt.Hash(NewPassword));
+            }
+            catch (ValidateException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Errors = ex.Errors, Exception = new ExceptionInfo(ex) };
+            }
+            catch (ArgumentNullException ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = ex.Message, Exception = new ExceptionInfo(ex) };
+            }
+            catch (Exception ex)
+            {
+                return new MethodInvokeResult { Status = MethodInvokeResult.RESULT.UNHANDLE_ERROR, Message = String.Format("Unhandle error occurs: {0}", ex.Message), Exception = new ExceptionInfo(ex) };
+            }
         }
 
         public MethodInvokeResult ChangeUserInfo(int UserID, String FirstName, String LastName, int QuestionID, String Answer, DateTime Birthdate)

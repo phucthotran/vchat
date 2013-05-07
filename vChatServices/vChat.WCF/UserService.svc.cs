@@ -211,6 +211,12 @@ namespace vChat.WCF
         }
 
         [OperationBehavior]
+        public MethodInvokeResult AccountRecovery(int UserID, String NewPassword)
+        {
+            return unc.AccountRecovery(UserID, NewPassword);
+        }
+
+        [OperationBehavior]
         public MethodInvokeResult ChangeUserInfo(int UserID, String FirstName, String LastName, int QuestionID, String Answer, DateTime Birthdate)
         {
             return unc.ChangeUserInfo(UserID, FirstName, LastName, QuestionID, Answer, Birthdate);

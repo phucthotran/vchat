@@ -176,17 +176,26 @@ namespace vChat.Data
             INPUT_ERROR = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.INPUT_ERROR, Message = "Sai mật khẩu hiện tại. Vui lòng kiểm tra lại thông tin" };
 
             Users userInfo = UserTask.Get(UserID) as Users;
+            String oldPwdFromDB = userInfo.Password;
 
-            if (OldPassword != null)
-            {
-                String oldPwdFromDB = userInfo.Password;
+            bool matchPwd = OldPassword.Equals(oldPwdFromDB);
 
-                bool matchPwd = OldPassword.Equals(oldPwdFromDB);
+            if (!matchPwd)
+                return INPUT_ERROR;
 
-                if (!matchPwd)
-                    return INPUT_ERROR;
-            }
-                userInfo.Password = NewPassword;
+            userInfo.Password = NewPassword;
+
+            return userInfo.Update() ? SUCCESS : FAIL;
+        }
+
+        public MethodInvokeResult AccountRecovery(int UserID, String NewPassword)
+        {
+            SUCCESS = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.SUCCESS, Message = "Khôi phục mật khẩu thành công" };
+            FAIL = new MethodInvokeResult { Status = MethodInvokeResult.RESULT.FAIL, Message = "Có lỗi trong quá trình khôi phục mật khẩu. Vui lòng thử lại sau" };
+
+            Users userInfo = UserTask.Get(UserID);
+            userInfo.Password = NewPassword;
+
             return userInfo.Update() ? SUCCESS : FAIL;
         }
 
