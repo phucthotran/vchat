@@ -1,4 +1,4 @@
-07/05/2013 02:13:23 - Server da khoi dong thanh cong.
+07/05/2013 03:43:21 - Server da khoi dong thanh cong.
 07/05/2013 02:17:41 - itexplore(127.0.0.1:7401) da ket noi den server.
 07/05/2013 02:17:42 - itexplore(127.0.0.1:7401) da gui: CheckOnline - shinichikudo
 07/05/2013 02:17:42 - itexplore(127.0.0.1:7401) da gui: CheckOnline - tuananh
@@ -137,104 +137,52 @@
 07/05/2013 02:51:58 - shinichikudo(127.0.0.1:7874) da gui: LogOut - Null Data
 07/05/2013 02:51:58 - shinichikudo(127.0.0.1:7874) da gui: LogOutSuccess - True
 07/05/2013 02:51:58 - shinichikudo(127.0.0.1:7874) da ngat ket noi.
-en server.
-07/05/2013 01:15:34 - itexplore(127.0.0.1:6173) da gui: CheckOnline - shinichikudo
-07/05/2013 01:15:34 - itexplore(127.0.0.1:6173) da gui: CheckOnline - tuananh
-07/05/2013 01:15:34 - itexplore(127.0.0.1:6173) da gui: CheckOnline - huyentrang
-07/05/2013 01:16:41 - itexplore(127.0.0.1:6173) da gui: LogOut - Null Data
-07/05/2013 01:16:41 - itexplore(127.0.0.1:6173) da gui: LogOut - Null Data
-07/05/2013 01:16:41 - itexplore(127.0.0.1:6173) da gui: LogOut - Null Data
-07/05/2013 01:16:41 - itexplore(127.0.0.1:6173) da gui: LogOutSuccess - False
-07/05/2013 01:16:41 - itexplore(127.0.0.1:6173) da ngat ket noi.
-07/05/2013 01:18:35 - itexplore(127.0.0.1:6208) da ket noi den server.
-07/05/2013 01:18:35 - itexplore(127.0.0.1:6208) da gui: CheckOnline - shinichikudo
-07/05/2013 01:18:35 - itexplore(127.0.0.1:6208) da gui: CheckOnline - tuananh
-07/05/2013 01:18:35 - itexplore(127.0.0.1:6208) da gui: CheckOnline - huyentrang
-07/05/2013 01:19:23 - itexplore(127.0.0.1:6208) da gui: LogOut - Null Data
-07/05/2013 01:19:23 - itexplore(127.0.0.1:6208) da gui: LogOut - Null Data
-07/05/2013 01:19:23 - itexplore(127.0.0.1:6208) da gui: LogOut - Null Data
-07/05/2013 01:19:23 - itexplore(127.0.0.1:6208) da gui: LogOutSuccess - False
-07/05/2013 01:19:23 - itexplore(127.0.0.1:6208) da ngat ket noi.
-07/05/2013 01:22:49 - itexplore(127.0.0.1:6281) da ket noi den server.
-07/05/2013 01:22:50 - itexplore(127.0.0.1:6281) da gui: CheckOnline - shinichikudo
-07/05/2013 01:22:50 - itexplore(127.0.0.1:6281) da gui: CheckOnline - tuananh
-07/05/2013 01:22:50 - itexplore(127.0.0.1:6281) da gui: CheckOnline - huyentrang
-07/05/2013 01:23:30 - itexplore(127.0.0.1:6281) da gui: LogOut - Null Data
-07/05/2013 01:23:30 - itexplore(127.0.0.1:6281) da gui: LogOut - Null Data
-07/05/2013 01:23:30 - itexplore(127.0.0.1:6281) da gui: LogOut - Null Data
-07/05/2013 01:23:30 - itexplore(127.0.0.1:6281) da gui: LogOutSuccess - False
-07/05/2013 01:23:30 - itexplore(127.0.0.1:6281) da ngat ket noi.
-07/05/2013 01:24:39 - itexplore(127.0.0.1:6338) da ket noi den server.
-07/05/2013 01:24:40 - itexplore(127.0.0.1:6338) da gui: CheckOnline - shinichikudo
-07/05/2013 01:24:40 - itexplore(127.0.0.1:6338) da gui: CheckOnline - tuananh
-07/05/2013 01:24:40 - itexplore(127.0.0.1:6338) da gui: CheckOnline - huyentrang
-07/05/2013 01:24:48 - itexplore(127.0.0.1:6338) da gui: LogOut - Null Data
-07/05/2013 01:24:48 - itexplore(127.0.0.1:6338) da gui: LogOut - Null Data
-07/05/2013 01:24:48 - itexplore(127.0.0.1:6338) da gui: LogOut - Null Data
-07/05/2013 01:24:48 - itexplore(127.0.0.1:6338) da gui: LogOutSuccess - False
-07/05/2013 01:24:48 - itexplore(127.0.0.1:6338) da ngat ket noi.
-07/05/2013 01:29:49 - itexplore(127.0.0.1:6511) da ket noi den server.
-07/05/2013 01:29:49 - itexplore(127.0.0.1:6511) da gui: CheckOnline - shinichikudo
-07/05/2013 01:29:49 - itexplore(127.0.0.1:6511) da gui: CheckOnline - tuananh
-07/05/2013 01:29:49 - itexplore(127.0.0.1:6511) da gui: CheckOnline - huyentrang
-07/05/2013 01:30:21 - itexplore(127.0.0.1:6511) da gui: LogOut - Null Data
-07/05/2013 01:30:21 - itexplore(127.0.0.1:6511) da gui: LogOut - Null Data
-07/05/2013 01:30:21 - itexplore(127.0.0.1:6511) da gui: LogOut - Null Data
-07/05/2013 01:30:21 - itexplore(127.0.0.1:6511) da gui: LogOutSuccess - False
-07/05/2013 01:30:21 - itexplore(127.0.0.1:6511) da ngat ket noi.
-=======
-07/05/2013 06:12:05 - Server da khoi dong thanh cong.
-07/05/2013 06:12:55 - symaci(127.0.0.1:16011) da ket noi den server.
-07/05/2013 06:13:17 - symaci(127.0.0.1:16011) da ngat ket noi.
-07/05/2013 06:13:34 - symaci(127.0.0.1:16016) da ket noi den server.
-07/05/2013 06:13:35 - symaci(127.0.0.1:16016) da gui: CheckOnline - itexplore
-07/05/2013 06:15:38 - symaci(127.0.0.1:16016) da ngat ket noi.
-07/05/2013 06:17:42 - symaci(127.0.0.1:16083) da ket noi den server.
-07/05/2013 06:17:43 - symaci(127.0.0.1:16083) da gui: CheckOnline - itexplore
-07/05/2013 06:18:14 - symaci(127.0.0.1:16083) da ngat ket noi.
-07/05/2013 06:20:57 - symaci(127.0.0.1:16141) da ket noi den server.
-07/05/2013 06:20:57 - symaci(127.0.0.1:16141) da gui: CheckOnline - itexplore
-07/05/2013 06:21:34 - symaci(127.0.0.1:16141) da gui: LogOut - Null Data
-07/05/2013 06:21:34 - symaci(127.0.0.1:16141) da gui: LogOutSuccess - False
-07/05/2013 06:21:35 - symaci(127.0.0.1:16141) da ngat ket noi.
-07/05/2013 06:23:40 - symaci(127.0.0.1:16240) da ket noi den server.
-07/05/2013 06:23:40 - symaci(127.0.0.1:16240) da gui: CheckOnline - itexplore
-07/05/2013 06:24:28 - symaci(127.0.0.1:16240) da gui: LogOut - Null Data
-07/05/2013 06:24:28 - symaci(127.0.0.1:16240) da gui: LogOutSuccess - False
-07/05/2013 06:24:28 - symaci(127.0.0.1:16240) da ngat ket noi.
-07/05/2013 06:26:12 - symaci(127.0.0.1:16333) da ket noi den server.
-07/05/2013 06:26:13 - symaci(127.0.0.1:16333) da gui: CheckOnline - itexplore
-07/05/2013 06:26:25 - symaci(127.0.0.1:16333) da gui: LogOut - Null Data
-07/05/2013 06:26:25 - symaci(127.0.0.1:16333) da gui: LogOutSuccess - False
-07/05/2013 06:26:25 - symaci(127.0.0.1:16333) da ngat ket noi.
-07/05/2013 06:29:58 - symaci(127.0.0.1:16374) da ket noi den server.
-07/05/2013 06:29:59 - symaci(127.0.0.1:16374) da gui: CheckOnline - itexplore
-07/05/2013 06:31:21 - symaci(127.0.0.1:16374) da gui: LogOut - Null Data
-07/05/2013 06:31:21 - symaci(127.0.0.1:16374) da gui: LogOutSuccess - False
-07/05/2013 06:31:22 - symaci(127.0.0.1:16374) da ngat ket noi.
-07/05/2013 06:32:19 - symaci(127.0.0.1:16557) da ket noi den server.
-07/05/2013 06:32:19 - symaci(127.0.0.1:16557) da gui: CheckOnline - itexplore
-07/05/2013 06:32:27 - symaci(127.0.0.1:16557) da gui: LogOut - Null Data
-07/05/2013 06:32:27 - symaci(127.0.0.1:16557) da gui: LogOutSuccess - False
-07/05/2013 06:32:27 - symaci(127.0.0.1:16557) da ngat ket noi.
-07/05/2013 06:32:56 - symaci(127.0.0.1:16581) da ket noi den server.
-07/05/2013 06:32:57 - symaci(127.0.0.1:16581) da gui: CheckOnline - itexplore
-07/05/2013 06:33:20 - symaci(127.0.0.1:16581) da gui: LogOut - Null Data
-07/05/2013 06:33:20 - symaci(127.0.0.1:16581) da gui: LogOutSuccess - False
-07/05/2013 06:33:20 - symaci(127.0.0.1:16581) da ngat ket noi.
-07/05/2013 06:33:41 - symaci(127.0.0.1:16635) da ket noi den server.
-07/05/2013 06:33:41 - symaci(127.0.0.1:16635) da gui: CheckOnline - itexplore
-07/05/2013 06:34:07 - symaci(127.0.0.1:16635) da gui: LogOut - Null Data
-07/05/2013 06:34:07 - symaci(127.0.0.1:16635) da gui: LogOutSuccess - False
-07/05/2013 06:34:07 - symaci(127.0.0.1:16635) da ngat ket noi.
-07/05/2013 06:53:54 - symaci(127.0.0.1:16918) da ket noi den server.
-07/05/2013 06:53:54 - symaci(127.0.0.1:16918) da gui: CheckOnline - itexplore
-07/05/2013 06:54:01 - itexplore(127.0.0.1:16936) da ket noi den server.
-07/05/2013 06:54:01 - itexplore(127.0.0.1:16936) da gui: CheckOnline - symaci
-07/05/2013 06:54:25 - symaci(127.0.0.1:16918) da ngat ket noi.
-07/05/2013 06:54:58 - symaci(127.0.0.1:17045) da ket noi den server.
-07/05/2013 06:54:58 - symaci(127.0.0.1:17045) da gui: CheckOnline - itexplore
-07/05/2013 06:55:14 - itexplore(127.0.0.1:16936) da ngat ket noi.
+07/05/2013 03:03:44 - itexplore(127.0.0.1:8155) da ket noi den server.
+07/05/2013 03:03:44 - itexplore(127.0.0.1:8155) da gui: CheckOnline - shinichikudo
+07/05/2013 03:03:44 - itexplore(127.0.0.1:8155) da gui: CheckOnline - tuananh
+07/05/2013 03:03:44 - itexplore(127.0.0.1:8155) da gui: CheckOnline - huyentrang
+07/05/2013 03:04:13 - huyentrang(127.0.0.1:8163) da ket noi den server.
+07/05/2013 03:04:14 - huyentrang(127.0.0.1:8163) da gui: CheckOnline - itexplore
+07/05/2013 03:04:23 - itexplore(127.0.0.1:8155) da gui: Chat - 1 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>hello</Paragraph></FlowDocument>
+07/05/2013 03:04:30 - itexplore(127.0.0.1:8155) da gui: Chat - 2 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph xml:space="preserve">chan that </Paragraph></FlowDocument>
+07/05/2013 03:04:33 - itexplore(127.0.0.1:8155) da gui: Chat - 3 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>chan qua di</Paragraph></FlowDocument>
+07/05/2013 03:04:35 - itexplore(127.0.0.1:8155) da gui: Chat - 4 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>haha</Paragraph></FlowDocument>
+07/05/2013 03:04:36 - itexplore(127.0.0.1:8155) da gui: Chat - 5 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>dfsd</Paragraph></FlowDocument>
+07/05/2013 03:04:37 - itexplore(127.0.0.1:8155) da gui: Chat - 6 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>dsafsd</Paragraph></FlowDocument>
+07/05/2013 03:04:40 - huyentrang(127.0.0.1:8163) da gui: Chat - 7 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sadfsdfsd</Paragraph></FlowDocument>
+07/05/2013 03:04:42 - huyentrang(127.0.0.1:8163) da gui: Chat - 8 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>fdsfasd</Paragraph></FlowDocument>
+07/05/2013 03:04:44 - itexplore(127.0.0.1:8155) da gui: Chat - 9 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>fsadfsdf</Paragraph></FlowDocument>
+07/05/2013 03:05:43 - itexplore(127.0.0.1:8155) da gui: CheckIP - huyentrang
+07/05/2013 03:09:19 - huyentrang(127.0.0.1:8163) da gui: Chat - 10 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:21 - huyentrang(127.0.0.1:8163) da gui: Chat - 11 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:22 - huyentrang(127.0.0.1:8163) da gui: Chat - 12 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:22 - huyentrang(127.0.0.1:8163) da gui: Chat - 13 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:22 - huyentrang(127.0.0.1:8163) da gui: Chat - 14 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:23 - huyentrang(127.0.0.1:8163) da gui: Chat - 15 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:23 - huyentrang(127.0.0.1:8163) da gui: Chat - 16 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:23 - huyentrang(127.0.0.1:8163) da gui: Chat - 17 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:24 - huyentrang(127.0.0.1:8163) da gui: Chat - 18 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:49 - huyentrang(127.0.0.1:8163) da gui: LogOut - Null Data
+07/05/2013 03:09:49 - huyentrang(127.0.0.1:8163) da gui: LogOutSuccess - False
+07/05/2013 03:09:49 - huyentrang(127.0.0.1:8163) da ngat ket noi.
+07/05/2013 03:09:51 - itexplore(127.0.0.1:8155) da gui: LogOut - Null Data
+07/05/2013 03:09:51 - itexplore(127.0.0.1:8155) da gui: LogOut - Null Data
+07/05/2013 03:09:51 - itexplore(127.0.0.1:8155) da gui: LogOut - Null Data
+07/05/2013 03:09:51 - itexplore(127.0.0.1:8155) da gui: LogOutSuccess - False
+07/05/2013 03:09:51 - itexplore(127.0.0.1:8155) da ngat ket noi.
+07/05/2013 03:15:41 - itexplore(127.0.0.1:8218) da ket noi den server.
+07/05/2013 03:15:41 - itexplore(127.0.0.1:8218) da gui: CheckOnline - shinichikudo
+07/05/2013 03:15:41 - itexplore(127.0.0.1:8218) da gui: CheckOnline - tuananh
+07/05/2013 03:15:41 - itexplore(127.0.0.1:8218) da gui: CheckOnline - huyentrang
+07/05/2013 03:16:41 - itexplore(127.0.0.1:8218) da ngat ket noi.
+07/05/2013 03:17:44 - itexplore(127.0.0.1:8241) da ket noi den server.
+07/05/2013 03:17:44 - itexplore(127.0.0.1:8241) da gui: CheckOnline - shinichikudo
+07/05/2013 03:17:44 - itexplore(127.0.0.1:8241) da gui: CheckOnline - tuananh
+07/05/2013 03:17:44 - itexplore(127.0.0.1:8241) da gui: CheckOnline - huyentrang
+07/05/2013 03:18:43 - shinichikudo(127.0.0.1:8252) da ket noi den server.
+07/05/2013 03:18:44 - shinichikudo(127.0.0.1:8252) da gui: CheckOnline - itexplore
+07/05/2013 03:18:50 - itexplore(127.0.0.1:8241) da ngat ket noi.
+explore(127.0.0.1:16936) da ngat ket noi.
 07/05/2013 06:55:39 - symaci(127.0.0.1:17045) da gui: LogOut - Null Data
 07/05/2013 06:55:39 - symaci(127.0.0.1:17045) da gui: LogOutSuccess - False
 07/05/2013 06:55:39 - symaci(127.0.0.1:17045) da ngat ket noi.

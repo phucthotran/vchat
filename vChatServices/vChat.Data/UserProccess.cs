@@ -177,15 +177,16 @@ namespace vChat.Data
 
             Users userInfo = UserTask.Get(UserID) as Users;
 
-            String oldPwdFromDB = userInfo.Password;
+            if (OldPassword != null)
+            {
+                String oldPwdFromDB = userInfo.Password;
 
-            bool matchPwd = OldPassword.Equals(oldPwdFromDB);
+                bool matchPwd = OldPassword.Equals(oldPwdFromDB);
 
-            if (!matchPwd)
-                return INPUT_ERROR;
-
-            userInfo.Password = NewPassword;            
-
+                if (!matchPwd)
+                    return INPUT_ERROR;
+            }
+                userInfo.Password = NewPassword;
             return userInfo.Update() ? SUCCESS : FAIL;
         }
 

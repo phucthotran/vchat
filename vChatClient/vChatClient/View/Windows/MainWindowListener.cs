@@ -207,7 +207,7 @@ namespace vChat.View.Windows
                     {
                         ChatWindow chatWindow = new ChatWindow(user);
                         chatWindow.Show();
-                        chatWindow.BringToFront();
+                        chatWindow.BringToFront();                        
                     });
                 }
             }
