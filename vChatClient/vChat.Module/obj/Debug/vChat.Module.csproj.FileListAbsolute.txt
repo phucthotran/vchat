@@ -27,7 +27,11 @@ D:\vChatProject\vChatClient\vChat.Module\obj\Debug\vChat.Module.csprojResolveAss
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\Avatar\Avatar.baml
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\FileProcess.baml
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\SendFilePanel.baml
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\ContactViewer\ContactViewer.baml
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditInfo\EditInfo.baml
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditPassword\EditPassword.baml
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\Login\Login.baml
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\RecoveryPassword\RecoveryPassword.baml
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\RemoveGroup\RemoveGroup.baml
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\SignUp\SignUp.baml
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\Upload\UploadImage.baml
@@ -38,8 +42,12 @@ D:\vChatProject\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\FileProces
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\SendFilePanel.g.cs
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\Chat\Chat.g.cs
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\Chat\ViewParts\ChatToolBar.g.cs
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\ContactViewer\ContactViewer.g.cs
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditInfo\EditInfo.g.cs
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditPassword\EditPassword.g.cs
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\FriendList\FriendsList.g.cs
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\Login\Login.g.cs
+D:\vChatProject\vChatClient\vChat.Module\obj\Debug\RecoveryPassword\RecoveryPassword.g.cs
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\RemoveGroup\RemoveGroup.g.cs
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\SignUp\SignUp.g.cs
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\Upload\UploadImage.g.cs
@@ -56,32 +64,6 @@ D:\vChatProject\vChatClient\vChat.Module\obj\Debug\vChat.Module.Properties.Resou
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\vChat.Module.csproj.GenerateResource.Cache
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\vChat.Module.dll
 D:\vChatProject\vChatClient\vChat.Module\obj\Debug\vChat.Module.pdb
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.csprojResolveAssemblyReference.cache
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Avatar\Avatar.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\FileProcess.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\SendFilePanel.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Login\Login.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\RemoveGroup\RemoveGroup.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\SignUp\SignUp.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Upload\UploadImage.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\VoIP\VoIP.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\AddFriend\AddFriend.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Avatar\Avatar.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\FileProcess.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\SendFilePanel.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat\Chat.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat\ViewParts\ChatToolBar.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\FriendList\FriendsList.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Login\Login.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\RemoveGroup\RemoveGroup.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\SignUp\SignUp.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Upload\UploadImage.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\VoIP\VoIP.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module_MarkupCompile.cache
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module_MarkupCompile.lref
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.dll
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\bin\Debug\vChat.Module.dll
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\bin\Debug\vChat.Module.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\bin\Debug\Core.Client.dll
@@ -107,6 +89,38 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\bin\Debug\NAudio.xml
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\bin\Debug\vChat.Lib.pdb
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\bin\Debug\vChat.Model.pdb
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.csprojResolveAssemblyReference.cache
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Avatar\Avatar.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\FileProcess.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\SendFilePanel.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\ContactViewer\ContactViewer.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\EditInfo\EditInfo.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\EditPassword\EditPassword.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Login\Login.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\RecoveryPassword\RecoveryPassword.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\RemoveGroup\RemoveGroup.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\SignUp\SignUp.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Upload\UploadImage.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\VoIP\VoIP.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\AddFriend\AddFriend.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Avatar\Avatar.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\FileProcess.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat.SendFilePanel\SendFilePanel.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat\Chat.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat\ViewParts\ChatToolBar.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\ContactViewer\ContactViewer.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\EditInfo\EditInfo.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\EditPassword\EditPassword.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\FriendList\FriendsList.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Login\Login.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\RecoveryPassword\RecoveryPassword.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\RemoveGroup\RemoveGroup.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\SignUp\SignUp.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Upload\UploadImage.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\VoIP\VoIP.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module_MarkupCompile.cache
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module_MarkupCompile.lref
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\AddFriend\AddFriend.baml
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat\Chat.baml
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\Chat\ViewParts\ChatToolBar.baml
@@ -114,13 +128,5 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.g.resources
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.Properties.Resources.resources
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.csproj.GenerateResource.Cache
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\ContactViewer\ContactViewer.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\ContactViewer\ContactViewer.g.cs
-D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditPassword\EditPassword.baml
-D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditPassword\EditPassword.g.cs
-D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditInfo\EditInfo.baml
-D:\vChatProject\vChatClient\vChat.Module\obj\Debug\EditInfo\EditInfo.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\EditInfo\EditInfo.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\EditPassword\EditPassword.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\EditInfo\EditInfo.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\EditPassword\EditPassword.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.dll
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Module\obj\Debug\vChat.Module.pdb

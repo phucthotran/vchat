@@ -20,32 +20,46 @@ namespace vChat.Control
     public partial class ImageButton : UserControl
     {
         public event RoutedEventHandler Click;
-        public static DependencyProperty CommandDependencyProperty = DependencyProperty.Register("Command", typeof(ICommand), typeof(ImageButton), new PropertyMetadata(null));
-        //public static DependencyProperty ImageDependencyProperty = DependencyProperty.Register("Image", typeof(ImageSource), typeof(ImageButton), new UIPropertyMetadata(null));
-        //public static DependencyProperty TextDependencyProperty = DependencyProperty.Register("Text", typeof(String), typeof(ImageButton), new UIPropertyMetadata(""));
 
+        #region DEPENDENCY PROPERTY
+
+        public static DependencyProperty CommandDependencyProperty = DependencyProperty.Register("Command", typeof(ICommand), typeof(ImageButton), new PropertyMetadata(null));
+        public static DependencyProperty ImageDependencyProperty = DependencyProperty.Register("Image", typeof(ImageSource), typeof(ImageButton), new UIPropertyMetadata(null));
+        public static DependencyProperty TextDependencyProperty = DependencyProperty.Register("Text", typeof(String), typeof(ImageButton), new UIPropertyMetadata(""));
+
+        #endregion
+
+        #region PROPERTY
+
+        /// <summary>
+        /// Lấy/gán command cho button
+        /// </summary>
         public ICommand Command
         {
             get { return (ICommand)base.GetValue(CommandDependencyProperty); }
             set { base.SetValue(CommandDependencyProperty, value); }
         }
 
+        /// <summary>
+        /// Lấy/gán ảnh cho button
+        /// </summary>
         public ImageSource Image
         {
-            //get { return (ImageSource)GetValue(ImageDependencyProperty); }
-            //set { SetValue(ImageDependencyProperty, value); }
-            get { return img.Source; }
-            set { img.Source = value; }
+            get { return (ImageSource)GetValue(ImageDependencyProperty); }
+            set { SetValue(ImageDependencyProperty, value); }
         }
 
+        /// <summary>
+        /// Lấy/gán chữ cho button
+        /// </summary>
         public String Text
         {
-            //get { return (String)GetValue(TextDependencyProperty); }
-            //set { SetValue(TextDependencyProperty, value); }
-            get { return tbl.Text; }
-            set { tbl.Text = value; }
-        }        
-        
+            get { return (String)GetValue(TextDependencyProperty); }
+            set { SetValue(TextDependencyProperty, value); }
+        }
+
+        #endregion
+
         public ImageButton()
         {            
             InitializeComponent();            

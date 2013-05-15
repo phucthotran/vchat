@@ -8,6 +8,9 @@ using System.IO;
 
 namespace vChat.Module.VoIP
 {
+    /// <summary>
+    /// Class nền tảng dùng cho ghi âm
+    /// </summary>
     public class VoIPBase : IDisposable
     {
         public delegate void RecordEventHandler(object sender, RecordEventArgs e);
@@ -37,22 +40,35 @@ namespace vChat.Module.VoIP
 
         private void waveInEvent_DataAvailable(object sender, WaveInEventArgs e)
         {
+            //Gửi các dữ liệu ghi âm được cho đối tượng thực thi class này
             if(OnRecording != null)
                 OnRecording(this, new RecordEventArgs(e.Buffer, e.BytesRecorded));
         }
 
+        /// <summary>
+        /// Thực hiện phát một đoạn dữ liệu âm thành (Quá trình này bất đồng bộ so với quá trình ghi âm)
+        /// </summary>
+        /// <param name="buffer">Dữ liệu âm thanh</param>
+        /// <param name="offset">Vị trí bắt đầu của dữ liệu</param>
+        /// <param name="count">Vị trí kết thúc của dữ liệu</param>
         public void AsyncPlaying(byte[] buffer, int offset, int count)
         {
             try
             {
+                //Thực hiện đưa dữ liệu "buffer" vào cho "waveProvier",
+                //lúc nãy "waveOut" vẫn đang hoạt động và nhận dữ liệu trên "waveProvier" để tiếp tục phát âm thanh ra bên ngoài
+
                 waveProvider.AddSamples(buffer, offset, count);
             }
-            catch (InvalidOperationException)
+            catch (InvalidOperationException) //Bắt lỗi trường hợp bị "buffer full"
             {
-                Thread.Sleep(500); //regain the buffer not lead to "buffer full" error                
+                Thread.Sleep(500); //Tạm dừng công việc 0.5s để "waveProvider" có thể phục hồi lại buffer, tránh tình trạng bị "buffer full"
             }
         }
 
+        /// <summary>
+        /// Hủy đối tượng
+        /// </summary>
         public void Dispose()
         {
             waveInEvent.DataAvailable -= waveInEvent_DataAvailable;

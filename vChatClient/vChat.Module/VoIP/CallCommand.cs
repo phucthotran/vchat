@@ -5,12 +5,15 @@ using System.Text;
 
 namespace vChat.Module.VoIP
 {
+    /// <summary>
+    /// Thông tin các command được gửi đến một user
+    /// </summary>
     public enum CallCommand
     {
-        Invite, //Make a call.
-        Bye,    //End a call.
-        Busy,   //User busy.
-        OK,     //Response to an invite message. OK is send to indicate that call is accepted.
-        Null,   //No command.
+        Invite, //Yêu cầu cuộc gọi
+        Bye,    //Kết thúc cuộc gọi
+        Busy,   //Người dùng đang bận
+        OK,     //Phản hồi lại "Yêu cầu cuộc gọi" (Chấp nhận cuộc gọi)
+        Null,   //No command
     }
 }

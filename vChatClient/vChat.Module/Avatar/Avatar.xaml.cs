@@ -34,6 +34,9 @@ namespace vChat.Module.Avatar
 
         #region PROPERTY
 
+        /// <summary>
+        /// Lấy/gán ảnh
+        /// </summary>
         public ImageSource Image
         {
             get { return image; }
@@ -57,18 +60,25 @@ namespace vChat.Module.Avatar
 
         #region MAIN METHOD
 
+        /// <summary>
+        /// Cài đặt thông tin thay đổi avatar cho user được chỉ định
+        /// </summary>
+        /// <param name="UserID">ID của user cần thay đổi avatar</param>
         public void ChangeAvatarFor(int UserID)
         {
             uploadAvatarModule = new Upload.UploadImage();
             uploadAvatarModule.UploadFor(UserID);
-            uploadAvatarModule.IntegratedWith(this);
+            uploadAvatarModule.IntegratedWith(this); //Dùng cho việc tương tác với UploadImage module (cập nhập avatar sau khi UploadImage module thực hiện thao tác thành công)
 
-            this.Image = ImageByteConverter.GetFromBytes(GetInfo(UserID).Picture);
+            this.Image = ImageByteConverter.GetFromBytes(GetInfo(UserID).Picture); //Lấy avatar hiện tại của user và hiển thị
 
             DataContext = this;
         }
 
-        //Call by UploadImage module
+        /// <summary>
+        /// Thực hiện thay đổi avatar sau khi upload thành công (Thực hiện từ module UploadImage)
+        /// </summary>
+        /// <param name="Image">Ảnh cần thay đổi</param>
         public void ChangeAvatarWork(ImageSource Image)
         {
             this.Image = Image;

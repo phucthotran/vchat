@@ -150,6 +150,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="RecoveryPassword\RecoveryPassword.xaml.cs">
+      <DependentUpon>RecoveryPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecoveryPassword\RecoveryPasswordController.cs" />
     <Compile Include="RemoveGroup\RemoveGroup.xaml.cs">
       <DependentUpon>RemoveGroup.xaml</DependentUpon>
     </Compile>
@@ -234,6 +238,10 @@
     <Page Include="Login\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RecoveryPassword\RecoveryPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RemoveGroup\RemoveGroup.xaml">
       <SubType>Designer</SubType>

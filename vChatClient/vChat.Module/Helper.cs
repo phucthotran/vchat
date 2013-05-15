@@ -10,6 +10,10 @@ namespace vChat.Module
 {
     class Helper
     {
+        /// <summary>
+        /// Hiển thị hộp thoại thông báo các thông tin từ trên service gửi về (lỗi, thông tin thành công/thất bại, lỗi ràng buộc,..)
+        /// </summary>
+        /// <param name="InvokeResult">Đối tượng chứa kết quả trả về từ service</param>
         public static void ShowMessage(MethodInvokeResult InvokeResult)
         {
             if (InvokeResult.Message != null && InvokeResult.Errors != null)
@@ -20,6 +24,13 @@ namespace vChat.Module
                 MessageBox.Show(String.Join(",", InvokeResult.Errors.ToArray()));            
         }
 
+        /// <summary>
+        /// Khởi tạo một đối tượng MetroWindow
+        /// </summary>
+        /// <param name="NewWindow">Đối tượng chứa kết quả trả về</param>
+        /// <param name="Title">Tiêu đề của cửa sổ</param>
+        /// <param name="Content">Nội dung phía bên trong cửa số (các control)</param>
+        /// <returns></returns>
         public static Window CreateWindow(ref MetroWindow NewWindow, String Title, System.Windows.Controls.ContentControl Content)
         {
             NewWindow = new MetroWindow();

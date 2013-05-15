@@ -24,6 +24,7 @@ using System.ComponentModel;
 using System.Windows.Controls.Primitives;
 using System.Net;
 using vChat.Service.UserService;
+using System.Net.Sockets;
 
 namespace vChat.View.Windows
 {
@@ -100,6 +101,7 @@ namespace vChat.View.Windows
             _loginModule = Grid.LoadModule<Login>(new Login.LoginSuccessHandler(Login_OnLoginSuccess));
             _loginModule.OnLoginFailed += new Login.LoginFailedHandler(Login_OnLoginFailed);
             _loginModule.OnSignUpClicked += new Login.SignUpClickHandler(Login_OnSignUpClicked);
+            _loginModule.OnRecovery += new Login.RecoveryPasswordHandler(_loginModule_OnRecovery);
         }
 
         private void InitFriendsListModule(int UserID)
@@ -107,6 +109,11 @@ namespace vChat.View.Windows
             _friendListModule = Grid.LoadModule<FriendsList>();
             _friendListModule.Init(UserID);
             _friendListModule.OnFriendDoubleClick += new FriendsList.MouseEventHandler(FriendList_OnFriendDoubleClick);
+        }
+
+        public void SetDefaultUser(string user)
+        {
+            _loginModule.SetUser(user);
         }
 
         private void FriendList_OnFriendDoubleClick(object sender, FriendArgs e)
@@ -127,6 +134,11 @@ namespace vChat.View.Windows
             }
             chatWindow.BringToFront();
             this.Get<Client>().SendCommand(CommandType.CheckIP, "SERVER", e.Username);
+        }
+
+        void _loginModule_OnRecovery()
+        {
+            new RecoveryPasswordWindow().ShowDialog();
         }
 
         private void Login_OnLoginSuccess(Users UserLogged)
@@ -180,7 +192,7 @@ namespace vChat.View.Windows
 
             if (this.WindowState == System.Windows.WindowState.Minimized)
             {
-                this.ShowInTaskbar = false;                
+                this.ShowInTaskbar = false;               
                 systemTrayIcon.ShowBalloonTip(2500);                
             }
             else if (this.WindowState == System.Windows.WindowState.Normal)
@@ -195,9 +207,8 @@ namespace vChat.View.Windows
             this.CloseHandler(true, e, (this.Get<Client>().ID != -1) ? delegate
             {
                 disconnectProcess(false);
-            } : (Action)null);
-
-            systemTrayIcon.Visible = false;
+                systemTrayIcon.Visible = false;
+            } : (Action)null);            
         }
 
         private void disconnectProcess(bool isLogout)

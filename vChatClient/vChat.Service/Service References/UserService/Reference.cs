@@ -63,6 +63,9 @@ namespace vChat.Service.UserService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/ChangePassword", ReplyAction="http://tempuri.org/IUserService/ChangePasswordResponse")]
         vChat.Model.MethodInvokeResult ChangePassword(int UserID, string OldPassword, string NewPassword);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/AccountRecovery", ReplyAction="http://tempuri.org/IUserService/AccountRecoveryResponse")]
+        vChat.Model.MethodInvokeResult AccountRecovery(int UserID, string NewPassword);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/ChangeUserInfo", ReplyAction="http://tempuri.org/IUserService/ChangeUserInfoResponse")]
         vChat.Model.MethodInvokeResult ChangeUserInfo(int UserID, string FirstName, string LastName, int QuestionID, string Answer, System.DateTime Birthdate);
         
@@ -204,6 +207,10 @@ namespace vChat.Service.UserService {
         
         public vChat.Model.MethodInvokeResult ChangePassword(int UserID, string OldPassword, string NewPassword) {
             return base.Channel.ChangePassword(UserID, OldPassword, NewPassword);
+        }
+        
+        public vChat.Model.MethodInvokeResult AccountRecovery(int UserID, string NewPassword) {
+            return base.Channel.AccountRecovery(UserID, NewPassword);
         }
         
         public vChat.Model.MethodInvokeResult ChangeUserInfo(int UserID, string FirstName, string LastName, int QuestionID, string Answer, System.DateTime Birthdate) {

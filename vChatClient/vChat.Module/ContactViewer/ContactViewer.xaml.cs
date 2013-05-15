@@ -23,12 +23,21 @@ namespace vChat.Module.ContactViewer
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        #region CLASS MEMBER
+
         private ImageSource avatar;
         private String username;
         private String firstName;
         private String lastName;
         private String birthdate;
 
+        #endregion
+
+        #region PROPERTY
+
+        /// <summary>
+        /// Lấy/gán ảnh avatar
+        /// </summary>
         public ImageSource Avatar
         {
             get { return avatar; }
@@ -42,6 +51,9 @@ namespace vChat.Module.ContactViewer
             }
         }
 
+        /// <summary>
+        /// Lấy/gán tên người dùng
+        /// </summary>
         public String Username
         {
             get { return username.ToUpper(); }
@@ -55,6 +67,9 @@ namespace vChat.Module.ContactViewer
             }
         }
 
+        /// <summary>
+        /// Lấy/gán tên và tên đệm
+        /// </summary>
         public String FirstName
         {
             get { return firstName; }
@@ -68,6 +83,9 @@ namespace vChat.Module.ContactViewer
             }
         }
 
+        /// <summary>
+        /// Lấy/gán họ
+        /// </summary>
         public String LastName
         {
             get { return lastName; }
@@ -81,6 +99,9 @@ namespace vChat.Module.ContactViewer
             }
         }
 
+        /// <summary>
+        /// Lấy/gán ngày sinh
+        /// </summary>
         public String Birthdate
         {
             get { return birthdate; }
@@ -94,11 +115,19 @@ namespace vChat.Module.ContactViewer
             }
         }
 
+        #endregion
+
         public ContactViewer()
         {
             InitializeComponent();
         }
 
+        #region MAIN METHOD
+
+        /// <summary>
+        /// Cài đặt thông tin để xem thông tin user
+        /// </summary>
+        /// <param name="Friend">Đối tượng chứa thông của user</param>
         public void ViewFor(Users Friend)
         {
             this.Avatar = vChat.Lib.ImageByteConverter.GetFromBytes(Friend.Picture);
@@ -115,5 +144,8 @@ namespace vChat.Module.ContactViewer
             if (PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
         }
+
+        #endregion
+
     }
 }

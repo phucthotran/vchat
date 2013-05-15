@@ -66,7 +66,6 @@ namespace vChat.Module.Chat
             this.MinHeight = 250;
             this.MinWidth = 400;
             InitializeComponent();
-            MessageView.Document.Blocks.Remove(MessageView.Document.Blocks.FirstBlock);
 
             Paragraph para = new Paragraph();
             Run run = new Run("Nhấn vào để xem những tin nhắn gần đây (F3).");

@@ -29,9 +29,13 @@ D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChatClient.csprojResolveA
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\Themes\Generic.baml
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\ChatWindow.baml
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\MainWindow.baml
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\RecoveryPasswordWindow.baml
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\UserSetting.baml
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\App.baml
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\ChatWindow.g.cs
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\MainWindow.g.cs
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\RecoveryPasswordWindow.g.cs
+D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\UserSetting.g.cs
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\App.g.cs
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat_MarkupCompile.cache
 D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\vChat.g.resources
@@ -72,15 +76,15 @@ C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\Themes\Generic.baml
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\ChatWindow.baml
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\MainWindow.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\RecoveryPasswordWindow.baml
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\UserSetting.baml
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\App.baml
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\ChatWindow.g.cs
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\MainWindow.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\RecoveryPasswordWindow.g.cs
+C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\UserSetting.g.cs
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\App.g.cs
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChat_MarkupCompile.cache
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChat.g.resources
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChat.Properties.Resources.resources
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\vChatClient.csproj.GenerateResource.Cache
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\UserSetting.baml
-D:\vChatProject\vChatClient\vChatClient\obj\x86\Debug\View\Windows\UserSetting.g.cs
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\UserSetting.baml
-C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChatClient\obj\x86\Debug\View\Windows\UserSetting.g.cs

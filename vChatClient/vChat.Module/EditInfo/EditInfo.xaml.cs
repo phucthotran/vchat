@@ -40,6 +40,7 @@ namespace vChat.Module.EditInfo
             tbDob.VerticalContentAlignment = System.Windows.VerticalAlignment.Center;
             tbDob.DisplayDateStart = DateTime.Parse("1/1/1900");
             tbDob.DisplayDateEnd = DateTime.Today;
+            tbDob.DisplayDate = DateTime.Parse("1/1/1990");
             CultureInfo ci = CultureInfo.CreateSpecificCulture(CultureInfo.CurrentCulture.Name);
             ci.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
             Thread.CurrentThread.CurrentCulture = ci;
@@ -73,7 +74,7 @@ namespace vChat.Module.EditInfo
             btSubmit.IsEnabled = false;
             SubmitProgress.State = Elysium.Controls.ProgressState.Indeterminate;
             SubmitProgress.Visibility = System.Windows.Visibility.Visible;
-            _SubmitWorker.RunWorkerAsync(new EditInfoMetadata(tbFname.Text, tbLname.Text, cbQuestion.SelectedIndex, tbAnswer.Text, tbDob.Text));
+            _SubmitWorker.RunWorkerAsync(new EditInfoMetadata(tbFname.Text, tbLname.Text, Convert.ToInt32(cbQuestion.SelectedValue), tbAnswer.Text, tbDob.Text));
         }
 
         private void btRefresh_Click(object sender, RoutedEventArgs e)
@@ -84,7 +85,6 @@ namespace vChat.Module.EditInfo
             tbAnswer.Text = user.Answer;
             tbDob.Text = user.Birthdate.ToString("dd/MM/yyyy");
 
-            object o = cbQuestion.ItemContainerGenerator.ContainerFromItem(user.Question);
             cbQuestion.SelectedValue = user.Question.QuestionID;
         }
 
@@ -171,12 +171,18 @@ namespace vChat.Module.EditInfo
 
         private void tbDob_LostFocus(object sender, RoutedEventArgs e)
         {
-            tbDob.BorderBrush = _valid;
+            if (tbDob.Dispatcher.CheckAccess())
+                tbDob.BorderBrush = _valid;
+            else
+                tbDob.Dispatcher.Invoke(new Action(() => tbDob_LostFocus(sender, e)));
         }
 
         private void cbQuestion_LostFocus(object sender, RoutedEventArgs e)
         {
-            cbQuestion.BorderBrush = _valid;
+            if (cbQuestion.Dispatcher.CheckAccess())
+                cbQuestion.BorderBrush = _valid;
+            else
+                cbQuestion.Dispatcher.Invoke(new Action(() => cbQuestion_LostFocus(sender, e)));
         }
 
         private Task _answerTask;
@@ -197,7 +203,7 @@ namespace vChat.Module.EditInfo
                         else
                             tbAnswer.BorderBrush = _valid;
                     };
-                    string warningText = validateLastName(obj.ToString());
+                    string warningText = validateAnswer(obj.ToString());
                     _answerTask.ContinueWith(t =>
                     {
                         if (AnswerWarner.Dispatcher.CheckAccess())

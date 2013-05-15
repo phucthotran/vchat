@@ -13,8 +13,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <DockPanel>            
-            <StackPanel DockPanel.Dock="Top">
-                <!--<my:OnlineStatus Name="tOnline" IsOnline="{Binding IsOnlineAA}" Margin="10, 15, 43, 43" Panel.ZIndex="9999" />-->
+            <StackPanel DockPanel.Dock="Top">                
                 <my1:Avatar x:Name="changeAvatarModule" />
                 <Canvas MinHeight="1" Background="#FFE5E5E5" Margin="0, 0, 0, 3" />
                 <Grid DockPanel.Dock="Top">
@@ -55,7 +54,7 @@
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal" Margin="5">
-                                                    <CheckBox IsChecked="{Binding IsSelected}"/>
+                                                    <CheckBox IsChecked="{Binding IsChecked}"/>
                                                     <Image Source="Image/unresponserequest.png" Height="16" Width="16" Margin="0, 0, 5, 0"/>
                                                     <TextBlock Text="{Binding FriendName}">
 					                                    <TextBlock.Style>
@@ -145,7 +144,7 @@
                             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Danh Sách Bạn Bè</TextBlock>                            
                         </StackPanel>
                     </Expander.Header>
-                    <ScrollViewer MinHeight="400" MaxHeight="600" Grid.Row="0">
+                    <ScrollViewer MinHeight="250" MaxHeight="450" Grid.Row="0">
                         <TreeView Name="treeFriend" ItemsSource="{Binding GroupTree.Groups}" SelectedItemChanged="TreeFriend_SelectedItemChanged" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                             <TreeView.ItemContainerStyle>
                                 <Style TargetType="{x:Type TreeViewItem}">
@@ -189,7 +188,7 @@
                                             <my:OnlineStatus IsOnline="{Binding Path=IsOnline, Mode=TwoWay}" Margin="10, 15, 43, 43" Panel.ZIndex="9999" />
                                             <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="#5133AB" CornerRadius="1" Margin="0, 0, 5, 0">
                                                 <Border Background="White" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                                    <Image Source="{Binding ProfilePicture}" Height="48" Width="48" Stretch="Uniform" />
+                                                    <Image Source="{Binding Avatar}" Height="48" Width="48" Stretch="Uniform" />
                                                 </Border>
                                             </Border>
                                         </Grid>

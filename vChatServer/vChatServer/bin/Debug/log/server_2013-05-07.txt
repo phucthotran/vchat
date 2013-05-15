@@ -1,37 +1,48 @@
-07/05/2013 07:19:31 - Server da khoi dong thanh cong.
-07/05/2013 07:51:14 - symaci(113.161.86.64:43910) da ket noi den server.
-07/05/2013 07:51:15 - symaci(113.161.86.64:43910) da gui: CheckOnline - itexplore
-07/05/2013 07:51:37 - symaci(113.161.86.64:43910) da gui: LogOut - Null Data
-07/05/2013 07:51:37 - symaci(113.161.86.64:43910) da gui: LogOutSuccess - False
-07/05/2013 07:51:37 - symaci(113.161.86.64:43910) da ngat ket noi.
-07/05/2013 07:59:49 - itexplore(113.161.86.64:50677) da ket noi den server.
-07/05/2013 07:59:51 - itexplore(113.161.86.64:50677) da gui: CheckOnline - shinichikudo
-07/05/2013 07:59:51 - itexplore(113.161.86.64:50677) da gui: CheckOnline - tuananh
-07/05/2013 07:59:51 - itexplore(113.161.86.64:50677) da gui: CheckOnline - symaci
-07/05/2013 07:59:51 - itexplore(113.161.86.64:50677) da gui: CheckOnline - huyentrang
-07/05/2013 08:03:30 - zinlee0pro(113.161.86.64:55714) da ket noi den server.
-07/05/2013 08:05:02 - symaci(113.161.86.64:43925) da ket noi den server.
-07/05/2013 08:05:04 - symaci(113.161.86.64:43925) da gui: CheckOnline - itexplore
-07/05/2013 08:05:20 - symaci(113.161.86.64:43925) da gui: CheckIP - zinlee0pro
-07/05/2013 08:05:20 - symaci(113.161.86.64:43925) da gui: CheckIP - zinlee0pro
-07/05/2013 08:05:22 - symaci(113.161.86.64:43925) da gui: Chat - 121 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>as</Paragraph></FlowDocument>
-07/05/2013 08:05:23 - zinlee0pro(113.161.86.64:55714) da gui: CheckIP - symaci
-07/05/2013 08:05:33 - symaci(113.161.86.64:43925) da gui: Chat - 122 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sa</Paragraph></FlowDocument>
-07/05/2013 08:06:03 - zinlee0pro(113.161.86.64:55714) da gui: SendFileRequest - IMG_0997 (138.33 KB) 
-07/05/2013 08:06:13 - symaci(113.161.86.64:43925) da gui: SendFileAccept - bc23856c-10f3-4f9d-ae45-8c8102431554
-07/05/2013 08:06:13 - zinlee0pro(113.161.86.64:55714) da gui: SendFileProcess - bc23856c-10f3-4f9d-ae45-8c8102431554 :: System.Byte[] :: 1
-07/05/2013 08:06:13 - zinlee0pro(113.161.86.64:55714) da gui: SendFileSuccess - bc23856c-10f3-4f9d-ae45-8c8102431554
-07/05/2013 08:06:32 - zinlee0pro(113.161.86.64:55714) da gui: LogOut - Null Data
-07/05/2013 08:06:32 - zinlee0pro(113.161.86.64:55714) da gui: LogOutSuccess - True
-07/05/2013 08:06:32 - zinlee0pro(113.161.86.64:55714) da ngat ket noi.
-07/05/2013 08:06:46 - zinlee0pro(113.161.86.64:55752) da ket noi den server.
-07/05/2013 08:06:48 - zinlee0pro(113.161.86.64:55752) da gui: CheckOnline - symaci
-07/05/2013 08:06:52 - zinlee0pro(113.161.86.64:55752) da gui: CheckIP - symaci
-07/05/2013 08:06:52 - zinlee0pro(113.161.86.64:55752) da gui: CheckIP - symaci
-07/05/2013 08:07:01 - symaci(113.161.86.64:43925) da gui: Chat - 123 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>jub</Paragraph></FlowDocument>
-07/05/2013 08:07:01 - zinlee0pro(113.161.86.64:55752) da ngat ket noi.
-07/05/2013 08:07:02 - symaci(113.161.86.64:43925) da gui: Chat - 124 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>ih</Paragraph></FlowDocument>
-07/05/2013 08:07:02 - symaci(113.161.86.64:43925) da gui: Chat - 125 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>i</Paragraph></FlowDocument>
+07/05/2013 11:26:51 - Server da khoi dong thanh cong.
+07/05/2013 11:42:41 - itexplore(127.0.0.1:13714) da ket noi den server.
+07/05/2013 11:42:41 - itexplore(127.0.0.1:13714) da gui: CheckOnline - shinichikudo
+07/05/2013 11:42:41 - itexplore(127.0.0.1:13714) da gui: CheckOnline - tuananh
+07/05/2013 11:42:41 - itexplore(127.0.0.1:13714) da gui: CheckOnline - zinlee0pro
+07/05/2013 11:42:41 - itexplore(127.0.0.1:13714) da gui: CheckOnline - symaci1
+07/05/2013 11:42:41 - itexplore(127.0.0.1:13714) da gui: CheckOnline - symaci
+07/05/2013 11:42:41 - itexplore(127.0.0.1:13714) da gui: CheckOnline - huyentrang
+07/05/2013 11:42:45 - itexplore(127.0.0.1:13714) da gui: LogOut - Null Data
+07/05/2013 11:42:45 - itexplore(127.0.0.1:13714) da gui: LogOut - Null Data
+07/05/2013 11:42:45 - itexplore(127.0.0.1:13714) da gui: LogOut - Null Data
+07/05/2013 11:42:45 - itexplore(127.0.0.1:13714) da gui: LogOut - Null Data
+07/05/2013 11:42:45 - itexplore(127.0.0.1:13714) da gui: LogOut - Null Data
+07/05/2013 11:42:45 - itexplore(127.0.0.1:13714) da gui: LogOut - Null Data
+07/05/2013 11:42:45 - itexplore(127.0.0.1:13714) da gui: LogOutSuccess - False
+07/05/2013 11:42:45 - itexplore(127.0.0.1:13714) da ngat ket noi.
+07/05/2013 11:43:22 - itexplore(127.0.0.1:13731) da ket noi den server.
+07/05/2013 11:43:23 - itexplore(127.0.0.1:13731) da gui: CheckOnline - shinichikudo
+07/05/2013 11:43:23 - itexplore(127.0.0.1:13731) da gui: CheckOnline - tuananh
+07/05/2013 11:43:23 - itexplore(127.0.0.1:13731) da gui: CheckOnline - zinlee0pro
+07/05/2013 11:43:23 - itexplore(127.0.0.1:13731) da gui: CheckOnline - symaci1
+07/05/2013 11:43:23 - itexplore(127.0.0.1:13731) da gui: CheckOnline - symaci
+07/05/2013 11:43:23 - itexplore(127.0.0.1:13731) da gui: CheckOnline - huyentrang
+07/05/2013 11:43:25 - itexplore(127.0.0.1:13731) da gui: LogOut - Null Data
+07/05/2013 11:43:25 - itexplore(127.0.0.1:13731) da gui: LogOut - Null Data
+07/05/2013 11:43:25 - itexplore(127.0.0.1:13731) da gui: LogOut - Null Data
+07/05/2013 11:43:25 - itexplore(127.0.0.1:13731) da gui: LogOut - Null Data
+07/05/2013 11:43:25 - itexplore(127.0.0.1:13731) da gui: LogOut - Null Data
+07/05/2013 11:43:25 - itexplore(127.0.0.1:13731) da gui: LogOut - Null Data
+07/05/2013 11:43:25 - itexplore(127.0.0.1:13731) da gui: LogOutSuccess - False
+07/05/2013 11:43:25 - itexplore(127.0.0.1:13731) da ngat ket noi.
+07/05/2013 11:49:42 - itexplore(127.0.0.1:13909) da ket noi den server.
+07/05/2013 11:49:42 - itexplore(127.0.0.1:13909) da gui: CheckOnline - shinichikudo
+07/05/2013 11:49:42 - itexplore(127.0.0.1:13909) da gui: CheckOnline - tuananh
+07/05/2013 11:49:42 - itexplore(127.0.0.1:13909) da gui: CheckOnline - zinlee0pro
+07/05/2013 11:49:42 - itexplore(127.0.0.1:13909) da gui: CheckOnline - symaci1
+07/05/2013 11:49:42 - itexplore(127.0.0.1:13909) da gui: CheckOnline - symaci
+07/05/2013 11:49:42 - itexplore(127.0.0.1:13909) da gui: CheckOnline - huyentrang
+07/05/2013 11:50:22 - itexplore(127.0.0.1:13909) da ngat ket noi.
+07/05/2013 11:53:11 - zinlee0pro(113.162.170.176:60325) da ket noi den server.
+07/05/2013 11:53:13 - zinlee0pro(113.162.170.176:60325) da gui: CheckOnline - itexplore
+07/05/2013 11:54:14 - zinlee0pro(113.162.170.176:60325) da gui: CheckIP - itexplore
+07/05/2013 11:54:14 - zinlee0pro(113.162.170.176:60325) da gui: CheckIP - itexplore
+07/05/2013 11:54:23 - zinlee0pro(113.162.170.176:60325) da gui: Chat - 151 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>Có đó không?</Paragraph></FlowDocument>
+rop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>i</Paragraph></FlowDocument>
 07/05/2013 08:07:07 - itexplore(113.161.86.64:50677) da gui: CheckIP - symaci
 07/05/2013 08:07:07 - symaci(113.161.86.64:43925) da gui: Chat - 126 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>hyb</Paragraph></FlowDocument>
 07/05/2013 08:07:07 - itexplore(113.161.86.64:50677) da gui: CheckIP - symaci
@@ -375,6 +386,363 @@
 07/05/2013 06:49:46 - symaci(113.161.86.64:42510) da gui: CheckIP - itexplore
 07/05/2013 06:52:34 - symaci(113.161.86.64:42510) da ngat ket noi.
 fx/2006/xaml/presentation"><Paragraph>sd</Paragraph></FlowDocument>
+=======
+07/05/2013 06:55:56 - Server da khoi dong thanh cong.
+07/05/2013 06:56:17 - symaci(127.0.0.1:25711) da ket noi den server.
+07/05/2013 06:56:19 - symaci(127.0.0.1:25711) da gui: CheckOnline - itexplore
+07/05/2013 06:56:25 - symaci(127.0.0.1:25711) da gui: CheckIP - itexplore
+07/05/2013 06:56:25 - symaci(127.0.0.1:25711) da gui: CheckIP - itexplore
+07/05/2013 06:56:30 - symaci(127.0.0.1:25711) da gui: Chat - 19 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sssv</Paragraph></FlowDocument>
+07/05/2013 06:56:31 - symaci(127.0.0.1:25711) da gui: Chat - 20 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>bbdbf</Paragraph></FlowDocument>
+07/05/2013 06:56:33 - symaci(127.0.0.1:25711) da gui: Chat - 21 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rbrb</Paragraph></FlowDocument>
+07/05/2013 06:56:35 - symaci(127.0.0.1:25711) da gui: CheckIP - itexplore
+07/05/2013 06:56:35 - symaci(127.0.0.1:25711) da gui: CheckIP - itexplore
+07/05/2013 06:56:53 - symaci(127.0.0.1:25711) da ngat ket noi.
+07/05/2013 06:59:00 - symaci(127.0.0.1:25790) da ket noi den server.
+07/05/2013 06:59:01 - symaci(127.0.0.1:25790) da gui: CheckOnline - itexplore
+07/05/2013 06:59:06 - symaci(127.0.0.1:25790) da gui: CheckIP - itexplore
+07/05/2013 06:59:06 - symaci(127.0.0.1:25790) da gui: CheckIP - itexplore
+07/05/2013 07:01:15 - symaci(127.0.0.1:25790) da ngat ket noi.
+07/05/2013 07:01:35 - symaci(127.0.0.1:25820) da ket noi den server.
+07/05/2013 07:01:37 - symaci(127.0.0.1:25820) da gui: CheckOnline - itexplore
+07/05/2013 07:01:40 - symaci(127.0.0.1:25820) da gui: CheckIP - itexplore
+07/05/2013 07:01:40 - symaci(127.0.0.1:25820) da gui: CheckIP - itexplore
+07/05/2013 07:04:00 - symaci(127.0.0.1:25820) da ngat ket noi.
+07/05/2013 07:06:55 - symaci(127.0.0.1:25843) da ket noi den server.
+07/05/2013 07:06:55 - symaci(127.0.0.1:25843) da gui: CheckOnline - itexplore
+07/05/2013 07:07:09 - symaci(127.0.0.1:25843) da gui: CheckIP - itexplore
+07/05/2013 07:07:09 - symaci(127.0.0.1:25843) da gui: CheckIP - itexplore
+07/05/2013 07:15:33 - symaci(127.0.0.1:25843) da ngat ket noi.
+07/05/2013 07:19:40 - symaci(127.0.0.1:25967) da ket noi den server.
+07/05/2013 07:19:41 - symaci(127.0.0.1:25967) da gui: CheckOnline - itexplore
+07/05/2013 07:25:44 - symaci(127.0.0.1:25967) da ngat ket noi.
+07/05/2013 07:26:59 - itexplore(127.0.0.1:26087) da ket noi den server.
+07/05/2013 07:27:00 - itexplore(127.0.0.1:26087) da gui: CheckOnline - symaci
+07/05/2013 07:28:50 - itexplore(127.0.0.1:26087) da ngat ket noi.
+07/05/2013 07:30:59 - symaci(127.0.0.1:26156) da ket noi den server.
+07/05/2013 07:31:00 - symaci(127.0.0.1:26156) da gui: CheckOnline - itexplore
+07/05/2013 07:31:08 - symaci(127.0.0.1:26156) da gui: LogOut - Null Data
+07/05/2013 07:31:08 - symaci(127.0.0.1:26156) da gui: LogOutSuccess - True
+07/05/2013 07:31:08 - symaci(127.0.0.1:26156) da ngat ket noi.
+07/05/2013 07:33:00 - symaci(127.0.0.1:26262) da ket noi den server.
+07/05/2013 07:33:00 - symaci(127.0.0.1:26262) da gui: CheckOnline - itexplore
+07/05/2013 07:33:08 - symaci(127.0.0.1:26262) da gui: LogOut - Null Data
+07/05/2013 07:33:08 - symaci(127.0.0.1:26262) da gui: LogOutSuccess - True
+07/05/2013 07:33:08 - symaci(127.0.0.1:26262) da ngat ket noi.
+07/05/2013 07:34:51 - symaci(127.0.0.1:26372) da ket noi den server.
+07/05/2013 07:34:52 - symaci(127.0.0.1:26372) da gui: CheckOnline - itexplore
+07/05/2013 07:39:06 - symaci(127.0.0.1:26372) da ngat ket noi.
+07/05/2013 07:40:02 - symaci(127.0.0.1:26643) da ket noi den server.
+07/05/2013 07:40:03 - symaci(127.0.0.1:26643) da gui: CheckOnline - itexplore
+07/05/2013 07:40:45 - symaci(127.0.0.1:26643) da gui: LogOut - Null Data
+07/05/2013 07:40:45 - symaci(127.0.0.1:26643) da gui: LogOutSuccess - True
+07/05/2013 07:40:46 - symaci(127.0.0.1:26643) da ngat ket noi.
+07/05/2013 07:41:01 - symaci(127.0.0.1:26767) da ket noi den server.
+07/05/2013 07:41:01 - symaci(127.0.0.1:26767) da gui: CheckOnline - itexplore
+07/05/2013 07:42:28 - symaci(127.0.0.1:26767) da gui: LogOut - Null Data
+07/05/2013 07:42:28 - symaci(127.0.0.1:26767) da gui: LogOutSuccess - False
+07/05/2013 07:42:28 - symaci(127.0.0.1:26767) da ngat ket noi.
+- itexplore(127.0.0.1:24541) da gui: LogOut - Null Data
+07/05/2013 05:22:21 - itexplore(127.0.0.1:24541) da gui: LogOutSuccess - True
+07/05/2013 05:22:21 - itexplore(127.0.0.1:24541) da gui: LogOut - Null Data
+07/05/2013 05:22:21 - itexplore(127.0.0.1:24541) da gui: LogOutSuccess - True
+07/05/2013 05:22:21 - itexplore(127.0.0.1:24541) da gui: LogOut - Null Data
+07/05/2013 05:22:21 - itexplore(127.0.0.1:24541) da gui: LogOutSuccess - True
+07/05/2013 05:22:30 - itexplore(127.0.0.1:24541) da gui: LogOut - Null Data
+07/05/2013 05:22:30 - itexplore(127.0.0.1:24541) da gui: LogOutSuccess - False
+07/05/2013 05:22:39 - itexplore(127.0.0.1:24541) da ngat ket noi.
+0.0.1:7463) da gui: LogOut - Null Data
+07/05/2013 02:27:14 - itexplore(127.0.0.1:7463) da gui: LogOut - Null Data
+07/05/2013 02:27:14 - itexplore(127.0.0.1:7463) da gui: LogOut - Null Data
+07/05/2013 02:27:14 - itexplore(127.0.0.1:7463) da gui: LogOutSuccess - False
+07/05/2013 02:27:14 - itexplore(127.0.0.1:7463) da ngat ket noi.
+07/05/2013 02:29:01 - itexplore(127.0.0.1:7532) da ket noi den server.
+07/05/2013 02:29:01 - itexplore(127.0.0.1:7532) da gui: CheckOnline - shinichikudo
+07/05/2013 02:29:01 - itexplore(127.0.0.1:7532) da gui: CheckOnline - tuananh
+07/05/2013 02:29:01 - itexplore(127.0.0.1:7532) da gui: CheckOnline - huyentrang
+07/05/2013 02:30:52 - itexplore(127.0.0.1:7532) da ngat ket noi.
+07/05/2013 02:33:01 - itexplore(127.0.0.1:7561) da ket noi den server.
+07/05/2013 02:33:01 - itexplore(127.0.0.1:7561) da gui: CheckOnline - shinichikudo
+07/05/2013 02:33:01 - itexplore(127.0.0.1:7561) da gui: CheckOnline - tuananh
+07/05/2013 02:33:01 - itexplore(127.0.0.1:7561) da gui: CheckOnline - huyentrang
+07/05/2013 02:33:24 - itexplore(127.0.0.1:7561) da ngat ket noi.
+07/05/2013 02:34:51 - itexplore(127.0.0.1:7582) da ket noi den server.
+07/05/2013 02:34:51 - itexplore(127.0.0.1:7582) da gui: CheckOnline - shinichikudo
+07/05/2013 02:34:51 - itexplore(127.0.0.1:7582) da gui: CheckOnline - tuananh
+07/05/2013 02:34:51 - itexplore(127.0.0.1:7582) da gui: CheckOnline - huyentrang
+07/05/2013 02:35:29 - itexplore(127.0.0.1:7582) da ngat ket noi.
+07/05/2013 02:37:04 - itexplore(127.0.0.1:7594) da ket noi den server.
+07/05/2013 02:37:04 - itexplore(127.0.0.1:7594) da gui: CheckOnline - shinichikudo
+07/05/2013 02:37:04 - itexplore(127.0.0.1:7594) da gui: CheckOnline - tuananh
+07/05/2013 02:37:04 - itexplore(127.0.0.1:7594) da gui: CheckOnline - huyentrang
+07/05/2013 02:37:23 - itexplore(127.0.0.1:7594) da ngat ket noi.
+07/05/2013 02:39:28 - itexplore(127.0.0.1:7633) da ket noi den server.
+07/05/2013 02:39:28 - itexplore(127.0.0.1:7633) da gui: CheckOnline - shinichikudo
+07/05/2013 02:39:28 - itexplore(127.0.0.1:7633) da gui: CheckOnline - tuananh
+07/05/2013 02:39:28 - itexplore(127.0.0.1:7633) da gui: CheckOnline - huyentrang
+07/05/2013 02:39:39 - itexplore(127.0.0.1:7633) da ngat ket noi.
+07/05/2013 02:40:49 - itexplore(127.0.0.1:7655) da ket noi den server.
+07/05/2013 02:40:49 - itexplore(127.0.0.1:7655) da gui: CheckOnline - shinichikudo
+07/05/2013 02:40:49 - itexplore(127.0.0.1:7655) da gui: CheckOnline - tuananh
+07/05/2013 02:40:49 - itexplore(127.0.0.1:7655) da gui: CheckOnline - huyentrang
+07/05/2013 02:41:06 - itexplore(127.0.0.1:7655) da ngat ket noi.
+07/05/2013 02:41:49 - itexplore(127.0.0.1:7686) da ket noi den server.
+07/05/2013 02:41:49 - itexplore(127.0.0.1:7686) da gui: CheckOnline - shinichikudo
+07/05/2013 02:41:49 - itexplore(127.0.0.1:7686) da gui: CheckOnline - tuananh
+07/05/2013 02:41:49 - itexplore(127.0.0.1:7686) da gui: CheckOnline - huyentrang
+07/05/2013 02:42:19 - itexplore(127.0.0.1:7686) da ngat ket noi.
+07/05/2013 02:42:40 - shinichikudo(127.0.0.1:7703) da ket noi den server.
+07/05/2013 02:42:40 - shinichikudo(127.0.0.1:7703) da gui: CheckOnline - itexplore
+07/05/2013 02:43:49 - shinichikudo(127.0.0.1:7703) da gui: LogOut - Null Data
+07/05/2013 02:43:49 - shinichikudo(127.0.0.1:7703) da gui: LogOutSuccess - False
+07/05/2013 02:43:49 - shinichikudo(127.0.0.1:7703) da ngat ket noi.
+07/05/2013 02:44:37 - shinichikudo(127.0.0.1:7736) da ket noi den server.
+07/05/2013 02:44:38 - shinichikudo(127.0.0.1:7736) da gui: CheckOnline - itexplore
+07/05/2013 02:45:44 - shinichikudo(127.0.0.1:7736) da ngat ket noi.
+07/05/2013 02:46:44 - itexplore(127.0.0.1:7772) da ket noi den server.
+07/05/2013 02:46:44 - itexplore(127.0.0.1:7772) da gui: CheckOnline - shinichikudo
+07/05/2013 02:46:44 - itexplore(127.0.0.1:7772) da gui: CheckOnline - tuananh
+07/05/2013 02:46:44 - itexplore(127.0.0.1:7772) da gui: CheckOnline - huyentrang
+07/05/2013 02:46:54 - itexplore(127.0.0.1:7772) da gui: LogOut - Null Data
+07/05/2013 02:46:54 - itexplore(127.0.0.1:7772) da gui: LogOut - Null Data
+07/05/2013 02:46:54 - itexplore(127.0.0.1:7772) da gui: LogOut - Null Data
+07/05/2013 02:46:54 - itexplore(127.0.0.1:7772) da gui: LogOutSuccess - False
+07/05/2013 02:46:54 - itexplore(127.0.0.1:7772) da ngat ket noi.
+07/05/2013 02:51:01 - itexplore(127.0.0.1:7872) da ket noi den server.
+07/05/2013 02:51:01 - itexplore(127.0.0.1:7872) da gui: CheckOnline - shinichikudo
+07/05/2013 02:51:01 - itexplore(127.0.0.1:7872) da gui: CheckOnline - tuananh
+07/05/2013 02:51:01 - itexplore(127.0.0.1:7872) da gui: CheckOnline - huyentrang
+07/05/2013 02:51:29 - itexplore(127.0.0.1:7872) da gui: LogOut - Null Data
+07/05/2013 02:51:29 - itexplore(127.0.0.1:7872) da gui: LogOut - Null Data
+07/05/2013 02:51:29 - itexplore(127.0.0.1:7872) da gui: LogOut - Null Data
+07/05/2013 02:51:29 - itexplore(127.0.0.1:7872) da gui: LogOutSuccess - True
+07/05/2013 02:51:29 - itexplore(127.0.0.1:7872) da ngat ket noi.
+07/05/2013 02:51:39 - shinichikudo(127.0.0.1:7874) da ket noi den server.
+07/05/2013 02:51:39 - shinichikudo(127.0.0.1:7874) da gui: CheckOnline - itexplore
+07/05/2013 02:51:58 - shinichikudo(127.0.0.1:7874) da gui: LogOut - Null Data
+07/05/2013 02:51:58 - shinichikudo(127.0.0.1:7874) da gui: LogOutSuccess - True
+07/05/2013 02:51:58 - shinichikudo(127.0.0.1:7874) da ngat ket noi.
+07/05/2013 03:03:44 - itexplore(127.0.0.1:8155) da ket noi den server.
+07/05/2013 03:03:44 - itexplore(127.0.0.1:8155) da gui: CheckOnline - shinichikudo
+07/05/2013 03:03:44 - itexplore(127.0.0.1:8155) da gui: CheckOnline - tuananh
+07/05/2013 03:03:44 - itexplore(127.0.0.1:8155) da gui: CheckOnline - huyentrang
+07/05/2013 03:04:13 - huyentrang(127.0.0.1:8163) da ket noi den server.
+07/05/2013 03:04:14 - huyentrang(127.0.0.1:8163) da gui: CheckOnline - itexplore
+07/05/2013 03:04:23 - itexplore(127.0.0.1:8155) da gui: Chat - 1 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>hello</Paragraph></FlowDocument>
+07/05/2013 03:04:30 - itexplore(127.0.0.1:8155) da gui: Chat - 2 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph xml:space="preserve">chan that </Paragraph></FlowDocument>
+07/05/2013 03:04:33 - itexplore(127.0.0.1:8155) da gui: Chat - 3 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>chan qua di</Paragraph></FlowDocument>
+07/05/2013 03:04:35 - itexplore(127.0.0.1:8155) da gui: Chat - 4 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>haha</Paragraph></FlowDocument>
+07/05/2013 03:04:36 - itexplore(127.0.0.1:8155) da gui: Chat - 5 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>dfsd</Paragraph></FlowDocument>
+07/05/2013 03:04:37 - itexplore(127.0.0.1:8155) da gui: Chat - 6 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>dsafsd</Paragraph></FlowDocument>
+07/05/2013 03:04:40 - huyentrang(127.0.0.1:8163) da gui: Chat - 7 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sadfsdfsd</Paragraph></FlowDocument>
+07/05/2013 03:04:42 - huyentrang(127.0.0.1:8163) da gui: Chat - 8 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>fdsfasd</Paragraph></FlowDocument>
+07/05/2013 03:04:44 - itexplore(127.0.0.1:8155) da gui: Chat - 9 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>fsadfsdf</Paragraph></FlowDocument>
+07/05/2013 03:05:43 - itexplore(127.0.0.1:8155) da gui: CheckIP - huyentrang
+07/05/2013 03:09:19 - huyentrang(127.0.0.1:8163) da gui: Chat - 10 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:21 - huyentrang(127.0.0.1:8163) da gui: Chat - 11 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:22 - huyentrang(127.0.0.1:8163) da gui: Chat - 12 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:22 - huyentrang(127.0.0.1:8163) da gui: Chat - 13 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:22 - huyentrang(127.0.0.1:8163) da gui: Chat - 14 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:23 - huyentrang(127.0.0.1:8163) da gui: Chat - 15 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:23 - huyentrang(127.0.0.1:8163) da gui: Chat - 16 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:23 - huyentrang(127.0.0.1:8163) da gui: Chat - 17 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:24 - huyentrang(127.0.0.1:8163) da gui: Chat - 18 :: <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>what the fuck</Paragraph></FlowDocument>
+07/05/2013 03:09:49 - huyentrang(127.0.0.1:8163) da gui: LogOut - Null Data
+07/05/2013 03:09:49 - huyentrang(127.0.0.1:8163) da gui: LogOutSuccess - False
+07/05/2013 03:09:49 - huyentrang(127.0.0.1:8163) da ngat ket noi.
+07/05/2013 03:09:51 - itexplore(127.0.0.1:8155) da gui: LogOut - Null Data
+07/05/2013 03:09:51 - itexplore(127.0.0.1:8155) da gui: LogOut - Null Data
+07/05/2013 03:09:51 - itexplore(127.0.0.1:8155) da gui: LogOut - Null Data
+07/05/2013 03:09:51 - itexplore(127.0.0.1:8155) da gui: LogOutSuccess - False
+07/05/2013 03:09:51 - itexplore(127.0.0.1:8155) da ngat ket noi.
+07/05/2013 03:15:41 - itexplore(127.0.0.1:8218) da ket noi den server.
+07/05/2013 03:15:41 - itexplore(127.0.0.1:8218) da gui: CheckOnline - shinichikudo
+07/05/2013 03:15:41 - itexplore(127.0.0.1:8218) da gui: CheckOnline - tuananh
+07/05/2013 03:15:41 - itexplore(127.0.0.1:8218) da gui: CheckOnline - huyentrang
+07/05/2013 03:16:41 - itexplore(127.0.0.1:8218) da ngat ket noi.
+07/05/2013 03:17:44 - itexplore(127.0.0.1:8241) da ket noi den server.
+07/05/2013 03:17:44 - itexplore(127.0.0.1:8241) da gui: CheckOnline - shinichikudo
+07/05/2013 03:17:44 - itexplore(127.0.0.1:8241) da gui: CheckOnline - tuananh
+07/05/2013 03:17:44 - itexplore(127.0.0.1:8241) da gui: CheckOnline - huyentrang
+07/05/2013 03:18:43 - shinichikudo(127.0.0.1:8252) da ket noi den server.
+07/05/2013 03:18:44 - shinichikudo(127.0.0.1:8252) da gui: CheckOnline - itexplore
+07/05/2013 03:18:50 - itexplore(127.0.0.1:8241) da ngat ket noi.
+explore(127.0.0.1:16936) da ngat ket noi.
+07/05/2013 06:55:39 - symaci(127.0.0.1:17045) da gui: LogOut - Null Data
+07/05/2013 06:55:39 - symaci(127.0.0.1:17045) da gui: LogOutSuccess - False
+07/05/2013 06:55:39 - symaci(127.0.0.1:17045) da ngat ket noi.
+07/05/2013 06:55:51 - symaci(127.0.0.1:17127) da ket noi den server.
+07/05/2013 06:55:51 - symaci(127.0.0.1:17127) da gui: CheckOnline - itexplore
+07/05/2013 06:55:55 - itexplore(127.0.0.1:17142) da ket noi den server.
+07/05/2013 06:55:56 - itexplore(127.0.0.1:17142) da gui: CheckOnline - symaci
+07/05/2013 06:57:03 - symaci(127.0.0.1:17127) da ngat ket noi.
+07/05/2013 06:57:06 - itexplore(127.0.0.1:17142) da gui: LogOut - Null Data
+07/05/2013 06:57:06 - itexplore(127.0.0.1:17142) da gui: LogOutSuccess - False
+07/05/2013 06:57:06 - itexplore(127.0.0.1:17142) da ngat ket noi.
+07/05/2013 06:58:56 - itexplore(127.0.0.1:17367) da ket noi den server.
+07/05/2013 06:58:56 - itexplore(127.0.0.1:17367) da gui: CheckOnline - symaci
+07/05/2013 06:59:00 - symaci(127.0.0.1:17381) da ket noi den server.
+07/05/2013 06:59:01 - symaci(127.0.0.1:17381) da gui: CheckOnline - itexplore
+07/05/2013 06:59:10 - symaci(127.0.0.1:17381) da gui: LogOut - Null Data
+07/05/2013 06:59:10 - symaci(127.0.0.1:17381) da gui: LogOutSuccess - True
+07/05/2013 06:59:10 - symaci(127.0.0.1:17381) da ngat ket noi.
+07/05/2013 06:59:15 - symaci(127.0.0.1:17441) da ket noi den server.
+07/05/2013 06:59:15 - symaci(127.0.0.1:17441) da gui: CheckOnline - itexplore
+07/05/2013 06:59:21 - symaci(127.0.0.1:17441) da gui: CheckIP - itexplore
+07/05/2013 06:59:23 - symaci(127.0.0.1:17441) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rbgrr</Paragraph></FlowDocument>
+07/05/2013 06:59:25 - symaci(127.0.0.1:17441) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rbrbrb</Paragraph></FlowDocument>
+07/05/2013 06:59:26 - symaci(127.0.0.1:17441) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rbrb</Paragraph></FlowDocument>
+07/05/2013 06:59:27 - symaci(127.0.0.1:17441) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rb</Paragraph></FlowDocument>
+07/05/2013 06:59:27 - symaci(127.0.0.1:17441) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rbrb</Paragraph></FlowDocument>
+07/05/2013 06:59:28 - symaci(127.0.0.1:17441) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rbrbrbrbr</Paragraph></FlowDocument>
+07/05/2013 06:59:30 - symaci(127.0.0.1:17441) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>brbrbrbrbrbr</Paragraph></FlowDocument>
+07/05/2013 06:59:32 - symaci(127.0.0.1:17441) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rbrbrbrbrbrbrbrb</Paragraph></FlowDocument>
+07/05/2013 06:59:33 - symaci(127.0.0.1:17441) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rbrbrbrbrb</Paragraph></FlowDocument>
+07/05/2013 06:59:39 - symaci(127.0.0.1:17441) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rbrbrbrbrbrbbrineineinsdihdsvihenbeibn</Paragraph></FlowDocument>
+07/05/2013 06:59:43 - symaci(127.0.0.1:17441) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>ebienbienbeiiehfehfuehfednvdvbe</Paragraph></FlowDocument>
+07/05/2013 06:59:59 - itexplore(127.0.0.1:17367) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>fbfb</Paragraph></FlowDocument>
+07/05/2013 06:59:59 - itexplore(127.0.0.1:17367) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>fbfb</Paragraph></FlowDocument>
+07/05/2013 07:00:01 - itexplore(127.0.0.1:17367) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>fbfbfb</Paragraph></FlowDocument>
+07/05/2013 07:00:42 - symaci(127.0.0.1:17441) da gui: LogOut - Null Data
+07/05/2013 07:00:42 - symaci(127.0.0.1:17441) da gui: LogOutSuccess - False
+07/05/2013 07:00:42 - symaci(127.0.0.1:17441) da ngat ket noi.
+07/05/2013 07:00:48 - itexplore(127.0.0.1:17367) da gui: LogOut - Null Data
+07/05/2013 07:00:48 - itexplore(127.0.0.1:17367) da gui: LogOutSuccess - False
+07/05/2013 07:00:48 - itexplore(127.0.0.1:17367) da ngat ket noi.
+07/05/2013 07:13:44 - itexplore(127.0.0.1:18053) da ket noi den server.
+07/05/2013 07:13:44 - itexplore(127.0.0.1:18053) da gui: CheckOnline - symaci
+07/05/2013 07:13:49 - symaci(127.0.0.1:18071) da ket noi den server.
+07/05/2013 07:13:49 - symaci(127.0.0.1:18071) da gui: CheckOnline - itexplore
+07/05/2013 07:13:52 - symaci(127.0.0.1:18071) da gui: CheckIP - itexplore
+07/05/2013 07:13:53 - symaci(127.0.0.1:18071) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>asd</Paragraph></FlowDocument>
+07/05/2013 07:13:54 - symaci(127.0.0.1:18071) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>asdsa</Paragraph></FlowDocument>
+07/05/2013 07:13:56 - symaci(127.0.0.1:18071) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>dsa</Paragraph></FlowDocument>
+07/05/2013 07:13:57 - symaci(127.0.0.1:18071) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>dasdsad</Paragraph></FlowDocument>
+07/05/2013 07:14:01 - symaci(127.0.0.1:18071) da gui: LogOut - Null Data
+07/05/2013 07:14:01 - symaci(127.0.0.1:18071) da gui: LogOutSuccess - False
+07/05/2013 07:14:01 - symaci(127.0.0.1:18071) da ngat ket noi.
+07/05/2013 07:14:04 - itexplore(127.0.0.1:18053) da gui: LogOut - Null Data
+07/05/2013 07:14:04 - itexplore(127.0.0.1:18053) da gui: LogOutSuccess - False
+07/05/2013 07:14:04 - itexplore(127.0.0.1:18053) da ngat ket noi.
+07/05/2013 07:15:55 - itexplore(127.0.0.1:18131) da ket noi den server.
+07/05/2013 07:15:56 - itexplore(127.0.0.1:18131) da gui: CheckOnline - symaci
+07/05/2013 07:16:02 - symaci(127.0.0.1:18151) da ket noi den server.
+07/05/2013 07:16:03 - symaci(127.0.0.1:18151) da gui: CheckOnline - itexplore
+07/05/2013 07:16:05 - symaci(127.0.0.1:18151) da gui: CheckIP - itexplore
+07/05/2013 07:16:11 - symaci(127.0.0.1:18151) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>asdasd</Paragraph></FlowDocument>
+07/05/2013 07:16:12 - symaci(127.0.0.1:18151) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>asdsad</Paragraph></FlowDocument>
+07/05/2013 07:16:13 - symaci(127.0.0.1:18151) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>asd</Paragraph></FlowDocument>
+07/05/2013 07:16:14 - symaci(127.0.0.1:18151) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>asdsadsadasd</Paragraph></FlowDocument>
+07/05/2013 07:16:19 - itexplore(127.0.0.1:18131) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sadsa</Paragraph></FlowDocument>
+07/05/2013 07:16:20 - itexplore(127.0.0.1:18131) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>dasds</Paragraph></FlowDocument>
+07/05/2013 07:16:22 - symaci(127.0.0.1:18151) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>asdsa</Paragraph></FlowDocument>
+07/05/2013 07:20:24 - itexplore(127.0.0.1:18131) da ngat ket noi.
+07/05/2013 07:20:30 - symaci(127.0.0.1:18151) da gui: LogOut - Null Data
+07/05/2013 07:20:30 - symaci(127.0.0.1:18151) da gui: LogOutSuccess - False
+07/05/2013 07:20:30 - symaci(127.0.0.1:18151) da ngat ket noi.
+07/05/2013 07:35:37 - symaci(127.0.0.1:19396) da ket noi den server.
+07/05/2013 07:35:38 - symaci(127.0.0.1:19396) da gui: CheckOnline - itexplore
+07/05/2013 07:35:47 - itexplore(127.0.0.1:19420) da ket noi den server.
+07/05/2013 07:35:47 - itexplore(127.0.0.1:19420) da gui: CheckOnline - symaci
+07/05/2013 07:35:49 - itexplore(127.0.0.1:19420) da gui: CheckIP - symaci
+07/05/2013 07:35:51 - itexplore(127.0.0.1:19420) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rbrb</Paragraph></FlowDocument>
+07/05/2013 07:35:52 - itexplore(127.0.0.1:19420) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rbr</Paragraph></FlowDocument>
+07/05/2013 07:35:52 - itexplore(127.0.0.1:19420) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rbrb</Paragraph></FlowDocument>
+07/05/2013 07:35:54 - itexplore(127.0.0.1:19420) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rbrbrb</Paragraph></FlowDocument>
+07/05/2013 07:35:54 - itexplore(127.0.0.1:19420) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rbrb</Paragraph></FlowDocument>
+07/05/2013 07:35:55 - itexplore(127.0.0.1:19420) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>rbrb</Paragraph></FlowDocument>
+07/05/2013 07:35:58 - itexplore(127.0.0.1:19420) da gui: LogOut - Null Data
+07/05/2013 07:35:58 - itexplore(127.0.0.1:19420) da gui: LogOutSuccess - False
+07/05/2013 07:35:58 - itexplore(127.0.0.1:19420) da ngat ket noi.
+07/05/2013 07:36:01 - symaci(127.0.0.1:19396) da gui: LogOut - Null Data
+07/05/2013 07:36:01 - symaci(127.0.0.1:19396) da gui: LogOutSuccess - False
+07/05/2013 07:36:02 - symaci(127.0.0.1:19396) da ngat ket noi.
+07/05/2013 07:38:18 - symaci(127.0.0.1:19475) da ket noi den server.
+07/05/2013 07:38:18 - symaci(127.0.0.1:19475) da gui: CheckOnline - itexplore
+07/05/2013 07:38:27 - itexplore(127.0.0.1:19499) da ket noi den server.
+07/05/2013 07:38:27 - itexplore(127.0.0.1:19499) da gui: CheckOnline - symaci
+07/05/2013 07:38:29 - itexplore(127.0.0.1:19499) da gui: CheckIP - symaci
+07/05/2013 07:38:30 - itexplore(127.0.0.1:19499) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>eve</Paragraph></FlowDocument>
+07/05/2013 07:38:31 - itexplore(127.0.0.1:19499) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>eveve</Paragraph></FlowDocument>
+07/05/2013 07:38:32 - itexplore(127.0.0.1:19499) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>vevevev</Paragraph></FlowDocument>
+07/05/2013 07:38:34 - itexplore(127.0.0.1:19499) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>evevevev</Paragraph></FlowDocument>
+07/05/2013 07:38:37 - itexplore(127.0.0.1:19499) da gui: LogOut - Null Data
+07/05/2013 07:38:37 - itexplore(127.0.0.1:19499) da gui: LogOutSuccess - False
+07/05/2013 07:38:37 - itexplore(127.0.0.1:19499) da ngat ket noi.
+07/05/2013 07:38:42 - symaci(127.0.0.1:19475) da ngat ket noi.
+07/05/2013 07:45:40 - symaci(127.0.0.1:19563) da ket noi den server.
+07/05/2013 07:45:40 - symaci(127.0.0.1:19563) da gui: CheckOnline - itexplore
+07/05/2013 07:45:47 - itexplore(127.0.0.1:19583) da ket noi den server.
+07/05/2013 07:45:47 - itexplore(127.0.0.1:19583) da gui: CheckOnline - symaci
+07/05/2013 07:46:12 - symaci(127.0.0.1:19563) da ngat ket noi.
+07/05/2013 07:46:25 - itexplore(127.0.0.1:19583) da gui: LogOut - Null Data
+07/05/2013 07:46:25 - itexplore(127.0.0.1:19583) da gui: LogOutSuccess - False
+07/05/2013 07:46:25 - itexplore(127.0.0.1:19583) da ngat ket noi.
+07/05/2013 07:46:45 - itexplore(127.0.0.1:19659) da ket noi den server.
+07/05/2013 07:46:46 - itexplore(127.0.0.1:19659) da gui: CheckOnline - symaci
+07/05/2013 07:46:52 - symaci(127.0.0.1:19677) da ket noi den server.
+07/05/2013 07:46:52 - symaci(127.0.0.1:19677) da gui: CheckOnline - itexplore
+07/05/2013 07:46:55 - itexplore(127.0.0.1:19659) da gui: CheckIP - symaci
+07/05/2013 07:46:57 - itexplore(127.0.0.1:19659) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>ege</Paragraph></FlowDocument>
+07/05/2013 07:46:58 - itexplore(127.0.0.1:19659) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>egegeg</Paragraph></FlowDocument>
+07/05/2013 07:46:59 - itexplore(127.0.0.1:19659) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>egeg</Paragraph></FlowDocument>
+07/05/2013 07:47:00 - itexplore(127.0.0.1:19659) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>eg</Paragraph></FlowDocument>
+07/05/2013 07:47:01 - itexplore(127.0.0.1:19659) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>egegeg</Paragraph></FlowDocument>
+07/05/2013 07:47:01 - itexplore(127.0.0.1:19659) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>egege</Paragraph></FlowDocument>
+07/05/2013 07:47:02 - itexplore(127.0.0.1:19659) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>egegeg</Paragraph></FlowDocument>
+07/05/2013 07:47:03 - itexplore(127.0.0.1:19659) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>egeg</Paragraph></FlowDocument>
+07/05/2013 07:47:04 - itexplore(127.0.0.1:19659) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>egegeg</Paragraph></FlowDocument>
+07/05/2013 07:47:05 - itexplore(127.0.0.1:19659) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>egegeg</Paragraph></FlowDocument>
+07/05/2013 07:47:40 - itexplore(127.0.0.1:19659) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>dddb</Paragraph></FlowDocument>
+07/05/2013 07:48:56 - itexplore(127.0.0.1:19659) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>gtngtn</Paragraph></FlowDocument>
+07/05/2013 07:49:24 - symaci(127.0.0.1:19677) da ngat ket noi.
+07/05/2013 07:50:32 - itexplore(127.0.0.1:19659) da gui: LogOut - Null Data
+07/05/2013 07:50:32 - itexplore(127.0.0.1:19659) da gui: LogOutSuccess - False
+07/05/2013 07:50:32 - itexplore(127.0.0.1:19659) da ngat ket noi.
+07/05/2013 07:50:45 - symaci(127.0.0.1:20238) da ket noi den server.
+07/05/2013 07:50:46 - symaci(127.0.0.1:20238) da gui: CheckOnline - itexplore
+07/05/2013 07:50:54 - itexplore(127.0.0.1:20260) da ket noi den server.
+07/05/2013 07:50:54 - itexplore(127.0.0.1:20260) da gui: CheckOnline - symaci
+07/05/2013 07:50:56 - itexplore(127.0.0.1:20260) da gui: CheckIP - symaci
+07/05/2013 07:50:57 - itexplore(127.0.0.1:20260) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>asvasv</Paragraph></FlowDocument>
+07/05/2013 07:50:58 - itexplore(127.0.0.1:20260) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>favsdv</Paragraph></FlowDocument>
+07/05/2013 07:50:59 - itexplore(127.0.0.1:20260) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdvsdv</Paragraph></FlowDocument>
+07/05/2013 07:51:00 - itexplore(127.0.0.1:20260) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdvsdv</Paragraph></FlowDocument>
+07/05/2013 07:51:04 - itexplore(127.0.0.1:20260) da gui: LogOut - Null Data
+07/05/2013 07:51:04 - itexplore(127.0.0.1:20260) da gui: LogOutSuccess - False
+07/05/2013 07:51:04 - itexplore(127.0.0.1:20260) da ngat ket noi.
+07/05/2013 07:51:05 - symaci(127.0.0.1:20238) da gui: LogOut - Null Data
+07/05/2013 07:51:05 - symaci(127.0.0.1:20238) da gui: LogOutSuccess - False
+07/05/2013 07:51:05 - symaci(127.0.0.1:20238) da ngat ket noi.
+07/05/2013 08:00:36 - symaci(127.0.0.1:20434) da ket noi den server.
+07/05/2013 08:00:36 - symaci(127.0.0.1:20434) da gui: CheckOnline - itexplore
+07/05/2013 08:00:44 - itexplore(127.0.0.1:20456) da ket noi den server.
+07/05/2013 08:00:45 - itexplore(127.0.0.1:20456) da gui: CheckOnline - symaci
+07/05/2013 08:00:46 - itexplore(127.0.0.1:20456) da gui: CheckIP - symaci
+07/05/2013 08:00:48 - itexplore(127.0.0.1:20456) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>s</Paragraph></FlowDocument>
+07/05/2013 08:00:51 - itexplore(127.0.0.1:20456) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sds</Paragraph></FlowDocument>
+07/05/2013 08:00:51 - itexplore(127.0.0.1:20456) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdgsd</Paragraph></FlowDocument>
+07/05/2013 08:00:52 - itexplore(127.0.0.1:20456) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdbsd</Paragraph></FlowDocument>
+07/05/2013 08:00:54 - symaci(127.0.0.1:20434) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdbsd</Paragraph></FlowDocument>
+07/05/2013 08:00:54 - symaci(127.0.0.1:20434) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdbsdb</Paragraph></FlowDocument>
+07/05/2013 08:00:55 - symaci(127.0.0.1:20434) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdbd</Paragraph></FlowDocument>
+07/05/2013 08:00:55 - symaci(127.0.0.1:20434) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdsb</Paragraph></FlowDocument>
+07/05/2013 08:00:57 - itexplore(127.0.0.1:20456) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdbsdbsdb</Paragraph></FlowDocument>
+07/05/2013 08:00:57 - itexplore(127.0.0.1:20456) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdbsdb</Paragraph></FlowDocument>
+07/05/2013 08:00:58 - itexplore(127.0.0.1:20456) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdbsdb</Paragraph></FlowDocument>
+07/05/2013 08:00:59 - symaci(127.0.0.1:20434) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdbsdb</Paragraph></FlowDocument>
+07/05/2013 08:01:00 - symaci(127.0.0.1:20434) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdsdbsdb</Paragraph></FlowDocument>
+07/05/2013 08:01:01 - itexplore(127.0.0.1:20456) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>dsbsdb</Paragraph></FlowDocument>
+07/05/2013 08:01:02 - itexplore(127.0.0.1:20456) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sd</Paragraph></FlowDocument>
+07/05/2013 08:01:02 - itexplore(127.0.0.1:20456) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>bsdb</Paragraph></FlowDocument>
+07/05/2013 08:01:03 - itexplore(127.0.0.1:20456) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdb</Paragraph></FlowDocument>
+07/05/2013 08:01:03 - itexplore(127.0.0.1:20456) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sdb</Paragraph></FlowDocument>
+07/05/2013 08:01:05 - symaci(127.0.0.1:20434) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>dsbsd</Paragraph></FlowDocument>
+07/05/2013 08:01:05 - symaci(127.0.0.1:20434) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>bs</Paragraph></FlowDocument>
+07/05/2013 08:01:05 - symaci(127.0.0.1:20434) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>bs</Paragraph></FlowDocument>
+07/05/2013 08:01:05 - symaci(127.0.0.1:20434) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>b</Paragraph></FlowDocument>
+07/05/2013 08:01:05 - symaci(127.0.0.1:20434) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>sd</Paragraph></FlowDocument>
+>>>>>>> ThoTran/master
 07/05/2013 08:01:06 - symaci(127.0.0.1:20434) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>b</Paragraph></FlowDocument>
 07/05/2013 08:01:07 - itexplore(127.0.0.1:20456) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>dsbsd</Paragraph></FlowDocument>
 07/05/2013 08:01:07 - itexplore(127.0.0.1:20456) da gui: Chat - <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph>bs</Paragraph></FlowDocument>

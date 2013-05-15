@@ -16,6 +16,9 @@ using vChat.Lib;
 
 namespace vChat.Module.FriendList
 {
+    /// <summary>
+    /// Các thông tin dành cho Binding bạn bè trên TreeView
+    /// </summary>
     public class FriendViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -35,22 +38,34 @@ namespace vChat.Module.FriendList
 
         #region PROPERTY
 
+        /// <summary>
+        /// Nhóm cha
+        /// </summary>
         public GroupViewModel Parent
         {
             get { return parent; }
         }
 
+        /// <summary>
+        /// Thông tin bạn bè
+        /// </summary>
         public Users Friend
         {
             get { return friend; }
         }
 
+        /// <summary>
+        /// Tên bạn bè
+        /// </summary>
         public String FriendName
         {
             get { return (String.Format("{0} {1}", friend.FirstName, friend.LastName)); }
         }
 
-        public ImageSource ProfilePicture
+        /// <summary>
+        /// Ảnh avatar
+        /// </summary>
+        public ImageSource Avatar
         {
             get
             {
@@ -61,6 +76,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Trạng thái được chọn hay không (Dựa trên thuộc tính IsSelected của TreeViewItem)
+        /// </summary>
         public bool IsSelected
         {
             get { return isSelected; }
@@ -74,6 +92,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Trạng thái được đánh dấu chọn hay không
+        /// </summary>
         public bool IsChecked
         {
             get { return isChecked; }
@@ -83,7 +104,7 @@ namespace vChat.Module.FriendList
                 {
                     isChecked = value;
 
-                    //If all child element was checked, Parent would be checked
+                    //Nếu tất cả bạn bè đã được đánh dấu chọn thì nhóm cũng sẽ được đánh dấu chọn
                     int TotalChild = parent.Children.Count;
                     int TotalChecked = parent.Children.Where(p => p.IsChecked == value).Count();
 
@@ -95,6 +116,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Trạng thái online/offline của bạn bè
+        /// </summary>
         public bool IsOnline
         {
             get { return isOnline; }
@@ -108,6 +132,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Trạng thái ẩn/hiện của Checkbox (Bên tay trái của Avatar)
+        /// </summary>
         public Visibility ToogleCheckbox
         {
             get { return toogleCheckbox; }
@@ -121,6 +148,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Màu chữ của tên bạn bè (trước/sau khi tìm kiếm). Mặc định là màu đen
+        /// </summary>
         public Brush MatchColor
         {
             get { return matchColor; }
@@ -136,6 +166,11 @@ namespace vChat.Module.FriendList
 
         #endregion
 
+        /// <summary>
+        /// Khởi tạo bạn bè dùng cho Binding
+        /// </summary>
+        /// <param name="Friend">Đối tượng chứa thông tin bạn bè</param>
+        /// <param name="Parent">Đối tượng chứa thông tin nhóm mà bạn bè thuộc vào</param>
         public FriendViewModel(Users Friend, GroupViewModel Parent)
         {
             friend = Friend;
@@ -144,6 +179,11 @@ namespace vChat.Module.FriendList
 
         #region MAIN METHOD
 
+        /// <summary>
+        /// Kiểm tra tên của bạn bè có khớp với từ khóa tìm kiếm hay không (Phục vụ cho việc tìm kiếm bạn bè)
+        /// </summary>
+        /// <param name="Text">Từ khóa</param>
+        /// <returns></returns>
         public bool NameContainsText(String Text)
         {
             if (String.IsNullOrWhiteSpace(FriendName) && String.IsNullOrWhiteSpace(Text))

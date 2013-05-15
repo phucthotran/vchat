@@ -292,7 +292,7 @@ namespace vChat.Data
             return db.FriendMap
                     .Include(fm => fm.User)
                     .Include(fm => fm.Friend)
-                    .FirstOrDefault(fm => fm.User.Equals(User) && fm.Friend.Equals(Friend)) != null;
+                    .FirstOrDefault(fm => fm.User.UserID == User.UserID && fm.Friend.UserID == Friend.UserID) != null;
         }
 
         public static bool RemoveGroup(this Users mm, FriendGroup Group, bool RemoveContact)
@@ -520,20 +520,20 @@ namespace vChat.Data
             return db.Conversation
                 .Include(c => c.SentBy)
                 .Include(c => c.SendTo)
-                .Where(c => (c.SentBy.UserID == FriendID && c.SendTo.UserID == UserID))
+                .Where(c => (c.SentBy.UserID == UserID && c.SendTo.UserID == FriendID))
                 .OrderBy(c => c.Time)
                 .DistinctList();
         }
 
         public static List<Conversation> GetConversationBetween(this Conversation conv, int UserID, int FriendID, int BeginIndex, int EndIndex)
-        {
+        {             
             return db.Conversation
                 .Include(c => c.SentBy)
                 .Include(c => c.SendTo)
-                .Where(c => (c.SentBy.UserID == FriendID && c.SendTo.UserID == UserID))
+                .Where(c => (c.SentBy.UserID == UserID && c.SendTo.UserID == FriendID))
                 .OrderBy(c => c.Time)
                 .Skip(BeginIndex - 1)
-                .Take(EndIndex - (BeginIndex - 1))                
+                .Take(EndIndex - (BeginIndex - 1))
                 .DistinctList();
         }
 
@@ -553,9 +553,9 @@ namespace vChat.Data
                 .Include(c => c.SentBy)
                 .Include(c => c.SendTo)
                 .Where(c => c.SendTo.UserID == UserID && c.IsRead == false)
-                .Skip(BeginIndex - 1)
                 .OrderBy(c => c.Time)
-                .Take(EndIndex - (BeginIndex - 1))                
+                .Skip(BeginIndex - 1)
+                .Take(EndIndex - (BeginIndex - 1))
                 .DistinctList();
         }
 

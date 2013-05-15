@@ -6,6 +6,9 @@ using System.Windows.Input;
 
 namespace vChat.Module.FriendList
 {
+    /// <summary>
+    /// Class nền tảng dùng để tạo các Command
+    /// </summary>
     public class BaseCommand : ICommand
     {
         public bool CanExecute(object parameter)

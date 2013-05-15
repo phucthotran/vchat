@@ -10,6 +10,9 @@ using System.Windows;
 
 namespace vChat.Module.FriendList
 {
+    /// <summary>
+    /// Các thông tin dành cho Binding nhóm trên TreeView
+    /// </summary>
     public class GroupViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -28,21 +31,33 @@ namespace vChat.Module.FriendList
 
         #region PROPERTY
 
+        /// <summary>
+        /// Thông tin nhóm
+        /// </summary>
         public FriendGroup Group
         {
             get { return group; }
         }
 
+        /// <summary>
+        /// Tên nhóm
+        /// </summary>
         public String GroupName
         {
             get { return group.Name; }
         }
 
+        /// <summary>
+        /// Danh sách bạn bè trong nhóm
+        /// </summary>
         public ObservableCollection<FriendViewModel> Children
         {
             get { return children; }
         }
 
+        /// <summary>
+        /// Trạng thái đóng/mở của nhóm (Dựa theo thuộc tính IsExpanded của TreeViewItem
+        /// </summary>
         public bool IsExpanded
         {
             get { return isExpanded; }
@@ -56,6 +71,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Trạng thái được chọn hay không (Dựa trên thuộc tính IsSelected của TreeViewItem)
+        /// </summary>
         public bool IsSelected
         {
             get { return isSelected; }
@@ -69,6 +87,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Trạng thái được đánh dấu chọn hay không
+        /// </summary>
         public bool IsChecked
         {
             get { return isChecked; }
@@ -78,7 +99,7 @@ namespace vChat.Module.FriendList
                 {
                     isChecked = value;
 
-                    //Set IsChecked property for all child
+                    //Đánh dấu chọn cho tất cả các bạn bè trong nhóm
                     foreach (FriendViewModel child in children)
                         child.IsChecked = value;
 
@@ -87,6 +108,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Trạng thái ẩn/hiện của Checkbox (Bên tay trái của nhóm)
+        /// </summary>
         public Visibility ToogleCheckbox
         {
             get { return toogleCheckbox; }
@@ -102,6 +126,10 @@ namespace vChat.Module.FriendList
 
         #endregion
 
+        /// <summary>
+        /// Khởi tạo thông tin nhóm dùng cho Binding
+        /// </summary>
+        /// <param name="Group">Đối tượng chứa thông tin nhóm</param>
         public GroupViewModel(FriendGroup Group)
         {
             group = Group;

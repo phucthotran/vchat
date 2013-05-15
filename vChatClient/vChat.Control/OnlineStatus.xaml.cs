@@ -24,6 +24,9 @@ namespace vChat.Control
         private static Brush ONLINE_COLOR = Brushes.Green;
         private static Brush OFFLINE_COLOR = Brushes.Transparent;
 
+        /// <summary>
+        /// Lấy/gán trạng thái online/offline
+        /// </summary>
         public bool IsOnline
         {
             get { return (bool)GetValue(IsOnlineProperty); }
@@ -44,10 +47,10 @@ namespace vChat.Control
         {
             var uc = obj as OnlineStatus;
 
-            if (uc != null && e.NewValue != e.OldValue)
+            if (uc != null && e.NewValue != e.OldValue) //Nếu giá trị của IsOnline đã thay đổi
             {
                 bool newValue = (bool)e.NewValue;
-                uc.SetOnlineStatus(newValue);
+                uc.SetOnlineStatus(newValue); //Thay đổi màu cho "epseOnlineStatus" dự theo giá trị của IsOnline
             }
         }
     }

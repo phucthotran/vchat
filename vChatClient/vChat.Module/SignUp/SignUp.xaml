@@ -32,11 +32,11 @@
         <TextBox Height="28" Name="tbUser" VerticalAlignment="Top" Grid.Column="1" LostFocus="tbUser_LostFocus" Margin="0,0,0,5" MinWidth="150" MaxWidth="250" />
         <v:FieldWarner x:Name="UserWarner" Warning="False" Busy="False" Grid.Column="1" Margin="0,33,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
         <PasswordBox Height="28" Margin="0,0,0,5" Name="tbPass" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" MinWidth="150" MaxWidth="250" LostFocus="tbPass_LostFocus" />
-        <v:FieldWarner x:Name="PassWarner" Warning="False" Busy="False" Grid.Column="1" Grid.Row="1" Margin="0,33,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
-        <TextBox Height="28" Margin="0,0,0,5" Name="tbFname" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" MinWidth="150" MaxWidth="250" LostFocus="tbFname_LostFocus" />
-        <v:FieldWarner x:Name="FNameWarner" Warning="False" Busy="False" Grid.Column="1" Grid.Row="2" Margin="0,33,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
-        <TextBox Height="28" Margin="0,0,0,5" Name="tbLname" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" MinWidth="150" MaxWidth="250" LostFocus="tbLname_LostFocus" />
-        <v:FieldWarner x:Name="LNameWarner" Warning="False" Busy="False" Grid.Column="1" Grid.Row="3" Margin="0,33,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
+        <v:FieldWarner x:Name="PassWarner" Warning="False" Busy="False" Grid.Column="1" Grid.Row="1" Margin="0,33,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />        
+        <TextBox Height="28" Margin="0,0,0,5" Name="tbLname" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" MinWidth="150" MaxWidth="250" LostFocus="tbLname_LostFocus" />        
+        <v:FieldWarner x:Name="LNameWarner" Warning="False" Busy="False" Grid.Column="1" Grid.Row="2" Margin="0,33,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
+        <TextBox Height="28" Margin="0,0,0,5" Name="tbFname" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" MinWidth="150" MaxWidth="250" LostFocus="tbFname_LostFocus" />
+        <v:FieldWarner x:Name="FNameWarner" Warning="False" Busy="False" Grid.Column="1" Grid.Row="3" Margin="0,33,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
         <DatePicker Grid.Column="1" Grid.Row="4" Name="tbDob" LostFocus="tbDob_LostFocus" Margin="0,0,0,5" Height="28">
             <DatePicker.Style>
                 <Style>

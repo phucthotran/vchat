@@ -10,12 +10,18 @@ namespace vChat.Module.AddFriend
         private String friendName;
         private String groupName;
 
+        /// <summary>
+        /// Tên bạn bè
+        /// </summary>
         public String FriendName
         {
             get { return friendName; }
             set { friendName = value; }
         }
 
+        /// <summary>
+        /// Tên nhóm
+        /// </summary>
         public String GroupName
         {
             get { return groupName; }

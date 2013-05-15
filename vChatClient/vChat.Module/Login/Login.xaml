@@ -33,6 +33,18 @@
                     <Button Content="Đăng nhập" IsDefault="True" HorizontalAlignment="Left" Margin="0,0,0,0" Name="btSubmit" VerticalAlignment="Top" Click="btSubmit_Click" />
                     <Button Content="Đăng ký" HorizontalAlignment="Left" Margin="10,0,0,0" Name="btSignUp" VerticalAlignment="Top" Click="btSignUp_Click" />
                 </StackPanel>
+                <TextBlock Name="btRecoveryPassword" HorizontalAlignment="Center" Margin="0,5,0,5" Foreground="Blue" Cursor="Hand" MouseDown="btRecoveryPassword_MouseDown">
+                    Quên mật khẩu?
+            <TextBlock.Style>
+                <Style>
+                    <Style.Triggers>
+                        <Trigger Property="TextBlock.IsMouseOver" Value="True">
+                            <Setter Property="TextBlock.TextDecorations" Value="Underline"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+                </TextBlock>
                 <TextBlock Name="Message" TextWrapping="WrapWithOverflow"></TextBlock>
             </StackPanel>
         </Grid>

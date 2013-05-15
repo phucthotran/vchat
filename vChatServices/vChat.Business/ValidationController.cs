@@ -12,17 +12,11 @@ namespace vChat.Business
             get
             {
                 if (_errors == null)
-                {
                     _errors = new List<String>();
-                    return _errors;
-                }
 
                 return _errors;
             }
-            set
-            {
-                _errors = value;
-            }
+            set { _errors = value; }
         }
 
         public static void Prepare()

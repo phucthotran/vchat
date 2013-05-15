@@ -58,6 +58,8 @@ namespace vChat.Module.VoIP
 
         private volatile bool callActive;
 
+        private IAsyncResult currentAsyncResult;
+
         #endregion
 
         #region PROPERTY
@@ -93,6 +95,7 @@ namespace vChat.Module.VoIP
             localCmdIpEndp = new IPEndPoint(IPAddress.Any, COMMAND_PORT);
             localCmdEndp = (EndPoint)localCmdIpEndp;
             commandSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            commandSocket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
             commandSocket.Bind(localCmdEndp);
 
             localCallIpEndp = new IPEndPoint(IPAddress.Any, CALL_PORT);
@@ -104,14 +107,19 @@ namespace vChat.Module.VoIP
             remoteCallIpEndp = new IPEndPoint(IPAddress.Any, 0);
             remoteCallEndp = (EndPoint)remoteCallIpEndp;
 
-            commandSocket.BeginReceiveFrom(localData, 0, localData.Length, SocketFlags.None, ref remoteCmdEndp, new AsyncCallback(CommandSocket_OnReceiving), null);
+            currentAsyncResult = commandSocket.BeginReceiveFrom(localData, 0, localData.Length, SocketFlags.None, ref remoteCmdEndp, new AsyncCallback(CommandSocket_OnReceiving), null);
         }
 
         #region COMMAND SOCKET
 
         private void CommandSocket_OnReceiving(IAsyncResult asyncResult)
         {
-            commandSocket.EndReceiveFrom(asyncResult, ref remoteCmdEndp);
+            if (asyncResult == currentAsyncResult)
+            {
+                //Error comes here if we didn't have (asyncResult == currentAsyncResult) check
+                commandSocket.EndReceiveFrom(asyncResult, ref remoteCmdEndp);
+            }
+            else { } //just igroned it
 
             DataPacket packetReceived = new DataPacket(localData);
 
@@ -218,23 +226,32 @@ namespace vChat.Module.VoIP
             Thread tReceive = new Thread(new ThreadStart(() => {
                 while (callActive)
                 {
-                    byte[] receivedData = callUdp.Receive(ref remoteCallIpEndp);
-
-                PLAY_AGAIN:
                     try
                     {
-                        voip.AsyncPlaying(receivedData, 0, receivedData.Length);
+                        byte[] receivedData = callUdp.Receive(ref remoteCallIpEndp);
+
+                        PLAY_AGAIN:
+                        try
+                        {
+                            voip.AsyncPlaying(receivedData, 0, receivedData.Length);
+                        }
+                        catch (NullReferenceException) //Fix strangle error by BufferedWaveProvider.AsyncPlaying
+                        {
+                            goto PLAY_AGAIN;
+                        }
                     }
-                    catch (NullReferenceException) //Fix strangle error by voi.AsyncPlaying
+                    catch (SocketException ex)
                     {
-                        goto PLAY_AGAIN;
+                        if (ex.SocketErrorCode == SocketError.ConnectionReset) { } //Igrone "An existing connection was forcibly closed by the remote host" excetion
+
+                        MessageBox.Show(ex.Message);
                     }
-                }
+                }           
             }));
             tReceive.IsBackground = true;
-
-            tRecording.Start();
+                        
             tReceive.Start();
+            tRecording.Start();
         }        
 
         /// <summary>
@@ -271,9 +288,6 @@ namespace vChat.Module.VoIP
         {
             callActive = false;
             voip.Dispose();
-
-            commandSocket.Close();
-            commandSocket.Dispose();
             pcmCodec.Dispose();
         }
 

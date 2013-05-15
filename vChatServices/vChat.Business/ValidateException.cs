@@ -8,25 +8,19 @@ namespace vChat.Business
         private static List<String> _errors;
 
         public List<String> Errors
-        { 
-            get 
+        {
+            get
             {
                 if (_errors == null)
-                {
                     _errors = new List<String>();
-                    return _errors;
-                }
 
                 return _errors;
             }
 
-            set
-            {
-                _errors = value;
-            }
+            set { _errors = value; }
         }
 
-        public ValidateException(string Message) : base(Message)
+        public ValidateException(String Message) : base(Message)
         {
         }
 

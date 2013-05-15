@@ -10,6 +10,9 @@ using System.Windows.Media;
 
 namespace vChat.Module.FriendList
 {
+    /// <summary>
+    /// Cây phân cấp dữ liệu (Nhóm và bạn bè) dùng cho Binding trên TreeView
+    /// </summary>
     public partial class GroupTreeViewModel
     {
         public delegate void FriendHandler(Users Friend, FriendGroup OldGroup);
@@ -35,16 +38,25 @@ namespace vChat.Module.FriendList
 
         #region PROPERTY
 
+        /// <summary>
+        /// Danh sách nhom
+        /// </summary>
         public ObservableCollection<GroupViewModel> Groups
         {
             get { return groups; }
         }
 
+        /// <summary>
+        /// Command dùng cho tìm kiếm bạn bè
+        /// </summary>
         public ICommand SearchCommand
         {
             get { return searchCommand; }
         }
 
+        /// <summary>
+        /// Từ khóa tìm kiếm
+        /// </summary>
         public String SearchText
         {
             get { return searchText; }
@@ -55,7 +67,7 @@ namespace vChat.Module.FriendList
 
                 searchText = value;
                 
-                //Reset Search Result
+                //Reset lại kết quá tìm kiếm
                 if(matchFriends != null)
                     foreach (FriendViewModel Friend in matchFriends)
                         Friend.MatchColor = System.Windows.Media.Brushes.Black;
@@ -64,31 +76,49 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Command dùng cho chỉnh sửa bạn bè
+        /// </summary>
         public ICommand EditCommand
         {
             get { return editCommand; }
         }
 
+        /// <summary>
+        /// Command dùng cho hủy thao tác chỉnh sửa bạn bè
+        /// </summary>
         public ICommand CancelEditCommand
         {
             get { return cancelEditCommand; }
         }
 
+        /// <summary>
+        /// Command dùng cho thao tác chọn tất cả bạn bè
+        /// </summary>
         public ICommand SelectCommand
         {
             get { return selectCommand; }
         }
 
+        /// <summary>
+        /// Command dùng cho thao tác bỏ chọn tất cả bạn bè
+        /// </summary>
         public ICommand DeselectCommand
         {
             get { return deselectCommand; }
         }
 
+        /// <summary>
+        /// Command dùng cho thao tác di chuyển bạn bè
+        /// </summary>
         public ICommand MoveCommand
         {
             get { return moveCommand; }
         }
 
+        /// <summary>
+        /// Command dùng cho thao tác xóa bạn bè
+        /// </summary>
         public ICommand RemoveCommand
         {
             get { return removeCommand; }
@@ -96,6 +126,10 @@ namespace vChat.Module.FriendList
 
         #endregion
 
+        /// <summary>
+        /// Khởi thông tin cho cây dữ liệu dùng cho Binding
+        /// </summary>
+        /// <param name="Groups">Đối tượng chứa danh sách nhóm</param>
         public GroupTreeViewModel(ObservableCollection<FriendGroup> Groups)
         {
             groups = new ObservableCollection<GroupViewModel>();
@@ -114,12 +148,26 @@ namespace vChat.Module.FriendList
 
         #region MAIN METHOD
 
+        /// <summary>
+        /// Thêm nhóm
+        /// </summary>
+        /// <param name="Group">Đối tượng chứa thông tin nhóm</param>
         public void AppendGroup(FriendGroup Group)
         {
-            if(Group != null)
-                groups.Add(new GroupViewModel(Group));
+            if (Group != null)
+            {
+                //Kiểm tra trường hợp nhóm đã tồn tại trong cây dữ liệu hay chưa
+                GroupViewModel AvailableGroup = groups.FirstOrDefault(g => g.Group.Equals(Group));
+
+                if(AvailableGroup == null) //Nếu chưa tồn tại thì mới bổ sung mới
+                    groups.Add(new GroupViewModel(Group));
+            }
         }
 
+        /// <summary>
+        /// Xóa nhóm
+        /// </summary>
+        /// <param name="Group">Đối tượng chứa thông tin nhóm</param>
         public void RemoveGroup(FriendGroup Group)
         {
             if (Group == null)
@@ -131,54 +179,91 @@ namespace vChat.Module.FriendList
                 groups.Remove(MatchGroup);
         }
 
+        /// <summary>
+        /// Thêm bạn bè vào một nhóm chỉ định. Nếu nhóm không tồn tại thực hiện bổ sung nhóm mới
+        /// </summary>
+        /// <param name="Friend">Đối tượng chứa thông tin bạn bè</param>
+        /// <param name="Group">Đối tượng chứa thông tin nhóm</param>
         public void AppendFriend(Users Friend, FriendGroup Group)
         {
             if (Friend == null || Group == null)
                 return;
 
-            GroupViewModel ParentGroup = groups.FirstOrDefault(g => g.Group.Equals(Group));
+            GroupViewModel ParentGroup = groups.FirstOrDefault(g => g.Group.Equals(Group)); //Tìm đối tượng GroupViewModel chứa thông tin nhóm được chỉ định
 
-            if (ParentGroup == null)
+            if (ParentGroup == null) //Nếu không tìm thấy thì thực hiện bổ sung nhóm mới
             {
                 AppendGroup(Group);
                 ParentGroup = groups.FirstOrDefault(g => g.Group.Equals(Group));
+            }
+
+            FriendViewModel AvailableFriend = null;
+
+            //Duyệt tất cả các nhóm và kiểm xem đã tồn tại thông tin bạn bè muốn bổ sung hay không
+            foreach (GroupViewModel group in groups)
+            {
+                foreach (FriendViewModel friend in group.Children)
+                {
+                    AvailableFriend = friend;
+
+                    if (friend.Equals(Friend))
+                        break;
+                }
             }
             
             ParentGroup.Children.Add(new FriendViewModel(Friend, ParentGroup));
         }
 
+        /// <summary>
+        /// Xóa bạn bè khỏi nhóm chỉ định
+        /// </summary>
+        /// <param name="Friend"></param>
+        /// <param name="Group"></param>
         public void RemoveFriend(Users Friend, FriendGroup Group)
         {
             if (Friend == null || Group == null)
                 return;
 
-            GroupViewModel ParentGroup = groups.FirstOrDefault(g => g.Group.Equals(Group));
-            FriendViewModel MatchFriend = ParentGroup.Children.FirstOrDefault(f => f.Friend.Equals(Friend));
+            GroupViewModel ParentGroup = groups.FirstOrDefault(g => g.Group.Equals(Group)); //Tìm đối tượng GroupViewModel chứa thông tin nhóm được chỉ định
+            FriendViewModel MatchFriend = ParentGroup.Children.FirstOrDefault(f => f.Friend.Equals(Friend)); //Tìm đối tượng FriendViewModel chứa thông tin bạn bè được chỉ định
 
-            if (ParentGroup != null && MatchFriend != null)
+            if (ParentGroup != null && MatchFriend != null) //Sau khi tìm thấy thực hiện xóa nhóm
                 ParentGroup.Children.Remove(MatchFriend);
         }
 
+        /// <summary>
+        /// Di chuyển bạn bè từ nhóm cũ sang nhóm mới
+        /// </summary>
+        /// <param name="Friend">Đối tượng chứa thông tin bạn bè</param>
+        /// <param name="OldGroup">Đối tượng chứa thông tin nhóm cũ</param>
+        /// <param name="NewGroup">Đối tượng chứa thông tin nhóm mới</param>
         public void MoveFriend(Users Friend, FriendGroup OldGroup, FriendGroup NewGroup)
         {
             if (Friend == null || OldGroup == null || NewGroup == null)
                 return;
 
-            GroupViewModel NewParentGroup = groups.FirstOrDefault(g => g.Group.Equals(NewGroup));
-            GroupViewModel ParentGroup = groups.FirstOrDefault(g => g.Group.Equals(OldGroup));
-            FriendViewModel MatchFriend = ParentGroup.Children.FirstOrDefault(f => f.Friend.Equals(Friend));
+            GroupViewModel NewParentGroup = groups.FirstOrDefault(g => g.Group.Equals(NewGroup)); //Tìm đối tượng GroupViewModel chứa thông tin nhóm mới được chỉ định
+            GroupViewModel ParentGroup = groups.FirstOrDefault(g => g.Group.Equals(OldGroup)); //Tìm đối tượng GroupViewModel chứa thông tin nhóm cũ được chỉ định
+            FriendViewModel MatchFriend = ParentGroup.Children.FirstOrDefault(f => f.Friend.Equals(Friend)); //Tìm đối tượng FriendViewModel chứa thông tin bạn bè được chỉ định
 
-            FriendViewModel MatchFriendStateFull = new FriendViewModel(Friend, NewParentGroup);
-            MatchFriendStateFull.ToogleCheckbox = MatchFriend.ToogleCheckbox;
+            FriendViewModel MatchFriendStateFull = new FriendViewModel(Friend, NewParentGroup); //Khởi tạo đối tượng FriendViewModel để chứa thông tin bạn bè và nhóm mới
+            MatchFriendStateFull.ToogleCheckbox = MatchFriend.ToogleCheckbox; //Gán lại trạng thái đánh dấu chọn trước đó
             
-            ParentGroup.Children.Remove(MatchFriend);
-            NewParentGroup.Children.Add(MatchFriendStateFull);
+            ParentGroup.Children.Remove(MatchFriend); //Xóa bạn bè trong nhóm cũ
+            NewParentGroup.Children.Add(MatchFriendStateFull); //Bổ sung bạn bè vào nhóm mới
         }
 
+        /// <summary>
+        /// Cài đặt trạng thái online/offlien của bạn bè
+        /// </summary>
+        /// <param name="Username">Tên tài khoản</param>
+        /// <param name="IsOnline">Trạng thái</param>
         public void SetFriendStatus(String Username, bool IsOnline)
         {
+            //Duyệt tất các nhóm trong cây dữ liệu
             foreach (GroupViewModel Parent in groups)
             {
+                //Tìm đối tượng FriendViewModel chứa thông tin bạn bè dựa trên Username
                 FriendViewModel MatchUser = Parent.Children.FirstOrDefault(f => f.Friend.Username.Equals(Username));
 
                 if (MatchUser != null)
@@ -200,6 +285,7 @@ namespace vChat.Module.FriendList
 
             matchFriends = new List<FriendViewModel>();
 
+            //Duyệt tất cả các nhóm và lấy ra danh sách bạn bè khớp với từ khóa tìm kiếm
             foreach (GroupViewModel Parent in groups)
             {
                 matchFriends.AddRange(Parent.Children
@@ -207,6 +293,7 @@ namespace vChat.Module.FriendList
                                       .ToList());
             }
 
+            //Thay đổi trạng thái của nhóm sang trạng thái mở (Expanded) và đánh dấu màu cho những bạn bè khớp với từ khóa tìm kiém
             foreach (FriendViewModel Friend in matchFriends)
             {
                 Friend.Parent.IsExpanded = true;
@@ -216,6 +303,7 @@ namespace vChat.Module.FriendList
 
         private void PerformEdit()
         {
+            //Duyệt tất cả các nhóm, bạn bè trong nhóm và mở ẩn các checkbox
             foreach(GroupViewModel Parent in groups)
             {
                 Parent.ToogleCheckbox = Visibility.Visible;
@@ -226,6 +314,7 @@ namespace vChat.Module.FriendList
 
         private void PerformCancelEdit()
         {
+            //Duyệt tất cả các nhóm, bạn bè trong nhóm và ẩn các checkbox đã hiện trước đó
             foreach (GroupViewModel Parent in groups)
             {
                 Parent.ToogleCheckbox = Visibility.Collapsed;
@@ -236,6 +325,7 @@ namespace vChat.Module.FriendList
 
         private void PerformSelect()
         {
+            //Duyệt tất cả các nhóm, bạn bè trong nhóm và thay đổi trạng thái đánh dấu chọn của các Checkbox sang trạng thái "được chọn"
             foreach (GroupViewModel Parent in groups)
             {
                 Parent.IsChecked = true;
@@ -246,6 +336,7 @@ namespace vChat.Module.FriendList
 
         private void PerformDeselect()
         {
+            //Duyệt tất cả các nhóm, bạn bè trong nhóm và thay đổi trạng thái đánh dấu chọn của các Checkbox sang trạng thái "không được chọn"
             foreach (GroupViewModel Parent in groups)
             {
                 Parent.IsChecked = false;
@@ -258,6 +349,7 @@ namespace vChat.Module.FriendList
         {
             List<FriendViewModel> MatchFriends = new List<FriendViewModel>();
 
+            //Duyệt tất cả các nhóm và lấy ra danh sách bạn bè được đánh dấu chọn
             foreach (GroupViewModel Parent in groups)
             {
                 MatchFriends.AddRange(Parent.Children
@@ -265,6 +357,7 @@ namespace vChat.Module.FriendList
                                       .ToList());
             }
 
+            //Di chuyển từng bạn bè trong danh sách tìm được sang nhóm mới
             foreach (FriendViewModel child in MatchFriends)
                 OnMoveContact(child.Friend, child.Parent.Group);
         }
@@ -273,6 +366,7 @@ namespace vChat.Module.FriendList
         {
             List<FriendViewModel> MatchFriends = new List<FriendViewModel>();
 
+            //Duyệt tất cả các nhóm và lấy ra danh sách bạn bè được đánh dấu chọn
             foreach (GroupViewModel Parent in groups)
             {
                 MatchFriends.AddRange(Parent.Children
@@ -280,6 +374,7 @@ namespace vChat.Module.FriendList
                                       .ToList());
             }
 
+            //Xóa từng bạn bè (trong một nhóm chỉ định) trong danh sách tìm được
             foreach (FriendViewModel child in MatchFriends)
                 OnRemoveContact(child.Friend, child.Parent.Group);
         }

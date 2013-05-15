@@ -9,6 +9,9 @@ using System.Windows.Input;
 
 namespace vChat.Module.FriendList
 {
+    /// <summary>
+    /// Thông tin dành cho Binding các yêu cầu kết bạn trên ItemsControl
+    /// </summary>
     public partial class RequestViewModel : INotifyPropertyChanged
     {        
         public event PropertyChangedEventHandler PropertyChanged;
@@ -23,7 +26,7 @@ namespace vChat.Module.FriendList
 
         private readonly ObservableCollection<RequestViewModel> requests;
         private readonly Users friend;
-        private bool isSelected;
+        private bool isChecked;
         private bool isIgnored = true; //Default
         private bool isAccepted;
 
@@ -31,39 +34,57 @@ namespace vChat.Module.FriendList
 
         #region PROPERTY
 
+        /// <summary>
+        /// Command dùng cho thao tác chấp nhận yêu cầu kết bạn
+        /// </summary>
         public ICommand AcceptCommand
         {
             get { return acceptCommand; }
         }
 
+        /// <summary>
+        /// Command dùng cho thao tác từ chối yêu cầu kết bạn
+        /// </summary>
         public ICommand IgnoreCommand
         {
             get { return ignoreCommand; }
         }
 
+        /// <summary>
+        /// Thông tin người yêu cầu
+        /// </summary>
         public Users Friend
         {
             get { return friend; }
         }
 
+        /// <summary>
+        /// Tên người yều
+        /// </summary>
         public String FriendName
         {
             get { return (String.Format("{0} {1}", friend.FirstName, friend.LastName)); }
         }
 
-        public bool IsSelected
+        /// <summary>
+        /// Trạng thái được đánh dấu chọn hay không
+        /// </summary>
+        public bool IsChecked
         {
-            get { return isSelected; }
+            get { return isChecked; }
             set
             {
-                if (value != isSelected)
+                if (value != isChecked)
                 {
-                    isSelected = value;
-                    this.OnPropertyChanged("IsSelected");
+                    isChecked = value;
+                    this.OnPropertyChanged("IsChecked");
                 }
             }
         }
 
+        /// <summary>
+        /// Trạng thái từ chối hay không
+        /// </summary>
         public bool IsIgnored
         {
             get { return isIgnored; }
@@ -77,6 +98,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Trạng thái chấp nhận hay không
+        /// </summary>
         public bool IsAccepted
         {
             get { return isAccepted; }
@@ -90,6 +114,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Danh sách các yêu cầu
+        /// </summary>
         public ObservableCollection<RequestViewModel> Requests
         {
             get { return requests; }            
@@ -97,11 +124,19 @@ namespace vChat.Module.FriendList
 
         #endregion
 
+        /// <summary>
+        /// Khởi tạo yêu cầu mới với thông tin chỉ định
+        /// </summary>
+        /// <param name="Friend">Đối tượng chứa thông tin bạn bè</param>
         private RequestViewModel(Users Friend)
         {
             friend = Friend;
         }
 
+        /// <summary>
+        /// Khởi tạo danh sách các yêu cầu
+        /// </summary>
+        /// <param name="Friends">Đối tượng chứa danh sách các yêu cầu</param>
         public RequestViewModel(List<Users> Friends)
         {
             requests = new ObservableCollection<RequestViewModel>(
@@ -116,6 +151,10 @@ namespace vChat.Module.FriendList
 
         #region MAIN METHOD
 
+        /// <summary>
+        /// Thêm yêu cầu
+        /// </summary>
+        /// <param name="Friend"></param>
         public void AppendRequest(Users Friend)
         {
             if (Friend == null)
@@ -124,17 +163,24 @@ namespace vChat.Module.FriendList
             requests.Add(new RequestViewModel(Friend));
         }
 
+        /// <summary>
+        /// Xóa yêu cầu
+        /// </summary>
+        /// <param name="Friend">Đối tượng chứa yêu cầu</param>
         public void RemoveRequest(Users Friend)
         {
             if (Friend == null)
                 return;
 
-            RequestViewModel MatchRequest = requests.FirstOrDefault(r => r.Friend.Equals(Friend));
+            RequestViewModel MatchRequest = requests.FirstOrDefault(r => r.Friend.Equals(Friend)); //Tìm đối tượng RequestViewModel chứa yêu cầu được chỉ định
 
             if (MatchRequest != null)
                 requests.Remove(MatchRequest);
         }
 
+        /// <summary>
+        /// Xóa tất cả yêu cầu
+        /// </summary>
         public void ClearRequest()
         {
             requests.Clear();
@@ -152,16 +198,18 @@ namespace vChat.Module.FriendList
 
         private void AcceptFriend()
         {
-            List<RequestViewModel> SelectedRequest = requests.Where(r => r.IsSelected).ToList();
+            List<RequestViewModel> SelectedRequest = requests.Where(r => r.IsChecked).ToList(); //Lấy ra danh sách những yêu cầu đã được đánh dấu chọn
 
+            //Thực hiện chấp nhận lần lượt các yêu cầu
             foreach (RequestViewModel request in SelectedRequest)
                 OnAcceptRequest(request.Friend);
         }
 
         private void IgnoreFriend()
         {
-            List<RequestViewModel> SelectedRequest = requests.Where(r => r.IsSelected).ToList();
+            List<RequestViewModel> SelectedRequest = requests.Where(r => r.IsChecked).ToList(); //Lấy ra danh sách những yêu cầu đã được đánh dấu chọn
 
+            //Thực hiện từ chối lần lượt các yêu cầu
             foreach (RequestViewModel request in SelectedRequest)
                 OnIgnoreRequest(request.Friend);
         }

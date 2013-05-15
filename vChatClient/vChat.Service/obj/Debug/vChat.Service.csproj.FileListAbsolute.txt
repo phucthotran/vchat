@@ -3,6 +3,8 @@ D:\vChatProject\vChatClient\vChat.Service\bin\Debug\vChat.Service.dll
 D:\vChatProject\vChatClient\vChat.Service\bin\Debug\vChat.Service.pdb
 D:\vChatProject\vChatClient\vChat.Service\bin\Debug\vChat.Model.dll
 D:\vChatProject\vChatClient\vChat.Service\bin\Debug\vChat.Model.pdb
+D:\vChatProject\vChatClient\vChat.Service\obj\Debug\vChat.Service.dll
+D:\vChatProject\vChatClient\vChat.Service\obj\Debug\vChat.Service.pdb
 D:\vChatProject\vChatClient\vChat.Service\obj\Debug\vChat.Service.csprojResolveAssemblyReference.cache
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Service\bin\Debug\vChat.Service.dll.config
 C:\Users\ITExplore\Documents\Visual Studio 2010\Projects\vChat\vChatClient\vChat.Service\bin\Debug\vChat.Service.dll

@@ -8,13 +8,10 @@ namespace vChat.Lib
     public class MD5Encrypt
     {
         /// <summary>
-        /// Encrypt an input text into MD5 hash
+        /// Mã hóa một chuỗi thành mã MD5
         /// </summary>
-        /// <param name="Text">Input text to encrypt</param>
-        /// <returns>MD5 hash string</returns>
-        /// <example>
-        ///     String MD5Hash = MD5Encrypt.Hash("itexplore");
-        /// </example>
+        /// <param name="Text">Chuỗi cần mã hóa</param>
+        /// <returns>Chuỗi MD5</returns>
         public static String Hash(String Text)
         {
             MD5 md5 = MD5.Create();

@@ -10,6 +10,9 @@ namespace vChat.Module.FriendList
 
     public partial class GroupTreeViewModel
     {
+        /// <summary>
+        /// Command dùng cho tìm kiếm bạn bè
+        /// </summary>
         private class SearchTask : BaseCommand
         {
             private readonly GroupTreeViewModel _GroupTree;
@@ -25,6 +28,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Command dùng cho chỉnh sửa bạn bè
+        /// </summary>
         private class EditTask : BaseCommand
         {
             private readonly GroupTreeViewModel _GroupTree;
@@ -40,6 +46,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Command dùng cho hủy thao tác chỉnh sửa bạn bè
+        /// </summary>
         private class CancelEditTask : BaseCommand
         {
             private readonly GroupTreeViewModel _GroupTree;
@@ -55,6 +64,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Command dùng cho thao tác chọn tất cả bạn bè
+        /// </summary>
         private class SelectTask : BaseCommand
         {
             private readonly GroupTreeViewModel _GroupTree;
@@ -70,6 +82,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Command dùng cho thao tác bỏ chọn tất cả bạn bè
+        /// </summary>
         private class DeselectTask : BaseCommand
         {
             private readonly GroupTreeViewModel _GroupTree;
@@ -85,6 +100,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Command dùng cho thao tác di chuyển bạn bè
+        /// </summary>
         private class MoveTask : BaseCommand
         {
             private readonly GroupTreeViewModel _GroupTree;
@@ -100,6 +118,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Command dùng cho thao tác xóa bạn bè
+        /// </summary>
         private class RemoveTask : BaseCommand
         {
             private readonly GroupTreeViewModel _GroupTree;
@@ -122,6 +143,9 @@ namespace vChat.Module.FriendList
 
     public partial class RequestViewModel
     {
+        /// <summary>
+        /// Command dùng cho thao tác chấp nhận yêu cầu kết bạn
+        /// </summary>
         private class AcceptTask : BaseCommand
         {
             private RequestViewModel _RequestVM;
@@ -137,6 +161,10 @@ namespace vChat.Module.FriendList
             }
         }
 
+
+        /// <summary>
+        /// Command dùng cho thao tác từ chối yêu cầu kết bạn
+        /// </summary>
         private class IgnoreTask : BaseCommand
         {
             private RequestViewModel _RequestVM;

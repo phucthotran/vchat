@@ -53,6 +53,9 @@ namespace vChat.Module.FriendList
 
         #region PROPERTY
 
+        /// <summary>
+        /// Cây dữ liệu (Nhóm và bạn bè)
+        /// </summary>
         public GroupTreeViewModel GroupTree
         {
             get { return groupTree; }
@@ -66,6 +69,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Danh sách yêu cầu kết bạn
+        /// </summary>
         public RequestViewModel RequestVM
         {
             get { return requestVM; }
@@ -79,6 +85,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Danh sách yêu cầu kết bạn đang đợi phản hồi
+        /// </summary>
         public RequestViewModel UnresponseRequesVM
         {
             get { return unrespRequestVM; }
@@ -92,6 +101,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Danh sách nhóm và bạn bè trong nhóm
+        /// </summary>
         public GroupFriendList GroupFriend
         {
             get { return groupFriend; }
@@ -105,6 +117,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Tên nhóm mới (Dùng cho chấp nhận yêu cầu kết bạn)
+        /// </summary>
         public String RequestNewGroupName
         {
             get { return requestNewGroupName; }
@@ -118,6 +133,9 @@ namespace vChat.Module.FriendList
             }
         }
 
+        /// <summary>
+        /// Tên nhóm mới (Dùng cho di chuyển bạn bè)
+        /// </summary>
         public String MoveNewGroupName
         {
             get { return moveNewGroupName; }
@@ -140,14 +158,19 @@ namespace vChat.Module.FriendList
 
         #region MAIN METHOD
 
+        /// <summary>
+        /// Cài đặt thông tin user
+        /// </summary>
+        /// <param name="UserID">ID của user</param>
         public void Init(int UserID)
         {
             userId = UserID;
 
-            groupFriend = FriendList(userId);
-            List<Users> Requests = FriendRequests(userId);
-            List<Users> UnresponseRequests = UnresponseFriendRequests(userId);
+            groupFriend = FriendList(userId); //Lấy danh sách bạn bè trên CSDL
+            List<Users> Requests = FriendRequests(userId); //Lấy các yêu cầu kết bạn trên CSDL
+            List<Users> UnresponseRequests = UnresponseFriendRequests(userId); //Lấy các yêu cầu kết bạn đang đợi phản hồi trên CSDL
 
+            //CÁC CÀI ĐẶT CHO CÁC MODULE
             changeAvatarModule.ChangeAvatarFor(userId);
 
             addFriendModule = new AddFriend.AddFriend();
@@ -173,16 +196,18 @@ namespace vChat.Module.FriendList
 
             unrespRequestVM = new RequestViewModel(UnresponseRequests);            
 
-            //Request online/offline status of user
+            //Gửi yêu cầu kiểm tra trạng thái online/offline của bạn bè
             foreach (FriendGroup group in GroupFriend.FriendGroups)
                 foreach (Users friend in group.Friends)
                     this.Get<Client>().SendCommand(Core.Data.CommandType.CheckOnline, "SERVER", friend.Username);
 
             this.DataContext = this;
 
+            //Khởi tạo đối tượng dùng để cập nhập liên tục các yêu cầu kết bạn mới và những yêu cầu kết bạn đang chờ phản hồi đã được chấp nhận
+            
             updateRequest = new DispatcherTimer();
             updateRequest.Interval = TimeSpan.FromMilliseconds(1000);
-            updateRequest.Tick += new EventHandler(UpdateRequest_Tick);            
+            updateRequest.Tick += new EventHandler(UpdateRequest_Tick);
 
             updateUnresponseRequest = new DispatcherTimer();
             updateUnresponseRequest.Interval = TimeSpan.FromMilliseconds(1000);
@@ -192,41 +217,53 @@ namespace vChat.Module.FriendList
             updateUnresponseRequest.Start();
         }
 
-        //Call by WindowListener
+        /// <summary>
+        /// Thay đổi trạng thái online/offline của bạn bè (Thực thi bởi MainWindowListener)
+        /// </summary>
+        /// <param name="Username">Tên tài khoản</param>
+        /// <param name="IsOnline">Trạng thái</param>
         public void SetFriendStatus(String Username, bool IsOnline)
         {
             GroupTree.SetFriendStatus(Username, IsOnline);
         }
 
-        //Call by RemoveGroup module
+        /// <summary>
+        /// Thực hiện thao tác xóa nhóm (Được gọi bởi module RemoveGroup
+        /// </summary>
+        /// <param name="RemoveContact">Trạng thái xóa bạn bè hay không</param>
+        /// <param name="GroupToRemove">Đối tượng chứa thông tin nhóm sẽ xóa</param>
+        /// <param name="GroupMoveTo">Đối tượng chứa thông tin nhóm sẽ chuyển bạn bè tới (Mặc định Null)</param>
         public void DoRemoveGroup(bool RemoveContact, FriendGroup GroupToRemove, FriendGroup GroupMoveTo = null)
         {
+            //Trường hợp nhóm bị xóa có bạn bè và người dùng muốn xóa bạn bè trong nhóm thì...
             if (GroupToRemove.Friends.Count > 0 && RemoveContact)
             {
-                RemoveGroup(GroupToRemove.GroupID, RemoveContact);
-                GroupTree.RemoveGroup(GroupToRemove);
+                RemoveGroup(GroupToRemove.GroupID, RemoveContact); //Xóa nhóm và tất cả bạn bè trong nhóm
+                GroupTree.RemoveGroup(GroupToRemove); //Xóa nhóm trong cây dữ liệu
                 treeFriend.UpdateLayout();
                 removeGroupWin.Close();
 
                 return;
             }
-            else if (GroupToRemove.Friends.Count == 0)
+            else if (GroupToRemove.Friends.Count == 0) //Trường hợp nhóm bị xóa không có bạn bè thì..
             {
-                RemoveGroup(GroupToRemove.GroupID, false);
-                GroupTree.RemoveGroup(GroupToRemove);
+                RemoveGroup(GroupToRemove.GroupID, false); //Xóa nhóm (Ko thực hiện thao tác xóa bạn bè)
+                GroupTree.RemoveGroup(GroupToRemove); //Xóa nhóm trong cây dữ liệu
                 treeFriend.UpdateLayout();
                 removeGroupWin.Close();
 
                 return;
             }
 
+            //Trường hợp di chuyển bạn bè tới nhóm mới trước khi xóa
+            //Duyệt qua tất cả bạn bè có trong nhóm cần xóa
             foreach (Users child in GroupToRemove.Friends)
             {
-                MoveContact(userId, child.UserID, GroupMoveTo.GroupID);
-                GroupTree.MoveFriend(child, GroupToRemove, GroupMoveTo);
+                MoveContact(userId, child.UserID, GroupMoveTo.GroupID); //Chuyển bạn bè sang nhóm mới (Cập nhập trên CSDL)
+                GroupTree.MoveFriend(child, GroupToRemove, GroupMoveTo); //Chuyển bạn bè sang nhóm mới trong cây dữ liệu
             }
 
-            GroupTree.RemoveGroup(GroupToRemove);
+            GroupTree.RemoveGroup(GroupToRemove); //Xóa nhóm được chỉ định
 
             treeFriend.UpdateLayout();
             removeGroupWin.Close();
@@ -240,7 +277,7 @@ namespace vChat.Module.FriendList
 
         #endregion
 
-        #region EVENT PERFORM
+        #region EVENT
 
         #region ADD FRIEND ZONE
 
@@ -270,12 +307,38 @@ namespace vChat.Module.FriendList
 
             requestTaskZone.Visibility = totalRequest == 0 ? Visibility.Collapsed : Visibility.Visible;
 
-            List<Users> Requests = FriendRequests(userId).Skip(totalRequest).ToList(); //Skip amount of "totalRequest" request got before
+            List<Users> Requests = FriendRequests(userId);
 
-            if (Requests.Count == 0)
+            if (Requests.Count >= totalRequest) //Trường hợp nếu có request mới trên CSDL hoặc số request không thay đổi so với trước đó
+                Requests = Requests.Skip(totalRequest).ToList(); //Bỏ qua tổng số request đã lấy trước đó
+            else if (Requests.Count < totalRequest) //Ngược lại số request giảm (request đã được user chấp nhận hoặc từ chối
+            {
+                if (Requests.Count == 0) //Số request đã hết -> xóa tất cả các request đã hiển thị trên giao diện
+                    RequestVM.ClearRequest();
+
+                List<int> posToDelete = new List<int>();
+
+                foreach (Users Friend in Requests) //Lấy ra vị trí (index) của những request đã được user chấp nhận
+                {
+                    for (int i = 0; i < totalRequest; i++)
+                    {
+                        if (!RequestVM.Requests[i].Friend.Equals(Friend))
+                            if (!posToDelete.Contains(i))
+                                posToDelete.Add(i);
+                    }
+                }
+
+                for (int i = 0; i < posToDelete.Count; i++) //Xóa những request đã được user chấp nhận khỏi danh sách request
+                {
+                    Users MatchUser = RequestVM.Requests[i].Friend;
+                    RequestVM.RemoveRequest(MatchUser);
+                }
+            }
+
+            if (Requests.Count == 0) //Trường hợp không có request sẽ không bổ sung vào danh sách request
                 return;
 
-            foreach (Users Friend in Requests)
+            foreach (Users Friend in Requests) //Thêm request mới vào danh sách
                 RequestVM.AppendRequest(Friend);
 
             friendRequestZone.UpdateLayout();
@@ -288,7 +351,7 @@ namespace vChat.Module.FriendList
             List<Users> Requests = UnresponseFriendRequests(userId);
 
             if (Requests.Count >= totalRequest)
-                Requests = Requests.Skip(totalRequest).ToList(); //Skip amount of "totalRequest" request got before
+                Requests = Requests.Skip(totalRequest).ToList();
             else if(Requests.Count < totalRequest)
             {
                 if (Requests.Count == 0)
@@ -296,7 +359,7 @@ namespace vChat.Module.FriendList
 
                 List<int> posToDelete = new List<int>();
 
-                foreach (Users Friend in Requests) //Get position of request that already accepted by user
+                foreach (Users Friend in Requests)
                 {
                     for (int i = 0; i < totalRequest; i++)
                     {
@@ -306,7 +369,7 @@ namespace vChat.Module.FriendList
                     }
                 }
 
-                for (int i = 0; i < posToDelete.Count; i++) //Remove request that be accepted by user
+                for (int i = 0; i < posToDelete.Count; i++)
                 {
                     Users MatchUser = UnresponseRequesVM.Requests[i].Friend;
                     UnresponseRequesVM.RemoveRequest(MatchUser);
@@ -324,11 +387,11 @@ namespace vChat.Module.FriendList
 
         private void lbUnresponseRequest_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (sender is ItemsControl)
+            if (sender is ItemsControl) //Lấy ra item đã double click vào trước đó
             {
                 ItemsControl clickedItem = (ItemsControl)sender;
 
-                if (clickedItem.Items.CurrentItem != null && clickedItem.Items.CurrentItem is RequestViewModel)
+                if (clickedItem.Items.CurrentItem != null && clickedItem.Items.CurrentItem is RequestViewModel) //Kiểm tra và lấy ra đối tượng RequestViewModel chứa thông tin request
                 {
                     Users FriendArg = ((RequestViewModel)clickedItem.Items.CurrentItem).Friend;
 
@@ -344,11 +407,11 @@ namespace vChat.Module.FriendList
 
         private void lbRequest_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (sender is ItemsControl)
+            if (sender is ItemsControl) //Lấy ra item đã double click vào trước đó
             {
                 ItemsControl clickedItem = (ItemsControl)sender;
 
-                if (clickedItem.Items.CurrentItem != null && clickedItem.Items.CurrentItem is RequestViewModel)
+                if (clickedItem.Items.CurrentItem != null && clickedItem.Items.CurrentItem is RequestViewModel) //Kiểm tra và lấy ra đối tượng RequestViewModel chứa thông tin request
                 {
                     Users FriendArg = ((RequestViewModel)clickedItem.Items.CurrentItem).Friend;
 
@@ -364,30 +427,30 @@ namespace vChat.Module.FriendList
 
         private void RequestVM_OnAcceptRequest(Users Friend)
         {
-            FriendGroup AvailableGroup = cbRequestGroup.SelectedItem as FriendGroup;
+            FriendGroup AvailableGroup = cbRequestGroup.SelectedItem as FriendGroup; //Lấy nhóm có sẵn đã được chọn trên Combobox
 
             int NewGroupID = 0;
 
-            if (AvailableGroup == null || RequestNewGroupName != null)
+            if (RequestNewGroupName != null)
             {
-                if (RequestNewGroupName != null)
-                {
-                    if (!AddNewGroup(userId, RequestNewGroupName, ref NewGroupID))
-                        MessageBox.Show("Thêm nhóm mới không thành công");
-                }
-                else
-                {
-                    MessageBox.Show("Không tồn tại nhóm có sẵn cũng như thông tin nhóm mới không hợp lệ nên không thể 'chấp nhận' yêu cầu kết bạn");
-                    return;
-                }
+                if (!AddNewGroup(userId, RequestNewGroupName, ref NewGroupID))
+                    MessageBox.Show("Thêm nhóm mới không thành công");
             }
-                    
+            else if(AvailableGroup == null && RequestNewGroupName == null)
+            {
+                MessageBox.Show("Không tồn tại nhóm có sẵn cũng như thông tin nhóm mới không hợp lệ nên không thể 'chấp nhận' yêu cầu kết bạn");
+                return;
+            }
 
-            AcceptRequest(userId, Friend.UserID, NewGroupID != 0 ? GetGroup(NewGroupID).GroupID : AvailableGroup.GroupID);
+            FriendGroup newGroup = GetGroup(NewGroupID);
 
-            GroupTree.AppendFriend(Friend, NewGroupID != 0 ? GetGroup(NewGroupID) : AvailableGroup);
+            //Chấp nhận yêu cầu kết bạn và thêm bạn bè vào nhóm mới nếu thông tin không bỏ trống, ngược lại sẽ thêm vào nhóm sẵn có
+            AcceptRequest(userId, Friend.UserID, NewGroupID != 0 ? newGroup.GroupID : AvailableGroup.GroupID);
 
-            RequestVM.RemoveRequest(Friend);
+            //Bổ sung bạn bè cây dữ liệu
+            GroupTree.AppendFriend(Friend, NewGroupID != 0 ? newGroup : AvailableGroup);
+
+            RequestVM.RemoveRequest(Friend); //Xóa yêu cầu sau khi chấp nhận
 
             friendRequestZone.UpdateLayout();
             treeFriend.UpdateLayout();
@@ -395,8 +458,8 @@ namespace vChat.Module.FriendList
 
         private void RequestVM_OnIgnoreRequest(Users Friend)
         {
-            IgnoreRequest(userId, Friend.UserID);
-            RequestVM.RemoveRequest(Friend);
+            IgnoreRequest(userId, Friend.UserID); //Từ chối yêu cầu kết bạn và cập nhập thông tin lên CSDL
+            RequestVM.RemoveRequest(Friend); //Xóa yêu cầu sau khi từ chối
 
             friendRequestZone.UpdateLayout();
         }
@@ -437,38 +500,41 @@ namespace vChat.Module.FriendList
 
         private void TreeFriend_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            Object SelectedObj = (Object)treeFriend.SelectedItem;
-
+            Object SelectedObj = (Object)treeFriend.SelectedItem; //Lấy ra item đang được chọn trên TreeView
+            
+            //Duyệt từng node root trên TreeView
             foreach (Object parentObj in treeFriend.Items)
-            {
-                TreeViewItem Group = treeFriend.ItemContainerGenerator.ContainerFromItem(parentObj) as TreeViewItem;
-                TreeViewItem MatchItem = treeFriend.ItemContainerGenerator.ContainerFromItem(SelectedObj) as TreeViewItem;
+            {                
+                TreeViewItem Group = treeFriend.ItemContainerGenerator.ContainerFromItem(parentObj) as TreeViewItem; //Lấy ra node cha (chứa thông tin nhóm)
+                TreeViewItem MatchItem = treeFriend.ItemContainerGenerator.ContainerFromItem(SelectedObj) as TreeViewItem; //Lấy ra node chứa thông tin của SelectedObject
 
-                if (MatchItem != null)
+                if (MatchItem != null) //Nếu node cha chứa thông tin trùng khớp với SelectedObj thì...
                 {
-                    MatchItem.ContextMenu = treeFriend.Resources["GroupContext"] as ContextMenu;
+                    MatchItem.ContextMenu = treeFriend.Resources["GroupContext"] as ContextMenu; //Gán menu ngữ cảnh cho node cha đó
                     break;
                 }
+                
+                //Trường hợp node con chứa thông tin của SelectedObject
+                TreeViewItem Friend = Group.ItemContainerGenerator.ContainerFromItem(SelectedObj) as TreeViewItem; //Lấy ra node con chứa thông tin của SelectedObject
 
-                TreeViewItem Friend = Group.ItemContainerGenerator.ContainerFromItem(SelectedObj) as TreeViewItem;
-                if (Friend != null)
-                    Friend.ContextMenu = treeFriend.Resources["FriendContext"] as ContextMenu;
+                if (Friend != null) //Nếu thông tin hợp lệ
+                    Friend.ContextMenu = treeFriend.Resources["FriendContext"] as ContextMenu; //Gán menu ngữ cảnh cho node con đó
             }
         }
 
         private void TreeFriend_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            TreeViewItem DBClickItem = e.Source as TreeViewItem;
+            TreeViewItem doubleClickItem = e.Source as TreeViewItem; //Lấy ra đối tượng đã double click trên TreeFriend nếu đối tượng đó là một TreeViewItem
 
-            if (DBClickItem == null)
+            if (doubleClickItem == null)
                 return;
 
-            object Item = DBClickItem.Header;
+            object Item = doubleClickItem.Header; //Lấy đối tượng thực chứa bên trong TreeViewItem
 
             if (Item is FriendViewModel)
             {
                 FriendViewModel SelectedFriend = treeFriend.SelectedItem as FriendViewModel;
-                Users FriendArg = SelectedFriend.Friend;
+                Users FriendArg = SelectedFriend.Friend; //Lấy thông tin của bạn bè mà user đã double click vào
 
                 OnFriendDoubleClick(this, new FriendArgs(
                         FriendArg.UserID,
@@ -514,24 +580,26 @@ namespace vChat.Module.FriendList
         private void mnuFriendRemove_Click(object sender, RoutedEventArgs e)
         {
             FriendViewModel SelectedFriend = treeFriend.SelectedItem as FriendViewModel;
-            SelectedFriend.IsChecked = true; //treat SelectedFriend's property as checked for remove
+            SelectedFriend.IsChecked = true; //Đánh dấu chọn bạn bè để dùng cho thao tác xóa
 
             GroupTree.RemoveCommand.Execute(null);
         }
 
         private void GroupTree_OnMoveContact(Users Friend, FriendGroup OldGroup)
         {
-            FriendGroup NewGroup = cbNewGroup.SelectedItem as FriendGroup;
+            FriendGroup NewGroup = cbNewGroup.SelectedItem as FriendGroup; //Lấy ra nhóm mới sẽ chuyển bạn bè tới
 
             int NewGroupID = 0;
 
-            if (NewGroup == null || MoveNewGroupName != null)
-                if (MoveNewGroupName != null)
+            if (NewGroup == null || MoveNewGroupName != null) //Kiểm tra trường hợp nhóm chuyển tới (nhóm có sẵn) không có hoặc nhóm chuyển tới (nhóm mới) chưa được khai báo
+                if (MoveNewGroupName != null) //Nhóm mới đã khai báo thì thực hiện tạo nhóm mới trên CSDL
                     if (!AddNewGroup(userId, MoveNewGroupName, ref NewGroupID))
                         MessageBox.Show("Thêm nhóm mới không thành công");
 
+            //Thực hiện di chuyển bạn bè từ nhóm cũ tới nhóm mới. Nếu nhóm mới đã được khai báo thì di chuyển tới nhóm mới, ngược lại nếu sẽ chuyển tới nhóm có sẵn (đã chọn trước đó)
             MoveContact(userId, Friend.UserID, NewGroupID != 0 ? GetGroup(NewGroupID).GroupID : NewGroup.GroupID);
 
+            //Di chuyển bạn bè sang nhóm mới trên cây dữ liệu. Thực hiện tương tự công việc của MoveContact
             GroupTree.MoveFriend(Friend, OldGroup, NewGroupID != 0 ? GetGroup(NewGroupID) : NewGroup);
 
             treeFriend.UpdateLayout();
@@ -540,7 +608,6 @@ namespace vChat.Module.FriendList
         private void GroupTree_OnRemoveContact(Users Friend, FriendGroup OldGroup)
         {
             RemoveContact(userId, Friend.UserID);
-
             GroupTree.RemoveFriend(Friend, OldGroup);
 
             treeFriend.UpdateLayout();

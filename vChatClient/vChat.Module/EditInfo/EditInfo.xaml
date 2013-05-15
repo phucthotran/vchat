@@ -29,11 +29,11 @@
         <Label Grid.Row="4" FontSize="{Binding TextSize}" Content="Câu hỏi bí mật" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,0" Name="label5" VerticalAlignment="Top" />
         <Label Grid.Row="5" FontSize="{Binding TextSize}" Content="Câu trả lời" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,0" Name="label6" VerticalAlignment="Top" />
         <TextBlock Name="tbUser" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Green" FontWeight="Bold" FontSize="16" Margin="0,0,0,10">
-        </TextBlock>
-        <TextBox Height="30" Margin="0,0,0,5" Name="tbFname" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.Row="1" MinWidth="150" MaxWidth="250" LostFocus="tbFname_LostFocus" />
-        <v:FieldWarner x:Name="FNameWarner" Warning="False" Busy="False" Grid.Column="1" Grid.Row="1" Margin="0,35,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
-        <TextBox Height="30" Margin="0,0,0,5" Name="tbLname" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.Row="2" MinWidth="150" MaxWidth="250" LostFocus="tbLname_LostFocus" />
-        <v:FieldWarner x:Name="LNameWarner" Warning="False" Busy="False" Grid.Column="1" Grid.Row="2" Margin="0,35,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
+        </TextBlock>        
+        <TextBox Height="30" Margin="0,0,0,5" Name="tbLname" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.Row="1" MinWidth="150" MaxWidth="250" LostFocus="tbLname_LostFocus" />
+        <v:FieldWarner x:Name="LNameWarner" Warning="False" Busy="False" Grid.Column="1" Grid.Row="1" Margin="0,35,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
+        <TextBox Height="30" Margin="0,0,0,5" Name="tbFname" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.Row="2" MinWidth="150" MaxWidth="250" LostFocus="tbFname_LostFocus" />
+        <v:FieldWarner x:Name="FNameWarner" Warning="False" Busy="False" Grid.Column="1" Grid.Row="2" Margin="0,35,0,0" MarginBottom="5" VerticalAlignment="Top" MinWidth="150" MaxWidth="250" />
         <DatePicker Grid.Column="1" Grid.Row="3" Name="tbDob" LostFocus="tbDob_LostFocus" Width="200" Height="30" VerticalAlignment="Top" Margin="0,0,0,5">
             <DatePicker.Style>
                 <Style>

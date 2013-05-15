@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://vchat/entities/FriendGroup" elementFormDefault="qualified" targetNamespace="http://vchat/entities/FriendGroup" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd2" namespace="http://vchat/entities/Users" />
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://vchat/entities/Question" elementFormDefault="qualified" targetNamespace="http://vchat/entities/Question" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:60111/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="FriendGroup">
+  <xs:complexType name="Question">
     <xs:sequence>
-      <xs:element xmlns:q1="http://vchat/entities/Users" minOccurs="0" name="Friends" nillable="true" type="q1:ArrayOfUsers" />
-      <xs:element minOccurs="0" name="GroupID" type="xs:int" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element xmlns:q2="http://vchat/entities/Users" minOccurs="0" name="Owner" nillable="true" type="q2:Users" />
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuestionID" type="xs:int" />
     </xs:sequence>
     <xs:attribute ref="ser:Id" />
     <xs:attribute ref="ser:Ref" />
   </xs:complexType>
-  <xs:element name="FriendGroup" nillable="true" type="tns:FriendGroup" />
-  <xs:complexType name="ArrayOfFriendGroup">
+  <xs:element name="Question" nillable="true" type="tns:Question" />
+  <xs:complexType name="ArrayOfQuestion">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="FriendGroup" nillable="true" type="tns:FriendGroup" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Question" nillable="true" type="tns:Question" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfFriendGroup" nillable="true" type="tns:ArrayOfFriendGroup" />
+  <xs:element name="ArrayOfQuestion" nillable="true" type="tns:ArrayOfQuestion" />
 </xs:schema>

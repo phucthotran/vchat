@@ -52,13 +52,14 @@ namespace vChat.Module.SignUp
             tbDob.VerticalContentAlignment = System.Windows.VerticalAlignment.Center;
             tbDob.DisplayDateStart = DateTime.Parse("1/1/1900");
             tbDob.DisplayDateEnd = DateTime.Today;
+            tbDob.DisplayDate = DateTime.Parse("1/1/1990");
             CultureInfo ci = CultureInfo.CreateSpecificCulture(CultureInfo.CurrentCulture.Name); 
             ci.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
             Thread.CurrentThread.CurrentCulture = ci;
             cbQuestion.ItemsSource = this.Get<UserServiceClient>().GetAllQuestion();
             cbQuestion.DisplayMemberPath="Content";
             cbQuestion.SelectedValuePath="QuestionID";
-            cbQuestion.SelectedValue = "1";
+            cbQuestion.SelectedIndex = 0;
         }
 
         private void InitSubmitWorker()
